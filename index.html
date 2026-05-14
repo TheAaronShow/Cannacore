@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CannaCore - Video Background</title>
+    <title>CannaCore - Sistema de Usuarios</title>
 
     <style>
 
         /* =========================
-           RESET
+           RESET GENERAL
         ========================== */
 
         *{
@@ -18,364 +18,359 @@
             box-sizing:border-box;
         }
 
-        body{
-            font-family: Arial, sans-serif;
+        body {
+
+            min-height: 100vh;
+
+            background: #000;
+
             overflow-x:hidden;
-            background:black;
-            color:white;
+
+            font-family: Arial, sans-serif;
+
+            color: white;
         }
 
         /* =========================
-           VIDEO BACKGROUND
+           VIDEO DE FONDO
         ========================== */
 
-        .video-bg{
+        .video-background {
 
-            position:fixed;
+            position: fixed;
 
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
 
-            width:100%;
-            height:100%;
+            width: 100%;
+            height: 100%;
 
-            overflow:hidden;
+            overflow: hidden;
 
-            z-index:-2;
+            z-index: -2;
         }
 
-        .video-bg video{
+        .video-background video {
 
-            width:100%;
-            height:100%;
+            width: 100%;
+            height: 100%;
 
-            object-fit:cover;
+            object-fit: cover;
+
+            animation: zoomVideo 20s linear infinite alternate;
         }
 
-        /* OVERLAY OSCURO */
+        @keyframes zoomVideo {
 
-        .overlay{
+            from {
+                transform: scale(1);
+            }
 
-            position:fixed;
+            to {
+                transform: scale(1.08);
+            }
+        }
 
-            top:0;
-            left:0;
+        /* =========================
+           OVERLAY OSCURO
+        ========================== */
 
-            width:100%;
-            height:100%;
+        .overlay {
 
-            background:rgba(0,0,0,0.45);
+            width: 100%;
+            min-height: 100vh;
 
-            z-index:-1;
+            background: rgba(0,0,0,0.45);
+
+            padding-top: 100px;
+
+            position: relative;
+
+            z-index: 1;
         }
 
         /* =========================
            NAVBAR
         ========================== */
 
-        .navbar{
+        .navbar {
 
-            width:100%;
+            width: 100%;
 
-            position:fixed;
+            position: fixed;
 
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
 
-            padding:15px 10px;
+            padding: 15px 10px;
 
-            display:flex;
+            backdrop-filter: blur(8px);
 
-            justify-content:space-between;
+            background: rgba(0,0,0,0.30);
 
-            align-items:center;
+            z-index: 1000;
 
-            backdrop-filter:blur(8px);
+            display: flex;
 
-            background:rgba(0,0,0,0.25);
+            justify-content: space-between;
 
-            z-index:1000;
+            align-items: center;
         }
 
-        .logo{
+        .logo {
 
-            font-size:1.5rem;
+            font-size: 1.5rem;
 
-            font-weight:bold;
+            font-weight: bold;
 
-            color:#9fff55;
+            color: #9fff55;
         }
 
-        .navbar-links{
+        .navbar-links {
 
-            display:flex;
+            display: flex;
 
-            align-items:center;
+            gap: 25px;
 
-            gap:25px;
+            padding-right: 20px;
 
-            padding-right:20px;
+            transition: 0.3s ease;
+
+            align-items: center;
         }
 
-        .navbar a{
+        .navbar a {
 
-            color:white;
+            text-decoration: none;
 
-            text-decoration:none;
+            color: white;
 
-            font-weight:500;
+            font-weight: 500;
 
-            cursor:pointer;
+            cursor: pointer;
         }
 
-        .navbar a:hover{
-            color:#9fff55;
+        .navbar a:hover {
+
+            color: #9fff55;
         }
 
-        #userName{
-            color:#9fff55;
-            font-weight:bold;
-        }
+        #userName {
 
-        /* =========================
-           HAMBURGUESA
-        ========================== */
+            color: #9fff55;
 
-        .hamburger{
-
-            display:none;
-
-            flex-direction:column;
-
-            gap:5px;
-
-            cursor:pointer;
-        }
-
-        .hamburger span{
-
-            width:28px;
-            height:3px;
-
-            background:white;
-
-            border-radius:3px;
-        }
-
-        @media(max-width:900px){
-
-            .hamburger{
-                display:flex;
-            }
-
-            .navbar-links{
-
-                display:none;
-
-                position:absolute;
-
-                top:60px;
-                right:10px;
-
-                background:rgba(0,0,0,0.90);
-
-                flex-direction:column;
-
-                padding:20px;
-
-                border-radius:10px;
-
-                gap:15px;
-            }
-
-            .navbar-links.show{
-                display:flex;
-            }
+            font-weight: bold;
         }
 
         /* =========================
-           CONTENIDO
+           MENÚ HAMBURGUESA
         ========================== */
 
-        .content{
+        .hamburger {
 
-            width:100%;
+            display: none;
 
-            min-height:100vh;
+            flex-direction: column;
 
-            display:flex;
+            cursor: pointer;
 
-            justify-content:center;
-
-            align-items:center;
-
-            text-align:center;
-
-            padding:20px;
+            gap: 5px;
         }
 
-        .content-box{
+        .hamburger span {
 
-            max-width:800px;
+            width: 28px;
+            height: 3px;
+
+            background: white;
+
+            border-radius: 3px;
         }
 
-        .content h1{
+        @media (max-width: 900px) {
 
-            font-size:4rem;
+            .navbar-links {
 
-            margin-bottom:15px;
-        }
+                display: none;
 
-        .content p{
+                position: absolute;
 
-            font-size:1.2rem;
+                top: 60px;
+                right: 10px;
 
-            line-height:1.6;
-        }
+                background: rgba(0,0,0,0.90);
 
-        @media(max-width:700px){
+                flex-direction: column;
 
-            .content h1{
-                font-size:2.5rem;
+                padding: 15px 20px;
+
+                border-radius: 10px;
+
+                gap: 15px;
             }
 
-            .content p{
-                font-size:1rem;
+            .navbar-links.show {
+
+                display: flex;
+            }
+
+            .hamburger {
+
+                display: flex;
             }
         }
 
         /* =========================
-           POPUP
+           CONTENIDO PRIVADO
         ========================== */
 
-        .modal-bg{
+        #privateContent {
 
-            display:none;
+            display: none;
 
-            position:fixed;
+            text-align: center;
 
-            top:0;
-            left:0;
+            padding-top: 80px;
 
-            width:100%;
-            height:100%;
+            font-size: 2rem;
 
-            background:rgba(0,0,0,0.75);
-
-            justify-content:center;
-
-            align-items:center;
-
-            z-index:2000;
+            color: #9fff55;
         }
 
-        .modal{
+        /* =========================
+           MODAL LOGIN
+        ========================== */
 
-            background:#111;
+        .modal-bg {
 
-            width:90%;
-            max-width:350px;
+            display: none;
 
-            padding:25px 30px;
+            position: fixed;
 
-            border-radius:12px;
+            top: 0;
+            left: 0;
 
-            border:1px solid #9fff55;
+            width: 100%;
+            height: 100%;
 
-            box-shadow:0 0 20px rgba(159,255,85,0.4);
+            background: rgba(0,0,0,0.75);
 
-            position:relative;
+            justify-content: center;
 
-            animation:fadeIn 0.2s ease-out;
+            align-items: center;
+
+            z-index: 2000;
         }
 
-        @keyframes fadeIn{
+        .modal {
 
-            from{
-                transform:scale(0.85);
-                opacity:0;
+            background: #111;
+
+            padding: 25px 30px;
+
+            border-radius: 12px;
+
+            width: 90%;
+            max-width: 350px;
+
+            text-align: center;
+
+            border: 1px solid #9fff55;
+
+            box-shadow: 0 0 20px rgba(159,255,85,0.4);
+
+            position: relative;
+
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                transform: scale(0.85);
+                opacity: 0;
             }
 
-            to{
-                transform:scale(1);
-                opacity:1;
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
 
-        .close-x{
+        .close-x {
 
-            position:absolute;
+            position: absolute;
 
-            top:8px;
-            right:10px;
+            top: 8px;
+            right: 10px;
 
-            cursor:pointer;
+            font-size: 1.3rem;
 
-            font-size:1.3rem;
+            cursor: pointer;
 
-            color:#bbb;
+            color: #bbb;
         }
 
-        .close-x:hover{
-            color:white;
+        .close-x:hover {
+
+            color: white;
         }
 
-        .modal h2{
+        .modal h2 {
 
-            color:#9fff55;
+            margin: 0 0 15px;
 
-            margin-bottom:15px;
-
-            text-align:center;
+            color: #9fff55;
         }
 
-        .modal input{
+        .modal input {
 
-            width:100%;
+            width: 100%;
 
-            padding:10px;
+            padding: 10px;
 
-            margin:8px 0;
+            margin: 8px 0;
 
-            border:none;
+            border: none;
 
-            border-radius:5px;
+            border-radius: 5px;
+
+            box-sizing: border-box;
         }
 
-        .modal button{
+        .modal button {
 
-            width:100%;
+            width: 100%;
 
-            padding:10px;
+            margin-top: 12px;
 
-            margin-top:12px;
+            padding: 10px;
 
-            border:none;
+            background: #9fff55;
 
-            border-radius:5px;
+            border: none;
 
-            background:#9fff55;
+            font-weight: bold;
 
-            font-weight:bold;
+            cursor: pointer;
 
-            cursor:pointer;
+            border-radius: 5px;
         }
 
-        .link{
+        .modal .link {
 
-            margin-top:10px;
+            margin-top: 10px;
 
-            color:#9fff55;
+            color: #9fff55;
 
-            cursor:pointer;
+            cursor: pointer;
 
-            text-align:center;
-
-            font-size:0.9rem;
+            font-size: 0.9rem;
         }
 
-        .link:hover{
-            text-decoration:underline;
+        .modal .link:hover {
+
+            text-decoration: underline;
         }
 
     </style>
@@ -383,9 +378,11 @@
 
 <body>
 
-    <!-- VIDEO -->
+    <!-- =========================
+         VIDEO DE FONDO
+    ========================== -->
 
-    <div class="video-bg">
+    <div class="video-background">
 
         <video autoplay muted loop playsinline>
 
@@ -395,11 +392,9 @@
 
     </div>
 
-    <!-- OVERLAY -->
-
-    <div class="overlay"></div>
-
-    <!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
     <div class="navbar">
 
@@ -440,23 +435,23 @@
 
     </div>
 
-    <!-- CONTENIDO -->
+    <!-- =========================
+         OVERLAY
+    ========================== -->
 
-    <div class="content">
+    <div class="overlay">
 
-        <div class="content-box">
+        <!-- CONTENIDO PRIVADO -->
 
-            <h1>CANNA CORE</h1>
-
-            <p>
-                Plataforma profesional con sistema de usuarios, autenticación Firebase y video de fondo.
-            </p>
-
+        <div id="privateContent">
+            Bienvenido al área privada de CannaCore
         </div>
 
     </div>
 
-    <!-- POPUPS -->
+    <!-- =========================
+         MODAL GENERAL
+    ========================== -->
 
     <div class="modal-bg" id="modalBg">
 
@@ -464,15 +459,19 @@
 
         <div class="modal" id="loginModal">
 
-            <div class="close-x" onclick="closeModal()">×</div>
+            <div class="close-x" onclick="closeModal()">
+                ×
+            </div>
 
             <h2>Iniciar sesión</h2>
 
-            <input id="loginEmail" type="email" placeholder="Correo">
+            <input id="loginEmail" type="email" placeholder="Correo electrónico">
 
             <input id="loginPass" type="password" placeholder="Contraseña">
 
-            <button onclick="login()">Entrar</button>
+            <button onclick="login()">
+                Entrar
+            </button>
 
             <button onclick="googleLogin()">
                 Entrar con Google
@@ -483,44 +482,48 @@
             </div>
 
             <div class="link" onclick="openModal('register')">
-                Crear cuenta
+                Crear una cuenta
             </div>
 
         </div>
 
-        <!-- RECOVER -->
+        <!-- RECUPERAR -->
 
         <div class="modal" id="recoverModal" style="display:none;">
 
-            <div class="close-x" onclick="closeModal()">×</div>
+            <div class="close-x" onclick="closeModal()">
+                ×
+            </div>
 
             <h2>Recuperar contraseña</h2>
 
-            <input id="recoverEmail" type="email" placeholder="Correo">
+            <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
 
             <button onclick="recover()">
                 Enviar enlace
             </button>
 
             <div class="link" onclick="openModal('login')">
-                Volver
+                Volver a iniciar sesión
             </div>
 
         </div>
 
-        <!-- REGISTER -->
+        <!-- REGISTRO -->
 
         <div class="modal" id="registerModal" style="display:none;">
 
-            <div class="close-x" onclick="closeModal()">×</div>
+            <div class="close-x" onclick="closeModal()">
+                ×
+            </div>
 
             <h2>Crear cuenta</h2>
 
-            <input id="registerName" type="text" placeholder="Nombre">
+            <input id="registerName" type="text" placeholder="Nombre completo">
 
-            <input id="registerEmail" type="email" placeholder="Correo">
+            <input id="registerEmail" type="email" placeholder="Correo electrónico">
 
-            <input id="registerPass" type="password" placeholder="Contraseña">
+            <input id="registerPass" type="password" placeholder="Crear contraseña">
 
             <button onclick="register()">
                 Registrarse
@@ -534,7 +537,9 @@
 
     </div>
 
-    <!-- FIREBASE -->
+    <!-- =========================
+         FIREBASE
+    ========================== -->
 
     <script type="module">
 
@@ -554,6 +559,8 @@
 
         } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
+        /* FIREBASE CONFIG */
+
         const firebaseConfig = {
 
             apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
@@ -569,35 +576,40 @@
             appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
         };
 
-        const app = initializeApp(firebaseConfig);
+        /* INICIALIZAR FIREBASE */
+
+        const app  = initializeApp(firebaseConfig);
 
         const auth = getAuth(app);
 
         /* LOGIN */
 
-        window.login = async function(){
+        window.login = function() {
 
             const email = document.getElementById("loginEmail").value;
 
             const pass = document.getElementById("loginPass").value;
 
-            try{
+            signInWithEmailAndPassword(auth, email, pass)
 
-                await signInWithEmailAndPassword(auth,email,pass);
+            .then(() => {
 
                 closeModal();
 
-                alert("Bienvenido!");
+                setTimeout(() => {
 
-            }catch(err){
+                    alert("Bienvenido!");
 
-                alert(err.message);
-            }
+                }, 300);
+
+            })
+
+            .catch(err => alert(err.message));
         }
 
-        /* REGISTER */
+        /* REGISTRO */
 
-        window.register = async function(){
+        window.register = function() {
 
             const name  = document.getElementById("registerName").value;
 
@@ -605,78 +617,68 @@
 
             const pass  = document.getElementById("registerPass").value;
 
-            try{
+            if(pass.length < 6){
 
-                const userCredential =
-                await createUserWithEmailAndPassword(auth,email,pass);
+                alert("La contraseña debe tener mínimo 6 caracteres");
 
-                await updateProfile(userCredential.user,{
-                    displayName:name
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, pass)
+
+            .then(() => {
+
+                updateProfile(auth.currentUser, {
+
+                    displayName: name
                 });
 
-                alert("Cuenta creada");
+                alert("Cuenta creada exitosamente");
 
                 openModal("login");
 
-            }catch(err){
+            })
 
-                alert(err.message);
-            }
+            .catch(err => alert(err.message));
         }
 
-        /* RECOVER */
+        /* RECUPERAR */
 
-        window.recover = async function(){
+        window.recover = function() {
 
-            const email =
-            document.getElementById("recoverEmail").value;
+            const email = document.getElementById("recoverEmail").value;
 
-            try{
+            sendPasswordResetEmail(auth, email)
 
-                await sendPasswordResetEmail(auth,email);
+            .then(() => {
 
-                alert("Correo enviado");
+                alert("Se envió un enlace a tu correo");
 
-            }catch(err){
+            })
 
-                alert(err.message);
-            }
+            .catch(err => alert(err.message));
         }
 
-        /* GOOGLE LOGIN */
+        /* LOGIN GOOGLE */
 
-        window.googleLogin = async function(){
+        window.googleLogin = function(){
 
-            try{
+            const provider = new GoogleAuthProvider();
 
-                const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
 
-                provider.setCustomParameters({
-                    prompt:"select_account"
-                });
-
-                await signInWithPopup(auth,provider);
+            .then(() => {
 
                 closeModal();
 
-            }catch(err){
+            })
 
-                alert(err.message);
-            }
+            .catch(err => alert(err.message));
         }
 
-        /* LOGOUT */
+        /* DETECTAR SESIÓN */
 
-        window.logout = async function(){
-
-            await signOut(auth);
-
-            alert("Sesión cerrada");
-        }
-
-        /* AUTH STATE */
-
-        onAuthStateChanged(auth,(user)=>{
+        onAuthStateChanged(auth, (user) => {
 
             const loginBtn  = document.getElementById("loginBtn");
 
@@ -684,74 +686,87 @@
 
             const userName  = document.getElementById("userName");
 
+            const privateContent = document.getElementById("privateContent");
+
             if(user){
 
-                userName.innerHTML =
-                user.displayName || user.email;
+                userName.innerHTML = user.displayName || user.email;
 
                 loginBtn.style.display = "none";
 
                 logoutBtn.style.display = "inline-block";
 
-            }else{
+                privateContent.style.display = "block";
+
+            } else {
 
                 userName.innerHTML = "";
 
                 loginBtn.style.display = "inline-block";
 
                 logoutBtn.style.display = "none";
+
+                privateContent.style.display = "none";
             }
         });
 
+        /* LOGOUT */
+
+        window.logout = function(){
+
+            signOut(auth)
+
+            .then(() => {
+
+                alert("Sesión cerrada");
+
+            })
+
+            .catch(err => alert(err.message));
+        }
+
     </script>
 
-    <!-- POPUP FUNCTIONS -->
+    <!-- =========================
+         FUNCIONES POPUP
+    ========================== -->
 
     <script>
 
-        function toggleMenu(){
+        function toggleMenu() {
 
-            document.getElementById("menu")
-            .classList.toggle("show");
+            document.getElementById("menu").classList.toggle("show");
         }
 
-        function openModal(type){
+        function openModal(type) {
 
-            document.getElementById("modalBg")
-            .style.display = "flex";
+            document.getElementById("modalBg").style.display = "flex";
 
-            document.getElementById("loginModal")
-            .style.display = "none";
+            document.getElementById("loginModal").style.display = "none";
 
-            document.getElementById("recoverModal")
-            .style.display = "none";
+            document.getElementById("recoverModal").style.display = "none";
 
-            document.getElementById("registerModal")
-            .style.display = "none";
+            document.getElementById("registerModal").style.display = "none";
 
-            if(type==="login"){
+            if(type === "login") {
 
-                document.getElementById("loginModal")
-                .style.display = "block";
+                document.getElementById("loginModal").style.display = "block";
             }
 
-            if(type==="recover"){
+            if(type === "recover") {
 
-                document.getElementById("recoverModal")
-                .style.display = "block";
+                document.getElementById("recoverModal").style.display = "block";
             }
 
-            if(type==="register"){
+            if(type === "register") {
 
-                document.getElementById("registerModal")
-                .style.display = "block";
+                document.getElementById("registerModal").style.display = "block";
             }
         }
 
-        function closeModal(){
+        function closeModal() {
 
-            document.getElementById("modalBg")
-            .style.display = "none";
+            document.getElementById("modalBg").style.display = "none";
         }
 
     </script>

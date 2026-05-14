@@ -11,36 +11,49 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            min-height: 100vh;
             background-image: url("fondoo.jpg");
             background-size: cover;
-            background-position: 90% center; 
+            background-position: 90% center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: Arial, sans-serif;
             color: white;
         }
 
-        /* NAVBAR INTEGRADA */
+        /* Contenedor principal (limita el ancho de toda la página) */
+        .wrapper {
+            max-width: 1100px;  /* ← AJUSTA AQUÍ EL ANCHO GENERAL */
+            margin: 0 auto;     /* Centrado automático */
+        }
+
+        /* NAVBAR */
         .navbar {
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
-            padding: 15px 40px;
 
+            display: flex;
+            justify-content: center; /* Centramos todo */
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.30);
+
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            width: 100%;
+            max-width: 1100px; /* Coincide con el ancho del contenido */
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            backdrop-filter: blur(8px); /* 💚 efecto difuminado elegante */
-            background: rgba(0, 0, 0, 0.30); /* Semitransparente */
         }
 
         .navbar .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            letter-spacing: 1px;
             color: #9fff55;
         }
 
@@ -49,26 +62,25 @@
             text-decoration: none;
             color: white;
             font-weight: 500;
-            transition: 0.3s;
         }
 
         .navbar a:hover {
             color: #9fff55;
         }
 
-        /* Overlay del contenido principal */
+        /* Overlay */
         .overlay {
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             background: rgba(0, 0, 0, 0.45);
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-top: 80px; /* Evita que el navbar tape el contenido */
+            padding-bottom: 40px;
             text-align: center;
-            padding: 20px;
         }
 
-        /* Textos */
         h1 {
             font-size: 3rem;
             margin-bottom: 10px;
@@ -91,24 +103,28 @@
 
     <!-- NAVBAR -->
     <div class="navbar">
-        <div class="logo">CANNA CORE</div>
+        <div class="navbar-content">
+            <div class="logo">CANNA CORE</div>
 
-        <div>
-            <a href="#">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Contacto</a>
+            <div>
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Contacto</a>
+            </div>
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- CONTENIDO CENTRAL -->
     <div class="overlay">
-        <div>
+        <div class="wrapper">
+
             <h1>CANNA CORE GROUP</h1>
             <h2>Asesoramos hoy, construimos el futuro</h2>
             <p>
                 Soluciones estratégicas para el sector cannábico, con visión, sostenibilidad y cumplimiento normativo.
             </p>
+
         </div>
     </div>
 

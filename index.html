@@ -4,32 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CannaCore - Inicio</title>
+    <title>CannaCore - Sistema de Usuarios</title>
 
     <style>
-        /* Fondo completo sin recortes */
+
+        /* =========================
+           ESTILOS GENERALES
+        ========================== */
+
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
+
             background-image: url("fondoo.jpg");
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             background-color: #000;
+
             font-family: Arial, sans-serif;
             color: white;
         }
 
-        /* NAVBAR */
+        .overlay {
+            width: 100%;
+            min-height: 100vh;
+            background: rgba(0,0,0,0.45);
+            padding-top: 100px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
         .navbar {
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
+
             padding: 15px 10px;
+
             backdrop-filter: blur(8px);
-            background: rgba(0, 0, 0, 0.30);
+            background: rgba(0,0,0,0.30);
+
             z-index: 1000;
 
             display: flex;
@@ -48,6 +67,7 @@
             gap: 25px;
             padding-right: 20px;
             transition: 0.3s ease;
+            align-items: center;
         }
 
         .navbar a {
@@ -60,6 +80,15 @@
         .navbar a:hover {
             color: #9fff55;
         }
+
+        #userName {
+            color: #9fff55;
+            font-weight: bold;
+        }
+
+        /* =========================
+           MENÚ HAMBURGUESA
+        ========================== */
 
         .hamburger {
             display: none;
@@ -76,15 +105,22 @@
         }
 
         @media (max-width: 900px) {
+
             .navbar-links {
                 display: none;
+
                 position: absolute;
                 top: 60px;
                 right: 10px;
-                background: rgba(0, 0, 0, 0.85);
+
+                background: rgba(0,0,0,0.90);
+
                 flex-direction: column;
+
                 padding: 15px 20px;
+
                 border-radius: 10px;
+
                 gap: 15px;
             }
 
@@ -97,51 +133,75 @@
             }
         }
 
-        .overlay {
-            width: 100%;
-            min-height: 100vh;
-            background: rgba(0, 0, 0, 0.45);
-            padding-top: 100px;
-        }
+        /* =========================
+           POPUP LOGIN
+        ========================== */
 
-        /* POP-UP GENERAL */
         .modal-bg {
             display: none;
+
             position: fixed;
+
             top: 0;
             left: 0;
+
             width: 100%;
             height: 100%;
+
             background: rgba(0,0,0,0.75);
+
             justify-content: center;
             align-items: center;
+
             z-index: 2000;
         }
 
         .modal {
+
             background: #111;
+
             padding: 25px 30px;
+
             border-radius: 12px;
+
             width: 90%;
             max-width: 350px;
+
             text-align: center;
+
             border: 1px solid #9fff55;
+
             box-shadow: 0 0 20px rgba(159,255,85,0.4);
+
             position: relative;
+
             animation: fadeIn 0.2s ease-out;
         }
 
         @keyframes fadeIn {
-            from { transform: scale(0.85); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+
+            from {
+                transform: scale(0.85);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .close-x {
+
             position: absolute;
+
             top: 8px;
             right: 10px;
+
             font-size: 1.3rem;
+
             cursor: pointer;
+
             color: #bbb;
         }
 
@@ -155,210 +215,481 @@
         }
 
         .modal input {
+
             width: 100%;
+
             padding: 10px;
+
             margin: 8px 0;
+
             border: none;
+
             border-radius: 5px;
+
+            box-sizing: border-box;
         }
 
         .modal button {
+
             width: 100%;
+
             margin-top: 12px;
+
             padding: 10px;
+
             background: #9fff55;
+
             border: none;
+
             font-weight: bold;
+
             cursor: pointer;
+
             border-radius: 5px;
         }
 
         .modal .link {
+
             margin-top: 10px;
+
             color: #9fff55;
+
             cursor: pointer;
+
             font-size: 0.9rem;
         }
 
         .modal .link:hover {
             text-decoration: underline;
         }
+
+        /* =========================
+           CONTENIDO PRIVADO
+        ========================== */
+
+        #privateContent {
+
+            display: none;
+
+            text-align: center;
+
+            padding-top: 80px;
+
+            font-size: 2rem;
+
+            color: #9fff55;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <div class="logo">CANNA CORE</div>
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="navbar">
+
+        <div class="logo">
+            CANNA CORE
         </div>
 
+        <!-- HAMBURGUESA -->
+
+        <div class="hamburger" onclick="toggleMenu()">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <!-- MENÚ -->
+
         <div class="navbar-links" id="menu">
+
             <a href="#">Inicio</a>
             <a href="#">Servicios</a>
             <a href="#">Nosotros</a>
             <a href="#">Contacto</a>
-            <a onclick="openModal('login')">Iniciar sesión</a>
+
+            <!-- USUARIO -->
+
+            <span id="userName"></span>
+
+            <!-- LOGIN -->
+
+            <a id="loginBtn" onclick="openModal('login')">
+                Iniciar sesión
+            </a>
+
+            <!-- LOGOUT -->
+
+            <a id="logoutBtn" onclick="logout()" style="display:none;">
+                Cerrar sesión
+            </a>
+
         </div>
+
     </div>
 
-    <div class="overlay"></div>
+    <!-- OVERLAY -->
 
-    <!-- MODAL -->
+    <div class="overlay">
+
+        <!-- CONTENIDO PRIVADO -->
+
+        <div id="privateContent">
+            Bienvenido al área privada de CannaCore
+        </div>
+
+    </div>
+
+    <!-- =========================
+         MODAL GENERAL
+    ========================== -->
+
     <div class="modal-bg" id="modalBg">
 
         <!-- LOGIN -->
+
         <div class="modal" id="loginModal">
-            <div class="close-x" onclick="closeModal()">×</div>
+
+            <div class="close-x" onclick="closeModal()">
+                ×
+            </div>
 
             <h2>Iniciar sesión</h2>
 
             <input id="loginEmail" type="email" placeholder="Correo electrónico">
+
             <input id="loginPass" type="password" placeholder="Contraseña">
 
-            <button onclick="login()">Entrar</button>
+            <button onclick="login()">
+                Entrar
+            </button>
 
-            <div class="link" onclick="openModal('recover')">¿Olvidaste tu contraseña?</div>
-            <div class="link" onclick="openModal('register')">Crear una cuenta</div>
+            <button onclick="googleLogin()">
+                Entrar con Google
+            </button>
+
+            <div class="link" onclick="openModal('recover')">
+                ¿Olvidaste tu contraseña?
+            </div>
+
+            <div class="link" onclick="openModal('register')">
+                Crear una cuenta
+            </div>
+
         </div>
 
         <!-- RECUPERAR -->
+
         <div class="modal" id="recoverModal" style="display:none;">
-            <div class="close-x" onclick="closeModal()">×</div>
+
+            <div class="close-x" onclick="closeModal()">
+                ×
+            </div>
 
             <h2>Recuperar contraseña</h2>
 
             <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
 
-            <button onclick="recover()">Enviar enlace</button>
+            <button onclick="recover()">
+                Enviar enlace
+            </button>
 
-            <div class="link" onclick="openModal('login')">Volver a iniciar sesión</div>
+            <div class="link" onclick="openModal('login')">
+                Volver a iniciar sesión
+            </div>
+
         </div>
 
         <!-- REGISTRO -->
+
         <div class="modal" id="registerModal" style="display:none;">
-            <div class="close-x" onclick="closeModal()">×</div>
+
+            <div class="close-x" onclick="closeModal()">
+                ×
+            </div>
 
             <h2>Crear cuenta</h2>
 
             <input id="registerName" type="text" placeholder="Nombre completo">
+
             <input id="registerEmail" type="email" placeholder="Correo electrónico">
+
             <input id="registerPass" type="password" placeholder="Crear contraseña">
 
-            <button onclick="register()">Registrarse</button>
+            <button onclick="register()">
+                Registrarse
+            </button>
 
-            <div class="link" onclick="openModal('login')">Ya tengo cuenta</div>
+            <div class="link" onclick="openModal('login')">
+                Ya tengo cuenta
+            </div>
+
         </div>
 
     </div>
 
-    <!-- FIREBASE + AUTENTICACIÓN -->
+    <!-- =========================
+         FIREBASE
+    ========================== -->
+
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-        import { 
-            getAuth, 
+
+        import {
+
+            getAuth,
+
             createUserWithEmailAndPassword,
+
             signInWithEmailAndPassword,
+
             sendPasswordResetEmail,
+
             onAuthStateChanged,
+
             updateProfile,
-            signOut
+
+            signOut,
+
+            GoogleAuthProvider,
+
+            signInWithPopup
+
         } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
+        /* =========================
+           FIREBASE CONFIG
+        ========================== */
+
         const firebaseConfig = {
+
             apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
+
             authDomain: "cannacore-web.firebaseapp.com",
+
             projectId: "cannacore-web",
+
             storageBucket: "cannacore-web.firebasestorage.app",
+
             messagingSenderId: "648812089616",
+
             appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
         };
 
-        const app = initializeApp(firebaseConfig);
+        /* =========================
+           INICIALIZAR FIREBASE
+        ========================== */
+
+        const app  = initializeApp(firebaseConfig);
+
         const auth = getAuth(app);
 
-        /* ------------------------- LOGIN --------------------------- */
+        /* =========================
+           LOGIN
+        ========================== */
+
         window.login = function() {
+
             const email = document.getElementById("loginEmail").value;
-            const pass  = document.getElementById("loginPass").value;
+
+            const pass = document.getElementById("loginPass").value;
 
             signInWithEmailAndPassword(auth, email, pass)
+
             .then(() => {
-                alert("Bienvenido!");
+
                 closeModal();
+
+                setTimeout(() => {
+
+                    alert("Bienvenido!");
+
+                }, 300);
+
             })
+
             .catch(err => alert(err.message));
         }
 
-        /* ------------------------ REGISTRO ------------------------- */
+        /* =========================
+           REGISTRO
+        ========================== */
+
         window.register = function() {
+
             const name  = document.getElementById("registerName").value;
+
             const email = document.getElementById("registerEmail").value;
+
             const pass  = document.getElementById("registerPass").value;
 
+            if(pass.length < 6){
+
+                alert("La contraseña debe tener mínimo 6 caracteres");
+
+                return;
+            }
+
             createUserWithEmailAndPassword(auth, email, pass)
-            .then(user => {
-                updateProfile(auth.currentUser, { displayName: name });
+
+            .then(() => {
+
+                updateProfile(auth.currentUser, {
+
+                    displayName: name
+                });
+
                 alert("Cuenta creada exitosamente");
+
                 openModal("login");
+
             })
+
             .catch(err => alert(err.message));
         }
 
-        /* -------------------- RECUPERAR PASS ----------------------- */
+        /* =========================
+           RECUPERAR PASS
+        ========================== */
+
         window.recover = function() {
+
             const email = document.getElementById("recoverEmail").value;
 
             sendPasswordResetEmail(auth, email)
+
             .then(() => {
+
                 alert("Se envió un enlace a tu correo");
+
             })
+
             .catch(err => alert(err.message));
         }
 
-        /* ------------------ DETECTAR SESIÓN ------------------------ */
+        /* =========================
+           LOGIN GOOGLE
+        ========================== */
+
+        window.googleLogin = function(){
+
+            const provider = new GoogleAuthProvider();
+
+            signInWithPopup(auth, provider)
+
+            .then(() => {
+
+                closeModal();
+
+            })
+
+            .catch(err => alert(err.message));
+        }
+
+        /* =========================
+           DETECTAR SESIÓN
+        ========================== */
+
         onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log("Usuario activo:", user.email);
+
+            const loginBtn  = document.getElementById("loginBtn");
+
+            const logoutBtn = document.getElementById("logoutBtn");
+
+            const userName  = document.getElementById("userName");
+
+            const privateContent = document.getElementById("privateContent");
+
+            if(user){
+
+                userName.innerHTML = user.displayName || user.email;
+
+                loginBtn.style.display = "none";
+
+                logoutBtn.style.display = "inline-block";
+
+                privateContent.style.display = "block";
+
             } else {
-                console.log("No hay usuario logueado");
+
+                userName.innerHTML = "";
+
+                loginBtn.style.display = "inline-block";
+
+                logoutBtn.style.display = "none";
+
+                privateContent.style.display = "none";
             }
         });
 
-        /* ---------------------- LOGOUT ---------------------------- */
-        window.logout = function() {
-            signOut(auth);
-            alert("Sesión cerrada");
+        /* =========================
+           LOGOUT
+        ========================== */
+
+        window.logout = function(){
+
+            signOut(auth)
+
+            .then(() => {
+
+                alert("Sesión cerrada");
+
+            })
+
+            .catch(err => alert(err.message));
         }
+
     </script>
 
-    <!-- FUNCIONES DEL POP-UP -->
+    <!-- =========================
+         FUNCIONES POPUP
+    ========================== -->
+
     <script>
+
         function toggleMenu() {
+
             document.getElementById("menu").classList.toggle("show");
         }
 
         function openModal(type) {
+
             document.getElementById("modalBg").style.display = "flex";
 
             document.getElementById("loginModal").style.display = "none";
+
             document.getElementById("recoverModal").style.display = "none";
+
             document.getElementById("registerModal").style.display = "none";
 
-            if (type === "login") document.getElementById("loginModal").style.display = "block";
-            if (type === "recover") document.getElementById("recoverModal").style.display = "block";
-            if (type === "register") document.getElementById("registerModal").style.display = "block";
+            if(type === "login") {
+
+                document.getElementById("loginModal").style.display = "block";
+            }
+
+            if(type === "recover") {
+
+                document.getElementById("recoverModal").style.display = "block";
+            }
+
+            if(type === "register") {
+
+                document.getElementById("registerModal").style.display = "block";
+            }
         }
 
         function closeModal() {
+
             document.getElementById("modalBg").style.display = "none";
         }
+
     </script>
 
 </body>

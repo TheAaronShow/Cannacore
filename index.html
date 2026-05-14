@@ -13,19 +13,12 @@
             padding: 0;
             min-height: 100vh;
             background-image: url("fondoo.jpg");
-            background-size: contain;      /* ← muestra la imagen COMPLETA */
-            background-position: center;   /* centrada */
-            background-repeat: no-repeat;  /* sin repetir */
-            background-color: #000;        /* relleno elegante */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
             font-family: Arial, sans-serif;
             color: white;
-        }
-
-        /* Contenedor principal */
-        .wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
         /* NAVBAR */
@@ -34,8 +27,6 @@
             position: fixed;
             top: 0;
             left: 0;
-            display: flex;
-            justify-content: center;
             backdrop-filter: blur(8px);
             background: rgba(0, 0, 0, 0.30);
             z-index: 1000;
@@ -44,20 +35,28 @@
         .navbar-content {
             width: 100%;
             max-width: 1100px;
+            margin: 0 auto;
+
             padding: 15px 40px;
+
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between;   /* ← separa izquierda y derecha */
             align-items: center;
         }
 
-        .navbar .logo {
+        .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: #9fff55;
+            margin-right: auto;  /* ← Asegura que quede a la IZQUIERDA */
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 25px;            /* ← separa los enlaces */
         }
 
         .navbar a {
-            margin-left: 25px;
             text-decoration: none;
             color: white;
             font-weight: 500;
@@ -67,7 +66,7 @@
             color: #9fff55;
         }
 
-        /* Zona central con oscurecido */
+        /* Zona central */
         .overlay {
             width: 100%;
             min-height: 100vh;
@@ -77,6 +76,12 @@
             align-items: center;
             padding-top: 90px;
             text-align: center;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         h1 {
@@ -93,13 +98,6 @@
             max-width: 700px;
             margin: auto;
         }
-
-        /* Ajustes móviles */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.3rem; }
-            p  { font-size: 1rem; }
-        }
     </style>
 </head>
 
@@ -108,14 +106,27 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="navbar-content">
+
             <div class="logo">CANNA CORE</div>
 
-            <div>
+            <div class="navbar-links">
                 <a href="#">Inicio</a>
                 <a href="#">Servicios</a>
                 <a href="#">Nosotros</a>
                 <a href="#">Contacto</a>
             </div>
+
+        </div>
+    </div>
+
+    <!-- CONTENIDO CENTRAL -->
+    <div class="overlay">
+        <div class="wrapper">
+            <h1>CANNA CORE GROUP</h1>
+            <h2>Asesoramos hoy, construimos el futuro</h2>
+            <p>
+                Soluciones estratégicas para el sector cannábico, con visión, sostenibilidad y cumplimiento normativo.
+            </p>
         </div>
     </div>
 

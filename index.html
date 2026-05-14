@@ -9,9 +9,7 @@
 <title>CannaCore Group</title>
 
 <meta property="og:title" content="CannaCore Group">
-
 <meta property="og:description" content="Infraestructura agrícola regulada para cultivo de cannabis medicinal.">
-
 <meta property="og:type" content="website">
 
 <style>
@@ -31,13 +29,9 @@ html{
 }
 
 body{
-
     font-family:Arial,sans-serif;
-
     overflow-x:hidden;
-
     background:#000;
-
     color:white;
 }
 
@@ -46,25 +40,18 @@ body{
 ========================= */
 
 .video-background{
-
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
     height:100%;
-
     overflow:hidden;
-
     z-index:-2;
 }
 
 .video-background video{
-
     width:100%;
     height:100%;
-
     object-fit:cover;
 }
 
@@ -73,15 +60,10 @@ body{
 ========================= */
 
 .overlay{
-
     width:100%;
-
     min-height:100vh;
-
     background:rgba(0,0,0,0.60);
-
     position:relative;
-
     z-index:1;
 }
 
@@ -90,69 +72,45 @@ body{
 ========================= */
 
 .navbar{
-
     width:100%;
-
     position:fixed;
-
     top:0;
     left:0;
-
     padding:18px 25px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     backdrop-filter:blur(8px);
-
     background:rgba(0,0,0,0.25);
-
     z-index:1000;
 }
 
 .logo{
-
     font-size:1.5rem;
-
     font-weight:900;
-
     color:#c6ff00;
 }
 
 .navbar-links{
-
     display:flex;
-
     align-items:center;
-
     gap:25px;
 }
 
 .navbar a{
-
     text-decoration:none;
-
     color:white;
-
     font-weight:500;
-
     cursor:pointer;
-
     transition:0.3s;
 }
 
 .navbar a:hover{
-
     color:#c6ff00;
 }
 
 #userName{
-
     color:#c6ff00;
-
     font-weight:bold;
 }
 
@@ -161,97 +119,58 @@ body{
 ========================= */
 
 .hamburger{
-
     display:none;
-
     flex-direction:column;
-
     gap:5px;
-
     cursor:pointer;
 }
 
 .hamburger span{
-
     width:28px;
     height:3px;
-
     background:white;
-
     border-radius:3px;
 }
 
 /* =========================
-   HERO SECTION
+   HERO
 ========================= */
 
 .hero-content{
-
     width:100%;
-
     max-width:760px;
-
     padding:140px 60px 120px;
-
     position:relative;
-
     z-index:5;
 }
 
 .hero-subtitle{
-
     color:#c6ff00;
-
     font-size:0.72rem;
-
     letter-spacing:7px;
-
     margin-bottom:28px;
-
     font-weight:700;
 }
 
-/* =========================
-   HERO TITLE
-========================= */
-
 .hero-title{
-
     font-size:8.5rem;
-
     line-height:0.88;
-
     font-weight:900;
-
     letter-spacing:-4px;
-
     margin-bottom:38px;
-
     color:#f3f3f3;
 }
 
 .hero-title span{
-
     color:#c6ff00;
 }
 
-/* =========================
-   HERO DESCRIPTION
-========================= */
-
 .hero-description{
-
     font-size:1.15rem;
-
     line-height:1.8;
-
     color:#d8d8d8;
-
     max-width:620px;
-
     margin-bottom:45px;
-
-    font-weight:400;
 }
 
 /* =========================
@@ -259,70 +178,33 @@ body{
 ========================= */
 
 .hero-buttons{
-
     display:flex;
-
     gap:16px;
-
     align-items:center;
 }
 
 .btn-primary{
-
     width:165px;
-
     height:56px;
-
     border:none;
-
     border-radius:4px;
-
     background:#c6ff00;
-
     color:#000;
-
     font-size:1rem;
-
     font-weight:700;
-
     cursor:pointer;
-
-    transition:0.3s;
-}
-
-.btn-primary:hover{
-
-    transform:translateY(-2px);
 }
 
 .btn-secondary{
-
     width:180px;
-
     height:56px;
-
     border-radius:4px;
-
     border:1px solid #7d9400;
-
     background:transparent;
-
     color:#c6ff00;
-
     font-size:1rem;
-
     font-weight:700;
-
     cursor:pointer;
-
-    transition:0.3s;
-}
-
-.btn-secondary:hover{
-
-    background:#c6ff00;
-
-    color:#000;
 }
 
 /* =========================
@@ -330,13 +212,9 @@ body{
 ========================= */
 
 .market-section{
-
     width:100%;
-
     min-height:100vh;
-
     padding:120px 60px;
-
     background:linear-gradient(
         to bottom,
         rgba(0,0,0,0.75),
@@ -344,292 +222,156 @@ body{
     );
 }
 
-/* HEADER */
-
 .market-header{
-
     max-width:1400px;
-
     margin:0 auto 70px;
 }
 
 .market-subtitle{
-
     color:#c6ff00;
-
     font-size:0.72rem;
-
     letter-spacing:6px;
-
     margin-bottom:25px;
-
     font-weight:700;
 }
 
 .market-header h2{
-
     font-size:5.5rem;
-
     line-height:0.92;
-
     font-weight:900;
-
     letter-spacing:-3px;
-
     color:#f3f3f3;
 }
 
 .market-header h2 span{
-
     color:#c6ff00;
 }
 
-/* =========================
-   GRID
-========================= */
-
 .market-grid{
-
     width:100%;
-
     max-width:1450px;
-
     margin:0 auto;
-
     display:grid;
-
     grid-template-columns:repeat(4,minmax(320px,1fr));
-
-    gap:0;
 }
 
-/* =========================
-   CARD
-========================= */
-
 .market-card{
-
     background:rgba(0,0,0,0.35);
-
     border:1px solid rgba(255,255,255,0.05);
-
     padding:42px;
-
     min-height:360px;
-
     display:flex;
-
     flex-direction:column;
-
-    justify-content:flex-start;
-
     transition:0.3s;
 }
 
 .market-card:hover{
-
     background:rgba(255,255,255,0.03);
 }
 
 .featured-card{
-
     background:rgba(198,255,0,0.08);
 }
 
-/* =========================
-   ICON
-========================= */
-
 .market-icon{
-
     width:62px;
     height:62px;
-
     border-radius:50%;
-
     border:1px solid rgba(198,255,0,0.2);
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     color:#c6ff00;
-
     font-size:1.5rem;
-
     margin-bottom:35px;
-
-    background:rgba(255,255,255,0.02);
 }
-
-/* =========================
-   NUMBER
-========================= */
 
 .market-number{
-
     font-size:4.5rem;
-
     font-weight:900;
-
     color:#c6ff00;
-
     margin-bottom:14px;
-
-    line-height:1;
 }
-
-/* =========================
-   LABEL
-========================= */
 
 .market-label{
-
     color:#758064;
-
     font-size:0.72rem;
-
     letter-spacing:4px;
-
     margin-bottom:24px;
-
-    min-height:22px;
 }
-
-/* =========================
-   TEXT
-========================= */
 
 .market-card p{
-
     color:#cfcfcf;
-
     line-height:1.9;
-
     font-size:1rem;
-
-    max-width:95%;
-
-    margin-top:8px;
 }
 
 /* =========================
-   MODAL LOGIN
+   MODAL
 ========================= */
 
 .modal-bg{
-
     display:none;
-
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
     height:100%;
-
     background:rgba(0,0,0,0.75);
-
     justify-content:center;
-
     align-items:center;
-
     z-index:2000;
 }
 
 .modal{
-
     background:#111;
-
     width:90%;
     max-width:350px;
-
     padding:25px 30px;
-
     border-radius:12px;
-
     border:1px solid #c6ff00;
-
     box-shadow:0 0 20px rgba(198,255,0,0.35);
-
     position:relative;
 }
 
 .close-x{
-
     position:absolute;
-
     top:10px;
     right:12px;
-
     cursor:pointer;
-
     font-size:1.2rem;
-
     color:#bbb;
 }
 
-.close-x:hover{
-
-    color:white;
-}
-
 .modal h2{
-
     margin-bottom:18px;
-
     color:#c6ff00;
 }
 
 .modal input{
-
     width:100%;
-
     padding:12px;
-
     margin:8px 0;
-
     border:none;
-
     border-radius:5px;
 }
 
 .modal button{
-
     width:100%;
-
     padding:12px;
-
     margin-top:12px;
-
     border:none;
-
     border-radius:5px;
-
     background:#c6ff00;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
 .modal .link{
-
     margin-top:12px;
-
     color:#c6ff00;
-
     cursor:pointer;
-
     font-size:0.9rem;
-}
-
-.modal .link:hover{
-
-    text-decoration:underline;
 }
 
 /* =========================
@@ -639,13 +381,7 @@ body{
 @media(max-width:1400px){
 
     .market-grid{
-
         grid-template-columns:repeat(2,1fr);
-    }
-
-    .market-header h2{
-
-        font-size:4.5rem;
     }
 }
 
@@ -656,22 +392,14 @@ body{
     }
 
     .navbar-links{
-
         display:none;
-
         position:absolute;
-
         top:70px;
         right:10px;
-
         background:rgba(0,0,0,0.95);
-
         flex-direction:column;
-
         padding:20px;
-
         border-radius:10px;
-
         gap:18px;
     }
 
@@ -680,62 +408,34 @@ body{
     }
 
     .hero-content{
-
         padding:140px 25px 100px;
     }
 
     .hero-title{
-
         font-size:4.5rem;
-
         line-height:0.92;
-
-        letter-spacing:-2px;
-    }
-
-    .hero-description{
-
-        font-size:1rem;
     }
 
     .hero-buttons{
-
         flex-direction:column;
-
         align-items:flex-start;
     }
 
     .btn-primary,
     .btn-secondary{
-
         width:100%;
     }
 
     .market-section{
-
         padding:100px 25px;
     }
 
     .market-grid{
-
         grid-template-columns:1fr;
     }
 
     .market-header h2{
-
         font-size:3rem;
-
-        line-height:0.95;
-    }
-
-    .market-number{
-
-        font-size:3.5rem;
-    }
-
-    .market-card{
-
-        min-height:auto;
     }
 }
 
@@ -744,7 +444,7 @@ body{
 
 <body>
 
-<!-- VIDEO BACKGROUND -->
+<!-- VIDEO -->
 
 <div class="video-background">
 
@@ -809,7 +509,6 @@ body{
         <h1 class="hero-title">
 
             CULTIVA<br>
-
             CON<br>
 
             <span>RESPALDO.</span>
@@ -864,17 +563,11 @@ body{
 
         <div class="market-grid">
 
-            <!-- CARD 1 -->
-
             <div class="market-card featured-card">
 
-                <div class="market-icon">
-                    ⌂
-                </div>
+                <div class="market-icon">⌂</div>
 
-                <div class="market-number">
-                    $70B
-                </div>
+                <div class="market-number">$70B</div>
 
                 <div class="market-label">
                     MERCADO GLOBAL 2030
@@ -887,17 +580,11 @@ body{
 
             </div>
 
-            <!-- CARD 2 -->
-
             <div class="market-card">
 
-                <div class="market-icon">
-                    ◔
-                </div>
+                <div class="market-icon">◔</div>
 
-                <div class="market-number">
-                    60%
-                </div>
+                <div class="market-number">60%</div>
 
                 <div class="market-label">
                     MENOR COSTO VS CANADÁ
@@ -905,23 +592,16 @@ body{
 
                 <p>
                     Colombia produce cannabis certificado
-                    a fracción del costo de países competidores,
-                    con clima ideal.
+                    a fracción del costo de países competidores.
                 </p>
 
             </div>
 
-            <!-- CARD 3 -->
-
             <div class="market-card featured-card">
 
-                <div class="market-icon">
-                    ▢
-                </div>
+                <div class="market-icon">▢</div>
 
-                <div class="market-number">
-                    18–24°
-                </div>
+                <div class="market-number">18–24°</div>
 
                 <div class="market-label">
                     EJE CAFETERO
@@ -930,22 +610,15 @@ body{
                 <p>
                     Temperatura ideal todo el año.
                     Biodiversidad y cultura agrícola generacional.
-                    La tierra del café.
                 </p>
 
             </div>
 
-            <!-- CARD 4 -->
-
             <div class="market-card">
 
-                <div class="market-icon">
-                    ⛨
-                </div>
+                <div class="market-icon">⛨</div>
 
-                <div class="market-number">
-                    2016
-                </div>
+                <div class="market-number">2016</div>
 
                 <div class="market-label">
                     MARCO LEGAL COLOMBIA
@@ -953,8 +626,7 @@ body{
 
                 <p>
                     Ley 1787 pionera en LatAm.
-                    Exportación de flor seca y derivados
-                    a Europa, Australia e Israel.
+                    Exportación a Europa, Australia e Israel.
                 </p>
 
             </div>
@@ -965,6 +637,266 @@ body{
 
 </div>
 
+<!-- MODAL FIREBASE -->
+
+<div class="modal-bg" id="modalBg">
+
+    <!-- LOGIN -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Iniciar sesión</h2>
+
+        <input id="loginEmail" type="email" placeholder="Correo electrónico">
+
+        <input id="loginPass" type="password" placeholder="Contraseña">
+
+        <button onclick="login()">
+            Entrar
+        </button>
+
+        <button onclick="googleLogin()">
+            Entrar con Google
+        </button>
+
+        <div class="link" onclick="openModal('recover')">
+            ¿Olvidaste tu contraseña?
+        </div>
+
+        <div class="link" onclick="openModal('register')">
+            Crear una cuenta
+        </div>
+
+    </div>
+
+    <!-- RECOVER -->
+
+    <div class="modal" id="recoverModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Recuperar contraseña</h2>
+
+        <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
+
+        <button onclick="recover()">
+            Enviar enlace
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Volver a iniciar sesión
+        </div>
+
+    </div>
+
+    <!-- REGISTER -->
+
+    <div class="modal" id="registerModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Crear cuenta</h2>
+
+        <input id="registerName" type="text" placeholder="Nombre completo">
+
+        <input id="registerEmail" type="email" placeholder="Correo electrónico">
+
+        <input id="registerPass" type="password" placeholder="Crear contraseña">
+
+        <button onclick="register()">
+            Registrarse
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Ya tengo cuenta
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    onAuthStateChanged,
+    updateProfile,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
+
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
+
+    authDomain: "cannacore-web.firebaseapp.com",
+
+    projectId: "cannacore-web",
+
+    storageBucket: "cannacore-web.firebasestorage.app",
+
+    messagingSenderId: "648812089616",
+
+    appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+/* LOGIN */
+
+window.login = function(){
+
+    const email =
+    document.getElementById("loginEmail").value;
+
+    const pass =
+    document.getElementById("loginPass").value;
+
+    signInWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        closeModal();
+
+        alert("Bienvenido!");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* REGISTER */
+
+window.register = function(){
+
+    const name =
+    document.getElementById("registerName").value;
+
+    const email =
+    document.getElementById("registerEmail").value;
+
+    const pass =
+    document.getElementById("registerPass").value;
+
+    createUserWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        updateProfile(auth.currentUser,{
+            displayName:name
+        });
+
+        alert("Cuenta creada exitosamente");
+
+        openModal("login");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* RECOVER */
+
+window.recover = function(){
+
+    const email =
+    document.getElementById("recoverEmail").value;
+
+    sendPasswordResetEmail(auth,email)
+
+    .then(()=>{
+
+        alert("Se envió un enlace");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* GOOGLE LOGIN */
+
+window.googleLogin = function(){
+
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth,provider)
+
+    .then(()=>{
+
+        closeModal();
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* DETECT SESSION */
+
+onAuthStateChanged(auth,(user)=>{
+
+    const loginBtn =
+    document.getElementById("loginBtn");
+
+    const logoutBtn =
+    document.getElementById("logoutBtn");
+
+    const userName =
+    document.getElementById("userName");
+
+    if(user){
+
+        userName.innerHTML =
+        user.displayName || user.email;
+
+        loginBtn.style.display = "none";
+
+        logoutBtn.style.display = "inline-block";
+
+    }else{
+
+        userName.innerHTML = "";
+
+        loginBtn.style.display = "inline-block";
+
+        logoutBtn.style.display = "none";
+    }
+});
+
+/* LOGOUT */
+
+window.logout = function(){
+
+    signOut(auth)
+
+    .then(()=>{
+
+        alert("Sesión cerrada");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+</script>
+
+<!-- FUNCIONES -->
+
 <script>
 
 function toggleMenu(){
@@ -973,12 +905,41 @@ function toggleMenu(){
     .classList.toggle("show");
 }
 
-const video = document.getElementById("bg-video");
+function openModal(type){
 
-video.play().catch(function(error){
+    document.getElementById("modalBg")
+    .style.display = "flex";
 
-    console.log(error);
-});
+    document.getElementById("loginModal")
+    .style.display = "none";
+
+    document.getElementById("recoverModal")
+    .style.display = "none";
+
+    document.getElementById("registerModal")
+    .style.display = "none";
+
+    if(type==="login"){
+        document.getElementById("loginModal")
+        .style.display = "block";
+    }
+
+    if(type==="recover"){
+        document.getElementById("recoverModal")
+        .style.display = "block";
+    }
+
+    if(type==="register"){
+        document.getElementById("registerModal")
+        .style.display = "block";
+    }
+}
+
+function closeModal(){
+
+    document.getElementById("modalBg")
+    .style.display = "none";
+}
 
 </script>
 

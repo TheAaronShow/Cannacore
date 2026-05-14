@@ -134,40 +134,79 @@ body{
 }
 
 /* =========================
-   HERO
+   HERO PREMIUM
 ========================= */
 
-.hero{
+.hero-premium{
 
-    padding-top:140px;
+    width:100%;
 
-    padding-bottom:80px;
+    min-height:260px;
 
-    text-align:center;
+    padding:130px 50px 70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:40px;
 }
 
-.hero h1{
+/* IZQUIERDA */
 
-    font-size:5rem;
+.hero-left{
 
-    font-weight:900;
+    max-width:700px;
+}
+
+.hero-topline{
 
     color:#c6ff00;
 
+    font-size:0.72rem;
+
+    letter-spacing:7px;
+
     margin-bottom:20px;
+
+    font-weight:700;
 }
 
-.hero p{
+.hero-left h1{
 
-    max-width:850px;
+    font-size:5.8rem;
 
-    margin:auto;
+    line-height:0.9;
 
-    font-size:1.1rem;
+    font-weight:900;
 
-    line-height:1.8;
+    letter-spacing:-3px;
 
-    color:#d7d7d7;
+    color:#f1f1f1;
+}
+
+.hero-left h1 span{
+
+    color:#c6ff00;
+}
+
+/* DERECHA */
+
+.hero-right{
+
+    max-width:480px;
+
+    color:#8f9685;
+
+    font-size:1.5rem;
+
+    line-height:1.6;
+
+    text-align:left;
+
+    padding-bottom:15px;
 }
 
 /* =========================
@@ -452,6 +491,30 @@ body{
     }
 }
 
+@media(max-width:1100px){
+
+    .hero-premium{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        padding:120px 25px 50px;
+    }
+
+    .hero-left h1{
+
+        font-size:4rem;
+    }
+
+    .hero-right{
+
+        font-size:1.1rem;
+
+        max-width:100%;
+    }
+}
+
 @media(max-width:700px){
 
     .plans-container{
@@ -464,9 +527,23 @@ body{
         min-height:auto;
     }
 
-    .hero h1{
+    .hero-left h1{
 
         font-size:3rem;
+
+        line-height:0.95;
+    }
+
+    .hero-topline{
+
+        font-size:0.62rem;
+
+        letter-spacing:4px;
+    }
+
+    .hero-right{
+
+        font-size:1rem;
     }
 
     .navbar-links{
@@ -516,21 +593,38 @@ body{
 
     </div>
 
-    <!-- HERO -->
+    <!-- HERO PREMIUM -->
 
-    <div class="hero">
+    <div class="hero-premium">
 
-        <h1>
-            PLANES DE CULTIVO
-        </h1>
+        <!-- IZQUIERDA -->
 
-        <p>
+        <div class="hero-left">
 
-            Accede a infraestructura agrícola regulada,
-            genética certificada y conexión directa con
-            mercados internacionales.
+            <div class="hero-topline">
+                CANNACORE GROWER NETWORK
+            </div>
 
-        </p>
+            <h1>
+
+                ELIGE TU NIVEL.<br>
+
+                <span>CRECE CON RESPALDO.</span>
+
+            </h1>
+
+        </div>
+
+        <!-- DERECHA -->
+
+        <div class="hero-right">
+
+            Todos los planes incluyen:
+            genética • licencia • protocolo •
+            trazabilidad • acompañamiento •
+            compra garantizada
+
+        </div>
 
     </div>
 
@@ -803,11 +897,6 @@ body{
         </div>
 
     </div>
-
-</div>
-
-</body>
-</html>
 
 </div>
 

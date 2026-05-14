@@ -27,13 +27,13 @@
             position: fixed;
             top: 0;
             left: 0;
-            padding: 15px 30px; /* margen interno */
+            padding: 15px 40px; /* ← AQUI SE AJUSTA EL ESPACIO DE AMBOS LADOS */
             backdrop-filter: blur(8px);
             background: rgba(0, 0, 0, 0.30);
             z-index: 1000;
 
             display: flex;
-            justify-content: space-between; /* ← izquierda ↔ derecha */
+            justify-content: space-between; 
             align-items: center;
         }
 
@@ -45,7 +45,8 @@
 
         .navbar-links {
             display: flex;
-            gap: 25px; /* separación entre enlaces */
+            gap: 25px;
+            padding-right: 20px; /* ← MUEVE EL MENÚ MÁS A LA IZQUIERDA */
         }
 
         .navbar a {
@@ -66,7 +67,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: 100px; /* evitar que el navbar tape */
+            padding-top: 100px;
             text-align: center;
         }
 

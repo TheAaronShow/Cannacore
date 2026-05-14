@@ -43,10 +43,12 @@
             color: #9fff55;
         }
 
+        /* MENÚ DERECHO */
         .navbar-links {
             display: flex;
             gap: 25px;
             padding-right: 20px;
+            transition: 0.3s ease;
         }
 
         .navbar a {
@@ -74,8 +76,8 @@
             border-radius: 3px;
         }
 
-        /* Menú móvil */
-        @media (max-width: 768px) {
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
             .navbar-links {
                 display: none;
                 position: absolute;
@@ -104,7 +106,6 @@
             background: rgba(0, 0, 0, 0.45);
             padding-top: 100px;
         }
-
     </style>
 </head>
 
@@ -113,7 +114,7 @@
     <!-- NAVBAR -->
     <div class="navbar">
 
-        <!-- IZQUIERDA -->
+        <!-- LOGO IZQUIERDA -->
         <div class="logo">CANNA CORE</div>
 
         <!-- HAMBURGUESA -->
@@ -123,17 +124,17 @@
             <span></span>
         </div>
 
-        <!-- DERECHA -->
+        <!-- MENÚ DERECHO -->
         <div class="navbar-links" id="menu">
             <a href="#">Inicio</a>
             <a href="#">Servicios</a>
             <a href="#">Nosotros</a>
             <a href="#">Contacto</a>
+            <a href="#">Iniciar sesión</a> <!-- ✔ Nuevo item agregado -->
         </div>
 
     </div>
 
-    <!-- FONDO CENTRAL SIN TEXTO -->
     <div class="overlay"></div>
 
     <script>

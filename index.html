@@ -7,17 +7,16 @@
     <title>CannaCore - Inicio</title>
 
     <style>
-        /* Fondo */
+        /* Fondo completo sin recortes */
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
             background-image: url("fondoo.jpg");
-            background-size: contain;        /* ← SE VE COMPLETA */
-            background-position: center center;  /* Centrada totalmente */
-            background-repeat: no-repeat;  
-            background-attachment: fixed;
-            background-color: black;        /* Fondo detrás de la imagen */
+            background-size: contain;      /* ← muestra la imagen COMPLETA */
+            background-position: center;   /* centrada */
+            background-repeat: no-repeat;  /* sin repetir */
+            background-color: #000;        /* relleno elegante */
             font-family: Arial, sans-serif;
             color: white;
         }
@@ -26,6 +25,7 @@
         .wrapper {
             max-width: 1100px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         /* NAVBAR */
@@ -34,12 +34,10 @@
             position: fixed;
             top: 0;
             left: 0;
-
             display: flex;
             justify-content: center;
             backdrop-filter: blur(8px);
             background: rgba(0, 0, 0, 0.30);
-
             z-index: 1000;
         }
 
@@ -69,7 +67,7 @@
             color: #9fff55;
         }
 
-        /* Overlay */
+        /* Zona central con oscurecido */
         .overlay {
             width: 100%;
             min-height: 100vh;
@@ -77,8 +75,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: 80px;
-            padding-bottom: 40px;
+            padding-top: 90px;
             text-align: center;
         }
 
@@ -90,12 +87,18 @@
             color: #9fff55;
             font-size: 1.7rem;
             font-weight: 600;
-            margin-top: 0;
         }
         p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: auto;
+        }
+
+        /* Ajustes móviles */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+            p  { font-size: 1rem; }
         }
     </style>
 </head>
@@ -129,7 +132,5 @@
         </div>
     </div>
 
-</body>
-</html>
 </body>
 </html>

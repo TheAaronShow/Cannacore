@@ -2,771 +2,1048 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CannaCore - Sistema de Usuarios</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>CannaCore</title>
 
-        /* =========================
-           RESET GENERAL
-        ========================== */
+<style>
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+/* =========================
+   RESET
+========================== */
 
-        body{
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-            min-height:100vh;
+body{
 
-            background:#000;
+    font-family:Arial, sans-serif;
 
-            overflow-x:hidden;
+    overflow-x:hidden;
 
-            font-family:Arial, sans-serif;
+    background:#000;
 
-            color:white;
-        }
+    color:white;
+}
 
-        /* =========================
-           VIDEO DE FONDO
-        ========================== */
+/* =========================
+   VIDEO BACKGROUND
+========================== */
 
-        .video-background{
+.video-background{
 
-            position:fixed;
+    position:fixed;
 
-            top:0;
-            left:0;
+    top:0;
+    left:0;
 
-            width:100%;
-            height:100%;
+    width:100%;
+    height:100%;
 
-            overflow:hidden;
+    overflow:hidden;
 
-            z-index:-2;
-        }
+    z-index:-2;
+}
 
-        .video-background video{
+.video-background video{
 
-            width:100%;
-            height:100%;
+    width:100%;
+    height:100%;
 
-            object-fit:cover;
-        }
+    object-fit:cover;
+}
 
-        /* =========================
-           OVERLAY OSCURO
-        ========================== */
+/* =========================
+   OVERLAY
+========================== */
 
-        .overlay{
+.overlay{
 
-            width:100%;
-            min-height:100vh;
+    width:100%;
+    min-height:100vh;
 
-            background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,0.60);
 
-            padding-top:100px;
+    position:relative;
 
-            position:relative;
+    z-index:1;
+}
 
-            z-index:1;
-        }
+/* =========================
+   NAVBAR
+========================== */
 
-        /* =========================
-           NAVBAR
-        ========================== */
+.navbar{
 
-        .navbar{
+    width:100%;
 
-            width:100%;
+    position:fixed;
 
-            position:fixed;
+    top:0;
+    left:0;
 
-            top:0;
-            left:0;
+    padding:18px 25px;
 
-            padding:15px 10px;
+    display:flex;
 
-            backdrop-filter:blur(8px);
+    justify-content:space-between;
 
-            background:rgba(0,0,0,0.30);
+    align-items:center;
 
-            z-index:1000;
+    backdrop-filter:blur(8px);
 
-            display:flex;
+    background:rgba(0,0,0,0.25);
 
-            justify-content:space-between;
+    z-index:1000;
+}
 
-            align-items:center;
-        }
+.logo{
 
-        .logo{
+    font-size:1.5rem;
 
-            font-size:1.5rem;
+    font-weight:900;
 
-            font-weight:bold;
+    color:#c6ff00;
+}
 
-            color:#9fff55;
-        }
+.navbar-links{
 
-        .navbar-links{
+    display:flex;
 
-            display:flex;
+    align-items:center;
 
-            gap:25px;
+    gap:25px;
+}
 
-            padding-right:20px;
+.navbar a{
 
-            transition:0.3s ease;
+    text-decoration:none;
 
-            align-items:center;
-        }
+    color:white;
 
-        .navbar a{
+    font-weight:500;
 
-            text-decoration:none;
+    cursor:pointer;
 
-            color:white;
+    transition:0.3s;
+}
 
-            font-weight:500;
+.navbar a:hover{
 
-            cursor:pointer;
-        }
+    color:#c6ff00;
+}
 
-        .navbar a:hover{
+#userName{
 
-            color:#9fff55;
-        }
+    color:#c6ff00;
 
-        #userName{
+    font-weight:bold;
+}
 
-            color:#9fff55;
+/* =========================
+   HAMBURGUESA
+========================== */
 
-            font-weight:bold;
-        }
+.hamburger{
 
-        /* =========================
-           MENÚ HAMBURGUESA
-        ========================== */
+    display:none;
 
-        .hamburger{
+    flex-direction:column;
 
-            display:none;
+    gap:5px;
 
-            flex-direction:column;
+    cursor:pointer;
+}
 
-            cursor:pointer;
+.hamburger span{
 
-            gap:5px;
-        }
+    width:28px;
+    height:3px;
 
-        .hamburger span{
+    background:white;
 
-            width:28px;
-            height:3px;
+    border-radius:3px;
+}
 
-            background:white;
+@media(max-width:900px){
 
-            border-radius:3px;
-        }
+    .hamburger{
+        display:flex;
+    }
 
-        @media (max-width:900px){
+    .navbar-links{
 
-            .navbar-links{
+        display:none;
 
-                display:none;
+        position:absolute;
 
-                position:absolute;
+        top:70px;
+        right:10px;
 
-                top:60px;
-                right:10px;
+        background:rgba(0,0,0,0.95);
 
-                background:rgba(0,0,0,0.90);
+        flex-direction:column;
 
-                flex-direction:column;
+        padding:20px;
 
-                padding:15px 20px;
+        border-radius:10px;
 
-                border-radius:10px;
+        gap:18px;
+    }
 
-                gap:15px;
-            }
+    .navbar-links.show{
+        display:flex;
+    }
+}
 
-            .navbar-links.show{
+/* =========================
+   HERO SECTION
+========================== */
 
-                display:flex;
-            }
+.hero-content{
 
-            .hamburger{
+    width:100%;
 
-                display:flex;
-            }
-        }
+    max-width:760px;
 
-        /* =========================
-           CONTENIDO PRIVADO
-        ========================== */
+    padding:140px 60px 60px;
 
-        #privateContent{
+    position:relative;
 
-            display:none;
+    z-index:5;
+}
 
-            text-align:center;
+.hero-subtitle{
 
-            padding-top:80px;
+    color:#c6ff00;
 
-            font-size:2rem;
+    font-size:0.72rem;
 
-            color:#9fff55;
-        }
+    letter-spacing:7px;
 
-        /* =========================
-           MODAL LOGIN
-        ========================== */
+    margin-bottom:28px;
 
-        .modal-bg{
+    font-weight:700;
+}
 
-            display:none;
+/* =========================
+   HERO TITLE
+========================== */
 
-            position:fixed;
+.hero-title{
 
-            top:0;
-            left:0;
+    font-size:8.5rem;
 
-            width:100%;
-            height:100%;
+    line-height:0.88;
 
-            background:rgba(0,0,0,0.75);
+    font-weight:900;
 
-            justify-content:center;
+    letter-spacing:-4px;
 
-            align-items:center;
+    margin-bottom:38px;
 
-            z-index:2000;
-        }
+    color:#f3f3f3;
+}
 
-        .modal{
+.hero-title span{
 
-            background:#111;
+    color:#c6ff00;
+}
 
-            padding:25px 30px;
+/* =========================
+   HERO DESCRIPTION
+========================== */
 
-            border-radius:12px;
+.hero-description{
 
-            width:90%;
-            max-width:350px;
+    font-size:1.15rem;
 
-            text-align:center;
+    line-height:1.8;
 
-            border:1px solid #9fff55;
+    color:#d8d8d8;
 
-            box-shadow:0 0 20px rgba(159,255,85,0.4);
+    max-width:620px;
 
-            position:relative;
+    margin-bottom:45px;
 
-            animation:fadeIn 0.2s ease-out;
-        }
+    font-weight:400;
+}
 
-        @keyframes fadeIn{
+/* =========================
+   BOTONES
+========================== */
 
-            from{
-                transform:scale(0.85);
-                opacity:0;
-            }
+.hero-buttons{
 
-            to{
-                transform:scale(1);
-                opacity:1;
-            }
-        }
+    display:flex;
 
-        .close-x{
+    gap:16px;
 
-            position:absolute;
+    align-items:center;
+}
 
-            top:8px;
-            right:10px;
+.btn-primary{
 
-            font-size:1.3rem;
+    width:165px;
 
-            cursor:pointer;
+    height:56px;
 
-            color:#bbb;
-        }
+    border:none;
 
-        .close-x:hover{
+    border-radius:4px;
 
-            color:white;
-        }
+    background:#c6ff00;
 
-        .modal h2{
+    color:#000;
 
-            margin:0 0 15px;
+    font-size:1rem;
 
-            color:#9fff55;
-        }
+    font-weight:700;
 
-        .modal input{
+    cursor:pointer;
 
-            width:100%;
+    transition:0.3s;
+}
 
-            padding:10px;
+.btn-primary:hover{
 
-            margin:8px 0;
+    transform:translateY(-2px);
+}
 
-            border:none;
+.btn-secondary{
 
-            border-radius:5px;
+    width:180px;
 
-            box-sizing:border-box;
-        }
+    height:56px;
 
-        .modal button{
+    border-radius:4px;
 
-            width:100%;
+    border:1px solid #7d9400;
 
-            margin-top:12px;
+    background:transparent;
 
-            padding:10px;
+    color:#c6ff00;
 
-            background:#9fff55;
+    font-size:1rem;
 
-            border:none;
+    font-weight:700;
 
-            font-weight:bold;
+    cursor:pointer;
 
-            cursor:pointer;
+    transition:0.3s;
+}
 
-            border-radius:5px;
-        }
+.btn-secondary:hover{
 
-        .modal .link{
+    background:#c6ff00;
 
-            margin-top:10px;
+    color:#000;
+}
 
-            color:#9fff55;
+/* =========================
+   SECCIONES
+========================== */
 
-            cursor:pointer;
+section{
 
-            font-size:0.9rem;
-        }
+    width:100%;
 
-        .modal .link:hover{
+    min-height:100vh;
 
-            text-decoration:underline;
-        }
+    padding:120px 40px;
 
-    </style>
+    position:relative;
+
+    z-index:2;
+}
+
+#planes{
+
+    background:#111;
+}
+
+#funciona{
+
+    background:#181818;
+}
+
+section h2{
+
+    color:#c6ff00;
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+}
+
+section p{
+
+    max-width:850px;
+
+    line-height:1.8;
+
+    font-size:1.1rem;
+
+    color:#ddd;
+}
+
+/* =========================
+   MODAL LOGIN
+========================== */
+
+.modal-bg{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:2000;
+}
+
+.modal{
+
+    background:#111;
+
+    width:90%;
+    max-width:350px;
+
+    padding:25px 30px;
+
+    border-radius:12px;
+
+    border:1px solid #c6ff00;
+
+    box-shadow:0 0 20px rgba(198,255,0,0.35);
+
+    position:relative;
+}
+
+.close-x{
+
+    position:absolute;
+
+    top:10px;
+    right:12px;
+
+    cursor:pointer;
+
+    font-size:1.2rem;
+
+    color:#bbb;
+}
+
+.close-x:hover{
+
+    color:white;
+}
+
+.modal h2{
+
+    margin-bottom:18px;
+
+    color:#c6ff00;
+}
+
+.modal input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:8px 0;
+
+    border:none;
+
+    border-radius:5px;
+}
+
+.modal button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:5px;
+
+    background:#c6ff00;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.modal .link{
+
+    margin-top:12px;
+
+    color:#c6ff00;
+
+    cursor:pointer;
+
+    font-size:0.9rem;
+}
+
+.modal .link:hover{
+
+    text-decoration:underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+    .hero-content{
+
+        padding:140px 25px 60px;
+    }
+
+    .hero-title{
+
+        font-size:4.5rem;
+
+        line-height:0.92;
+
+        letter-spacing:-2px;
+    }
+
+    .hero-description{
+
+        font-size:1rem;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+
+        width:100%;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- =========================
-         VIDEO DE FONDO
-    ========================== -->
+<!-- =========================
+     VIDEO BACKGROUND
+========================== -->
 
-    <div class="video-background">
+<div class="video-background">
 
-        <video id="bg-video" autoplay muted loop playsinline>
+    <video id="bg-video" autoplay muted loop playsinline>
 
-            <source src="canavid.mp4" type="video/mp4">
+        <source src="canavid.mp4" type="video/mp4">
 
-            Tu navegador no soporta videos HTML5.
+    </video>
 
-        </video>
+</div>
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<div class="navbar">
+
+    <div class="logo">
+        CANNA CORE
+    </div>
+
+    <!-- HAMBURGUESA -->
+
+    <div class="hamburger" onclick="toggleMenu()">
+
+        <span></span>
+        <span></span>
+        <span></span>
 
     </div>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+    <!-- MENU -->
 
-    <div class="navbar">
+    <div class="navbar-links" id="menu">
 
-        <div class="logo">
-            CANNA CORE
-        </div>
+        <a href="#">Inicio</a>
 
-        <!-- HAMBURGUESA -->
+        <a href="#planes">Planes</a>
 
-        <div class="hamburger" onclick="toggleMenu()">
+        <a href="#funciona">Cómo funciona</a>
 
-            <span></span>
-            <span></span>
-            <span></span>
+        <a href="#">Contacto</a>
 
-        </div>
+        <span id="userName"></span>
 
-        <!-- MENÚ -->
+        <a id="loginBtn" onclick="openModal('login')">
+            Iniciar sesión
+        </a>
 
-        <div class="navbar-links" id="menu">
-
-            <a href="#">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Contacto</a>
-
-            <span id="userName"></span>
-
-            <a id="loginBtn" onclick="openModal('login')">
-                Iniciar sesión
-            </a>
-
-            <a id="logoutBtn" onclick="logout()" style="display:none;">
-                Cerrar sesión
-            </a>
-
-        </div>
+        <a id="logoutBtn" onclick="logout()" style="display:none;">
+            Cerrar sesión
+        </a>
 
     </div>
 
-    <!-- =========================
-         OVERLAY
-    ========================== -->
+</div>
 
-    <div class="overlay">
+<!-- =========================
+     HERO
+========================== -->
 
-        <div id="privateContent">
-            Bienvenido al área privada de CannaCore
+<div class="overlay">
+
+    <div class="hero-content">
+
+        <div class="hero-subtitle">
+            EJE CAFETERO • COLOMBIA • CANNABIS MEDICINAL
         </div>
 
-    </div>
+        <h1 class="hero-title">
 
-    <!-- =========================
-         MODAL GENERAL
-    ========================== -->
+            CULTIVA<br>
 
-    <div class="modal-bg" id="modalBg">
+            CON<br>
 
-        <!-- LOGIN -->
+            <span>RESPALDO.</span>
 
-        <div class="modal" id="loginModal">
+        </h1>
 
-            <div class="close-x" onclick="closeModal()">
-                ×
-            </div>
+        <p class="hero-description">
 
-            <h2>Iniciar sesión</h2>
+            Infraestructura agrícola regulada que integra cultivadores a una
+            red productiva legal, con genética certificada, precio
+            garantizado y acceso directo al mercado global.
 
-            <input id="loginEmail" type="email" placeholder="Correo electrónico">
+        </p>
 
-            <input id="loginPass" type="password" placeholder="Contraseña">
+        <!-- BOTONES -->
 
-            <button onclick="login()">
-                Entrar
+        <div class="hero-buttons">
+
+            <button class="btn-primary" onclick="openPlans()">
+                Ver planes →
             </button>
 
-            <button onclick="googleLogin()">
-                Entrar con Google
+            <button class="btn-secondary" onclick="openHowWorks()">
+                Cómo funciona
             </button>
-
-            <div class="link" onclick="openModal('recover')">
-                ¿Olvidaste tu contraseña?
-            </div>
-
-            <div class="link" onclick="openModal('register')">
-                Crear una cuenta
-            </div>
-
-        </div>
-
-        <!-- RECUPERAR -->
-
-        <div class="modal" id="recoverModal" style="display:none;">
-
-            <div class="close-x" onclick="closeModal()">
-                ×
-            </div>
-
-            <h2>Recuperar contraseña</h2>
-
-            <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
-
-            <button onclick="recover()">
-                Enviar enlace
-            </button>
-
-            <div class="link" onclick="openModal('login')">
-                Volver a iniciar sesión
-            </div>
-
-        </div>
-
-        <!-- REGISTRO -->
-
-        <div class="modal" id="registerModal" style="display:none;">
-
-            <div class="close-x" onclick="closeModal()">
-                ×
-            </div>
-
-            <h2>Crear cuenta</h2>
-
-            <input id="registerName" type="text" placeholder="Nombre completo">
-
-            <input id="registerEmail" type="email" placeholder="Correo electrónico">
-
-            <input id="registerPass" type="password" placeholder="Crear contraseña">
-
-            <button onclick="register()">
-                Registrarse
-            </button>
-
-            <div class="link" onclick="openModal('login')">
-                Ya tengo cuenta
-            </div>
 
         </div>
 
     </div>
 
-    <!-- =========================
-         FIREBASE
-    ========================== -->
+</div>
 
-    <script type="module">
+<!-- =========================
+     PLANES
+========================== -->
 
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+<section id="planes">
 
-        import {
+    <h2>Planes de cultivo</h2>
 
-            getAuth,
-            createUserWithEmailAndPassword,
-            signInWithEmailAndPassword,
-            sendPasswordResetEmail,
-            onAuthStateChanged,
-            updateProfile,
-            signOut,
-            GoogleAuthProvider,
-            signInWithPopup
+    <p>
 
-        } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+        Conecta tu producción a una infraestructura legal y rentable.
+        Accede a genética certificada, soporte técnico, comercialización
+        internacional y acompañamiento integral para escalar tu cultivo.
 
-        const firebaseConfig = {
+    </p>
 
-            apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
+</section>
 
-            authDomain: "cannacore-web.firebaseapp.com",
+<!-- =========================
+     FUNCIONA
+========================== -->
 
-            projectId: "cannacore-web",
+<section id="funciona">
 
-            storageBucket: "cannacore-web.firebasestorage.app",
+    <h2>¿Cómo funciona?</h2>
 
-            messagingSenderId: "648812089616",
+    <p>
 
-            appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
-        };
+        Nuestro modelo conecta cultivadores con una red regulada que
+        permite producir, transformar y comercializar cannabis medicinal
+        bajo estándares internacionales de calidad y cumplimiento.
 
-        const app  = initializeApp(firebaseConfig);
+    </p>
 
-        const auth = getAuth(app);
+</section>
 
-        /* LOGIN */
+<!-- =========================
+     MODAL GENERAL
+========================== -->
 
-        window.login = function() {
+<div class="modal-bg" id="modalBg">
 
-            const email = document.getElementById("loginEmail").value;
+    <!-- LOGIN -->
 
-            const pass = document.getElementById("loginPass").value;
+    <div class="modal" id="loginModal">
 
-            signInWithEmailAndPassword(auth, email, pass)
+        <div class="close-x" onclick="closeModal()">
+            ×
+        </div>
 
-            .then(() => {
+        <h2>Iniciar sesión</h2>
 
-                closeModal();
+        <input id="loginEmail" type="email" placeholder="Correo electrónico">
 
-                setTimeout(() => {
+        <input id="loginPass" type="password" placeholder="Contraseña">
 
-                    alert("Bienvenido!");
+        <button onclick="login()">
+            Entrar
+        </button>
 
-                }, 300);
+        <button onclick="googleLogin()">
+            Entrar con Google
+        </button>
 
-            })
+        <div class="link" onclick="openModal('recover')">
+            ¿Olvidaste tu contraseña?
+        </div>
 
-            .catch(err => alert(err.message));
-        }
+        <div class="link" onclick="openModal('register')">
+            Crear una cuenta
+        </div>
 
-        /* REGISTRO */
+    </div>
 
-        window.register = function() {
+    <!-- RECUPERAR -->
 
-            const name  = document.getElementById("registerName").value;
+    <div class="modal" id="recoverModal" style="display:none;">
 
-            const email = document.getElementById("registerEmail").value;
+        <div class="close-x" onclick="closeModal()">
+            ×
+        </div>
 
-            const pass  = document.getElementById("registerPass").value;
+        <h2>Recuperar contraseña</h2>
 
-            if(pass.length < 6){
+        <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
 
-                alert("La contraseña debe tener mínimo 6 caracteres");
+        <button onclick="recover()">
+            Enviar enlace
+        </button>
 
-                return;
-            }
+        <div class="link" onclick="openModal('login')">
+            Volver a iniciar sesión
+        </div>
 
-            createUserWithEmailAndPassword(auth, email, pass)
+    </div>
 
-            .then(() => {
+    <!-- REGISTRO -->
 
-                updateProfile(auth.currentUser, {
+    <div class="modal" id="registerModal" style="display:none;">
 
-                    displayName: name
-                });
+        <div class="close-x" onclick="closeModal()">
+            ×
+        </div>
 
-                alert("Cuenta creada exitosamente");
+        <h2>Crear cuenta</h2>
 
-                openModal("login");
+        <input id="registerName" type="text" placeholder="Nombre completo">
 
-            })
+        <input id="registerEmail" type="email" placeholder="Correo electrónico">
 
-            .catch(err => alert(err.message));
-        }
+        <input id="registerPass" type="password" placeholder="Crear contraseña">
 
-        /* RECUPERAR */
+        <button onclick="register()">
+            Registrarse
+        </button>
 
-        window.recover = function() {
+        <div class="link" onclick="openModal('login')">
+            Ya tengo cuenta
+        </div>
 
-            const email = document.getElementById("recoverEmail").value;
+    </div>
 
-            sendPasswordResetEmail(auth, email)
+</div>
 
-            .then(() => {
+<!-- =========================
+     FIREBASE
+========================== -->
 
-                alert("Se envió un enlace a tu correo");
+<script type="module">
 
-            })
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
-            .catch(err => alert(err.message));
-        }
+import {
 
-        /* LOGIN GOOGLE */
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    onAuthStateChanged,
+    updateProfile,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
 
-        window.googleLogin = function(){
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
-            const provider = new GoogleAuthProvider();
+const firebaseConfig = {
 
-            provider.setCustomParameters({
-                prompt: "select_account"
-            });
+    apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
 
-            signInWithPopup(auth, provider)
+    authDomain: "cannacore-web.firebaseapp.com",
 
-            .then(() => {
+    projectId: "cannacore-web",
 
-                closeModal();
+    storageBucket: "cannacore-web.firebasestorage.app",
 
-            })
+    messagingSenderId: "648812089616",
 
-            .catch(err => alert(err.message));
-        }
+    appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
+};
 
-        /* DETECTAR SESIÓN */
+const app = initializeApp(firebaseConfig);
 
-        onAuthStateChanged(auth, (user) => {
+const auth = getAuth(app);
 
-            const loginBtn  = document.getElementById("loginBtn");
+/* LOGIN */
 
-            const logoutBtn = document.getElementById("logoutBtn");
+window.login = function(){
 
-            const userName  = document.getElementById("userName");
+    const email = document.getElementById("loginEmail").value;
 
-            const privateContent = document.getElementById("privateContent");
+    const pass = document.getElementById("loginPass").value;
 
-            if(user){
+    signInWithEmailAndPassword(auth,email,pass)
 
-                userName.innerHTML = user.displayName || user.email;
+    .then(()=>{
 
-                loginBtn.style.display = "none";
+        closeModal();
 
-                logoutBtn.style.display = "inline-block";
+        alert("Bienvenido!");
 
-                privateContent.style.display = "block";
+    })
 
-            } else {
+    .catch(err=>alert(err.message));
+}
 
-                userName.innerHTML = "";
+/* REGISTER */
 
-                loginBtn.style.display = "inline-block";
+window.register = function(){
 
-                logoutBtn.style.display = "none";
+    const name  = document.getElementById("registerName").value;
 
-                privateContent.style.display = "none";
-            }
+    const email = document.getElementById("registerEmail").value;
+
+    const pass  = document.getElementById("registerPass").value;
+
+    if(pass.length < 6){
+
+        alert("La contraseña debe tener mínimo 6 caracteres");
+
+        return;
+    }
+
+    createUserWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        updateProfile(auth.currentUser,{
+
+            displayName:name
         });
 
-        /* LOGOUT */
+        alert("Cuenta creada exitosamente");
 
-        window.logout = function(){
+        openModal("login");
 
-            signOut(auth)
+    })
 
-            .then(() => {
+    .catch(err=>alert(err.message));
+}
 
-                alert("Sesión cerrada");
+/* RECOVER */
 
-            })
+window.recover = function(){
 
-            .catch(err => alert(err.message));
-        }
+    const email = document.getElementById("recoverEmail").value;
 
-    </script>
+    sendPasswordResetEmail(auth,email)
 
-    <!-- =========================
-         FUNCIONES POPUP
-    ========================== -->
+    .then(()=>{
 
-    <script>
+        alert("Se envió un enlace a tu correo");
 
-        function toggleMenu() {
+    })
 
-            document.getElementById("menu").classList.toggle("show");
-        }
+    .catch(err=>alert(err.message));
+}
 
-        function openModal(type) {
+/* GOOGLE LOGIN */
 
-            document.getElementById("modalBg").style.display = "flex";
+window.googleLogin = function(){
 
-            document.getElementById("loginModal").style.display = "none";
+    const provider = new GoogleAuthProvider();
 
-            document.getElementById("recoverModal").style.display = "none";
+    provider.setCustomParameters({
+        prompt:"select_account"
+    });
 
-            document.getElementById("registerModal").style.display = "none";
+    signInWithPopup(auth,provider)
 
-            if(type === "login") {
+    .then(()=>{
 
-                document.getElementById("loginModal").style.display = "block";
-            }
+        closeModal();
 
-            if(type === "recover") {
+    })
 
-                document.getElementById("recoverModal").style.display = "block";
-            }
+    .catch(err=>alert(err.message));
+}
 
-            if(type === "register") {
+/* AUTH STATE */
 
-                document.getElementById("registerModal").style.display = "block";
-            }
-        }
+onAuthStateChanged(auth,(user)=>{
 
-        function closeModal() {
+    const loginBtn  = document.getElementById("loginBtn");
 
-            document.getElementById("modalBg").style.display = "none";
-        }
+    const logoutBtn = document.getElementById("logoutBtn");
 
-        /* FORZAR AUTOPLAY */
+    const userName  = document.getElementById("userName");
 
-        const video = document.getElementById("bg-video");
+    if(user){
 
-        video.play().catch(function(error){
+        userName.innerHTML =
+        user.displayName || user.email;
 
-            console.log("Autoplay bloqueado:", error);
+        loginBtn.style.display = "none";
 
-        });
+        logoutBtn.style.display = "inline-block";
 
-    </script>
+    }else{
+
+        userName.innerHTML = "";
+
+        loginBtn.style.display = "inline-block";
+
+        logoutBtn.style.display = "none";
+    }
+});
+
+/* LOGOUT */
+
+window.logout = function(){
+
+    signOut(auth)
+
+    .then(()=>{
+
+        alert("Sesión cerrada");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+</script>
+
+<!-- =========================
+     FUNCIONES GENERALES
+========================== -->
+
+<script>
+
+function toggleMenu(){
+
+    document.getElementById("menu")
+    .classList.toggle("show");
+}
+
+function openModal(type){
+
+    document.getElementById("modalBg")
+    .style.display = "flex";
+
+    document.getElementById("loginModal")
+    .style.display = "none";
+
+    document.getElementById("recoverModal")
+    .style.display = "none";
+
+    document.getElementById("registerModal")
+    .style.display = "none";
+
+    if(type==="login"){
+
+        document.getElementById("loginModal")
+        .style.display = "block";
+    }
+
+    if(type==="recover"){
+
+        document.getElementById("recoverModal")
+        .style.display = "block";
+    }
+
+    if(type==="register"){
+
+        document.getElementById("registerModal")
+        .style.display = "block";
+    }
+}
+
+function closeModal(){
+
+    document.getElementById("modalBg")
+    .style.display = "none";
+}
+
+/* BOTONES */
+
+function openPlans(){
+
+    document.getElementById("planes")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function openHowWorks(){
+
+    document.getElementById("funciona")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+/* VIDEO AUTOPLAY */
+
+const video = document.getElementById("bg-video");
+
+video.play().catch(function(error){
+
+    console.log(error);
+});
+
+</script>
 
 </body>
 </html>

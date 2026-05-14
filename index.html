@@ -348,9 +348,9 @@ body{
 
 .market-header{
 
-    max-width:1100px;
+    max-width:1400px;
 
-    margin:0 auto 60px;
+    margin:0 auto 70px;
 }
 
 .market-subtitle{
@@ -384,22 +384,28 @@ body{
     color:#c6ff00;
 }
 
-/* GRID */
+/* =========================
+   GRID
+========================= */
 
 .market-grid{
 
-    max-width:1200px;
+    width:100%;
+
+    max-width:1450px;
 
     margin:0 auto;
 
     display:grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(4,minmax(320px,1fr));
 
     gap:0;
 }
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .market-card{
 
@@ -407,9 +413,15 @@ body{
 
     border:1px solid rgba(255,255,255,0.05);
 
-    padding:35px;
+    padding:42px;
 
-    min-height:320px;
+    min-height:360px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
 
     transition:0.3s;
 }
@@ -424,12 +436,14 @@ body{
     background:rgba(198,255,0,0.08);
 }
 
-/* ICON */
+/* =========================
+   ICON
+========================= */
 
 .market-icon{
 
-    width:58px;
-    height:58px;
+    width:62px;
+    height:62px;
 
     border-radius:50%;
 
@@ -445,25 +459,31 @@ body{
 
     font-size:1.5rem;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
 
     background:rgba(255,255,255,0.02);
 }
 
-/* NUMBER */
+/* =========================
+   NUMBER
+========================= */
 
 .market-number{
 
-    font-size:4.2rem;
+    font-size:4.5rem;
 
     font-weight:900;
 
     color:#c6ff00;
 
-    margin-bottom:10px;
+    margin-bottom:14px;
+
+    line-height:1;
 }
 
-/* LABEL */
+/* =========================
+   LABEL
+========================= */
 
 .market-label{
 
@@ -473,18 +493,26 @@ body{
 
     letter-spacing:4px;
 
-    margin-bottom:22px;
+    margin-bottom:24px;
+
+    min-height:22px;
 }
 
-/* TEXT */
+/* =========================
+   TEXT
+========================= */
 
 .market-card p{
 
     color:#cfcfcf;
 
-    line-height:1.8;
+    line-height:1.9;
 
     font-size:1rem;
+
+    max-width:95%;
+
+    margin-top:8px;
 }
 
 /* =========================
@@ -608,16 +636,16 @@ body{
    RESPONSIVE
 ========================= */
 
-@media(max-width:1200px){
+@media(max-width:1400px){
 
     .market-grid{
 
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:repeat(2,1fr);
     }
 
     .market-header h2{
 
-        font-size:4rem;
+        font-size:4.5rem;
     }
 }
 
@@ -695,14 +723,19 @@ body{
 
     .market-header h2{
 
-        font-size:2.8rem;
+        font-size:3rem;
 
         line-height:0.95;
     }
 
     .market-number{
 
-        font-size:3.2rem;
+        font-size:3.5rem;
+    }
+
+    .market-card{
+
+        min-height:auto;
     }
 }
 
@@ -731,8 +764,6 @@ body{
         CANNA CORE
     </div>
 
-    <!-- HAMBURGUESA -->
-
     <div class="hamburger" onclick="toggleMenu()">
 
         <span></span>
@@ -740,8 +771,6 @@ body{
         <span></span>
 
     </div>
-
-    <!-- MENU -->
 
     <div class="navbar-links" id="menu">
 
@@ -795,8 +824,6 @@ body{
 
         </p>
 
-        <!-- BOTONES -->
-
         <div class="hero-buttons">
 
             <a href="planes.html">
@@ -815,13 +842,9 @@ body{
 
     </div>
 
-    <!-- =========================
-         MARKET SECTION
-    ========================== -->
+    <!-- MARKET SECTION -->
 
     <section class="market-section">
-
-        <!-- TITULO -->
 
         <div class="market-header">
 
@@ -838,8 +861,6 @@ body{
             </h2>
 
         </div>
-
-        <!-- GRID -->
 
         <div class="market-grid">
 
@@ -944,272 +965,6 @@ body{
 
 </div>
 
-<!-- MODAL GENERAL -->
-
-<div class="modal-bg" id="modalBg">
-
-    <!-- LOGIN -->
-
-    <div class="modal" id="loginModal">
-
-        <div class="close-x" onclick="closeModal()">
-            ×
-        </div>
-
-        <h2>Iniciar sesión</h2>
-
-        <input id="loginEmail" type="email" placeholder="Correo electrónico">
-
-        <input id="loginPass" type="password" placeholder="Contraseña">
-
-        <button onclick="login()">
-            Entrar
-        </button>
-
-        <button onclick="googleLogin()">
-            Entrar con Google
-        </button>
-
-        <div class="link" onclick="openModal('recover')">
-            ¿Olvidaste tu contraseña?
-        </div>
-
-        <div class="link" onclick="openModal('register')">
-            Crear una cuenta
-        </div>
-
-    </div>
-
-    <!-- RECUPERAR -->
-
-    <div class="modal" id="recoverModal" style="display:none;">
-
-        <div class="close-x" onclick="closeModal()">
-            ×
-        </div>
-
-        <h2>Recuperar contraseña</h2>
-
-        <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
-
-        <button onclick="recover()">
-            Enviar enlace
-        </button>
-
-        <div class="link" onclick="openModal('login')">
-            Volver a iniciar sesión
-        </div>
-
-    </div>
-
-    <!-- REGISTRO -->
-
-    <div class="modal" id="registerModal" style="display:none;">
-
-        <div class="close-x" onclick="closeModal()">
-            ×
-        </div>
-
-        <h2>Crear cuenta</h2>
-
-        <input id="registerName" type="text" placeholder="Nombre completo">
-
-        <input id="registerEmail" type="email" placeholder="Correo electrónico">
-
-        <input id="registerPass" type="password" placeholder="Crear contraseña">
-
-        <button onclick="register()">
-            Registrarse
-        </button>
-
-        <div class="link" onclick="openModal('login')">
-            Ya tengo cuenta
-        </div>
-
-    </div>
-
-</div>
-
-<!-- FIREBASE -->
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-
-import {
-
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    sendPasswordResetEmail,
-    onAuthStateChanged,
-    updateProfile,
-    signOut,
-    GoogleAuthProvider,
-    signInWithPopup
-
-} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
-
-const firebaseConfig = {
-
-    apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
-
-    authDomain: "cannacore-web.firebaseapp.com",
-
-    projectId: "cannacore-web",
-
-    storageBucket: "cannacore-web.firebasestorage.app",
-
-    messagingSenderId: "648812089616",
-
-    appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
-};
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-/* LOGIN */
-
-window.login = function(){
-
-    const email = document.getElementById("loginEmail").value;
-
-    const pass = document.getElementById("loginPass").value;
-
-    signInWithEmailAndPassword(auth,email,pass)
-
-    .then(()=>{
-
-        closeModal();
-
-        alert("Bienvenido!");
-
-    })
-
-    .catch(err=>alert(err.message));
-}
-
-/* REGISTER */
-
-window.register = function(){
-
-    const name  = document.getElementById("registerName").value;
-
-    const email = document.getElementById("registerEmail").value;
-
-    const pass  = document.getElementById("registerPass").value;
-
-    if(pass.length < 6){
-
-        alert("La contraseña debe tener mínimo 6 caracteres");
-
-        return;
-    }
-
-    createUserWithEmailAndPassword(auth,email,pass)
-
-    .then(()=>{
-
-        updateProfile(auth.currentUser,{
-            displayName:name
-        });
-
-        alert("Cuenta creada exitosamente");
-
-        openModal("login");
-
-    })
-
-    .catch(err=>alert(err.message));
-}
-
-/* RECOVER */
-
-window.recover = function(){
-
-    const email = document.getElementById("recoverEmail").value;
-
-    sendPasswordResetEmail(auth,email)
-
-    .then(()=>{
-
-        alert("Se envió un enlace a tu correo");
-
-    })
-
-    .catch(err=>alert(err.message));
-}
-
-/* GOOGLE LOGIN */
-
-window.googleLogin = function(){
-
-    const provider = new GoogleAuthProvider();
-
-    provider.setCustomParameters({
-        prompt:"select_account"
-    });
-
-    signInWithPopup(auth,provider)
-
-    .then(()=>{
-
-        closeModal();
-
-    })
-
-    .catch(err=>alert(err.message));
-}
-
-/* AUTH STATE */
-
-onAuthStateChanged(auth,(user)=>{
-
-    const loginBtn  = document.getElementById("loginBtn");
-
-    const logoutBtn = document.getElementById("logoutBtn");
-
-    const userName  = document.getElementById("userName");
-
-    if(user){
-
-        userName.innerHTML =
-        user.displayName || user.email;
-
-        loginBtn.style.display = "none";
-
-        logoutBtn.style.display = "inline-block";
-
-    }else{
-
-        userName.innerHTML = "";
-
-        loginBtn.style.display = "inline-block";
-
-        logoutBtn.style.display = "none";
-    }
-});
-
-/* LOGOUT */
-
-window.logout = function(){
-
-    signOut(auth)
-
-    .then(()=>{
-
-        alert("Sesión cerrada");
-
-    })
-
-    .catch(err=>alert(err.message));
-}
-
-</script>
-
-<!-- FUNCIONES -->
-
 <script>
 
 function toggleMenu(){
@@ -1217,47 +972,6 @@ function toggleMenu(){
     document.getElementById("menu")
     .classList.toggle("show");
 }
-
-function openModal(type){
-
-    document.getElementById("modalBg")
-    .style.display = "flex";
-
-    document.getElementById("loginModal")
-    .style.display = "none";
-
-    document.getElementById("recoverModal")
-    .style.display = "none";
-
-    document.getElementById("registerModal")
-    .style.display = "none";
-
-    if(type==="login"){
-
-        document.getElementById("loginModal")
-        .style.display = "block";
-    }
-
-    if(type==="recover"){
-
-        document.getElementById("recoverModal")
-        .style.display = "block";
-    }
-
-    if(type==="register"){
-
-        document.getElementById("registerModal")
-        .style.display = "block";
-    }
-}
-
-function closeModal(){
-
-    document.getElementById("modalBg")
-    .style.display = "none";
-}
-
-/* VIDEO AUTOPLAY */
 
 const video = document.getElementById("bg-video");
 

@@ -18,56 +18,56 @@
             box-sizing:border-box;
         }
 
-        body {
+        body{
 
-            min-height: 100vh;
+            min-height:100vh;
 
-            background: #000;
+            background:#000;
 
             overflow-x:hidden;
 
-            font-family: Arial, sans-serif;
+            font-family:Arial, sans-serif;
 
-            color: white;
+            color:white;
         }
 
         /* =========================
            VIDEO DE FONDO
         ========================== */
 
-        .video-background {
+        .video-background{
 
-            position: fixed;
+            position:fixed;
 
-            top: 0;
-            left: 0;
+            top:0;
+            left:0;
 
-            width: 100%;
-            height: 100%;
+            width:100%;
+            height:100%;
 
-            overflow: hidden;
+            overflow:hidden;
 
-            z-index: -2;
+            z-index:-2;
         }
 
-        .video-background video {
+        .video-background video{
 
-            width: 100%;
-            height: 100%;
+            width:100%;
+            height:100%;
 
-            object-fit: cover;
+            object-fit:cover;
 
-            animation: zoomVideo 20s linear infinite alternate;
+            animation:zoomVideo 20s linear infinite alternate;
         }
 
-        @keyframes zoomVideo {
+        @keyframes zoomVideo{
 
-            from {
-                transform: scale(1);
+            from{
+                transform:scale(1);
             }
 
-            to {
-                transform: scale(1.08);
+            to{
+                transform:scale(1.08);
             }
         }
 
@@ -75,148 +75,148 @@
            OVERLAY OSCURO
         ========================== */
 
-        .overlay {
+        .overlay{
 
-            width: 100%;
-            min-height: 100vh;
+            width:100%;
+            min-height:100vh;
 
-            background: rgba(0,0,0,0.45);
+            background:rgba(0,0,0,0.45);
 
-            padding-top: 100px;
+            padding-top:100px;
 
-            position: relative;
+            position:relative;
 
-            z-index: 1;
+            z-index:1;
         }
 
         /* =========================
            NAVBAR
         ========================== */
 
-        .navbar {
+        .navbar{
 
-            width: 100%;
+            width:100%;
 
-            position: fixed;
+            position:fixed;
 
-            top: 0;
-            left: 0;
+            top:0;
+            left:0;
 
-            padding: 15px 10px;
+            padding:15px 10px;
 
-            backdrop-filter: blur(8px);
+            backdrop-filter:blur(8px);
 
-            background: rgba(0,0,0,0.30);
+            background:rgba(0,0,0,0.30);
 
-            z-index: 1000;
+            z-index:1000;
 
-            display: flex;
+            display:flex;
 
-            justify-content: space-between;
+            justify-content:space-between;
 
-            align-items: center;
+            align-items:center;
         }
 
-        .logo {
+        .logo{
 
-            font-size: 1.5rem;
+            font-size:1.5rem;
 
-            font-weight: bold;
+            font-weight:bold;
 
-            color: #9fff55;
+            color:#9fff55;
         }
 
-        .navbar-links {
+        .navbar-links{
 
-            display: flex;
+            display:flex;
 
-            gap: 25px;
+            gap:25px;
 
-            padding-right: 20px;
+            padding-right:20px;
 
-            transition: 0.3s ease;
+            transition:0.3s ease;
 
-            align-items: center;
+            align-items:center;
         }
 
-        .navbar a {
+        .navbar a{
 
-            text-decoration: none;
+            text-decoration:none;
 
-            color: white;
+            color:white;
 
-            font-weight: 500;
+            font-weight:500;
 
-            cursor: pointer;
+            cursor:pointer;
         }
 
-        .navbar a:hover {
+        .navbar a:hover{
 
-            color: #9fff55;
+            color:#9fff55;
         }
 
-        #userName {
+        #userName{
 
-            color: #9fff55;
+            color:#9fff55;
 
-            font-weight: bold;
+            font-weight:bold;
         }
 
         /* =========================
            MENÚ HAMBURGUESA
         ========================== */
 
-        .hamburger {
+        .hamburger{
 
-            display: none;
+            display:none;
 
-            flex-direction: column;
+            flex-direction:column;
 
-            cursor: pointer;
+            cursor:pointer;
 
-            gap: 5px;
+            gap:5px;
         }
 
-        .hamburger span {
+        .hamburger span{
 
-            width: 28px;
-            height: 3px;
+            width:28px;
+            height:3px;
 
-            background: white;
+            background:white;
 
-            border-radius: 3px;
+            border-radius:3px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width:900px){
 
-            .navbar-links {
+            .navbar-links{
 
-                display: none;
+                display:none;
 
-                position: absolute;
+                position:absolute;
 
-                top: 60px;
-                right: 10px;
+                top:60px;
+                right:10px;
 
-                background: rgba(0,0,0,0.90);
+                background:rgba(0,0,0,0.90);
 
-                flex-direction: column;
+                flex-direction:column;
 
-                padding: 15px 20px;
+                padding:15px 20px;
 
-                border-radius: 10px;
+                border-radius:10px;
 
-                gap: 15px;
+                gap:15px;
             }
 
-            .navbar-links.show {
+            .navbar-links.show{
 
-                display: flex;
+                display:flex;
             }
 
-            .hamburger {
+            .hamburger{
 
-                display: flex;
+                display:flex;
             }
         }
 
@@ -224,153 +224,153 @@
            CONTENIDO PRIVADO
         ========================== */
 
-        #privateContent {
+        #privateContent{
 
-            display: none;
+            display:none;
 
-            text-align: center;
+            text-align:center;
 
-            padding-top: 80px;
+            padding-top:80px;
 
-            font-size: 2rem;
+            font-size:2rem;
 
-            color: #9fff55;
+            color:#9fff55;
         }
 
         /* =========================
            MODAL LOGIN
         ========================== */
 
-        .modal-bg {
+        .modal-bg{
 
-            display: none;
+            display:none;
 
-            position: fixed;
+            position:fixed;
 
-            top: 0;
-            left: 0;
+            top:0;
+            left:0;
 
-            width: 100%;
-            height: 100%;
+            width:100%;
+            height:100%;
 
-            background: rgba(0,0,0,0.75);
+            background:rgba(0,0,0,0.75);
 
-            justify-content: center;
+            justify-content:center;
 
-            align-items: center;
+            align-items:center;
 
-            z-index: 2000;
+            z-index:2000;
         }
 
-        .modal {
+        .modal{
 
-            background: #111;
+            background:#111;
 
-            padding: 25px 30px;
+            padding:25px 30px;
 
-            border-radius: 12px;
+            border-radius:12px;
 
-            width: 90%;
-            max-width: 350px;
+            width:90%;
+            max-width:350px;
 
-            text-align: center;
+            text-align:center;
 
-            border: 1px solid #9fff55;
+            border:1px solid #9fff55;
 
-            box-shadow: 0 0 20px rgba(159,255,85,0.4);
+            box-shadow:0 0 20px rgba(159,255,85,0.4);
 
-            position: relative;
+            position:relative;
 
-            animation: fadeIn 0.2s ease-out;
+            animation:fadeIn 0.2s ease-out;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeIn{
 
-            from {
-                transform: scale(0.85);
-                opacity: 0;
+            from{
+                transform:scale(0.85);
+                opacity:0;
             }
 
-            to {
-                transform: scale(1);
-                opacity: 1;
+            to{
+                transform:scale(1);
+                opacity:1;
             }
         }
 
-        .close-x {
+        .close-x{
 
-            position: absolute;
+            position:absolute;
 
-            top: 8px;
-            right: 10px;
+            top:8px;
+            right:10px;
 
-            font-size: 1.3rem;
+            font-size:1.3rem;
 
-            cursor: pointer;
+            cursor:pointer;
 
-            color: #bbb;
+            color:#bbb;
         }
 
-        .close-x:hover {
+        .close-x:hover{
 
-            color: white;
+            color:white;
         }
 
-        .modal h2 {
+        .modal h2{
 
-            margin: 0 0 15px;
+            margin:0 0 15px;
 
-            color: #9fff55;
+            color:#9fff55;
         }
 
-        .modal input {
+        .modal input{
 
-            width: 100%;
+            width:100%;
 
-            padding: 10px;
+            padding:10px;
 
-            margin: 8px 0;
+            margin:8px 0;
 
-            border: none;
+            border:none;
 
-            border-radius: 5px;
+            border-radius:5px;
 
-            box-sizing: border-box;
+            box-sizing:border-box;
         }
 
-        .modal button {
+        .modal button{
 
-            width: 100%;
+            width:100%;
 
-            margin-top: 12px;
+            margin-top:12px;
 
-            padding: 10px;
+            padding:10px;
 
-            background: #9fff55;
+            background:#9fff55;
 
-            border: none;
+            border:none;
 
-            font-weight: bold;
+            font-weight:bold;
 
-            cursor: pointer;
+            cursor:pointer;
 
-            border-radius: 5px;
+            border-radius:5px;
         }
 
-        .modal .link {
+        .modal .link{
 
-            margin-top: 10px;
+            margin-top:10px;
 
-            color: #9fff55;
+            color:#9fff55;
 
-            cursor: pointer;
+            cursor:pointer;
 
-            font-size: 0.9rem;
+            font-size:0.9rem;
         }
 
-        .modal .link:hover {
+        .modal .link:hover{
 
-            text-decoration: underline;
+            text-decoration:underline;
         }
 
     </style>
@@ -384,9 +384,11 @@
 
     <div class="video-background">
 
-        <video autoplay muted loop playsinline>
+        <video id="bg-video" autoplay muted loop playsinline>
 
-            <source src="video.mov" type="video/mp4">
+            <source src="canavid.mp4" type="video/mp4">
+
+            Tu navegador no soporta videos HTML5.
 
         </video>
 
@@ -440,8 +442,6 @@
     ========================== -->
 
     <div class="overlay">
-
-        <!-- CONTENIDO PRIVADO -->
 
         <div id="privateContent">
             Bienvenido al área privada de CannaCore
@@ -665,6 +665,10 @@
 
             const provider = new GoogleAuthProvider();
 
+            provider.setCustomParameters({
+                prompt: "select_account"
+            });
+
             signInWithPopup(auth, provider)
 
             .then(() => {
@@ -768,6 +772,16 @@
 
             document.getElementById("modalBg").style.display = "none";
         }
+
+        /* FORZAR AUTOPLAY */
+
+        const video = document.getElementById("bg-video");
+
+        video.play().catch(function(error){
+
+            console.log("Autoplay bloqueado:", error);
+
+        });
 
     </script>
 

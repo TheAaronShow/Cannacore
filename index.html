@@ -27,13 +27,13 @@
             position: fixed;
             top: 0;
             left: 0;
-            padding: 15px 10px; /* ← AQUI SE AJUSTA EL ESPACIO DE AMBOS LADOS */
+            padding: 15px 10px;
             backdrop-filter: blur(8px);
             background: rgba(0, 0, 0, 0.30);
             z-index: 1000;
 
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -43,10 +43,11 @@
             color: #9fff55;
         }
 
+        /* Links del menú (DESKTOP) */
         .navbar-links {
             display: flex;
             gap: 25px;
-            padding-right: 20px; /* ← MUEVE EL MENÚ MÁS A LA IZQUIERDA */
+            padding-right: 20px;
         }
 
         .navbar a {
@@ -57,6 +58,47 @@
 
         .navbar a:hover {
             color: #9fff55;
+        }
+
+        /* Botón hamburguesa (solo móvil) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding-right: 15px;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 28px;
+            background: white;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        /* MENÚ MÓVIL oculto */
+        @media (max-width: 768px) {
+            .navbar-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(4px);
+                width: 180px;
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+                display: none; /* oculto por defecto */
+            }
+
+            .navbar-links.active {
+                display: flex; /* mostrar cuando se activa */
+            }
+
+            .hamburger {
+                display: flex;
+            }
         }
 
         /* Zona central */
@@ -102,8 +144,15 @@
         <!-- IZQUIERDA -->
         <div class="logo">CANNA CORE</div>
 
-        <!-- DERECHA -->
-        <div class="navbar-links">
+        <!-- BOTÓN HAMBURGUESA MÓVIL -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- MENÚ -->
+        <div class="navbar-links" id="navLinks">
             <a href="#">Inicio</a>
             <a href="#">Servicios</a>
             <a href="#">Nosotros</a>
@@ -122,6 +171,12 @@
             </p>
         </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>

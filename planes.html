@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CannaCore - Planes</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    overflow-x:hidden;
+
+    background:#000;
+
+    color:white;
+}
+
+/* =========================
+   VIDEO FONDO
+========================= */
+
+.video-background{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    z-index:-2;
+}
+
+.video-background video{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay{
+
+    width:100%;
+    min-height:100vh;
+
+    background:rgba(0,0,0,0.70);
+
+    position:relative;
+
+    z-index:1;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+
+    width:100%;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    padding:18px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    backdrop-filter:blur(10px);
+
+    background:rgba(0,0,0,0.25);
+
+    z-index:1000;
+}
+
+.logo{
+
+    font-size:1.5rem;
+
+    font-weight:900;
+
+    color:#c6ff00;
+}
+
+.navbar-links{
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:center;
+}
+
+.navbar a{
+
+    text-decoration:none;
+
+    color:white;
+
+    transition:0.3s;
+}
+
+.navbar a:hover{
+
+    color:#c6ff00;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    padding-top:150px;
+
+    padding-bottom:80px;
+
+    text-align:center;
+}
+
+.hero h1{
+
+    font-size:5rem;
+
+    font-weight:900;
+
+    color:#c6ff00;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+    color:#ddd;
+}
+
+/* =========================
+   PLANES
+========================= */
+
+.plans-container{
+
+    width:100%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.plan-card{
+
+    background:rgba(0,0,0,0.55);
+
+    border:1px solid rgba(198,255,0,0.20);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:0.4s;
+
+    position:relative;
+}
+
+.plan-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#c6ff00;
+
+    box-shadow:0 0 25px rgba(198,255,0,0.20);
+}
+
+/* =========================
+   TOP
+========================= */
+
+.plan-top{
+
+    padding:30px;
+}
+
+.plan-tag{
+
+    color:#c6ff00;
+
+    font-size:0.8rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+}
+
+.plan-title{
+
+    font-size:2.8rem;
+
+    font-weight:900;
+
+    margin-bottom:10px;
+}
+
+.plan-price{
+
+    font-size:4rem;
+
+    font-weight:900;
+
+    color:#c6ff00;
+
+    margin-bottom:5px;
+}
+
+.plan-sub{
+
+    color:#999;
+
+    margin-bottom:20px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+
+    padding:0 30px 30px;
+}
+
+.feature{
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+
+    color:#ddd;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.plan-btn{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    background:#c6ff00;
+
+    color:#000;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.plan-btn:hover{
+
+    background:white;
+}
+
+/* =========================
+   FEATURED
+========================= */
+
+.featured{
+
+    border:2px solid #c6ff00;
+
+    transform:scale(1.03);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .hero h1{
+
+        font-size:3rem;
+    }
+
+    .plans-container{
+
+        padding:20px;
+    }
+
+    .navbar-links{
+
+        display:none;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- VIDEO -->
+
+<div class="video-background">
+
+    <video autoplay muted loop playsinline>
+
+        <source src="canavid.mp4" type="video/mp4">
+
+    </video>
+
+</div>
+
+<!-- OVERLAY -->
+
+<div class="overlay">
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            CANNA CORE
+        </div>
+
+        <div class="navbar-links">
+
+            <a href="index.html">Inicio</a>
+            <a href="planes.html">Planes</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+
+        </div>
+
+    </div>
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <h1>
+            PLANES DE CULTIVO
+        </h1>
+
+        <p>
+
+            Accede a infraestructura agrícola regulada,
+            genética certificada y conexión directa con
+            mercados internacionales.
+
+        </p>
+
+    </div>
+
+    <!-- PLANES -->
+
+    <div class="plans-container">
+
+        <!-- PLAN 1 -->
+
+        <div class="plan-card">
+
+            <div class="plan-top">
+
+                <div class="plan-tag">
+                    PLAN BÁSICO
+                </div>
+
+                <div class="plan-title">
+                    START
+                </div>
+
+                <div class="plan-price">
+                    5
+                </div>
+
+                <div class="plan-sub">
+                    Plantas iniciales
+                </div>
+
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    ✔ Genética certificada
+                </div>
+
+                <div class="feature">
+                    ✔ Acompañamiento básico
+                </div>
+
+                <div class="feature">
+                    ✔ Integración legal
+                </div>
+
+            </div>
+
+            <button class="plan-btn">
+                Seleccionar
+            </button>
+
+        </div>
+
+        <!-- PLAN 2 -->
+
+        <div class="plan-card featured">
+
+            <div class="plan-top">
+
+                <div class="plan-tag">
+                    MÁS POPULAR
+                </div>
+
+                <div class="plan-title">
+                    PRO
+                </div>
+
+                <div class="plan-price">
+                    25
+                </div>
+
+                <div class="plan-sub">
+                    Producción escalable
+                </div>
+
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    ✔ Soporte premium
+                </div>
+
+                <div class="feature">
+                    ✔ Acceso a mercado
+                </div>
+
+                <div class="feature">
+                    ✔ Producción certificada
+                </div>
+
+                <div class="feature">
+                    ✔ Asesoría estratégica
+                </div>
+
+            </div>
+
+            <button class="plan-btn">
+                Seleccionar
+            </button>
+
+        </div>
+
+        <!-- PLAN 3 -->
+
+        <div class="plan-card">
+
+            <div class="plan-top">
+
+                <div class="plan-tag">
+                    EMPRESARIAL
+                </div>
+
+                <div class="plan-title">
+                    ELITE
+                </div>
+
+                <div class="plan-price">
+                    100
+                </div>
+
+                <div class="plan-sub">
+                    Producción industrial
+                </div>
+
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    ✔ Producción masiva
+                </div>
+
+                <div class="feature">
+                    ✔ Exportación global
+                </div>
+
+                <div class="feature">
+                    ✔ Infraestructura premium
+                </div>
+
+                <div class="feature">
+                    ✔ Equipo especializado
+                </div>
+
+            </div>
+
+            <button class="plan-btn">
+                Seleccionar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

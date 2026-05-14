@@ -107,7 +107,7 @@
             padding-top: 100px;
         }
 
-        /* POP-UP LOGIN */
+        /* POP-UP GENERAL */
         .modal-bg {
             display: none;
             position: fixed;
@@ -124,14 +124,36 @@
         .modal {
             background: #111;
             padding: 25px 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             width: 90%;
             max-width: 350px;
             text-align: center;
             border: 1px solid #9fff55;
             box-shadow: 0 0 20px rgba(159,255,85,0.4);
+            position: relative;
+            animation: fadeIn 0.2s ease-out;
         }
 
+        @keyframes fadeIn {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Botón X */
+        .close-x {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: #bbb;
+        }
+
+        .close-x:hover {
+            color: white;
+        }
+
+        /* Contenido modal */
         .modal h2 {
             margin: 0 0 15px;
             color: #9fff55;
@@ -156,15 +178,16 @@
             border-radius: 5px;
         }
 
-        .close-btn {
+        /* Links inferiores */
+        .modal .link {
             margin-top: 10px;
+            color: #9fff55;
             cursor: pointer;
-            color: #bbb;
             font-size: 0.9rem;
         }
 
-        .close-btn:hover {
-            color: white;
+        .modal .link:hover {
+            text-decoration: underline;
         }
 
     </style>
@@ -191,16 +214,20 @@
             <a href="#">Servicios</a>
             <a href="#">Nosotros</a>
             <a href="#">Contacto</a>
-            <a onclick="openLogin()">Iniciar sesión</a>
+            <a onclick="openModal('login')">Iniciar sesión</a>
         </div>
 
     </div>
 
     <div class="overlay"></div>
 
-    <!-- POP-UP LOGIN -->
-    <div class="modal-bg" id="loginModal">
-        <div class="modal">
+    <!-- MODAL GENERAL -->
+    <div class="modal-bg" id="modalBg">
+
+        <!-- LOGIN -->
+        <div class="modal" id="loginModal">
+            <div class="close-x" onclick="closeModal()">×</div>
+
             <h2>Iniciar sesión</h2>
 
             <input type="email" placeholder="Correo electrónico">
@@ -208,8 +235,38 @@
 
             <button>Entrar</button>
 
-            <div class="close-btn" onclick="closeLogin()">Cerrar</div>
+            <div class="link" onclick="openModal('recover')">¿Olvidaste tu contraseña?</div>
+            <div class="link" onclick="openModal('register')">Crear una cuenta</div>
         </div>
+
+        <!-- RECUPERAR CONTRASEÑA -->
+        <div class="modal" id="recoverModal" style="display:none;">
+            <div class="close-x" onclick="closeModal()">×</div>
+
+            <h2>Recuperar contraseña</h2>
+
+            <input type="email" placeholder="Ingresa tu correo">
+
+            <button>Enviar enlace</button>
+
+            <div class="link" onclick="openModal('login')">Volver a iniciar sesión</div>
+        </div>
+
+        <!-- REGISTRO -->
+        <div class="modal" id="registerModal" style="display:none;">
+            <div class="close-x" onclick="closeModal()">×</div>
+
+            <h2>Crear cuenta</h2>
+
+            <input type="text" placeholder="Nombre completo">
+            <input type="email" placeholder="Correo electrónico">
+            <input type="password" placeholder="Crear contraseña">
+
+            <button>Registrarse</button>
+
+            <div class="link" onclick="openModal('login')">Ya tengo cuenta</div>
+        </div>
+
     </div>
 
     <script>
@@ -217,12 +274,20 @@
             document.getElementById("menu").classList.toggle("show");
         }
 
-        function openLogin() {
-            document.getElementById("loginModal").style.display = "flex";
+        function openModal(type) {
+            document.getElementById("modalBg").style.display = "flex";
+
+            document.getElementById("loginModal").style.display = "none";
+            document.getElementById("recoverModal").style.display = "none";
+            document.getElementById("registerModal").style.display = "none";
+
+            if (type === "login") document.getElementById("loginModal").style.display = "block";
+            if (type === "recover") document.getElementById("recoverModal").style.display = "block";
+            if (type === "register") document.getElementById("registerModal").style.display = "block";
         }
 
-        function closeLogin() {
-            document.getElementById("loginModal").style.display = "none";
+        function closeModal() {
+            document.getElementById("modalBg").style.display = "none";
         }
     </script>
 

@@ -7,21 +7,56 @@
     <title>CannaCore - Inicio</title>
 
     <style>
-        /* Fondo de pantalla completo */
+        /* Fondo */
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url("fondoo.jpg"); /* ← Tu imagen */
+            background-image: url("fondoo.jpg");
             background-size: cover;
-            background-position: 90% center; /* 💚 Más centrada hacia la derecha */
+            background-position: 90% center; 
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: Arial, sans-serif;
             color: white;
         }
 
-        /* Capa oscura semitransparente para que el texto se lea mejor */
+        /* NAVBAR INTEGRADA */
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 15px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            backdrop-filter: blur(8px); /* 💚 efecto difuminado elegante */
+            background: rgba(0, 0, 0, 0.30); /* Semitransparente */
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #9fff55;
+        }
+
+        .navbar a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #9fff55;
+        }
+
+        /* Overlay del contenido principal */
         .overlay {
             width: 100%;
             height: 100%;
@@ -33,6 +68,7 @@
             padding: 20px;
         }
 
+        /* Textos */
         h1 {
             font-size: 3rem;
             margin-bottom: 10px;
@@ -53,6 +89,19 @@
 
 <body>
 
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">CANNA CORE</div>
+
+        <div>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="overlay">
         <div>
             <h1>CANNA CORE GROUP</h1>
@@ -62,6 +111,9 @@
             </p>
         </div>
     </div>
+
+</body>
+</html>
 
 </body>
 </html>

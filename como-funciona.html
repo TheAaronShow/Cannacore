@@ -53,91 +53,7 @@ body{
 }
 
 /* =========================
-NAVBAR NUEVA ESTÉTICA
-========================= */
-
-.navbar{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    padding:22px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    backdrop-filter:blur(8px);
-    background:rgba(0,0,0,0.20);
-    border-bottom:1px solid rgba(255,255,255,0.05);
-    z-index:1000;
-}
-
-.logo{
-    font-size:1.2rem;
-    font-weight:900;
-    color:#c6ff00;
-    letter-spacing:4px;
-}
-
-.navbar-links{
-    display:flex;
-    align-items:center;
-    gap:38px;
-}
-
-.navbar a{
-    text-decoration:none;
-    color:white;
-    font-family:'Arial Narrow',sans-serif;
-    font-size:0.72rem;
-    font-weight:700;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    cursor:pointer;
-    transition:0.3s;
-    opacity:0.88;
-}
-
-.navbar a:hover{
-    color:#c6ff00;
-    opacity:1;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-    .navbar{
-        padding:20px;
-    }
-
-    .navbar-links{
-        gap:20px;
-        flex-wrap:wrap;
-        justify-content:flex-end;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- VIDEO -->
-
-<div class="video-background">
-
-    <video autoplay muted loop playsinline>
-
-        <source src="canavid.mp4" type="video/mp4">
-
-    </video>
-
-</div>
-
-<!-- OVERLAY -->
-
-/* =========================
-NAVBAR INDEX STYLE
+NAVBAR
 ========================= */
 
 .navbar{
@@ -205,8 +121,234 @@ HAMBURGUESA
 }
 
 /* =========================
+HOW SECTION
+========================= */
+
+.how-section{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:180px 80px 100px;
+
+    display:grid;
+
+    grid-template-columns:1.1fr 0.9fr;
+
+    gap:80px;
+
+    align-items:start;
+}
+
+.how-left{
+
+    max-width:700px;
+}
+
+.how-subtitle{
+
+    color:#c6ff00;
+
+    font-size:0.72rem;
+
+    letter-spacing:6px;
+
+    margin-bottom:25px;
+}
+
+.how-left h1{
+
+    font-size:5.5rem;
+
+    line-height:0.92;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+    margin-bottom:35px;
+}
+
+.how-left h1 span{
+
+    color:#c6ff00;
+}
+
+.how-left p{
+
+    color:#d2d2d2;
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    max-width:620px;
+}
+
+/* =========================
+VALUE BOX
+========================= */
+
+.value-box{
+
+    background:rgba(0,0,0,0.55);
+
+    border:1px solid rgba(198,255,0,0.12);
+
+    padding:45px;
+
+    backdrop-filter:blur(8px);
+}
+
+.value-title{
+
+    color:#c6ff00;
+
+    letter-spacing:5px;
+
+    font-size:0.75rem;
+
+    margin-bottom:35px;
+
+    font-weight:700;
+}
+
+.value-item{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-bottom:28px;
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+
+    padding-bottom:20px;
+}
+
+.value-dot{
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:#c6ff00;
+
+    margin-top:5px;
+}
+
+.value-item strong{
+
+    display:block;
+
+    color:#c6ff00;
+
+    font-size:0.75rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:8px;
+}
+
+.value-item span{
+
+    color:#d8d8d8;
+
+    line-height:1.7;
+
+    font-size:0.95rem;
+}
+
+/* =========================
+BENEFITS
+========================= */
+
+.benefits-grid{
+
+    width:100%;
+
+    padding:0 80px 120px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+}
+
+.benefit-card{
+
+    background:rgba(0,0,0,0.45);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    padding:40px;
+
+    min-height:260px;
+
+    transition:0.3s;
+}
+
+.benefit-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(198,255,0,0.2);
+}
+
+.benefit-icon{
+
+    width:55px;
+    height:55px;
+
+    background:#161b10;
+
+    color:#c6ff00;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:28px;
+
+    font-size:1.3rem;
+}
+
+.benefit-card h3{
+
+    font-size:1.4rem;
+
+    margin-bottom:18px;
+
+    font-weight:900;
+}
+
+.benefit-card p{
+
+    color:#cfcfcf;
+
+    line-height:1.9;
+}
+
+/* =========================
 RESPONSIVE
 ========================= */
+
+@media(max-width:1200px){
+
+    .how-section{
+
+        grid-template-columns:1fr;
+    }
+
+    .benefits-grid{
+
+        grid-template-columns:1fr 1fr;
+    }
+}
 
 @media(max-width:900px){
 
@@ -240,8 +382,292 @@ RESPONSIVE
     .navbar{
         padding:20px;
     }
+
+    .how-section{
+
+        padding:150px 25px 80px;
+    }
+
+    .how-left h1{
+
+        font-size:3.2rem;
+    }
+
+    .benefits-grid{
+
+        padding:0 25px 100px;
+
+        grid-template-columns:1fr;
+    }
+
+    .value-box{
+
+        padding:30px;
+    }
 }
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+
+<div class="video-background">
+
+    <video autoplay muted loop playsinline>
+
+        <source src="canavid.mp4" type="video/mp4">
+
+    </video>
+
 </div>
+
+<!-- OVERLAY -->
+
+<div class="overlay">
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            CANNA CORE
+        </div>
+
+        <!-- HAMBURGUESA -->
+
+        <div class="hamburger" onclick="toggleMenu()">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <!-- LINKS -->
+
+        <div class="navbar-links" id="menu">
+
+            <a href="index.html">EL MODELO</a>
+
+            <a href="planes.html">PLANES</a>
+
+            <a href="como-funciona.html">COMO FUNCIONA</a>
+
+            <a href="#">CONTACTO</a>
+
+        </div>
+
+    </div>
+
+    <!-- CONTENIDO -->
+
+    <section class="how-section">
+
+        <!-- TEXTO -->
+
+        <div class="how-left">
+
+            <div class="how-subtitle">
+                — EL MODELO
+            </div>
+
+            <h1>
+
+                NO VENDEMOS PLANTAS.<br>
+
+                <span>VENDEMOS ACCESO AL</span><br>
+
+                MERCADO GLOBAL.
+
+            </h1>
+
+            <p>
+
+                Cannacore es la infraestructura que conecta cultivadores
+                colombianos con compradores internacionales certificados
+                en Europa, Australia e Israel.
+
+            </p>
+
+        </div>
+
+        <!-- VALUE BOX -->
+
+        <div class="value-box">
+
+            <div class="value-title">
+                LA CADENA DE VALOR
+            </div>
+
+            <div class="value-item">
+
+                <div class="value-dot"></div>
+
+                <div>
+
+                    <strong>GENÉTICA</strong>
+
+                    <span>
+                        Cannacore desarrolla y suministra variedades certificadas
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="value-item">
+
+                <div class="value-dot"></div>
+
+                <div>
+
+                    <strong>LICENCIA</strong>
+
+                    <span>
+                        Produces bajo el amparo legal de Cannacore
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="value-item">
+
+                <div class="value-dot"></div>
+
+                <div>
+
+                    <strong>PRODUCCIÓN</strong>
+
+                    <span>
+                        Protocolo técnico + acompañamiento permanente
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="value-item">
+
+                <div class="value-dot"></div>
+
+                <div>
+
+                    <strong>TRAZABILIDAD</strong>
+
+                    <span>
+                        Plataforma digital estándar GACP internacional
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="value-item">
+
+                <div class="value-dot"></div>
+
+                <div>
+
+                    <strong>EXPORTACIÓN</strong>
+
+                    <span>
+                        Cannacore compra, certifica y exporta tu cosecha
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BENEFICIOS -->
+
+    <section class="benefits-grid">
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">⬒</div>
+
+            <h3>LICENCIA PARAGUAS</h3>
+
+            <p>
+                No necesitas tu propia licencia.
+                Produces bajo nuestro amparo legal desde el primer ciclo.
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">◔</div>
+
+            <h3>GENÉTICA CERTIFICADA</h3>
+
+            <p>
+                Esquejes Cannacore seleccionados por rendimiento
+                y contenido cannabinoide.
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">⌂</div>
+
+            <h3>PRECIO GARANTIZADO</h3>
+
+            <p>
+                Precio fijo por contrato independiente del mercado spot.
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">▣</div>
+
+            <h3>TRAZABILIDAD DIGITAL</h3>
+
+            <p>
+                Seguimiento en tiempo real requerido por compradores internacionales.
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">★</div>
+
+            <h3>ACOMPAÑAMIENTO</h3>
+
+            <p>
+                Equipo técnico especializado durante cada etapa productiva.
+            </p>
+
+        </div>
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">◎</div>
+
+            <h3>MERCADO INTERNACIONAL</h3>
+
+            <p>
+                Tu producción llega a Europa, Australia e Israel.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- SCRIPT MENU -->
 
 <script>
 

@@ -322,17 +322,19 @@ body{
     font-size:0.98rem;
 }
 
+/* CICLO PRODUCTIVO + VIDEO */
+
 .production-section{
     width:100%;
-    padding:0 25px 90px;
+    padding:0 80px 120px;
 }
 
 .production-wrap{
     width:100%;
-    margin:0;
+    margin:0 auto;
     display:grid;
     grid-template-columns:1.15fr 0.85fr;
-    gap:18px;
+    gap:30px;
     align-items:stretch;
 }
 
@@ -344,7 +346,7 @@ body{
 }
 
 .production-header{
-    padding:34px 38px 28px;
+    padding:26px 30px 22px;
     border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
@@ -352,15 +354,15 @@ body{
     color:#c6ff00;
     font-size:0.65rem;
     letter-spacing:6px;
-    margin-bottom:16px;
+    margin-bottom:14px;
     font-weight:700;
 }
 
 .production-header h2{
-    font-size:3.2rem;
+    font-size:2.65rem;
     line-height:0.92;
     font-weight:900;
-    letter-spacing:-2px;
+    letter-spacing:-1px;
 }
 
 .production-header h2 span{
@@ -373,33 +375,33 @@ body{
 }
 
 .cycle-card{
-    min-height:205px;
-    padding:24px 24px 22px;
+    min-height:165px;
+    padding:18px 20px 16px;
     border-right:1px solid rgba(255,255,255,0.06);
     border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
 .cycle-number{
     color:#777;
-    font-size:0.62rem;
+    font-size:0.58rem;
     letter-spacing:4px;
-    margin-bottom:14px;
+    margin-bottom:10px;
 }
 
 .cycle-icon{
-    width:46px;
-    height:46px;
+    width:38px;
+    height:38px;
     background:#161b10;
     color:#c6ff00;
     display:flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:16px;
+    margin-bottom:12px;
 }
 
 .cycle-icon svg{
-    width:24px;
-    height:24px;
+    width:21px;
+    height:21px;
     stroke:currentColor;
     stroke-width:1.8;
     fill:none;
@@ -411,23 +413,23 @@ body{
     display:inline-block;
     background:#c6ff00;
     color:#000;
-    font-size:0.62rem;
+    font-size:0.58rem;
     letter-spacing:3px;
     font-weight:900;
-    padding:6px 9px;
-    margin-bottom:14px;
+    padding:5px 8px;
+    margin-bottom:10px;
 }
 
 .cycle-card h3{
-    font-size:1.05rem;
+    font-size:0.98rem;
     font-weight:900;
-    margin-bottom:9px;
+    margin-bottom:7px;
 }
 
 .cycle-card p{
     color:#cfcfcf;
-    font-size:0.82rem;
-    line-height:1.55;
+    font-size:0.78rem;
+    line-height:1.45;
 }
 
 .cycle-card.featured-cycle{
@@ -442,7 +444,7 @@ body{
 }
 
 .stat-box{
-    padding:24px 18px;
+    padding:18px 16px;
     text-align:center;
     border-right:1px solid rgba(255,255,255,0.06);
 }
@@ -452,11 +454,11 @@ body{
 }
 
 .stat-value{
-    font-size:2.45rem;
+    font-size:2.15rem;
     line-height:1;
     font-weight:900;
     color:white;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .stat-value.green{
@@ -464,12 +466,12 @@ body{
 }
 
 .stat-small{
-    font-size:0.9rem;
+    font-size:0.82rem;
 }
 
 .stat-label{
     color:#8f9685;
-    font-size:0.55rem;
+    font-size:0.5rem;
     letter-spacing:3px;
 }
 
@@ -477,7 +479,7 @@ body{
     background:transparent;
     border:none;
     display:flex;
-    align-items:center;
+    align-items:stretch;
     justify-content:center;
     overflow:hidden;
 }
@@ -485,7 +487,6 @@ body{
 .production-video video{
     width:100%;
     height:100%;
-    max-height:640px;
     object-fit:cover;
     display:block;
     background:transparent;
@@ -502,6 +503,11 @@ body{
 
     .production-wrap{
         grid-template-columns:1fr;
+    }
+
+    .production-video video{
+        height:auto;
+        min-height:420px;
     }
 }
 
@@ -592,8 +598,8 @@ body{
     }
 
     .production-video video{
-        max-height:none;
         height:auto;
+        min-height:0;
     }
 }
 
@@ -799,35 +805,12 @@ body{
                 DE ENTRADA
             </h2>
 
-            <div class="compare-item">
-                <div class="compare-icon">✕</div>
-                <span>Licencia propia costosa y lenta de tramitar</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon">✕</div>
-                <span>Sin genética certificada para exportar</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon">✕</div>
-                <span>Sin contrato de compra garantizado</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon">✕</div>
-                <span>Sin acceso a compradores internacionales</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon">✕</div>
-                <span>Sin trazabilidad ni certificación GACP</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon">✕</div>
-                <span>Riesgo de operar en la informalidad</span>
-            </div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Licencia propia costosa y lenta de tramitar</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin genética certificada para exportar</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin contrato de compra garantizado</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin acceso a compradores internacionales</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin trazabilidad ni certificación GACP</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Riesgo de operar en la informalidad</span></div>
 
         </div>
 
@@ -842,35 +825,12 @@ body{
                 NUESTRA <span>LICENCIA.</span>
             </h2>
 
-            <div class="compare-item">
-                <div class="compare-icon green-icon">◉</div>
-                <span>Produces bajo nuestra licencia desde el día uno</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon green-icon">◉</div>
-                <span>Genética certificada Cannacore incluida</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon green-icon">◉</div>
-                <span>Contrato de compra a €2/g garantizado</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon green-icon">◉</div>
-                <span>Tu flor llega a Europa, Australia e Israel</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon green-icon">◉</div>
-                <span>Trazabilidad y auditoría en cada ciclo</span>
-            </div>
-
-            <div class="compare-item">
-                <div class="compare-icon green-icon">◉</div>
-                <span>Operación 100% legal y respaldada</span>
-            </div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Produces bajo nuestra licencia desde el día uno</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Genética certificada Cannacore incluida</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Contrato de compra a €2/g garantizado</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Tu flor llega a Europa, Australia e Israel</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Trazabilidad y auditoría en cada ciclo</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Operación 100% legal y respaldada</span></div>
 
         </div>
 
@@ -883,15 +843,8 @@ body{
             <div class="production-info">
 
                 <div class="production-header">
-
-                    <div class="production-subtitle">
-                        — EL CICLO PRODUCTIVO
-                    </div>
-
-                    <h2>
-                        DE LA SEMILLA A LA <span>EXPORTACIÓN.</span>
-                    </h2>
-
+                    <div class="production-subtitle">— EL CICLO PRODUCTIVO</div>
+                    <h2>DE LA SEMILLA A LA <span>EXPORTACIÓN.</span></h2>
                 </div>
 
                 <div class="cycle-grid">
@@ -992,7 +945,6 @@ body{
                 </div>
 
                 <div class="production-stats">
-
                     <div class="stat-box">
                         <div class="stat-value">4-5<span class="stat-small">M</span></div>
                         <div class="stat-label">MESES POR CICLO</div>
@@ -1007,17 +959,14 @@ body{
                         <div class="stat-value">150<span class="stat-small">G+</span></div>
                         <div class="stat-label">POR PLANTA</div>
                     </div>
-
                 </div>
 
             </div>
 
             <div class="production-video">
-
                 <video autoplay muted loop playsinline>
                     <source src="quiero_que_la_planta_sea_mas_a.mp4" type="video/mp4">
                 </video>
-
             </div>
 
         </div>
@@ -1036,6 +985,7 @@ function toggleMenu(){
 
 </body>
 </html>
+
 
 
 

@@ -1,1 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contacto | CannaCore</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+    background:#000;
+    color:white;
+}
+
+/* VIDEO */
+
+.video-background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.video-background video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* OVERLAY */
+
+.overlay{
+    width:100%;
+    min-height:100vh;
+    background:rgba(0,0,0,0.65);
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:22px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.20);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.2rem;
+    font-weight:900;
+    color:#c6ff00;
+    letter-spacing:4px;
+}
+
+.navbar-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:0.3s;
+    opacity:0.88;
+}
+
+.navbar a:hover{
+    color:#c6ff00;
+    opacity:1;
+}
+
+/* HAMBURGUESA */
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:28px;
+    height:2px;
+    background:white;
+    border-radius:3px;
+}
+
+/* =========================
+CONTACT HERO
+========================= */
+
+.contact-section{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:180px 80px 120px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+.contact-left{
+
+    max-width:700px;
+}
+
+.contact-subtitle{
+
+    color:#c6ff00;
+
+    font-size:0.72rem;
+
+    letter-spacing:7px;
+
+    margin-bottom:28px;
+
+    font-weight:700;
+}
+
+.contact-title{
+
+    font-size:6rem;
+
+    line-height:0.92;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+    margin-bottom:35px;
+}
+
+.contact-title span{
+
+    color:#c6ff00;
+}
+
+.contact-description{
+
+    color:#d2d2d2;
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    max-width:620px;
+}
+
+/* =========================
+CONTACT GRID
+========================= */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+}
+
+.contact-card{
+
+    background:rgba(0,0,0,0.45);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    padding:40px;
+
+    min-height:220px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:0.3s;
+
+    text-decoration:none;
+}
+
+.contact-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(198,255,0,0.2);
+
+    background:rgba(255,255,255,0.03);
+}
+
+.contact-icon{
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(198,255,0,0.18);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    color:#c6ff00;
+
+    font-size:1.6rem;
+
+    margin-bottom:30px;
+}
+
+.contact-card h3{
+
+    font-size:1.5rem;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+.contact-card p{
+
+    color:#d2d2d2;
+
+    line-height:1.8;
+
+    font-size:0.95rem;
+}
+
+.email-box{
+
+    margin-top:40px;
+
+    background:rgba(0,0,0,0.45);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    padding:35px;
+}
+
+.email-box h4{
+
+    color:#c6ff00;
+
+    letter-spacing:5px;
+
+    margin-bottom:20px;
+
+    font-size:0.75rem;
+}
+
+.email-box a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+}
+
+.email-box a:hover{
+
+    color:#c6ff00;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+    .contact-section{
+
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:900px){
+
+    .hamburger{
+        display:flex;
+    }
+
+    .navbar-links{
+        display:none;
+
+        position:absolute;
+
+        top:75px;
+        right:10px;
+
+        background:rgba(0,0,0,0.95);
+
+        flex-direction:column;
+
+        padding:20px;
+
+        border-radius:10px;
+
+        gap:20px;
+    }
+
+    .navbar-links.show{
+        display:flex;
+    }
+
+    .navbar{
+        padding:20px;
+    }
+
+    .contact-section{
+
+        padding:150px 25px 100px;
+    }
+
+    .contact-title{
+
+        font-size:3.8rem;
+    }
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+
+<div class="video-background">
+
+    <video autoplay muted loop playsinline>
+
+        <source src="canavid.mp4" type="video/mp4">
+
+    </video>
+
+</div>
+
+<!-- OVERLAY -->
+
+<div class="overlay">
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            CANNA CORE
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div class="navbar-links" id="menu">
+
+            <a href="index.html">EL MODELO</a>
+
+            <a href="planes.html">PLANES</a>
+
+            <a href="como-funciona.html">COMO FUNCIONA</a>
+
+            <a href="contacto.html">CONTACTO</a>
+
+        </div>
+
+    </div>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact-section">
+
+        <!-- LEFT -->
+
+        <div class="contact-left">
+
+            <div class="contact-subtitle">
+                EJE CAFETERO • COLOMBIA
+            </div>
+
+            <h1 class="contact-title">
+
+                HABLEMOS<br>
+
+                DEL <span>FUTURO.</span>
+
+            </h1>
+
+            <p class="contact-description">
+
+                Conecta con Cannacore a través de nuestras redes oficiales.
+                Nuestro equipo responde alianzas, membresías,
+                producción, inversión y soporte.
+
+            </p>
+
+            <!-- EMAIL -->
+
+            <div class="email-box">
+
+                <h4>
+                    CORREO OFICIAL
+                </h4>
+
+                <a href="mailto:cannacoregroup@gmail.com">
+
+                    cannacoregroup@gmail.com
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="contact-grid">
+
+            <!-- WHATSAPP -->
+
+            <a href="https://wa.me/"
+            target="_blank"
+            class="contact-card">
+
+                <div>
+
+                    <div class="contact-icon">
+                        ◉
+                    </div>
+
+                    <h3>WHATSAPP</h3>
+
+                    <p>
+                        Atención directa, soporte y contacto comercial.
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- INSTAGRAM -->
+
+            <a href="https://instagram.com/"
+            target="_blank"
+            class="contact-card">
+
+                <div>
+
+                    <div class="contact-icon">
+                        ◎
+                    </div>
+
+                    <h3>INSTAGRAM</h3>
+
+                    <p>
+                        Noticias, contenido visual y actualizaciones Cannacore.
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- FACEBOOK -->
+
+            <a href="https://facebook.com/"
+            target="_blank"
+            class="contact-card">
+
+                <div>
+
+                    <div class="contact-icon">
+                        ◌
+                    </div>
+
+                    <h3>FACEBOOK</h3>
+
+                    <p>
+                        Comunidad Cannacore y novedades del ecosistema.
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- EMAIL -->
+
+            <a href="mailto:cannacoregroup@gmail.com"
+            class="contact-card">
+
+                <div>
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <h3>EMAIL</h3>
+
+                    <p>
+                        cannacoregroup@gmail.com
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- MENU SCRIPT -->
+
+<script>
+
+function toggleMenu(){
+
+    document.getElementById("menu")
+    .classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>

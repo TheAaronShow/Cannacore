@@ -1,6 +1,3 @@
-# como-funciona.html
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,6 +43,8 @@ body{
     height:100%;
     object-fit:cover;
 }
+
+/* OVERLAY */
 
 .overlay{
     width:100%;
@@ -95,190 +94,12 @@ body{
     color:#c6ff00;
 }
 
-/* HERO */
-
-.hero{
-    width:100%;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding:140px 60px 100px;
-}
-
-.hero-content{
-    max-width:900px;
-}
-
-.hero-subtitle{
-    color:#c6ff00;
-    font-size:0.72rem;
-    letter-spacing:7px;
-    margin-bottom:28px;
-    font-weight:700;
-}
-
-.hero-title{
-    font-size:7rem;
-    line-height:0.9;
-    font-weight:900;
-    letter-spacing:-4px;
-    margin-bottom:35px;
-}
-
-.hero-title span{
-    color:#c6ff00;
-}
-
-.hero-description{
-    font-size:1.15rem;
-    line-height:1.9;
-    color:#d8d8d8;
-    max-width:700px;
-}
-
-/* STEPS */
-
-.steps-section{
-    width:100%;
-    padding:80px 60px 140px;
-}
-
-.steps-grid{
-    max-width:1450px;
-    margin:0 auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-}
-
-.step-card{
-    background:rgba(0,0,0,0.35);
-    border:1px solid rgba(255,255,255,0.05);
-    padding:45px;
-    min-height:340px;
-    transition:0.3s;
-}
-
-.step-card:hover{
-    background:rgba(255,255,255,0.03);
-}
-
-.featured{
-    background:rgba(198,255,0,0.08);
-}
-
-.step-number{
-    font-size:5rem;
-    font-weight:900;
-    color:#c6ff00;
-    margin-bottom:25px;
-}
-
-.step-title{
-    font-size:1.3rem;
-    font-weight:800;
-    margin-bottom:22px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-}
-
-.step-text{
-    color:#cfcfcf;
-    line-height:1.9;
-    font-size:1rem;
-}
-
-/* CTA */
-
-.cta-section{
-    width:100%;
-    padding:0 60px 140px;
-}
-
-.cta-box{
-    max-width:1400px;
-    margin:0 auto;
-    padding:70px;
-    background:rgba(198,255,0,0.08);
-    border:1px solid rgba(198,255,0,0.12);
-}
-
-.cta-box h2{
-    font-size:4.5rem;
-    line-height:0.95;
-    margin-bottom:25px;
-    font-weight:900;
-}
-
-.cta-box h2 span{
-    color:#c6ff00;
-}
-
-.cta-box p{
-    max-width:850px;
-    line-height:1.9;
-    color:#d8d8d8;
-    margin-bottom:35px;
-}
-
-.cta-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    background:#c6ff00;
-    color:#000;
-    padding:18px 40px;
-    text-decoration:none;
-    font-size:0.78rem;
-    font-weight:800;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    border-radius:4px;
-}
-
 /* RESPONSIVE */
-
-@media(max-width:1200px){
-
-    .steps-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .hero-title{
-        font-size:5rem;
-    }
-}
 
 @media(max-width:900px){
 
     .navbar-links{
         gap:20px;
-    }
-
-    .hero{
-        padding:140px 25px 80px;
-    }
-
-    .steps-section,
-    .cta-section{
-        padding-left:25px;
-        padding-right:25px;
-    }
-
-    .hero-title{
-        font-size:3.8rem;
-        line-height:0.95;
-    }
-
-    .steps-grid{
-        grid-template-columns:1fr;
-    }
-
-    .cta-box{
-        padding:40px 30px;
-    }
-
-    .cta-box h2{
-        font-size:3rem;
     }
 }
 
@@ -299,6 +120,8 @@ body{
 
 </div>
 
+<!-- OVERLAY -->
+
 <div class="overlay">
 
     <!-- NAVBAR -->
@@ -312,159 +135,18 @@ body{
         <div class="navbar-links">
 
             <a href="index.html">Inicio</a>
+
             <a href="planes.html">Planes</a>
+
             <a href="como-funciona.html">Cómo Empezar</a>
+
             <a href="#">Impacto</a>
 
         </div>
 
     </div>
 
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <div class="hero-subtitle">
-                — CANNACORE GROWER NETWORK
-            </div>
-
-            <h1 class="hero-title">
-
-                CÓMO<br>
-                FUNCIONA<br>
-                <span>EL MODELO.</span>
-
-            </h1>
-
-            <p class="hero-description">
-
-                Integramos cultivadores a una infraestructura agrícola legal,
-                tecnológica y comercial diseñada para conectar producción
-                certificada con mercados internacionales de alto valor.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- STEPS -->
-
-    <section class="steps-section">
-
-        <div class="steps-grid">
-
-            <div class="step-card featured">
-
-                <div class="step-number">01</div>
-
-                <div class="step-title">
-                    Registro
-                </div>
-
-                <div class="step-text">
-                    El cultivador se integra a la red CannaCore mediante un proceso de validación, acompañamiento y creación de perfil productivo.
-                </div>
-
-            </div>
-
-            <div class="step-card">
-
-                <div class="step-number">02</div>
-
-                <div class="step-title">
-                    Producción
-                </div>
-
-                <div class="step-text">
-                    Acceso a genética certificada, protocolos de cultivo, trazabilidad y seguimiento técnico especializado.
-                </div>
-
-            </div>
-
-            <div class="step-card featured">
-
-                <div class="step-number">03</div>
-
-                <div class="step-title">
-                    Procesamiento
-                </div>
-
-                <div class="step-text">
-                    Integración con infraestructura regulada para secado, clasificación, control de calidad y preparación comercial.
-                </div>
-
-            </div>
-
-            <div class="step-card">
-
-                <div class="step-number">04</div>
-
-                <div class="step-title">
-                    Comercialización
-                </div>
-
-                <div class="step-text">
-                    Conectamos la producción con mercados internacionales mediante contratos, exportación y compra garantizada.
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CTA -->
-
-    <section class="cta-section">
-
-        <div class="cta-box">
-
-            <h2>
-                CULTIVA CON<br>
-                <span>RESPALDO REAL.</span>
-            </h2>
-
-            <p>
-                CannaCore crea una infraestructura agrícola diseñada para reducir riesgo, aumentar competitividad y permitir que productores locales accedan a un mercado global regulado.
-            </p>
-
-            <a href="planes.html" class="cta-button">
-                Ver Planes →
-            </a>
-
-        </div>
-
-    </section>
-
 </div>
 
 </body>
 </html>
-```
-
----
-
-# EN TU INDEX.HTML
-
-Busca este botón:
-
-```html
-<button class="btn-secondary">
-    Cómo funciona
-</button>
-```
-
-Y reemplázalo por:
-
-```html
-<a href="como-funciona.html">
-
-    <button class="btn-secondary">
-        Cómo funciona
-    </button>
-
-</a>
-```

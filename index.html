@@ -94,16 +94,13 @@ body{
 .navbar-links{
     display:flex;
     align-items:center;
-    gap:42px;
+    gap:25px;
 }
 
 .navbar a{
     text-decoration:none;
     color:white;
-    font-weight:600;
-    font-size:0.78rem;
-    letter-spacing:5px;
-    text-transform:uppercase;
+    font-weight:500;
     cursor:pointer;
     transition:0.3s;
 }
@@ -115,52 +112,6 @@ body{
 #userName{
     color:#c6ff00;
     font-weight:bold;
-}
-
-/* =========================
-   LOGIN BUTTON
-========================= */
-
-#loginBtn{
-
-    background:#c6ff00;
-
-    color:#000 !important;
-
-    padding:14px 34px;
-
-    border-radius:4px;
-
-    font-size:0.72rem;
-
-    font-weight:800;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:0.3s ease;
-
-    border:none;
-
-    min-width:190px;
-
-    height:52px;
-}
-
-#loginBtn:hover{
-
-    transform:translateY(-2px);
-
-    background:#d7ff4d;
-
-    color:#000 !important;
 }
 
 /* =========================
@@ -456,10 +407,6 @@ body{
         display:flex;
     }
 
-    #loginBtn{
-        width:100%;
-    }
-
     .hero-content{
         padding:140px 25px 100px;
     }
@@ -501,7 +448,7 @@ body{
 
 <div class="video-background">
 
-    <video autoplay muted loop playsinline>
+    <video id="bg-video" autoplay muted loop playsinline>
 
         <source src="canavid.mp4" type="video/mp4">
 
@@ -509,55 +456,49 @@ body{
 
 </div>
 
-<!-- OVERLAY -->
+<!-- NAVBAR -->
 
-<div class="overlay">
+<div class="navbar">
 
-    <!-- NAVBAR -->
+    <div class="logo">
+        CANNA CORE
+    </div>
 
-    <div class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
 
-        <div class="logo">
-            CANNA CORE
-        </div>
-
-        <div class="hamburger" onclick="toggleMenu()">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
-        <div class="navbar-links" id="menu">
-
-            <a href="index.html">Inicio</a>
-
-            <a href="planes.html">Planes</a>
-
-            <a href="como-funciona.html">Cómo Empezar</a>
-
-            <a href="#">Impacto</a>
-
-            <span id="userName"></span>
-
-            <a id="loginBtn" onclick="openModal('login')">
-
-                INICIAR SESIÓN
-
-            </a>
-
-            <a id="logoutBtn" onclick="logout()" style="display:none;">
-
-                CERRAR SESIÓN
-
-            </a>
-
-        </div>
+        <span></span>
+        <span></span>
+        <span></span>
 
     </div>
 
-    <!-- HERO -->
+    <div class="navbar-links" id="menu">
+
+        <a href="index.html">Inicio</a>
+
+        <a href="planes.html">Planes</a>
+
+        <a href="#">Cómo funciona</a>
+
+        <a href="#">Contacto</a>
+
+        <span id="userName"></span>
+
+        <a id="loginBtn" onclick="openModal('login')">
+            Iniciar sesión
+        </a>
+
+        <a id="logoutBtn" onclick="logout()" style="display:none;">
+            Cerrar sesión
+        </a>
+
+    </div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="overlay">
 
     <div class="hero-content">
 
@@ -592,19 +533,415 @@ body{
 
             </a>
 
-            <a href="como-funciona.html">
-
-                <button class="btn-secondary">
-                    Cómo funciona
-                </button>
-
-            </a>
+            <button class="btn-secondary">
+                Cómo funciona
+            </button>
 
         </div>
 
     </div>
 
+    <!-- MARKET SECTION -->
+
+    <section class="market-section">
+
+        <div class="market-header">
+
+            <div class="market-subtitle">
+                — EL MERCADO
+            </div>
+
+            <h2>
+
+                COLOMBIA TIENE LO QUE<br>
+
+                EL MUNDO <span>NECESITA.</span>
+
+            </h2>
+
+        </div>
+
+        <div class="market-grid">
+
+            <div class="market-card featured-card">
+
+                <div class="market-icon">⌂</div>
+
+                <div class="market-number">$70B</div>
+
+                <div class="market-label">
+                    MERCADO GLOBAL 2030
+                </div>
+
+                <p>
+                    Cannabis medicinal: CAGR 14–18% anual.
+                    La industria de mayor crecimiento regulado del siglo XXI.
+                </p>
+
+            </div>
+
+            <div class="market-card">
+
+                <div class="market-icon">◔</div>
+
+                <div class="market-number">60%</div>
+
+                <div class="market-label">
+                    MENOR COSTO VS CANADÁ
+                </div>
+
+                <p>
+                    Colombia produce cannabis certificado
+                    a fracción del costo de países competidores.
+                </p>
+
+            </div>
+
+            <div class="market-card featured-card">
+
+                <div class="market-icon">▢</div>
+
+                <div class="market-number">18–24°</div>
+
+                <div class="market-label">
+                    EJE CAFETERO
+                </div>
+
+                <p>
+                    Temperatura ideal todo el año.
+                    Biodiversidad y cultura agrícola generacional.
+                </p>
+
+            </div>
+
+            <div class="market-card">
+
+                <div class="market-icon">⛨</div>
+
+                <div class="market-number">2016</div>
+
+                <div class="market-label">
+                    MARCO LEGAL COLOMBIA
+                </div>
+
+                <p>
+                    Ley 1787 pionera en LatAm.
+                    Exportación a Europa, Australia e Israel.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
+
+<!-- MODAL FIREBASE -->
+
+<div class="modal-bg" id="modalBg">
+
+    <!-- LOGIN -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Iniciar sesión</h2>
+
+        <input id="loginEmail" type="email" placeholder="Correo electrónico">
+
+        <input id="loginPass" type="password" placeholder="Contraseña">
+
+        <button onclick="login()">
+            Entrar
+        </button>
+
+        <button onclick="googleLogin()">
+            Entrar con Google
+        </button>
+
+        <div class="link" onclick="openModal('recover')">
+            ¿Olvidaste tu contraseña?
+        </div>
+
+        <div class="link" onclick="openModal('register')">
+            Crear una cuenta
+        </div>
+
+    </div>
+
+    <!-- RECOVER -->
+
+    <div class="modal" id="recoverModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Recuperar contraseña</h2>
+
+        <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
+
+        <button onclick="recover()">
+            Enviar enlace
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Volver a iniciar sesión
+        </div>
+
+    </div>
+
+    <!-- REGISTER -->
+
+    <div class="modal" id="registerModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Crear cuenta</h2>
+
+        <input id="registerName" type="text" placeholder="Nombre completo">
+
+        <input id="registerEmail" type="email" placeholder="Correo electrónico">
+
+        <input id="registerPass" type="password" placeholder="Crear contraseña">
+
+        <button onclick="register()">
+            Registrarse
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Ya tengo cuenta
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    onAuthStateChanged,
+    updateProfile,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
+
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
+
+    authDomain: "cannacore-web.firebaseapp.com",
+
+    projectId: "cannacore-web",
+
+    storageBucket: "cannacore-web.firebasestorage.app",
+
+    messagingSenderId: "648812089616",
+
+    appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+/* LOGIN */
+
+window.login = function(){
+
+    const email =
+    document.getElementById("loginEmail").value;
+
+    const pass =
+    document.getElementById("loginPass").value;
+
+    signInWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        closeModal();
+
+        alert("Bienvenido!");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* REGISTER */
+
+window.register = function(){
+
+    const name =
+    document.getElementById("registerName").value;
+
+    const email =
+    document.getElementById("registerEmail").value;
+
+    const pass =
+    document.getElementById("registerPass").value;
+
+    createUserWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        updateProfile(auth.currentUser,{
+            displayName:name
+        });
+
+        alert("Cuenta creada exitosamente");
+
+        openModal("login");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* RECOVER */
+
+window.recover = function(){
+
+    const email =
+    document.getElementById("recoverEmail").value;
+
+    sendPasswordResetEmail(auth,email)
+
+    .then(()=>{
+
+        alert("Se envió un enlace");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* GOOGLE LOGIN */
+
+window.googleLogin = function(){
+
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth,provider)
+
+    .then(()=>{
+
+        closeModal();
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+/* DETECT SESSION */
+
+onAuthStateChanged(auth,(user)=>{
+
+    const loginBtn =
+    document.getElementById("loginBtn");
+
+    const logoutBtn =
+    document.getElementById("logoutBtn");
+
+    const userName =
+    document.getElementById("userName");
+
+    if(user){
+
+        userName.innerHTML =
+        user.displayName || user.email;
+
+        loginBtn.style.display = "none";
+
+        logoutBtn.style.display = "inline-block";
+
+    }else{
+
+        userName.innerHTML = "";
+
+        loginBtn.style.display = "inline-block";
+
+        logoutBtn.style.display = "none";
+    }
+});
+
+/* LOGOUT */
+
+window.logout = function(){
+
+    signOut(auth)
+
+    .then(()=>{
+
+        alert("Sesión cerrada");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+</script>
+
+<!-- FUNCIONES -->
+
+<script>
+
+function toggleMenu(){
+
+    document.getElementById("menu")
+    .classList.toggle("show");
+}
+
+function openModal(type){
+
+    document.getElementById("modalBg")
+    .style.display = "flex";
+
+    document.getElementById("loginModal")
+    .style.display = "none";
+
+    document.getElementById("recoverModal")
+    .style.display = "none";
+
+    document.getElementById("registerModal")
+    .style.display = "none";
+
+    if(type==="login"){
+        document.getElementById("loginModal")
+        .style.display = "block";
+    }
+
+    if(type==="recover"){
+        document.getElementById("recoverModal")
+        .style.display = "block";
+    }
+
+    if(type==="register"){
+        document.getElementById("registerModal")
+        .style.display = "block";
+    }
+}
+
+function closeModal(){
+
+    document.getElementById("modalBg")
+    .style.display = "none";
+}
+
+</script>
 
 </body>
 </html>

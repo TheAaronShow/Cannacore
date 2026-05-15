@@ -118,7 +118,7 @@ body{
 }
 
 /* =========================
-   LOGIN BUTTON PREMIUM
+   LOGIN BUTTON
 ========================= */
 
 #loginBtn{
@@ -456,6 +456,10 @@ body{
         display:flex;
     }
 
+    #loginBtn{
+        width:100%;
+    }
+
     .hero-content{
         padding:140px 25px 100px;
     }
@@ -497,7 +501,7 @@ body{
 
 <div class="video-background">
 
-    <video id="bg-video" autoplay muted loop playsinline>
+    <video autoplay muted loop playsinline>
 
         <source src="canavid.mp4" type="video/mp4">
 
@@ -505,51 +509,55 @@ body{
 
 </div>
 
-<!-- NAVBAR -->
-
-<div class="navbar">
-
-    <div class="logo">
-        CANNA CORE
-    </div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </div>
-
-    <div class="navbar-links" id="menu">
-
-        <a href="index.html">Inicio</a>
-
-        <a href="planes.html">Planes</a>
-
-        <a href="como-funciona.html">Cómo Empezar</a>
-
-        <a href="#">Impacto</a>
-
-        <span id="userName"></span>
-
-        <a id="loginBtn" onclick="openModal('login')">
-
-            SER MIEMBRO →
-
-        </a>
-
-        <a id="logoutBtn" onclick="logout()" style="display:none;">
-            Cerrar sesión
-        </a>
-
-    </div>
-
-</div>
-
-<!-- HERO -->
+<!-- OVERLAY -->
 
 <div class="overlay">
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            CANNA CORE
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div class="navbar-links" id="menu">
+
+            <a href="index.html">Inicio</a>
+
+            <a href="planes.html">Planes</a>
+
+            <a href="como-funciona.html">Cómo Empezar</a>
+
+            <a href="#">Impacto</a>
+
+            <span id="userName"></span>
+
+            <a id="loginBtn" onclick="openModal('login')">
+
+                INICIAR SESIÓN
+
+            </a>
+
+            <a id="logoutBtn" onclick="logout()" style="display:none;">
+
+                CERRAR SESIÓN
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- HERO -->
 
     <div class="hero-content">
 
@@ -595,100 +603,6 @@ body{
         </div>
 
     </div>
-
-    <!-- MARKET SECTION -->
-
-    <section class="market-section">
-
-        <div class="market-header">
-
-            <div class="market-subtitle">
-                — EL MERCADO
-            </div>
-
-            <h2>
-
-                COLOMBIA TIENE LO QUE<br>
-
-                EL MUNDO <span>NECESITA.</span>
-
-            </h2>
-
-        </div>
-
-        <div class="market-grid">
-
-            <div class="market-card featured-card">
-
-                <div class="market-icon">⌂</div>
-
-                <div class="market-number">$70B</div>
-
-                <div class="market-label">
-                    MERCADO GLOBAL 2030
-                </div>
-
-                <p>
-                    Cannabis medicinal: CAGR 14–18% anual.
-                    La industria de mayor crecimiento regulado del siglo XXI.
-                </p>
-
-            </div>
-
-            <div class="market-card">
-
-                <div class="market-icon">◔</div>
-
-                <div class="market-number">60%</div>
-
-                <div class="market-label">
-                    MENOR COSTO VS CANADÁ
-                </div>
-
-                <p>
-                    Colombia produce cannabis certificado
-                    a fracción del costo de países competidores.
-                </p>
-
-            </div>
-
-            <div class="market-card featured-card">
-
-                <div class="market-icon">▢</div>
-
-                <div class="market-number">18–24°</div>
-
-                <div class="market-label">
-                    EJE CAFETERO
-                </div>
-
-                <p>
-                    Temperatura ideal todo el año.
-                    Biodiversidad y cultura agrícola generacional.
-                </p>
-
-            </div>
-
-            <div class="market-card">
-
-                <div class="market-icon">⛨</div>
-
-                <div class="market-number">2016</div>
-
-                <div class="market-label">
-                    MARCO LEGAL COLOMBIA
-                </div>
-
-                <p>
-                    Ley 1787 pionera en LatAm.
-                    Exportación a Europa, Australia e Israel.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
 
 </div>
 

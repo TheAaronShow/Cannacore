@@ -1,1 +1,608 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mi Perfil | CannaCore</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+    background:#000;
+    color:white;
+}
+
+.video-background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.video-background video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    width:100%;
+    min-height:100vh;
+    background:rgba(0,0,0,0.72);
+    position:relative;
+    z-index:1;
+}
+
+.navbar{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.25);
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:900;
+    color:#c6ff00;
+}
+
+.navbar-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#c6ff00;
+}
+
+#userName{
+    color:#c6ff00;
+    font-weight:bold;
+}
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:28px;
+    height:3px;
+    background:white;
+    border-radius:3px;
+}
+
+.profile-section{
+    width:100%;
+    min-height:100vh;
+    padding:150px 60px 100px;
+}
+
+.profile-header{
+    max-width:1200px;
+    margin:0 auto 55px;
+}
+
+.profile-subtitle{
+    color:#c6ff00;
+    font-size:0.72rem;
+    letter-spacing:7px;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+.profile-title{
+    font-size:6rem;
+    line-height:0.92;
+    font-weight:900;
+    letter-spacing:-3px;
+    color:#f3f3f3;
+}
+
+.profile-title span{
+    color:#c6ff00;
+}
+
+.profile-description{
+    color:#d8d8d8;
+    font-size:1.1rem;
+    line-height:1.8;
+    max-width:680px;
+    margin-top:30px;
+}
+
+.profile-grid{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.profile-card{
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    padding:38px;
+    min-height:260px;
+}
+
+.profile-card.featured{
+    background:rgba(198,255,0,0.08);
+}
+
+.profile-card h3{
+    color:#c6ff00;
+    font-size:0.78rem;
+    letter-spacing:5px;
+    margin-bottom:28px;
+}
+
+.profile-row{
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    color:#9fa39a;
+    line-height:1.5;
+}
+
+.profile-row strong{
+    color:white;
+    text-align:right;
+    word-break:break-word;
+}
+
+.status-box{
+    max-width:1200px;
+    margin:0 auto;
+    padding:35px;
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(198,255,0,0.16);
+    color:#d8d8d8;
+    line-height:1.8;
+}
+
+.status-box strong{
+    color:#c6ff00;
+}
+
+.btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:220px;
+    height:56px;
+    margin-top:25px;
+    padding:0 28px;
+    border:none;
+    border-radius:4px;
+    background:#c6ff00;
+    color:#000;
+    font-size:0.9rem;
+    font-weight:900;
+    letter-spacing:2px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+    .hamburger{
+        display:flex;
+    }
+
+    .navbar{
+        padding:18px 20px;
+    }
+
+    .navbar-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        right:10px;
+        background:rgba(0,0,0,0.95);
+        flex-direction:column;
+        padding:20px;
+        border-radius:10px;
+        gap:18px;
+    }
+
+    .navbar-links.show{
+        display:flex;
+    }
+
+    .profile-section{
+        padding:130px 25px 80px;
+    }
+
+    .profile-title{
+        font-size:3.8rem;
+    }
+
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .profile-card{
+        padding:30px;
+    }
+
+    .profile-row{
+        flex-direction:column;
+        gap:6px;
+    }
+
+    .profile-row strong{
+        text-align:left;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="video-background">
+    <video autoplay muted loop playsinline>
+        <source src="canavid.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="navbar">
+
+    <div class="logo">
+        CANNA CORE
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="navbar-links" id="menu">
+
+        <a href="index.html">INICIO</a>
+        <a href="planes.html">MEMBRESIA</a>
+        <a href="como-funciona.html">COMO FUNCIONA</a>
+        <a href="contacto.htm">CONTACTO</a>
+
+        <span id="userName"></span>
+
+        <a id="logoutBtn" onclick="logout()" style="display:none;">
+            Cerrar sesión
+        </a>
+
+    </div>
+
+</div>
+
+<div class="overlay">
+
+    <section class="profile-section">
+
+        <div class="profile-header">
+
+            <div class="profile-subtitle">
+                — PERFIL DE USUARIO
+            </div>
+
+            <h1 class="profile-title">
+                TU INFORMACIÓN<br>
+                <span>CANNACORE.</span>
+            </h1>
+
+            <p class="profile-description">
+                Consulta los datos de tu cuenta, estado de membresía,
+                información de acceso y detalles asociados a tu perfil.
+            </p>
+
+        </div>
+
+        <div id="notLoggedBox" class="status-box" style="display:none;">
+
+            <strong>No has iniciado sesión.</strong><br>
+            Para ver tu perfil debes ingresar con tu cuenta Cannacore.
+
+            <br>
+
+            <a href="index.html" class="btn-primary">
+                IR A INICIAR SESIÓN
+            </a>
+
+        </div>
+
+        <div class="profile-grid" id="profileGrid" style="display:none;">
+
+            <div class="profile-card featured">
+
+                <h3>DATOS DE CUENTA</h3>
+
+                <div class="profile-row">
+                    <span>Nombre</span>
+                    <strong id="profileName">-</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>Email</span>
+                    <strong id="profileEmail">-</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>ID de usuario</span>
+                    <strong id="profileUid">-</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>Email verificado</span>
+                    <strong id="profileVerified">-</strong>
+                </div>
+
+            </div>
+
+            <div class="profile-card">
+
+                <h3>MEMBRESÍA</h3>
+
+                <div class="profile-row">
+                    <span>Plan activo</span>
+                    <strong id="profileMembership">Sin membresía</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>Monto</span>
+                    <strong id="profileAmount">-</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>Estado de pago</span>
+                    <strong id="profilePayment">-</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>Fecha de inicio</span>
+                    <strong id="profileStartDate">-</strong>
+                </div>
+
+            </div>
+
+            <div class="profile-card">
+
+                <h3>SEGURIDAD</h3>
+
+                <div class="profile-row">
+                    <span>Proveedor</span>
+                    <strong id="profileProvider">-</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>Cuenta creada</span>
+                    <strong id="profileCreated">-</strong>
+                </div>
+
+                <div class="profile-row">
+                    <span>Último acceso</span>
+                    <strong id="profileLastLogin">-</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
+    authDomain: "cannacore-web.firebaseapp.com",
+    projectId: "cannacore-web",
+    storageBucket: "cannacore-web.firebasestorage.app",
+    messagingSenderId: "648812089616",
+    appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+onAuthStateChanged(auth,async(user)=>{
+
+    const userName =
+    document.getElementById("userName");
+
+    const logoutBtn =
+    document.getElementById("logoutBtn");
+
+    const profileGrid =
+    document.getElementById("profileGrid");
+
+    const notLoggedBox =
+    document.getElementById("notLoggedBox");
+
+    if(user){
+
+        userName.innerHTML =
+        user.displayName || user.email;
+
+        logoutBtn.style.display =
+        "inline-block";
+
+        profileGrid.style.display =
+        "grid";
+
+        notLoggedBox.style.display =
+        "none";
+
+        await loadProfile(user);
+
+    }else{
+
+        userName.innerHTML =
+        "";
+
+        logoutBtn.style.display =
+        "none";
+
+        profileGrid.style.display =
+        "none";
+
+        notLoggedBox.style.display =
+        "block";
+    }
+});
+
+async function loadProfile(user){
+
+    document.getElementById("profileName").innerHTML =
+    user.displayName || "Sin nombre registrado";
+
+    document.getElementById("profileEmail").innerHTML =
+    user.email || "-";
+
+    document.getElementById("profileUid").innerHTML =
+    user.uid;
+
+    document.getElementById("profileVerified").innerHTML =
+    user.emailVerified ? "Sí" : "No";
+
+    document.getElementById("profileProvider").innerHTML =
+    user.providerData[0]?.providerId || "Email";
+
+    document.getElementById("profileCreated").innerHTML =
+    formatDate(user.metadata.creationTime);
+
+    document.getElementById("profileLastLogin").innerHTML =
+    formatDate(user.metadata.lastSignInTime);
+
+    try{
+
+        const userDoc =
+        await getDoc(doc(db,"users",user.uid));
+
+        if(userDoc.exists()){
+
+            const data =
+            userDoc.data();
+
+            document.getElementById("profileMembership").innerHTML =
+            data.membership || "Sin membresía";
+
+            document.getElementById("profileAmount").innerHTML =
+            data.amount ? "€" + data.amount : "-";
+
+            document.getElementById("profilePayment").innerHTML =
+            data.paymentStatus || "-";
+
+            document.getElementById("profileStartDate").innerHTML =
+            data.startDate ? formatDate(data.startDate) : "-";
+        }
+
+    }catch(error){
+
+        console.log(error.message);
+    }
+}
+
+function formatDate(dateValue){
+
+    if(!dateValue){
+        return "-";
+    }
+
+    const date =
+    new Date(dateValue);
+
+    return date.toLocaleDateString("es-CO",{
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+    });
+}
+
+window.logout = function(){
+
+    signOut(auth)
+
+    .then(()=>{
+
+        window.location.href =
+        "index.html";
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+</script>
+
+<script>
+
+function toggleMenu(){
+
+    document.getElementById("menu")
+    .classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>

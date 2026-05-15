@@ -1,668 +1,346 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<video autoplay muted loop playsinline>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <source src="canavid.mp4" type="video/mp4">
 
-<title>Planes | CannaCore</title>
+</video>
 
-<style>
+<!-- NAVBAR -->
 
-/* =========================
-   RESET
-========================= */
+<div class="navbar">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <!-- LOGO -->
 
-html{
-    scroll-behavior:smooth;
-}
+    <div class="logo">
+        CANNA CORE
+    </div>
 
-body{
-    font-family:Arial,sans-serif;
-    background:#000;
-    color:white;
-    overflow-x:hidden;
-}
+    <!-- HAMBURGUESA -->
 
-/* =========================
-   VIDEO BACKGROUND
-========================= */
+    <div class="hamburger" onclick="toggleMenu()">
 
-.video-background{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:-2;
-}
-
-.video-background video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-/* =========================
-   OVERLAY
-========================= */
-
-.overlay{
-    width:100%;
-    min-height:100vh;
-    background:rgba(0,0,0,0.72);
-    padding-bottom:120px;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar{
-
-    width:100%;
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    padding:18px 25px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    backdrop-filter:blur(8px);
-
-    background:rgba(0,0,0,0.25);
-
-    z-index:1000;
-}
-
-.logo{
-
-    font-size:1.5rem;
-
-    font-weight:900;
-
-    color:#c6ff00;
-}
-
-.navbar-links{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:42px;
-}
-
-.navbar a{
-
-    text-decoration:none;
-
-    color:white;
-
-    font-weight:600;
-
-    font-size:0.78rem;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-.navbar a:hover{
-
-    color:#c6ff00;
-}
-
-#userName{
-
-    color:#c6ff00;
-
-    font-weight:bold;
-}
-
-/* LOGIN BUTTON */
-
-#loginBtn{
-
-    background:#c6ff00;
-
-    color:#000 !important;
-
-    padding:14px 34px;
-
-    border-radius:4px;
-
-    font-size:0.72rem;
-
-    font-weight:800;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:0.3s ease;
-
-    border:none;
-
-    min-width:190px;
-
-    height:52px;
-}
-
-#loginBtn:hover{
-
-    transform:translateY(-2px);
-
-    background:#d7ff4d;
-
-    color:#000 !important;
-}
-
-/* =========================
-   HAMBURGUESA
-========================= */
-
-.hamburger{
-
-    display:none;
-
-    flex-direction:column;
-
-    gap:5px;
-
-    cursor:pointer;
-}
-
-.hamburger span{
-
-    width:28px;
-
-    height:3px;
-
-    background:white;
-
-    border-radius:3px;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-
-    width:100%;
-
-    padding:170px 60px 100px;
-}
-
-.hero-subtitle{
-
-    color:#c6ff00;
-
-    font-size:0.72rem;
-
-    letter-spacing:7px;
-
-    margin-bottom:25px;
-
-    font-weight:700;
-}
-
-.hero-title{
-
-    font-size:7rem;
-
-    line-height:0.9;
-
-    font-weight:900;
-
-    letter-spacing:-4px;
-
-    margin-bottom:35px;
-}
-
-.hero-title span{
-
-    color:#c6ff00;
-}
-
-.hero-description{
-
-    max-width:750px;
-
-    font-size:1.15rem;
-
-    line-height:1.9;
-
-    color:#d8d8d8;
-}
-
-/* =========================
-   PLANES
-========================= */
-
-.plans-section{
-
-    width:100%;
-
-    padding:0 60px;
-}
-
-.plans-grid{
-
-    max-width:1450px;
-
-    margin:0 auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:0;
-}
-
-/* CARD */
-
-.plan-card{
-
-    background:rgba(0,0,0,0.35);
-
-    border:1px solid rgba(255,255,255,0.05);
-
-    padding:50px;
-
-    min-height:620px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    transition:0.3s;
-}
-
-.plan-card:hover{
-
-    background:rgba(255,255,255,0.03);
-}
-
-.featured{
-
-    background:rgba(198,255,0,0.08);
-}
-
-/* TAG */
-
-.plan-tag{
-
-    color:#c6ff00;
-
-    font-size:0.72rem;
-
-    letter-spacing:5px;
-
-    margin-bottom:25px;
-
-    font-weight:700;
-}
-
-/* TITLE */
-
-.plan-title{
-
-    font-size:2.7rem;
-
-    font-weight:900;
-
-    margin-bottom:20px;
-
-    line-height:1;
-}
-
-/* PRICE */
-
-.plan-price{
-
-    font-size:5rem;
-
-    font-weight:900;
-
-    color:#c6ff00;
-
-    margin-bottom:25px;
-}
-
-.plan-price span{
-
-    font-size:1rem;
-
-    color:#aaa;
-}
-
-/* DESCRIPTION */
-
-.plan-description{
-
-    color:#d0d0d0;
-
-    line-height:1.9;
-
-    margin-bottom:35px;
-}
-
-/* FEATURES */
-
-.plan-features{
-
-    list-style:none;
-
-    margin-bottom:45px;
-}
-
-.plan-features li{
-
-    margin-bottom:18px;
-
-    color:#d8d8d8;
-
-    line-height:1.7;
-}
-
-/* BUTTON */
-
-.plan-button{
-
-    width:100%;
-
-    height:58px;
-
-    border:none;
-
-    background:#c6ff00;
-
-    color:#000;
-
-    font-weight:800;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    cursor:pointer;
-
-    border-radius:4px;
-
-    transition:0.3s;
-}
-
-.plan-button:hover{
-
-    transform:translateY(-2px);
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal-bg{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.75);
-    justify-content:center;
-    align-items:center;
-    z-index:2000;
-}
-
-.modal{
-    background:#111;
-    width:90%;
-    max-width:350px;
-    padding:25px 30px;
-    border-radius:12px;
-    border:1px solid #c6ff00;
-    box-shadow:0 0 20px rgba(198,255,0,0.35);
-    position:relative;
-}
-
-.close-x{
-    position:absolute;
-    top:10px;
-    right:12px;
-    cursor:pointer;
-    font-size:1.2rem;
-    color:#bbb;
-}
-
-.modal h2{
-    margin-bottom:18px;
-    color:#c6ff00;
-}
-
-.modal input{
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border:none;
-    border-radius:5px;
-}
-
-.modal button{
-    width:100%;
-    padding:12px;
-    margin-top:12px;
-    border:none;
-    border-radius:5px;
-    background:#c6ff00;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.modal .link{
-    margin-top:12px;
-    color:#c6ff00;
-    cursor:pointer;
-    font-size:0.9rem;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:1200px){
-
-    .plans-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .hero-title{
-
-        font-size:5rem;
-    }
-}
-
-@media(max-width:900px){
-
-    .hamburger{
-        display:flex;
-    }
-
-    .navbar-links{
-
-        display:none;
-
-        position:absolute;
-
-        top:70px;
-        right:10px;
-
-        background:rgba(0,0,0,0.95);
-
-        flex-direction:column;
-
-        padding:20px;
-
-        border-radius:10px;
-
-        gap:18px;
-    }
-
-    .navbar-links.show{
-        display:flex;
-    }
-
-    #loginBtn{
-        width:100%;
-    }
-
-    .hero{
-        padding:150px 25px 80px;
-    }
-
-    .plans-section{
-        padding:0 25px;
-    }
-
-    .hero-title{
-        font-size:3.8rem;
-        line-height:0.95;
-    }
-
-    .plan-card{
-        padding:40px 30px;
-        min-height:auto;
-    }
-
-    .plan-price{
-        font-size:4rem;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- VIDEO -->
-
-<div class="video-background">
-
-    <video autoplay muted loop playsinline>
-
-        <source src="canavid.mp4" type="video/mp4">
-
-    </video>
-
-</div>
-
-<!-- OVERLAY -->
-
-<div class="overlay">
-
-    <!-- NAVBAR -->
-
-    <div class="navbar">
-
-        <div class="logo">
-            CANNA CORE
-        </div>
-
-        <!-- HAMBURGUESA -->
-
-        <div class="hamburger" onclick="toggleMenu()">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
-        <!-- MENU -->
-
-        <div class="navbar-links" id="menu">
-
-            <a href="index.html">Inicio</a>
-
-            <a href="planes.html">Planes</a>
-
-            <a href="como-funciona.html">Cómo Empezar</a>
-
-            <a href="#">Impacto</a>
-
-            <span id="userName"></span>
-
-            <a id="loginBtn" onclick="openModal('login')">
-
-                INICIAR SESIÓN
-
-            </a>
-
-            <a id="logoutBtn" onclick="logout()" style="display:none;">
-
-                CERRAR SESIÓN
-
-            </a>
-
-        </div>
+        <span></span>
+        <span></span>
+        <span></span>
 
     </div>
 
-    <!-- HERO -->
+    <!-- LINKS -->
 
-    <section class="hero">
+    <div class="navbar-links" id="menu">
 
-        <div class="hero-subtitle">
-            — MEMBRESÍAS CANNACORE
-        </div>
+        <a href="index.html">Inicio</a>
 
-        <h1 class="hero-title">
+        <a href="planes.html">Planes</a>
 
-            ELIGE TU<br>
+        <a href="#">Nosotros</a>
 
-            <span>PLAN.</span>
+        <a href="#">Contacto</a>
 
-        </h1>
-
-        <p class="hero-description">
-
-            Diseñamos modelos de integración agrícola para cultivadores,
-            inversionistas y aliados estratégicos que buscan participar
-            en la nueva economía global del cannabis medicinal.
-
-        </p>
-
-    </section>
+    </div>
 
 </div>
 
-</body>
-</html>
+<!-- HERO PREMIUM -->
+
+<div class="hero-premium">
+
+    <!-- IZQUIERDA -->
+
+    <div class="hero-left">
+
+        <div class="hero-topline">
+            CANNACORE GROWER NETWORK
+        </div>
+
+        <h1>
+
+            ELIGE TU NIVEL.<br>
+
+            <span>CRECE CON RESPALDO.</span>
+
+        </h1>
+
+    </div>
+
+    <!-- DERECHA -->
+
+    <div class="hero-right">
+
+        Todos los planes incluyen:
+        genética • licencia • protocolo •
+        trazabilidad • acompañamiento •
+        compra garantizada
+
+    </div>
+
+</div>
+
+<!-- PLANES -->
+
+<div class="plans-container">
+
+    <!-- STARTER -->
+
+    <div class="plan-card">
+
+        <div class="plan-bars">
+
+            <div class="bar small"></div>
+            <div class="bar medium"></div>
+            <div class="bar large"></div>
+            <div class="bar medium"></div>
+            <div class="bar small"></div>
+
+        </div>
+
+        <div class="plan-label">
+            STARTER
+        </div>
+
+        <div class="plan-number">
+            20
+        </div>
+
+        <div class="plan-plants">
+            PLANTAS
+        </div>
+
+        <div class="plan-price">
+            €1.999
+        </div>
+
+        <div class="plan-invest">
+            inversión inicial
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="plan-row">
+            <span>Por ciclo</span>
+            <strong>3–4 kg</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Ciclos/año</span>
+            <strong>2–3</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Mensualidad</span>
+            <strong>€49</strong>
+        </div>
+
+        <div class="income-title">
+            INGRESO BRUTO/AÑO
+        </div>
+
+        <div class="income-value">
+            €12K–€24K
+        </div>
+
+        <button class="plan-btn">
+            Seleccionar
+        </button>
+
+    </div>
+
+    <!-- GROWER -->
+
+    <div class="plan-card featured">
+
+        <div class="popular-badge">
+            ★ POPULAR
+        </div>
+
+        <div class="plan-bars">
+
+            <div class="bar small active"></div>
+            <div class="bar medium active"></div>
+            <div class="bar large active"></div>
+            <div class="bar medium active"></div>
+            <div class="bar small active"></div>
+
+        </div>
+
+        <div class="plan-label">
+            GROWER
+        </div>
+
+        <div class="plan-number">
+            50
+        </div>
+
+        <div class="plan-plants">
+            PLANTAS
+        </div>
+
+        <div class="plan-price active-price">
+            €4.999
+        </div>
+
+        <div class="plan-invest">
+            inversión inicial
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="plan-row">
+            <span>Por ciclo</span>
+            <strong>7,5–10 kg</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Ciclos/año</span>
+            <strong>2–3</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Mensualidad</span>
+            <strong>€99</strong>
+        </div>
+
+        <div class="income-title">
+            INGRESO BRUTO/AÑO
+        </div>
+
+        <div class="income-value active-income">
+            €30K–€60K
+        </div>
+
+        <button class="plan-btn">
+            Seleccionar
+        </button>
+
+    </div>
+
+    <!-- PRO -->
+
+    <div class="plan-card">
+
+        <div class="plan-bars">
+
+            <div class="bar medium"></div>
+            <div class="bar large"></div>
+            <div class="bar medium"></div>
+            <div class="bar large"></div>
+            <div class="bar medium"></div>
+
+        </div>
+
+        <div class="plan-label">
+            PRO
+        </div>
+
+        <div class="plan-number">
+            100
+        </div>
+
+        <div class="plan-plants">
+            PLANTAS
+        </div>
+
+        <div class="plan-price">
+            €9.999
+        </div>
+
+        <div class="plan-invest">
+            inversión inicial
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="plan-row">
+            <span>Por ciclo</span>
+            <strong>15–20 kg</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Ciclos/año</span>
+            <strong>2–3</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Mensualidad</span>
+            <strong>€199</strong>
+        </div>
+
+        <div class="income-title">
+            INGRESO BRUTO/AÑO
+        </div>
+
+        <div class="income-value">
+            €60K–€120K
+        </div>
+
+        <button class="plan-btn">
+            Seleccionar
+        </button>
+
+    </div>
+
+    <!-- FARM -->
+
+    <div class="plan-card">
+
+        <div class="plan-bars">
+
+            <div class="bar medium"></div>
+            <div class="bar large"></div>
+            <div class="bar medium"></div>
+            <div class="bar large"></div>
+            <div class="bar medium"></div>
+
+        </div>
+
+        <div class="plan-label">
+            FARM PARTNER
+        </div>
+
+        <div class="plan-number">
+            500+
+        </div>
+
+        <div class="plan-plants">
+            PLANTAS
+        </div>
+
+        <div class="plan-price">
+            €49.999+
+        </div>
+
+        <div class="plan-invest">
+            inversión inicial
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="plan-row">
+            <span>Por ciclo</span>
+            <strong>75–100 kg</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Ciclos/año</span>
+            <strong>2–3</strong>
+        </div>
+
+        <div class="plan-row">
+            <span>Mensualidad</span>
+            <strong>€499</strong>
+        </div>
+
+        <div class="income-title">
+            INGRESO BRUTO/AÑO
+        </div>
+
+        <div class="income-value">
+            €300K–€600K
+        </div>
+
+        <button class="plan-btn">
+            Seleccionar
+        </button>
+
+    </div>
+
+</div>

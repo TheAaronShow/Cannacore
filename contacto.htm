@@ -119,7 +119,7 @@ NAVBAR
 }
 
 /* =========================
-CONTACT HERO
+CONTACT SECTION
 ========================= */
 
 .contact-section{
@@ -132,58 +132,53 @@ CONTACT HERO
 
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:0.7fr 1.3fr;
 
-    gap:60px;
+    gap:40px;
 
-    align-items:center;
+    align-items:start;
 }
 
-.contact-left{
+/* EMAIL BOX */
 
-    max-width:700px;
+.email-box{
+
+    background:rgba(0,0,0,0.45);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    padding:35px;
 }
 
-.contact-subtitle{
+.email-box h4{
 
     color:#c6ff00;
 
-    font-size:0.72rem;
+    letter-spacing:5px;
 
-    letter-spacing:7px;
+    margin-bottom:20px;
 
-    margin-bottom:28px;
-
-    font-weight:700;
+    font-size:0.75rem;
 }
 
-.contact-title{
-
-    font-size:6rem;
-
-    line-height:0.92;
-
-    font-weight:900;
-
-    letter-spacing:-3px;
-
-    margin-bottom:35px;
-}
-
-.contact-title span{
+.email-box a{
 
     color:#c6ff00;
+
+    text-decoration:none;
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+    word-break:break-word;
 }
 
-.contact-description{
+.email-box a:hover{
 
-    color:#d2d2d2;
-
-    font-size:1.15rem;
-
-    line-height:1.9;
-
-    max-width:620px;
+    opacity:0.8;
 }
 
 /* =========================
@@ -259,6 +254,8 @@ CONTACT GRID
     font-weight:900;
 
     margin-bottom:15px;
+
+    color:white;
 }
 
 .contact-card p{
@@ -268,46 +265,6 @@ CONTACT GRID
     line-height:1.8;
 
     font-size:0.95rem;
-}
-
-.email-box{
-
-    margin-top:40px;
-
-    background:rgba(0,0,0,0.45);
-
-    border:1px solid rgba(255,255,255,0.05);
-
-    backdrop-filter:blur(10px);
-
-    padding:35px;
-}
-
-.email-box h4{
-
-    color:#c6ff00;
-
-    letter-spacing:5px;
-
-    margin-bottom:20px;
-
-    font-size:0.75rem;
-}
-
-.email-box a{
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:1.2rem;
-
-    line-height:1.8;
-}
-
-.email-box a:hover{
-
-    color:#c6ff00;
 }
 
 /* =========================
@@ -358,11 +315,6 @@ RESPONSIVE
     .contact-section{
 
         padding:150px 25px 100px;
-    }
-
-    .contact-title{
-
-        font-size:3.8rem;
     }
 
     .contact-grid{
@@ -426,31 +378,9 @@ RESPONSIVE
 
     <section class="contact-section">
 
-        <!-- LEFT -->
+        <!-- EMAIL -->
 
         <div class="contact-left">
-
-            <div class="contact-subtitle">
-                EJE CAFETERO • COLOMBIA
-            </div>
-
-            <h1 class="contact-title">
-
-                HABLEMOS<br>
-
-                DEL <span>FUTURO.</span>
-
-            </h1>
-
-            <p class="contact-description">
-
-                Conecta con Cannacore a través de nuestras redes oficiales.
-                Nuestro equipo responde alianzas, membresías,
-                producción, inversión y soporte.
-
-            </p>
-
-            <!-- EMAIL -->
 
             <div class="email-box">
 
@@ -468,7 +398,7 @@ RESPONSIVE
 
         </div>
 
-        <!-- RIGHT -->
+        <!-- REDES -->
 
         <div class="contact-grid">
 

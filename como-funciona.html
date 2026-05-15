@@ -26,8 +26,6 @@ body{
     overflow-x:hidden;
 }
 
-/* VIDEO */
-
 .video-background{
     position:fixed;
     top:0;
@@ -44,17 +42,11 @@ body{
     object-fit:cover;
 }
 
-/* OVERLAY */
-
 .overlay{
     width:100%;
     min-height:100vh;
     background:rgba(0,0,0,0.72);
 }
-
-/* =========================
-NAVBAR
-========================= */
 
 .navbar{
     width:100%;
@@ -102,10 +94,6 @@ NAVBAR
     opacity:1;
 }
 
-/* =========================
-HAMBURGUESA
-========================= */
-
 .hamburger{
     display:none;
     flex-direction:column;
@@ -120,393 +108,250 @@ HAMBURGUESA
     border-radius:3px;
 }
 
-/* =========================
-HOW SECTION
-========================= */
-
 .how-section{
-
     width:100%;
-
     min-height:100vh;
-
     padding:180px 80px 100px;
-
     display:grid;
-
     grid-template-columns:1.1fr 0.9fr;
-
     gap:80px;
-
     align-items:start;
 }
 
 .how-left{
-
     max-width:700px;
 }
 
 .how-subtitle{
-
     color:#c6ff00;
-
     font-size:0.72rem;
-
     letter-spacing:6px;
-
     margin-bottom:25px;
 }
 
 .how-left h1{
-
     font-size:5.5rem;
-
     line-height:0.92;
-
     font-weight:900;
-
     letter-spacing:-3px;
-
     margin-bottom:35px;
 }
 
 .how-left h1 span{
-
     color:#c6ff00;
 }
 
 .how-left p{
-
     color:#d2d2d2;
-
     font-size:1.15rem;
-
     line-height:1.9;
-
     max-width:620px;
 }
 
-/* =========================
-VALUE BOX
-========================= */
-
 .value-box{
-
     background:rgba(0,0,0,0.45);
-
     border:1px solid rgba(255,255,255,0.05);
-
     padding:45px;
-
     backdrop-filter:blur(10px);
 }
 
 .value-title{
-
     color:#c6ff00;
-
     letter-spacing:5px;
-
     font-size:0.75rem;
-
     margin-bottom:35px;
-
     font-weight:700;
 }
 
 .value-item{
-
     display:flex;
-
     gap:18px;
-
     margin-bottom:28px;
-
     border-bottom:1px solid rgba(255,255,255,0.05);
-
     padding-bottom:20px;
 }
 
 .value-dot{
-
     width:14px;
     height:14px;
-
     border-radius:50%;
-
     background:#c6ff00;
-
     margin-top:5px;
 }
 
 .value-item strong{
-
     display:block;
-
     color:#c6ff00;
-
     font-size:0.75rem;
-
     letter-spacing:3px;
-
     margin-bottom:8px;
 }
 
 .value-item span{
-
     color:#d8d8d8;
-
     line-height:1.7;
-
     font-size:0.95rem;
 }
 
-/* =========================
-BENEFITS
-========================= */
-
 .benefits-grid{
-
     width:100%;
-
     padding:0 80px 120px;
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:30px;
 }
 
 .benefit-card{
-
     background:rgba(0,0,0,0.45);
-
     border:1px solid rgba(255,255,255,0.05);
-
     padding:40px;
-
     min-height:260px;
-
     transition:0.3s;
-
     backdrop-filter:blur(10px);
 }
 
 .benefit-card:hover{
-
     transform:translateY(-4px);
-
     border-color:rgba(198,255,0,0.2);
 }
 
 .benefit-icon{
-
     width:55px;
     height:55px;
-
     background:#161b10;
-
     color:#c6ff00;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
     margin-bottom:28px;
+}
 
-    font-size:1.3rem;
+.benefit-icon svg{
+    width:28px;
+    height:28px;
+    stroke:currentColor;
+    stroke-width:1.8;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
 .benefit-card h3{
-
     font-size:1.4rem;
-
     margin-bottom:18px;
-
     font-weight:900;
 }
 
 .benefit-card p{
-
     color:#cfcfcf;
-
     line-height:1.9;
 }
 
-/* =========================
-COMPARE SECTION
-========================= */
-
 .compare-section{
-
     width:100%;
-
     padding:0 80px 120px;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:30px;
 }
 
 .compare-box{
-
-    background:
-    rgba(0,0,0,0.45);
-
-    border:
-    1px solid rgba(255,255,255,0.05);
-
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(255,255,255,0.05);
     backdrop-filter:blur(10px);
-
     padding:55px;
-
     transition:0.3s;
 }
 
 .compare-box:hover{
-
-    border-color:
-    rgba(198,255,0,0.18);
+    border-color:rgba(198,255,0,0.18);
 }
 
 .compare-subtitle{
-
     color:#8e8e8e;
-
     font-size:0.72rem;
-
     letter-spacing:5px;
-
     margin-bottom:28px;
-
     font-weight:700;
 }
 
 .green-text{
-
     color:#c6ff00;
 }
 
 .compare-box h2{
-
     font-size:4.5rem;
-
     line-height:0.92;
-
     font-weight:900;
-
     letter-spacing:-3px;
-
     margin-bottom:55px;
 }
 
 .compare-box h2 span{
-
     color:#c6ff00;
 }
 
 .compare-item{
-
     display:flex;
-
     align-items:center;
-
     gap:18px;
-
     padding:18px 0;
-
-    border-bottom:
-    1px solid rgba(255,255,255,0.05);
+    border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .compare-icon{
-
     min-width:36px;
     min-height:36px;
-
     border-radius:50%;
-
-    border:
-    1px solid rgba(255,255,255,0.08);
-
+    border:1px solid rgba(255,255,255,0.08);
     display:flex;
-
     justify-content:center;
     align-items:center;
-
     color:#808080;
-
     font-size:0.85rem;
 }
 
 .green-icon{
-
     color:#c6ff00;
-
-    border-color:
-    rgba(198,255,0,0.22);
+    border-color:rgba(198,255,0,0.22);
 }
 
 .compare-item span{
-
     color:#d8d8d8;
-
     line-height:1.7;
-
     font-size:0.98rem;
 }
 
-/* =========================
-RESPONSIVE
-========================= */
-
 @media(max-width:1200px){
-
     .how-section{
-
         grid-template-columns:1fr;
     }
 
     .benefits-grid{
-
         grid-template-columns:1fr 1fr;
     }
 }
 
 @media(max-width:1100px){
-
     .compare-section{
-
         grid-template-columns:1fr;
     }
 }
 
 @media(max-width:900px){
-
     .hamburger{
         display:flex;
     }
 
     .navbar-links{
         display:none;
-
         position:absolute;
-
         top:75px;
         right:10px;
-
         background:rgba(0,0,0,0.95);
-
         flex-direction:column;
-
         padding:20px;
-
         border-radius:10px;
-
         gap:20px;
     }
 
@@ -519,35 +364,28 @@ RESPONSIVE
     }
 
     .how-section{
-
         padding:150px 25px 80px;
     }
 
     .how-left h1{
-
         font-size:3.2rem;
     }
 
     .benefits-grid{
-
         padding:0 25px 100px;
-
         grid-template-columns:1fr;
     }
 
     .compare-section{
-
         padding:0 25px 100px;
     }
 
     .value-box,
     .compare-box{
-
         padding:35px;
     }
 
     .compare-box h2{
-
         font-size:3rem;
     }
 }
@@ -557,23 +395,13 @@ RESPONSIVE
 
 <body>
 
-<!-- VIDEO -->
-
 <div class="video-background">
-
     <video autoplay muted loop playsinline>
-
         <source src="canavid.mp4" type="video/mp4">
-
     </video>
-
 </div>
 
-<!-- OVERLAY -->
-
 <div class="overlay">
-
-    <!-- NAVBAR -->
 
     <div class="navbar">
 
@@ -582,28 +410,19 @@ RESPONSIVE
         </div>
 
         <div class="hamburger" onclick="toggleMenu()">
-
             <span></span>
             <span></span>
             <span></span>
-
         </div>
 
         <div class="navbar-links" id="menu">
-
             <a href="index.html">INICIO</a>
-
             <a href="planes.html">MEMBRESIAS</a>
-
             <a href="como-funciona.html">COMO FUNCIONA</a>
-
             <a href="#">CONTACTO</a>
-
         </div>
 
     </div>
-
-    <!-- HOW SECTION -->
 
     <section class="how-section">
 
@@ -614,21 +433,15 @@ RESPONSIVE
             </div>
 
             <h1>
-
                 NO VENDEMOS PLANTAS.<br>
-
                 <span>VENDEMOS ACCESO AL</span><br>
-
                 MERCADO GLOBAL.
-
             </h1>
 
             <p>
-
                 Cannacore es la infraestructura que conecta cultivadores
                 colombianos con compradores internacionales certificados
                 en Europa, Australia e Israel.
-
             </p>
 
         </div>
@@ -640,170 +453,145 @@ RESPONSIVE
             </div>
 
             <div class="value-item">
-
                 <div class="value-dot"></div>
-
                 <div>
-
                     <strong>GENÉTICA</strong>
-
-                    <span>
-                        Cannacore desarrolla y suministra variedades certificadas
-                    </span>
-
+                    <span>Cannacore desarrolla y suministra variedades certificadas</span>
                 </div>
-
             </div>
 
             <div class="value-item">
-
                 <div class="value-dot"></div>
-
                 <div>
-
                     <strong>LICENCIA</strong>
-
-                    <span>
-                        Produces bajo el amparo legal de Cannacore
-                    </span>
-
+                    <span>Produces bajo el amparo legal de Cannacore</span>
                 </div>
-
             </div>
 
             <div class="value-item">
-
                 <div class="value-dot"></div>
-
                 <div>
-
                     <strong>PRODUCCIÓN</strong>
-
-                    <span>
-                        Protocolo técnico + acompañamiento permanente
-                    </span>
-
+                    <span>Protocolo técnico + acompañamiento permanente</span>
                 </div>
-
             </div>
 
             <div class="value-item">
-
                 <div class="value-dot"></div>
-
                 <div>
-
                     <strong>TRAZABILIDAD</strong>
-
-                    <span>
-                        Plataforma digital estándar GACP internacional
-                    </span>
-
+                    <span>Plataforma digital estándar GACP internacional</span>
                 </div>
-
             </div>
 
             <div class="value-item">
-
                 <div class="value-dot"></div>
-
                 <div>
-
                     <strong>EXPORTACIÓN</strong>
-
-                    <span>
-                        Cannacore compra, certifica y exporta tu cosecha
-                    </span>
-
+                    <span>Cannacore compra, certifica y exporta tu cosecha</span>
                 </div>
-
             </div>
 
         </div>
 
     </section>
-
-    <!-- BENEFITS -->
 
     <section class="benefits-grid">
 
         <div class="benefit-card">
-
-            <div class="benefit-icon">⬒</div>
-
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 3h9l3 3v15H6z"></path>
+                    <path d="M14 3v4h4"></path>
+                    <path d="M9 13l2 2 4-5"></path>
+                </svg>
+            </div>
             <h3>LICENCIA PARAGUAS</h3>
-
             <p>
                 No necesitas tu propia licencia.
                 Produces bajo nuestro amparo legal desde el primer ciclo.
             </p>
-
         </div>
 
         <div class="benefit-card">
-
-            <div class="benefit-icon">◔</div>
-
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M7 3c6 4 10 6 10 18"></path>
+                    <path d="M17 3C11 7 7 9 7 21"></path>
+                    <path d="M8 7h8"></path>
+                    <path d="M9 12h6"></path>
+                    <path d="M8 17h8"></path>
+                </svg>
+            </div>
             <h3>GENÉTICA CERTIFICADA</h3>
-
             <p>
                 Esquejes Cannacore seleccionados por rendimiento
                 y contenido cannabinoide.
             </p>
-
         </div>
 
         <div class="benefit-card">
-
-            <div class="benefit-icon">⌂</div>
-
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8"></circle>
+                    <path d="M12 7v10"></path>
+                    <path d="M15 9.5c-.7-.8-1.7-1.2-3-1.2-1.5 0-2.5.7-2.5 1.8 0 1.2 1.1 1.6 2.7 1.9 1.7.4 2.8.8 2.8 2.1 0 1.1-1 1.9-2.8 1.9-1.4 0-2.5-.4-3.3-1.3"></path>
+                </svg>
+            </div>
             <h3>PRECIO GARANTIZADO</h3>
-
             <p>
                 Precio fijo por contrato independiente del mercado spot.
             </p>
-
         </div>
 
         <div class="benefit-card">
-
-            <div class="benefit-icon">▣</div>
-
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <rect x="4" y="4" width="6" height="6"></rect>
+                    <rect x="14" y="4" width="6" height="6"></rect>
+                    <rect x="9" y="15" width="6" height="6"></rect>
+                    <path d="M10 7h4"></path>
+                    <path d="M7 10l5 5"></path>
+                    <path d="M17 10l-5 5"></path>
+                </svg>
+            </div>
             <h3>TRAZABILIDAD DIGITAL</h3>
-
             <p>
                 Seguimiento en tiempo real requerido por compradores internacionales.
             </p>
-
         </div>
 
         <div class="benefit-card">
-
-            <div class="benefit-icon">★</div>
-
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 21c1.5-4 4.2-6 8-6s6.5 2 8 6"></path>
+                    <path d="M18 8h2a2 2 0 0 1 2 2v2"></path>
+                    <path d="M6 8H4a2 2 0 0 0-2 2v2"></path>
+                </svg>
+            </div>
             <h3>ACOMPAÑAMIENTO</h3>
-
             <p>
                 Equipo técnico especializado durante cada etapa productiva.
             </p>
-
         </div>
 
         <div class="benefit-card">
-
-            <div class="benefit-icon">◎</div>
-
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3c3 3 4.5 6 4.5 9S15 18 12 21"></path>
+                    <path d="M12 3C9 6 7.5 9 7.5 12S9 18 12 21"></path>
+                </svg>
+            </div>
             <h3>MERCADO INTERNACIONAL</h3>
-
             <p>
                 Tu producción llega a Europa, Australia e Israel.
             </p>
-
         </div>
 
     </section>
-
-    <!-- COMPARE SECTION -->
 
     <section class="compare-section">
 
@@ -814,70 +602,38 @@ RESPONSIVE
             </div>
 
             <h2>
-
                 BARRERAS<br>
                 DE ENTRADA
-
             </h2>
 
             <div class="compare-item">
-
                 <div class="compare-icon">✕</div>
-
-                <span>
-                    Licencia propia costosa y lenta de tramitar
-                </span>
-
+                <span>Licencia propia costosa y lenta de tramitar</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon">✕</div>
-
-                <span>
-                    Sin genética certificada para exportar
-                </span>
-
+                <span>Sin genética certificada para exportar</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon">✕</div>
-
-                <span>
-                    Sin contrato de compra garantizado
-                </span>
-
+                <span>Sin contrato de compra garantizado</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon">✕</div>
-
-                <span>
-                    Sin acceso a compradores internacionales
-                </span>
-
+                <span>Sin acceso a compradores internacionales</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon">✕</div>
-
-                <span>
-                    Sin trazabilidad ni certificación GACP
-                </span>
-
+                <span>Sin trazabilidad ni certificación GACP</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon">✕</div>
-
-                <span>
-                    Riesgo de operar en la informalidad
-                </span>
-
+                <span>Riesgo de operar en la informalidad</span>
             </div>
 
         </div>
@@ -889,71 +645,38 @@ RESPONSIVE
             </div>
 
             <h2>
-
                 TU TIERRA.<br>
-
                 NUESTRA <span>LICENCIA.</span>
-
             </h2>
 
             <div class="compare-item">
-
                 <div class="compare-icon green-icon">◉</div>
-
-                <span>
-                    Produces bajo nuestra licencia desde el día uno
-                </span>
-
+                <span>Produces bajo nuestra licencia desde el día uno</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon green-icon">◉</div>
-
-                <span>
-                    Genética certificada Cannacore incluida
-                </span>
-
+                <span>Genética certificada Cannacore incluida</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon green-icon">◉</div>
-
-                <span>
-                    Contrato de compra a €2/g garantizado
-                </span>
-
+                <span>Contrato de compra a €2/g garantizado</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon green-icon">◉</div>
-
-                <span>
-                    Tu flor llega a Europa, Australia e Israel
-                </span>
-
+                <span>Tu flor llega a Europa, Australia e Israel</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon green-icon">◉</div>
-
-                <span>
-                    Trazabilidad y auditoría en cada ciclo
-                </span>
-
+                <span>Trazabilidad y auditoría en cada ciclo</span>
             </div>
 
             <div class="compare-item">
-
                 <div class="compare-icon green-icon">◉</div>
-
-                <span>
-                    Operación 100% legal y respaldada
-                </span>
-
+                <span>Operación 100% legal y respaldada</span>
             </div>
 
         </div>
@@ -962,17 +685,14 @@ RESPONSIVE
 
 </div>
 
-<!-- SCRIPT MENU -->
-
 <script>
 
 function toggleMenu(){
-
-    document.getElementById("menu")
-    .classList.toggle("show");
+    document.getElementById("menu").classList.toggle("show");
 }
 
 </script>
 
 </body>
 </html>
+

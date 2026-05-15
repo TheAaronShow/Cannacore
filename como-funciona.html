@@ -136,31 +136,122 @@ NAVBAR NUEVA ESTÉTICA
 
 <!-- OVERLAY -->
 
-<div class="overlay">
+/* =========================
+NAVBAR INDEX STYLE
+========================= */
 
-    <!-- NAVBAR -->
+.navbar{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:22px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.20);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    z-index:1000;
+}
 
-    <div class="navbar">
+.logo{
+    font-size:1.2rem;
+    font-weight:900;
+    color:#c6ff00;
+    letter-spacing:4px;
+}
 
-        <div class="logo">
-            CANNA CORE
-        </div>
+.navbar-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+}
 
-        <div class="navbar-links">
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:0.3s;
+    opacity:0.88;
+}
 
-            <a href="index.html">INICIO</a>
+.navbar a:hover{
+    color:#c6ff00;
+    opacity:1;
+}
 
-            <a href="planes.html">MEMBRESIA</a>
+/* =========================
+HAMBURGUESA
+========================= */
 
-            <a href="como-funciona.html">COMO FUNCIONA</a>
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
 
-            <a href="#">CONTACTO</a>
+.hamburger span{
+    width:28px;
+    height:2px;
+    background:white;
+    border-radius:3px;
+}
 
-        </div>
+/* =========================
+RESPONSIVE
+========================= */
 
-    </div>
+@media(max-width:900px){
 
+    .hamburger{
+        display:flex;
+    }
+
+    .navbar-links{
+        display:none;
+
+        position:absolute;
+
+        top:75px;
+        right:10px;
+
+        background:rgba(0,0,0,0.95);
+
+        flex-direction:column;
+
+        padding:20px;
+
+        border-radius:10px;
+
+        gap:20px;
+    }
+
+    .navbar-links.show{
+        display:flex;
+    }
+
+    .navbar{
+        padding:20px;
+    }
+}
 </div>
+
+<script>
+
+function toggleMenu(){
+
+    document.getElementById("menu")
+    .classList.toggle("show");
+}
+
+</script>
 
 </body>
 </html>

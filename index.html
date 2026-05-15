@@ -296,6 +296,76 @@ body{
     font-size:1rem;
 }
 
+/* PERFIL DE USUARIO */
+
+.profile-section{
+    width:100%;
+    padding:120px 60px;
+    background:rgba(0,0,0,0.88);
+    display:none;
+}
+
+.profile-container{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.profile-subtitle{
+    color:#c6ff00;
+    font-size:0.72rem;
+    letter-spacing:6px;
+    margin-bottom:22px;
+    font-weight:700;
+}
+
+.profile-title{
+    font-size:4.5rem;
+    line-height:0.95;
+    font-weight:900;
+    letter-spacing:-3px;
+    margin-bottom:45px;
+}
+
+.profile-title span{
+    color:#c6ff00;
+}
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.profile-card{
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(255,255,255,0.06);
+    padding:30px;
+    backdrop-filter:blur(10px);
+}
+
+.profile-card h3{
+    color:#c6ff00;
+    font-size:0.75rem;
+    letter-spacing:4px;
+    margin-bottom:18px;
+}
+
+.profile-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    color:#bdbdbd;
+    line-height:1.5;
+}
+
+.profile-row strong{
+    color:white;
+    text-align:right;
+    word-break:break-word;
+}
+
 .modal-bg{
     display:none;
     position:fixed;
@@ -417,6 +487,27 @@ body{
     .market-header h2{
         font-size:3rem;
     }
+
+    .profile-section{
+        padding:90px 25px;
+    }
+
+    .profile-title{
+        font-size:3rem;
+    }
+
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .profile-row{
+        flex-direction:column;
+        gap:6px;
+    }
+
+    .profile-row strong{
+        text-align:left;
+    }
 }
 
 </style>
@@ -425,11 +516,9 @@ body{
 <body>
 
 <div class="video-background">
-
     <video id="bg-video" autoplay muted loop playsinline>
         <source src="canavid.mp4" type="video/mp4">
     </video>
-
 </div>
 
 <div class="navbar">
@@ -455,6 +544,10 @@ body{
 
         <a id="loginBtn" onclick="openModal('login')">
             Iniciar sesión
+        </a>
+
+        <a id="profileBtn" onclick="showProfile()" style="display:none;">
+            Mi perfil
         </a>
 
         <a id="logoutBtn" onclick="logout()" style="display:none;">
@@ -521,7 +614,6 @@ body{
             <div class="market-card featured-card">
 
                 <div class="market-icon">
-                    <!-- Mercado global -->
                     <svg viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="9"></circle>
                         <path d="M3 12h18"></path>
@@ -546,7 +638,6 @@ body{
             <div class="market-card">
 
                 <div class="market-icon">
-                    <!-- Menor costo -->
                     <svg viewBox="0 0 24 24">
                         <path d="M4 7h16"></path>
                         <path d="M6 7v11h12V7"></path>
@@ -573,7 +664,6 @@ body{
             <div class="market-card featured-card">
 
                 <div class="market-icon">
-                    <!-- Eje cafetero / montaña y hoja -->
                     <svg viewBox="0 0 24 24">
                         <path d="M3 18l6-8 4 5 3-4 5 7"></path>
                         <path d="M7 18h10"></path>
@@ -598,7 +688,6 @@ body{
             <div class="market-card">
 
                 <div class="market-icon">
-                    <!-- Marco legal Colombia -->
                     <svg viewBox="0 0 24 24">
                         <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"></path>
                         <path d="M9 12l2 2 4-5"></path>
@@ -615,6 +704,100 @@ body{
                     Ley 1787 pionera en LatAm.
                     Exportación a Europa, Australia e Israel.
                 </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="profile-section" id="profileSection">
+
+        <div class="profile-container">
+
+            <div class="profile-subtitle">
+                — PERFIL DE USUARIO
+            </div>
+
+            <h2 class="profile-title">
+                TU INFORMACIÓN<br>
+                <span>CANNACORE.</span>
+            </h2>
+
+            <div class="profile-grid">
+
+                <div class="profile-card">
+
+                    <h3>DATOS DE CUENTA</h3>
+
+                    <div class="profile-row">
+                        <span>Nombre</span>
+                        <strong id="profileName">-</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Email</span>
+                        <strong id="profileEmail">-</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Usuario ID</span>
+                        <strong id="profileUid">-</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Email verificado</span>
+                        <strong id="profileVerified">-</strong>
+                    </div>
+
+                </div>
+
+                <div class="profile-card">
+
+                    <h3>MEMBRESÍA</h3>
+
+                    <div class="profile-row">
+                        <span>Plan activo</span>
+                        <strong id="profileMembership">Sin membresía</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Monto</span>
+                        <strong id="profileAmount">-</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Estado de pago</span>
+                        <strong id="profilePayment">-</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Fecha de inicio</span>
+                        <strong id="profileStartDate">-</strong>
+                    </div>
+
+                </div>
+
+                <div class="profile-card">
+
+                    <h3>SEGURIDAD</h3>
+
+                    <div class="profile-row">
+                        <span>Proveedor</span>
+                        <strong id="profileProvider">-</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Cuenta creada</span>
+                        <strong id="profileCreated">-</strong>
+                    </div>
+
+                    <div class="profile-row">
+                        <span>Último acceso</span>
+                        <strong id="profileLastLogin">-</strong>
+                    </div>
+
+                </div>
 
             </div>
 
@@ -711,6 +894,13 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
+import {
+    getFirestore,
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
     authDomain: "cannacore-web.firebaseapp.com",
@@ -723,6 +913,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
+
+const db = getFirestore(app);
 
 window.login = function(){
 
@@ -804,7 +996,7 @@ window.googleLogin = function(){
     .catch(err=>alert(err.message));
 }
 
-onAuthStateChanged(auth,(user)=>{
+onAuthStateChanged(auth,async(user)=>{
 
     const loginBtn =
     document.getElementById("loginBtn");
@@ -812,8 +1004,14 @@ onAuthStateChanged(auth,(user)=>{
     const logoutBtn =
     document.getElementById("logoutBtn");
 
+    const profileBtn =
+    document.getElementById("profileBtn");
+
     const userName =
     document.getElementById("userName");
+
+    const profileSection =
+    document.getElementById("profileSection");
 
     if(user){
 
@@ -824,6 +1022,10 @@ onAuthStateChanged(auth,(user)=>{
 
         logoutBtn.style.display = "inline-block";
 
+        profileBtn.style.display = "inline-block";
+
+        await loadUserProfile(user);
+
     }else{
 
         userName.innerHTML = "";
@@ -831,14 +1033,112 @@ onAuthStateChanged(auth,(user)=>{
         loginBtn.style.display = "inline-block";
 
         logoutBtn.style.display = "none";
+
+        profileBtn.style.display = "none";
+
+        profileSection.style.display = "none";
     }
 });
+
+async function loadUserProfile(user){
+
+    document.getElementById("profileName").innerHTML =
+    user.displayName || "Sin nombre registrado";
+
+    document.getElementById("profileEmail").innerHTML =
+    user.email || "-";
+
+    document.getElementById("profileUid").innerHTML =
+    user.uid;
+
+    document.getElementById("profileVerified").innerHTML =
+    user.emailVerified ? "Sí" : "No";
+
+    document.getElementById("profileProvider").innerHTML =
+    user.providerData[0]?.providerId || "Email";
+
+    document.getElementById("profileCreated").innerHTML =
+    formatDate(user.metadata.creationTime);
+
+    document.getElementById("profileLastLogin").innerHTML =
+    formatDate(user.metadata.lastSignInTime);
+
+    document.getElementById("profileMembership").innerHTML =
+    "Sin membresía";
+
+    document.getElementById("profileAmount").innerHTML =
+    "-";
+
+    document.getElementById("profilePayment").innerHTML =
+    "-";
+
+    document.getElementById("profileStartDate").innerHTML =
+    "-";
+
+    try{
+
+        const userDoc =
+        await getDoc(doc(db,"users",user.uid));
+
+        if(userDoc.exists()){
+
+            const data = userDoc.data();
+
+            document.getElementById("profileMembership").innerHTML =
+            data.membership || "Sin membresía";
+
+            document.getElementById("profileAmount").innerHTML =
+            data.amount ? "€" + data.amount : "-";
+
+            document.getElementById("profilePayment").innerHTML =
+            data.paymentStatus || "-";
+
+            document.getElementById("profileStartDate").innerHTML =
+            data.startDate ? formatDate(data.startDate) : "-";
+
+        }
+
+    }catch(error){
+
+        console.log(error.message);
+    }
+}
+
+function formatDate(dateValue){
+
+    if(!dateValue){
+        return "-";
+    }
+
+    const date = new Date(dateValue);
+
+    return date.toLocaleDateString("es-CO",{
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+    });
+}
+
+window.showProfile = function(){
+
+    const profileSection =
+    document.getElementById("profileSection");
+
+    profileSection.style.display = "block";
+
+    profileSection.scrollIntoView({
+        behavior:"smooth"
+    });
+}
 
 window.logout = function(){
 
     signOut(auth)
 
     .then(()=>{
+
+        document.getElementById("profileSection")
+        .style.display = "none";
 
         alert("Sesión cerrada");
 
@@ -897,4 +1197,5 @@ function closeModal(){
 
 </body>
 </html>
+
 

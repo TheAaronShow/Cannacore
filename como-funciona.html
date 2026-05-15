@@ -326,44 +326,47 @@ body{
 
 .production-section{
     width:100%;
-    padding:0 80px 130px;
+    padding:0 80px 90px;
 }
 
 .production-wrap{
+    max-width:1400px;
+    margin:0 auto;
     display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:30px;
+    grid-template-columns:1fr 0.72fr;
+    gap:24px;
     align-items:stretch;
 }
 
 .production-info{
-    background:#efede4;
-    color:#151812;
-    border:1px solid rgba(198,255,0,0.18);
+    background:rgba(0,0,0,0.55);
+    color:white;
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
 }
 
 .production-header{
-    padding:55px 55px 45px;
-    border-bottom:2px solid #151812;
+    padding:34px 38px 28px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .production-subtitle{
-    color:#40503a;
-    font-size:0.7rem;
-    letter-spacing:7px;
-    margin-bottom:22px;
+    color:#c6ff00;
+    font-size:0.65rem;
+    letter-spacing:6px;
+    margin-bottom:16px;
     font-weight:700;
 }
 
 .production-header h2{
-    font-size:4.6rem;
-    line-height:0.9;
+    font-size:3.2rem;
+    line-height:0.92;
     font-weight:900;
-    letter-spacing:-3px;
+    letter-spacing:-2px;
 }
 
 .production-header h2 span{
-    color:#40503a;
+    color:#c6ff00;
 }
 
 .cycle-grid{
@@ -372,35 +375,33 @@ body{
 }
 
 .cycle-card{
-    min-height:270px;
-    padding:30px 28px;
-    border-right:1px solid rgba(21,24,18,0.12);
-    border-bottom:1px solid rgba(21,24,18,0.12);
+    min-height:205px;
+    padding:24px 24px 22px;
+    border-right:1px solid rgba(255,255,255,0.06);
+    border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
 .cycle-number{
-    color:#9b9d92;
-    font-size:0.72rem;
+    color:#777;
+    font-size:0.62rem;
     letter-spacing:4px;
-    margin-bottom:20px;
+    margin-bottom:14px;
 }
 
 .cycle-icon{
-    width:56px;
-    height:56px;
-    border-radius:50%;
-    border:1px solid rgba(21,24,18,0.18);
-    background:#dcdbd1;
+    width:46px;
+    height:46px;
+    background:#161b10;
     color:#c6ff00;
     display:flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:22px;
+    margin-bottom:16px;
 }
 
 .cycle-icon svg{
-    width:28px;
-    height:28px;
+    width:24px;
+    height:24px;
     stroke:currentColor;
     stroke-width:1.8;
     fill:none;
@@ -409,54 +410,55 @@ body{
 }
 
 .cycle-time{
-    background:#151812;
-    color:#c6ff00;
-    font-size:0.72rem;
-    letter-spacing:4px;
+    display:inline-block;
+    background:#c6ff00;
+    color:#000;
+    font-size:0.62rem;
+    letter-spacing:3px;
     font-weight:900;
-    padding:7px 10px;
-    margin-bottom:18px;
+    padding:6px 9px;
+    margin-bottom:14px;
 }
 
 .cycle-card h3{
-    font-size:1.25rem;
+    font-size:1.05rem;
     font-weight:900;
-    margin-bottom:12px;
+    margin-bottom:9px;
 }
 
 .cycle-card p{
-    color:#4d5648;
-    font-size:0.9rem;
-    line-height:1.7;
+    color:#cfcfcf;
+    font-size:0.82rem;
+    line-height:1.55;
 }
 
 .cycle-card.featured-cycle{
-    background:#f3f1d9;
-    border-left:2px solid #c6ff00;
+    background:rgba(198,255,0,0.10);
+    border-left:1px solid rgba(198,255,0,0.35);
 }
 
 .production-stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    background:#151812;
+    background:rgba(198,255,0,0.06);
 }
 
 .stat-box{
-    padding:35px 25px;
+    padding:24px 18px;
     text-align:center;
     border-right:1px solid rgba(255,255,255,0.06);
 }
 
 .stat-box.featured-stat{
-    background:#46523e;
+    background:rgba(198,255,0,0.12);
 }
 
 .stat-value{
-    font-size:3.4rem;
+    font-size:2.45rem;
     line-height:1;
     font-weight:900;
     color:white;
-    margin-bottom:12px;
+    margin-bottom:8px;
 }
 
 .stat-value.green{
@@ -464,68 +466,32 @@ body{
 }
 
 .stat-small{
-    font-size:1.2rem;
+    font-size:0.9rem;
 }
 
 .stat-label{
-    color:#7f8679;
-    font-size:0.65rem;
-    letter-spacing:4px;
+    color:#8f9685;
+    font-size:0.55rem;
+    letter-spacing:3px;
 }
 
 .production-video{
-    position:relative;
-    min-height:100%;
-    background:rgba(0,0,0,0.45);
-    border:1px solid rgba(255,255,255,0.05);
+    background:rgba(0,0,0,0.55);
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     overflow:hidden;
 }
 
 .production-video video{
     width:100%;
     height:100%;
-    min-height:720px;
-    object-fit:cover;
+    max-height:640px;
+    object-fit:contain;
     display:block;
-}
-
-.video-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.15),
-        rgba(0,0,0,0.75)
-    );
-    display:flex;
-    align-items:flex-end;
-    padding:40px;
-}
-
-.video-caption{
-    max-width:420px;
-}
-
-.video-caption span{
-    display:block;
-    color:#c6ff00;
-    font-size:0.7rem;
-    letter-spacing:5px;
-    font-weight:700;
-    margin-bottom:14px;
-}
-
-.video-caption h3{
-    font-size:2.4rem;
-    line-height:1;
-    font-weight:900;
-    margin-bottom:14px;
-}
-
-.video-caption p{
-    color:#d8d8d8;
-    line-height:1.8;
-    font-size:0.95rem;
+    background:#000;
 }
 
 @media(max-width:1200px){
@@ -539,10 +505,6 @@ body{
 
     .production-wrap{
         grid-template-columns:1fr;
-    }
-
-    .production-video video{
-        min-height:520px;
     }
 }
 
@@ -604,16 +566,19 @@ body{
     }
 
     .production-section{
-        padding:0 25px 100px;
+        padding:0 25px 80px;
+    }
+
+    .production-wrap{
+        grid-template-columns:1fr;
     }
 
     .production-header{
-        padding:38px 28px 32px;
+        padding:30px 24px 26px;
     }
 
     .production-header h2{
-        font-size:3rem;
-        letter-spacing:-1px;
+        font-size:2.6rem;
     }
 
     .cycle-grid{
@@ -622,7 +587,7 @@ body{
 
     .cycle-card{
         min-height:auto;
-        padding:28px;
+        padding:24px;
     }
 
     .production-stats{
@@ -630,15 +595,8 @@ body{
     }
 
     .production-video video{
-        min-height:420px;
-    }
-
-    .video-overlay{
-        padding:28px;
-    }
-
-    .video-caption h3{
-        font-size:1.9rem;
+        max-height:none;
+        height:auto;
     }
 }
 
@@ -945,75 +903,88 @@ body{
                         <div class="cycle-number">01 ----</div>
                         <div class="cycle-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M4 20h16"></path>
-                                <path d="M6 20V9l6-5 6 5v11"></path>
-                                <path d="M10 20v-6h4v6"></path>
+                                <path d="M12 21V10"></path>
+                                <path d="M12 10C8 10 6 7 6 4c4 0 6 3 6 6z"></path>
+                                <path d="M12 12c4 0 6-3 6-6-4 0-6 3-6 6z"></path>
                             </svg>
                         </div>
                         <div class="cycle-time">1-2 SEM</div>
                         <h3>ESQUEJE</h3>
-                        <p>Esquejes enraizados de variedades Cannacore. Genética certificada y seleccionada.</p>
+                        <p>Esquejes enraizados de variedades Cannacore. Genética certificada.</p>
                     </div>
 
                     <div class="cycle-card">
                         <div class="cycle-number">02 ----</div>
                         <div class="cycle-icon">
                             <svg viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="8"></circle>
-                                <path d="M12 7v5l4 3"></path>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v3"></path>
+                                <path d="M12 19v3"></path>
+                                <path d="M2 12h3"></path>
+                                <path d="M19 12h3"></path>
+                                <path d="M4.9 4.9l2.1 2.1"></path>
+                                <path d="M17 17l2.1 2.1"></path>
                             </svg>
                         </div>
                         <div class="cycle-time">4-8 SEM</div>
                         <h3>VEGETATIVA</h3>
-                        <p>18h luz / 6h oscuridad. Crecimiento estructural. Fertirriego según protocolo.</p>
+                        <p>18h luz / 6h oscuridad. Crecimiento estructural y nutrición controlada.</p>
                     </div>
 
                     <div class="cycle-card">
                         <div class="cycle-number">03 ----</div>
                         <div class="cycle-icon">
                             <svg viewBox="0 0 24 24">
-                                <circle cx="9" cy="8" r="3"></circle>
-                                <circle cx="16" cy="8" r="3"></circle>
-                                <path d="M5 20c.7-3 2.5-5 5-5"></path>
-                                <path d="M19 20c-.7-3-2.5-5-5-5"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M12 3c2 3 2 5 0 9"></path>
+                                <path d="M21 12c-3 2-5 2-9 0"></path>
+                                <path d="M12 21c-2-3-2-5 0-9"></path>
+                                <path d="M3 12c3-2 5-2 9 0"></path>
                             </svg>
                         </div>
                         <div class="cycle-time">8-12 SEM</div>
                         <h3>FLORACIÓN</h3>
-                        <p>Fotoperiodo 12/12. Formación de cogollos. Etapa de máxima atención técnica.</p>
+                        <p>Formación de cogollos. Etapa de máxima atención técnica.</p>
                     </div>
 
                     <div class="cycle-card">
                         <div class="cycle-number">04 ----</div>
                         <div class="cycle-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M6 7h12v13H6z"></path>
-                                <path d="M9 7V4h6v3"></path>
-                                <path d="M8 11h8"></path>
+                                <circle cx="10" cy="10" r="6"></circle>
+                                <path d="M14.5 14.5L21 21"></path>
+                                <path d="M8 10h4"></path>
+                                <path d="M10 8v4"></path>
                             </svg>
                         </div>
                         <div class="cycle-time">1-2 SEM</div>
                         <h3>MADURACIÓN</h3>
-                        <p>Lectura de tricomas bajo lupa. Lavado de raíces y preparación de cosecha.</p>
+                        <p>Lectura de tricomas, lavado de raíces y preparación de cosecha.</p>
                     </div>
 
                     <div class="cycle-card">
                         <div class="cycle-number">05 ----</div>
                         <div class="cycle-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"></path>
+                                <circle cx="6" cy="6" r="3"></circle>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <path d="M8.5 8.5L20 20"></path>
+                                <path d="M8.5 15.5L20 4"></path>
                             </svg>
                         </div>
                         <div class="cycle-time">2-4 SEM</div>
                         <h3>COSECHA</h3>
-                        <p>Corte, secado y curado. 50-60% humedad. Estándar GACP internacional.</p>
+                        <p>Corte, secado y curado bajo estándar GACP internacional.</p>
                     </div>
 
                     <div class="cycle-card featured-cycle">
                         <div class="cycle-number">06 ----</div>
                         <div class="cycle-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.2 6.4 20.2 7.5 14 3 9.6l6.2-.9z"></path>
+                                <path d="M3 7h11v10H3z"></path>
+                                <path d="M14 10h4l3 3v4h-7z"></path>
+                                <circle cx="7" cy="18" r="2"></circle>
+                                <circle cx="18" cy="18" r="2"></circle>
                             </svg>
                         </div>
                         <div class="cycle-time">€2/G</div>
@@ -1050,23 +1021,6 @@ body{
                     <source src="quiero_que_la_planta_sea_mas_a.mp4" type="video/mp4">
                 </video>
 
-                <div class="video-overlay">
-
-                    <div class="video-caption">
-
-                        <span>PRODUCCIÓN CONTROLADA</span>
-
-                        <h3>CULTIVO CON ESTÁNDAR INTERNACIONAL.</h3>
-
-                        <p>
-                            Cada etapa del ciclo se acompaña con protocolo técnico,
-                            trazabilidad y criterios de calidad para exportación.
-                        </p>
-
-                    </div>
-
-                </div>
-
             </div>
 
         </div>
@@ -1085,5 +1039,6 @@ function toggleMenu(){
 
 </body>
 </html>
+
 
 

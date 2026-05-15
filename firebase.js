@@ -33,17 +33,17 @@ FIREBASE CONFIG
 
 const firebaseConfig = {
 
-    apiKey: "TU_API_KEY",
+    apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
 
-    authDomain: "TU_AUTH_DOMAIN",
+    authDomain: "annacore-web.firebaseapp.com",
 
-    projectId: "TU_PROJECT_ID",
+    projectId: "cannacore-web",
 
-    storageBucket: "TU_STORAGE_BUCKET",
+    storageBucket: "cannacore-web.firebasestorage.app",
 
-    messagingSenderId: "TU_SENDER_ID",
+    messagingSenderId: "648812089616",
 
-    appId: "TU_APP_ID"
+    appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
 };
 
 /* =========================

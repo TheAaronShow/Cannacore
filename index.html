@@ -14,10 +14,6 @@
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -35,10 +31,6 @@ body{
     color:white;
 }
 
-/* =========================
-   VIDEO BACKGROUND
-========================= */
-
 .video-background{
     position:fixed;
     top:0;
@@ -55,10 +47,6 @@ body{
     object-fit:cover;
 }
 
-/* =========================
-   OVERLAY
-========================= */
-
 .overlay{
     width:100%;
     min-height:100vh;
@@ -66,10 +54,6 @@ body{
     position:relative;
     z-index:1;
 }
-
-/* =========================
-   NAVBAR
-========================= */
 
 .navbar{
     width:100%;
@@ -114,10 +98,6 @@ body{
     font-weight:bold;
 }
 
-/* =========================
-   HAMBURGUESA
-========================= */
-
 .hamburger{
     display:none;
     flex-direction:column;
@@ -131,10 +111,6 @@ body{
     background:white;
     border-radius:3px;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero-content{
     width:100%;
@@ -173,10 +149,6 @@ body{
     margin-bottom:45px;
 }
 
-/* =========================
-   BOTONES
-========================= */
-
 .hero-buttons{
     display:flex;
     gap:16px;
@@ -187,22 +159,15 @@ body{
     min-width:260px;
     height:60px;
     padding:0 30px;
-
     border:none;
     border-radius:4px;
-
     background:#c6ff00;
     color:#000;
-
     font-size:0.95rem;
     font-weight:800;
-
     letter-spacing:2px;
-
     cursor:pointer;
-
     white-space:nowrap;
-
     transition:0.3s;
 }
 
@@ -221,17 +186,11 @@ body{
     font-size:1rem;
     font-weight:700;
     cursor:pointer;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     text-decoration:none;
 }
-
-/* =========================
-   MARKET SECTION
-========================= */
 
 .market-section{
     width:100%;
@@ -304,8 +263,17 @@ body{
     justify-content:center;
     align-items:center;
     color:#c6ff00;
-    font-size:1.5rem;
     margin-bottom:35px;
+}
+
+.market-icon svg{
+    width:30px;
+    height:30px;
+    stroke:currentColor;
+    stroke-width:1.8;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
 .market-number{
@@ -327,10 +295,6 @@ body{
     line-height:1.9;
     font-size:1rem;
 }
-
-/* =========================
-   MODAL
-========================= */
 
 .modal-bg{
     display:none;
@@ -396,19 +360,13 @@ body{
     font-size:0.9rem;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
 @media(max-width:1400px){
-
     .market-grid{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
 @media(max-width:900px){
-
     .hamburger{
         display:flex;
     }
@@ -466,19 +424,13 @@ body{
 
 <body>
 
-<!-- VIDEO -->
-
 <div class="video-background">
 
     <video id="bg-video" autoplay muted loop playsinline>
-
         <source src="canavid.mp4" type="video/mp4">
-
     </video>
 
 </div>
-
-<!-- NAVBAR -->
 
 <div class="navbar">
 
@@ -487,21 +439,16 @@ body{
     </div>
 
     <div class="hamburger" onclick="toggleMenu()">
-
         <span></span>
         <span></span>
         <span></span>
-
     </div>
 
     <div class="navbar-links" id="menu">
 
         <a href="index.html">INICIO</a>
-
         <a href="planes.html">MEMBRESIA</a>
-
         <a href="como-funciona.html">COMO FUNCIONA</a>
-
         <a href="contacto.htm">CONTACTO</a>
 
         <span id="userName"></span>
@@ -518,8 +465,6 @@ body{
 
 </div>
 
-<!-- HERO -->
-
 <div class="overlay">
 
     <div class="hero-content">
@@ -529,41 +474,32 @@ body{
         </div>
 
         <h1 class="hero-title">
-
             CULTIVA<br>
             CON<br>
-
             <span>RESPALDO.</span>
-
         </h1>
 
         <p class="hero-description">
-
             Infraestructura agrícola regulada que integra cultivadores a una
             red productiva legal, con genética certificada, precio
             garantizado y acceso directo al mercado global.
-
         </p>
 
         <div class="hero-buttons">
 
-    <a href="planes.html">
+            <a href="planes.html">
+                <button class="btn-primary">
+                    VER MEMBRESIAS →
+                </button>
+            </a>
 
-        <button class="btn-primary">
-            VER MEMBRESIAS →
-        </button>
+            <a href="como-funciona.html" class="btn-secondary">
+                COMO FUNCIONA
+            </a>
 
-    </a>
+        </div>
 
-    <a href="como-funciona.html" class="btn-secondary">
-        COMO FUNCIONA
-    </a>
-
-</div>
-       
     </div>
-
-    <!-- MARKET SECTION -->
 
     <section class="market-section">
 
@@ -574,11 +510,8 @@ body{
             </div>
 
             <h2>
-
                 COLOMBIA TIENE LO QUE<br>
-
                 EL MUNDO <span>NECESITA.</span>
-
             </h2>
 
         </div>
@@ -587,7 +520,15 @@ body{
 
             <div class="market-card featured-card">
 
-                <div class="market-icon">⌂</div>
+                <div class="market-icon">
+                    <!-- Mercado global -->
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M3 12h18"></path>
+                        <path d="M12 3c3 3 4.5 6 4.5 9S15 18 12 21"></path>
+                        <path d="M12 3C9 6 7.5 9 7.5 12S9 18 12 21"></path>
+                    </svg>
+                </div>
 
                 <div class="market-number">$70B</div>
 
@@ -604,7 +545,17 @@ body{
 
             <div class="market-card">
 
-                <div class="market-icon">◔</div>
+                <div class="market-icon">
+                    <!-- Menor costo -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 7h16"></path>
+                        <path d="M6 7v11h12V7"></path>
+                        <path d="M9 11h6"></path>
+                        <path d="M9 15h4"></path>
+                        <path d="M8 4h8"></path>
+                        <path d="M12 20v-3"></path>
+                    </svg>
+                </div>
 
                 <div class="market-number">60%</div>
 
@@ -621,7 +572,15 @@ body{
 
             <div class="market-card featured-card">
 
-                <div class="market-icon">▢</div>
+                <div class="market-icon">
+                    <!-- Eje cafetero / montaña y hoja -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 18l6-8 4 5 3-4 5 7"></path>
+                        <path d="M7 18h10"></path>
+                        <path d="M15 8c3 0 5-2 5-5-3 0-5 2-5 5z"></path>
+                        <path d="M15 8l-3 3"></path>
+                    </svg>
+                </div>
 
                 <div class="market-number">18–24°</div>
 
@@ -638,7 +597,13 @@ body{
 
             <div class="market-card">
 
-                <div class="market-icon">⛨</div>
+                <div class="market-icon">
+                    <!-- Marco legal Colombia -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"></path>
+                        <path d="M9 12l2 2 4-5"></path>
+                    </svg>
+                </div>
 
                 <div class="market-number">2016</div>
 
@@ -659,11 +624,7 @@ body{
 
 </div>
 
-<!-- MODAL FIREBASE -->
-
 <div class="modal-bg" id="modalBg">
-
-    <!-- LOGIN -->
 
     <div class="modal" id="loginModal">
 
@@ -672,7 +633,6 @@ body{
         <h2>Iniciar sesión</h2>
 
         <input id="loginEmail" type="email" placeholder="Correo electrónico">
-
         <input id="loginPass" type="password" placeholder="Contraseña">
 
         <button onclick="login()">
@@ -693,8 +653,6 @@ body{
 
     </div>
 
-    <!-- RECOVER -->
-
     <div class="modal" id="recoverModal" style="display:none;">
 
         <div class="close-x" onclick="closeModal()">×</div>
@@ -713,8 +671,6 @@ body{
 
     </div>
 
-    <!-- REGISTER -->
-
     <div class="modal" id="registerModal" style="display:none;">
 
         <div class="close-x" onclick="closeModal()">×</div>
@@ -722,9 +678,7 @@ body{
         <h2>Crear cuenta</h2>
 
         <input id="registerName" type="text" placeholder="Nombre completo">
-
         <input id="registerEmail" type="email" placeholder="Correo electrónico">
-
         <input id="registerPass" type="password" placeholder="Crear contraseña">
 
         <button onclick="register()">
@@ -739,15 +693,12 @@ body{
 
 </div>
 
-<!-- FIREBASE -->
-
 <script type="module">
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
 import {
-
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -757,30 +708,21 @@ import {
     signOut,
     GoogleAuthProvider,
     signInWithPopup
-
 }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
 const firebaseConfig = {
-
     apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
-
     authDomain: "cannacore-web.firebaseapp.com",
-
     projectId: "cannacore-web",
-
     storageBucket: "cannacore-web.firebasestorage.app",
-
     messagingSenderId: "648812089616",
-
     appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
 };
 
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
-
-/* LOGIN */
 
 window.login = function(){
 
@@ -802,8 +744,6 @@ window.login = function(){
 
     .catch(err=>alert(err.message));
 }
-
-/* REGISTER */
 
 window.register = function(){
 
@@ -833,8 +773,6 @@ window.register = function(){
     .catch(err=>alert(err.message));
 }
 
-/* RECOVER */
-
 window.recover = function(){
 
     const email =
@@ -851,8 +789,6 @@ window.recover = function(){
     .catch(err=>alert(err.message));
 }
 
-/* GOOGLE LOGIN */
-
 window.googleLogin = function(){
 
     const provider = new GoogleAuthProvider();
@@ -867,8 +803,6 @@ window.googleLogin = function(){
 
     .catch(err=>alert(err.message));
 }
-
-/* DETECT SESSION */
 
 onAuthStateChanged(auth,(user)=>{
 
@@ -900,8 +834,6 @@ onAuthStateChanged(auth,(user)=>{
     }
 });
 
-/* LOGOUT */
-
 window.logout = function(){
 
     signOut(auth)
@@ -916,8 +848,6 @@ window.logout = function(){
 }
 
 </script>
-
-<!-- FUNCIONES -->
 
 <script>
 
@@ -967,3 +897,4 @@ function closeModal(){
 
 </body>
 </html>
+

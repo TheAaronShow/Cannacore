@@ -192,13 +192,13 @@ VALUE BOX
 
 .value-box{
 
-    background:rgba(0,0,0,0.55);
+    background:rgba(0,0,0,0.45);
 
-    border:1px solid rgba(198,255,0,0.12);
+    border:1px solid rgba(255,255,255,0.05);
 
     padding:45px;
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
 }
 
 .value-title{
@@ -289,6 +289,8 @@ BENEFITS
     min-height:260px;
 
     transition:0.3s;
+
+    backdrop-filter:blur(10px);
 }
 
 .benefit-card:hover{
@@ -334,6 +336,131 @@ BENEFITS
 }
 
 /* =========================
+COMPARE SECTION
+========================= */
+
+.compare-section{
+
+    width:100%;
+
+    padding:0 80px 120px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+}
+
+.compare-box{
+
+    background:
+    rgba(0,0,0,0.45);
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    padding:55px;
+
+    transition:0.3s;
+}
+
+.compare-box:hover{
+
+    border-color:
+    rgba(198,255,0,0.18);
+}
+
+.compare-subtitle{
+
+    color:#8e8e8e;
+
+    font-size:0.72rem;
+
+    letter-spacing:5px;
+
+    margin-bottom:28px;
+
+    font-weight:700;
+}
+
+.green-text{
+
+    color:#c6ff00;
+}
+
+.compare-box h2{
+
+    font-size:4.5rem;
+
+    line-height:0.92;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+    margin-bottom:55px;
+}
+
+.compare-box h2 span{
+
+    color:#c6ff00;
+}
+
+.compare-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:18px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.05);
+}
+
+.compare-icon{
+
+    min-width:36px;
+    min-height:36px;
+
+    border-radius:50%;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    color:#808080;
+
+    font-size:0.85rem;
+}
+
+.green-icon{
+
+    color:#c6ff00;
+
+    border-color:
+    rgba(198,255,0,0.22);
+}
+
+.compare-item span{
+
+    color:#d8d8d8;
+
+    line-height:1.7;
+
+    font-size:0.98rem;
+}
+
+/* =========================
 RESPONSIVE
 ========================= */
 
@@ -347,6 +474,14 @@ RESPONSIVE
     .benefits-grid{
 
         grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:1100px){
+
+    .compare-section{
+
+        grid-template-columns:1fr;
     }
 }
 
@@ -400,9 +535,20 @@ RESPONSIVE
         grid-template-columns:1fr;
     }
 
-    .value-box{
+    .compare-section{
 
-        padding:30px;
+        padding:0 25px 100px;
+    }
+
+    .value-box,
+    .compare-box{
+
+        padding:35px;
+    }
+
+    .compare-box h2{
+
+        font-size:3rem;
     }
 }
 
@@ -435,8 +581,6 @@ RESPONSIVE
             CANNA CORE
         </div>
 
-        <!-- HAMBURGUESA -->
-
         <div class="hamburger" onclick="toggleMenu()">
 
             <span></span>
@@ -445,13 +589,11 @@ RESPONSIVE
 
         </div>
 
-        <!-- LINKS -->
-
         <div class="navbar-links" id="menu">
 
-            <a href="index.html">INICIO</a>
+            <a href="index.html">EL MODELO</a>
 
-            <a href="planes.html">MEMBRESIAS</a>
+            <a href="planes.html">PLANES</a>
 
             <a href="como-funciona.html">COMO FUNCIONA</a>
 
@@ -461,11 +603,9 @@ RESPONSIVE
 
     </div>
 
-    <!-- CONTENIDO -->
+    <!-- HOW SECTION -->
 
     <section class="how-section">
-
-        <!-- TEXTO -->
 
         <div class="how-left">
 
@@ -492,8 +632,6 @@ RESPONSIVE
             </p>
 
         </div>
-
-        <!-- VALUE BOX -->
 
         <div class="value-box">
 
@@ -585,7 +723,7 @@ RESPONSIVE
 
     </section>
 
-    <!-- BENEFICIOS -->
+    <!-- BENEFITS -->
 
     <section class="benefits-grid">
 
@@ -662,169 +800,167 @@ RESPONSIVE
             </p>
 
         </div>
-</div>
+
     </section>
 
-<!-- COMPARATIVA -->
+    <!-- COMPARE SECTION -->
 
-<section class="compare-section">
+    <section class="compare-section">
 
-    <!-- SIN CANNACORE -->
+        <div class="compare-box">
 
-    <div class="compare-box dark-box">
+            <div class="compare-subtitle">
+                — SIN CANNACORE
+            </div>
 
-        <div class="compare-subtitle">
-            — SIN CANNACORE
-        </div>
+            <h2>
 
-        <h2>
+                BARRERAS<br>
+                DE ENTRADA
 
-            BARRERAS<br>
-            DE ENTRADA
+            </h2>
 
-        </h2>
+            <div class="compare-item">
 
-        <div class="compare-item">
+                <div class="compare-icon">✕</div>
 
-            <div class="compare-icon">✕</div>
+                <span>
+                    Licencia propia costosa y lenta de tramitar
+                </span>
 
-            <span>
-                Licencia propia costosa y lenta de tramitar
-            </span>
+            </div>
 
-        </div>
+            <div class="compare-item">
 
-        <div class="compare-item">
+                <div class="compare-icon">✕</div>
 
-            <div class="compare-icon">✕</div>
+                <span>
+                    Sin genética certificada para exportar
+                </span>
 
-            <span>
-                Sin genética certificada para exportar
-            </span>
+            </div>
 
-        </div>
+            <div class="compare-item">
 
-        <div class="compare-item">
+                <div class="compare-icon">✕</div>
 
-            <div class="compare-icon">✕</div>
+                <span>
+                    Sin contrato de compra garantizado
+                </span>
 
-            <span>
-                Sin contrato de compra garantizado
-            </span>
+            </div>
 
-        </div>
+            <div class="compare-item">
 
-        <div class="compare-item">
+                <div class="compare-icon">✕</div>
 
-            <div class="compare-icon">✕</div>
+                <span>
+                    Sin acceso a compradores internacionales
+                </span>
 
-            <span>
-                Sin acceso a compradores internacionales
-            </span>
+            </div>
 
-        </div>
+            <div class="compare-item">
 
-        <div class="compare-item">
+                <div class="compare-icon">✕</div>
 
-            <div class="compare-icon">✕</div>
+                <span>
+                    Sin trazabilidad ni certificación GACP
+                </span>
 
-            <span>
-                Sin trazabilidad ni certificación GACP
-            </span>
+            </div>
 
-        </div>
+            <div class="compare-item">
 
-        <div class="compare-item">
+                <div class="compare-icon">✕</div>
 
-            <div class="compare-icon">✕</div>
+                <span>
+                    Riesgo de operar en la informalidad
+                </span>
 
-            <span>
-                Riesgo de operar en la informalidad
-            </span>
-
-        </div>
-
-    </div>
-
-    <!-- CON CANNACORE -->
-
-    <div class="compare-box green-box">
-
-        <div class="compare-subtitle green-text">
-            — CON CANNACORE
-        </div>
-
-        <h2>
-
-            TU TIERRA.<br>
-
-            NUESTRA <span>LICENCIA.</span>
-
-        </h2>
-
-        <div class="compare-item">
-
-            <div class="compare-icon green-icon">◉</div>
-
-            <span>
-                Produces bajo nuestra licencia desde el día uno
-            </span>
+            </div>
 
         </div>
 
-        <div class="compare-item">
+        <div class="compare-box">
 
-            <div class="compare-icon green-icon">◉</div>
+            <div class="compare-subtitle green-text">
+                — CON CANNACORE
+            </div>
 
-            <span>
-                Genética certificada Cannacore incluida
-            </span>
+            <h2>
+
+                TU TIERRA.<br>
+
+                NUESTRA <span>LICENCIA.</span>
+
+            </h2>
+
+            <div class="compare-item">
+
+                <div class="compare-icon green-icon">◉</div>
+
+                <span>
+                    Produces bajo nuestra licencia desde el día uno
+                </span>
+
+            </div>
+
+            <div class="compare-item">
+
+                <div class="compare-icon green-icon">◉</div>
+
+                <span>
+                    Genética certificada Cannacore incluida
+                </span>
+
+            </div>
+
+            <div class="compare-item">
+
+                <div class="compare-icon green-icon">◉</div>
+
+                <span>
+                    Contrato de compra a €2/g garantizado
+                </span>
+
+            </div>
+
+            <div class="compare-item">
+
+                <div class="compare-icon green-icon">◉</div>
+
+                <span>
+                    Tu flor llega a Europa, Australia e Israel
+                </span>
+
+            </div>
+
+            <div class="compare-item">
+
+                <div class="compare-icon green-icon">◉</div>
+
+                <span>
+                    Trazabilidad y auditoría en cada ciclo
+                </span>
+
+            </div>
+
+            <div class="compare-item">
+
+                <div class="compare-icon green-icon">◉</div>
+
+                <span>
+                    Operación 100% legal y respaldada
+                </span>
+
+            </div>
 
         </div>
 
-        <div class="compare-item">
+    </section>
 
-            <div class="compare-icon green-icon">◉</div>
-
-            <span>
-                Contrato de compra a €2/g garantizado
-            </span>
-
-        </div>
-
-        <div class="compare-item">
-
-            <div class="compare-icon green-icon">◉</div>
-
-            <span>
-                Tu flor llega a Europa, Australia e Israel
-            </span>
-
-        </div>
-
-        <div class="compare-item">
-
-            <div class="compare-icon green-icon">◉</div>
-
-            <span>
-                Trazabilidad y auditoría en cada ciclo
-            </span>
-
-        </div>
-
-        <div class="compare-item">
-
-            <div class="compare-icon green-icon">◉</div>
-
-            <span>
-                Operación 100% legal y respaldada
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
+</div>
 
 <!-- SCRIPT MENU -->
 

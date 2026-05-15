@@ -52,54 +52,116 @@ body{
     background:rgba(0,0,0,0.72);
 }
 
-/* NAVBAR */
+/* =========================
+NAVBAR NUEVA ESTÉTICA
+========================= */
 
 .navbar{
     width:100%;
     position:fixed;
     top:0;
     left:0;
-    padding:18px 25px;
+    padding:22px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     backdrop-filter:blur(8px);
-    background:rgba(0,0,0,0.25);
+    background:rgba(0,0,0,0.20);
+    border-bottom:1px solid rgba(255,255,255,0.05);
     z-index:1000;
 }
 
 .logo{
-    font-size:1.5rem;
+    font-size:1.2rem;
     font-weight:900;
     color:#c6ff00;
+    letter-spacing:4px;
 }
 
 .navbar-links{
     display:flex;
     align-items:center;
-    gap:42px;
+    gap:38px;
 }
 
 .navbar a{
     text-decoration:none;
     color:white;
-    font-weight:600;
-    font-size:0.78rem;
-    letter-spacing:5px;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:4px;
     text-transform:uppercase;
+    cursor:pointer;
     transition:0.3s;
+    opacity:0.88;
 }
 
 .navbar a:hover{
     color:#c6ff00;
+    opacity:1;
+}
+
+/* BOTÓN PREMIUM */
+
+.login-btn{
+
+    background:#c6ff00;
+    color:#000 !important;
+
+    padding:14px 34px;
+
+    border-radius:4px;
+
+    font-size:0.70rem;
+    font-weight:900;
+
+    letter-spacing:5px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:180px;
+    height:52px;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 0 20px rgba(198,255,0,0.12);
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:#d7ff3f;
+
+    box-shadow:
+    0 0 28px rgba(198,255,0,0.22);
+
+    color:#000 !important;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:900px){
 
+    .navbar{
+        padding:20px;
+    }
+
     .navbar-links{
         gap:20px;
+        flex-wrap:wrap;
+        justify-content:flex-end;
+    }
+
+    .login-btn{
+        min-width:150px;
+        height:48px;
+        padding:12px 24px;
     }
 }
 
@@ -134,13 +196,17 @@ body{
 
         <div class="navbar-links">
 
-            <a href="index.html">Inicio</a>
+            <a href="index.html">EL MODELO</a>
 
-            <a href="planes.html">Planes</a>
+            <a href="planes.html">PLANES</a>
 
-            <a href="como-funciona.html">Cómo Empezar</a>
+            <a href="como-funciona.html">CÓMO EMPEZAR</a>
 
-            <a href="#">Impacto</a>
+            <a href="#">IMPACTO</a>
+
+            <a href="#" class="login-btn">
+                INICIAR SESIÓN →
+            </a>
 
         </div>
 

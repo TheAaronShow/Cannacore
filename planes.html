@@ -474,136 +474,6 @@ body{
 
         </div>
 
-        <div class="plan-card featured">
-
-            <div class="popular-badge">
-                ★ POPULAR
-            </div>
-
-            <div class="plan-bars">
-                <div class="bar small active"></div>
-                <div class="bar medium active"></div>
-                <div class="bar large active"></div>
-                <div class="bar medium active"></div>
-                <div class="bar small active"></div>
-            </div>
-
-            <div class="plan-label">GROWER</div>
-            <div class="plan-number">50</div>
-            <div class="plan-plants">PLANTAS</div>
-            <div class="plan-price active-price">$22.000.000</div>
-            <div class="plan-invest">inversión inicial</div>
-
-            <div class="plan-divider"></div>
-
-            <div class="plan-row">
-                <span>Por ciclo</span>
-                <strong>7,5–10 kg</strong>
-            </div>
-
-            <div class="plan-row">
-                <span>Ciclos/año</span>
-                <strong>2–3</strong>
-            </div>
-
-            <div class="plan-row">
-                <span>Mensualidad</span>
-                <strong>$435.000</strong>
-            </div>
-
-            <div class="income-title">INGRESO BRUTO/AÑO</div>
-            <div class="income-value active-income">$132M–$264M</div>
-
-            <button class="plan-btn" onclick="buyPlan('GROWER',this)">
-                Seleccionar
-            </button>
-
-        </div>
-
-        <div class="plan-card">
-
-            <div class="plan-bars">
-                <div class="bar medium"></div>
-                <div class="bar large"></div>
-                <div class="bar medium"></div>
-                <div class="bar large"></div>
-                <div class="bar medium"></div>
-            </div>
-
-            <div class="plan-label">PRO</div>
-            <div class="plan-number">100</div>
-            <div class="plan-plants">PLANTAS</div>
-            <div class="plan-price">$44.000.000</div>
-            <div class="plan-invest">inversión inicial</div>
-
-            <div class="plan-divider"></div>
-
-            <div class="plan-row">
-                <span>Por ciclo</span>
-                <strong>15–20 kg</strong>
-            </div>
-
-            <div class="plan-row">
-                <span>Ciclos/año</span>
-                <strong>2–3</strong>
-            </div>
-
-            <div class="plan-row">
-                <span>Mensualidad</span>
-                <strong>$875.000</strong>
-            </div>
-
-            <div class="income-title">INGRESO BRUTO/AÑO</div>
-            <div class="income-value">$264M–$528M</div>
-
-            <button class="plan-btn" onclick="buyPlan('PRO',this)">
-                Seleccionar
-            </button>
-
-        </div>
-
-        <div class="plan-card">
-
-            <div class="plan-bars">
-                <div class="bar medium"></div>
-                <div class="bar large"></div>
-                <div class="bar medium"></div>
-                <div class="bar large"></div>
-                <div class="bar medium"></div>
-            </div>
-
-            <div class="plan-label">FARM PARTNER</div>
-            <div class="plan-number">500+</div>
-            <div class="plan-plants">PLANTAS</div>
-            <div class="plan-price">$220.000.000</div>
-            <div class="plan-invest">inversión inicial</div>
-
-            <div class="plan-divider"></div>
-
-            <div class="plan-row">
-                <span>Por ciclo</span>
-                <strong>75–100 kg</strong>
-            </div>
-
-            <div class="plan-row">
-                <span>Ciclos/año</span>
-                <strong>2–3</strong>
-            </div>
-
-            <div class="plan-row">
-                <span>Mensualidad</span>
-                <strong>$2.195.000</strong>
-            </div>
-
-            <div class="income-title">INGRESO BRUTO/AÑO</div>
-            <div class="income-value">$1.320M–$2.640M</div>
-
-            <button class="plan-btn" onclick="buyPlan('FARM',this)">
-                Seleccionar
-            </button>
-
-        </div>
-
     </div>
 
 </div>
@@ -622,18 +492,9 @@ import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
 import {
-    getAuth,
-    onAuthStateChanged
+    getAuth
 }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
-
-import {
-    getFirestore,
-    doc,
-    setDoc,
-    getDoc
-}
-from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey:"AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
@@ -646,7 +507,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
 
 window.buyPlan = async function(plan,button){
 

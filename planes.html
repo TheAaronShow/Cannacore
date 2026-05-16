@@ -855,14 +855,7 @@ const prices = {
 };
 
 
-window.buyPlan = async function(plan,button){
-
-    const user = auth.currentUser;
-
-    if(!user){
-        alert("Debes iniciar sesión para pagar tu membresía");
-        return;
-    }
+wwindow.buyPlan = async function(plan,button){
 
     currentPlan = plan;
     currentButton = button;

@@ -372,12 +372,138 @@ body{
 }
 
 /* =========================
+   MODAL PREMIUM MEMBERSHIP
+========================= */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.82);
+    backdrop-filter:blur(8px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    padding:20px;
+}
+
+.modal-overlay.show{
+    display:flex;
+}
+
+.membership-modal{
+    width:100%;
+    max-width:760px;
+    background:#0b0b0b;
+    border:1px solid rgba(198,255,0,0.15);
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 0 60px rgba(198,255,0,0.08);
+    animation:fadeModal 0.3s ease;
+}
+
+@keyframes fadeModal{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.modal-header{
+    padding:28px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.modal-title{
+    font-size:1.8rem;
+    font-weight:900;
+    color:#c6ff00;
+}
+
+.close-modal{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    background:#161616;
+    color:white;
+    cursor:pointer;
+    font-size:1.1rem;
+}
+
+.step-indicator{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:22px;
+}
+
+.step-dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#333;
+    transition:0.3s;
+}
+
+.step-dot.active{
+    background:#c6ff00;
+    box-shadow:0 0 15px rgba(198,255,0,0.6);
+}
+
+.modal-body{
+    padding:35px;
+}
+
+.form-step{
+    display:none;
+}
+
+.form-step.active{
+    display:block;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.form-group.full{
+    grid-column:1 / -1;
+}
+
+.form-group label{
+    color:#c6ff00;
+    font-size:0.85rem;
+    letter-spacing:1px;
+}
+
+.form-group input{
+    width:100%;
+    height:56px;
+    background:#141414;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    color:white;
     padding:0 18px;
     font-size:1rem;
 }
 
-.form-group input:focus,
-.form-group select:focus{
+.form-group input:focus{
     outline:none;
     border-color:#c6ff00;
 }
@@ -408,11 +534,6 @@ body{
 .modal-btn.primary{
     background:#c6ff00;
     color:black;
-}
-
-.modal-btn.primary:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(198,255,0,0.18);
 }
 
 .payment-summary{
@@ -723,7 +844,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 
-.let currentPlan = null;
+let currentPlan = null;
 let currentButton = null;
 
 const prices = {
@@ -732,7 +853,7 @@ const prices = {
     PRO:"$44.000.000",
     FARM:"$220.000.000"
 };
- f50b531316115578bcfd1687bc3255424d45d9b5
+
 
 window.buyPlan = async function(plan,button){
 
@@ -792,7 +913,7 @@ document.getElementById("payButton").addEventListener("click", async()=>{
                     "Content-Type":"application/json"
                 },
                 body:JSON.stringify({
-<<<<<<< HEAD
+
                     plan:currentPlan,
                     uid:user.uid,
                     email:user.email,
@@ -805,20 +926,132 @@ document.getElementById("payButton").addEventListener("click", async()=>{
                         fechaNacimiento:document.getElementById("fechaNacimiento").value
                     },
 
+                    cultivoData:{
+                        ciudad:document.getElementById("ciudad").value,
+                        departamento:document.getElementById("departamento").value,
+                        direccion:document.getElementById("direccion").value,
+                        tamanoTerreno:document.getElementById("tamanoTerreno").value
+                    }
+
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if(!response.ok){
+            throw new Error(data.error || "No se pudo iniciar el pago");
+        }
+
+        window.location.href = data.init_point;
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
+
+});
+
 </script>
 
 <div class="modal-overlay" id="membershipModal">
-                        <input type="text" id="direccion">
+
+    <div class="membership-modal">
+
+        <div class="modal-header">
+
+            <div class="modal-title">
+                Membresía Cannacore
+            </div>
+
+            <button class="close-modal" onclick="closeMembershipModal()">
+                ✕
+            </button>
+
+        </div>
+
+        <div class="step-indicator">
+            <div class="step-dot active" id="dot1"></div>
+            <div class="step-dot" id="dot2"></div>
+            <div class="step-dot" id="dot3"></div>
+        </div>
+
+        <div class="modal-body">
+
+            <!-- STEP 1 -->
+            <div class="form-step active" id="step1">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" id="nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primer apellido</label>
+                        <input type="text" id="apellido1">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Segundo apellido</label>
+                        <input type="text" id="apellido2">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Documento de identidad</label>
+                        <input type="text" id="documento">
                     </div>
 
                     <div class="form-group full">
-                        <label>Tamaño del terreno</label>
-                        <input type="text" id="tamanoTerreno" placeholder="Ej: 2 hectáreas">
+                        <label>Fecha de nacimiento</label>
+                        <input type="date" id="fechaNacimiento">
                     </div>
 
                 </div>
 
                 <div class="modal-actions">
+
+                    <button class="modal-btn primary" onclick="nextStep(2)">
+                        Continuar
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="form-step" id="step2">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" id="ciudad">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Departamento</label>
+                        <input type="text" id="departamento">
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Dirección</label>
+                        <input type="text" id="direccion">
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Tamaño del terreno</label>
+                        <input type="text" id="tamanoTerreno">
+                    </div>
+
+                </div>
+
+                <div class="modal-actions">
+
                     <button class="modal-btn secondary" onclick="nextStep(1)">
                         Atrás
                     </button>
@@ -826,6 +1059,7 @@ document.getElementById("payButton").addEventListener("click", async()=>{
                     <button class="modal-btn primary" onclick="nextStep(3)">
                         Continuar
                     </button>
+
                 </div>
 
             </div>
@@ -857,6 +1091,7 @@ document.getElementById("payButton").addEventListener("click", async()=>{
                 </div>
 
                 <div class="modal-actions">
+
                     <button class="modal-btn secondary" onclick="nextStep(2)">
                         Atrás
                     </button>
@@ -864,6 +1099,7 @@ document.getElementById("payButton").addEventListener("click", async()=>{
                     <button class="modal-btn primary" id="payButton">
                         Continuar a Mercado Pago
                     </button>
+
                 </div>
 
             </div>
@@ -873,38 +1109,6 @@ document.getElementById("payButton").addEventListener("click", async()=>{
     </div>
 
 </div>
-=======
-                    plan:plan,
-                    uid:user.uid,
-                    email:user.email
-                })
-            }
-        );
-
-        const data = await response.json();
-
-        if(!response.ok){
-            throw new Error(data.error || "No se pudo crear el pago");
-        }
-
-        window.location.href = data.init_point;
-
-    }catch(error){
-
-        console.error(error);
-
-        alert(error.message);
-
-        button.disabled = false;
-        button.innerHTML = originalText;
-    }
-
-}
-
-</script>
-
-Fix Mercado Pago script
->>>>>>> f50b531316115578bcfd1687bc3255424d45d9b5
 
 </body>
 </html>

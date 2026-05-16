@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CannaCore Group</title>
+
+<meta property="og:title" content="CannaCore Group">
+<meta property="og:description" content="Infraestructura agrícola regulada para cultivo de cannabis medicinal.">
+<meta property="og:type" content="website">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+    background:#000;
+    color:white;
+}
+
+.video-background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.video-background video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    width:100%;
+    min-height:100vh;
+    background:rgba(0,0,0,0.60);
+    position:relative;
+    z-index:1;
+}
+
+.navbar{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.25);
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:900;
+    color:#c6ff00;
+}
+
+.navbar-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#c6ff00;
+}
+
+#userName{
+    color:#c6ff00;
+    font-weight:bold;
+}
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:28px;
+    height:3px;
+    background:white;
+    border-radius:3px;
+}
+
+.hero-content{
+    width:100%;
+    max-width:760px;
+    padding:140px 60px 120px;
+    position:relative;
+    z-index:5;
+}
+
+.hero-subtitle{
+    color:#c6ff00;
+    font-size:0.72rem;
+    letter-spacing:7px;
+    margin-bottom:28px;
+    font-weight:700;
+}
+
+.hero-title{
+    font-size:8.5rem;
+    line-height:0.88;
+    font-weight:900;
+    letter-spacing:-4px;
+    margin-bottom:38px;
+    color:#f3f3f3;
+}
+
+.hero-title span{
+    color:#c6ff00;
+}
+
+.hero-description{
+    font-size:1.15rem;
+    line-height:1.8;
+    color:#d8d8d8;
+    max-width:620px;
+    margin-bottom:45px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:16px;
+    align-items:center;
+}
+
+.btn-primary{
+    min-width:260px;
+    height:60px;
+    padding:0 30px;
+    border:none;
+    border-radius:4px;
+    background:#c6ff00;
+    color:#000;
+    font-size:0.95rem;
+    font-weight:800;
+    letter-spacing:2px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:0.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    background:#d7ff3f;
+}
+
+.btn-secondary{
+    width:180px;
+    height:56px;
+    border-radius:4px;
+    border:1px solid #7d9400;
+    background:transparent;
+    color:#c6ff00;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+}
+
+.market-section{
+    width:100%;
+    min-height:100vh;
+    padding:120px 60px;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.88)
+    );
+}
+
+.market-header{
+    max-width:1400px;
+    margin:0 auto 70px;
+}
+
+.market-subtitle{
+    color:#c6ff00;
+    font-size:0.72rem;
+    letter-spacing:6px;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+.market-header h2{
+    font-size:5.5rem;
+    line-height:0.92;
+    font-weight:900;
+    letter-spacing:-3px;
+    color:#f3f3f3;
+}
+
+.market-header h2 span{
+    color:#c6ff00;
+}
+
+.market-grid{
+    width:100%;
+    max-width:1450px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(320px,1fr));
+}
+
+.market-card{
+    background:rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.05);
+    padding:42px;
+    min-height:360px;
+    display:flex;
+    flex-direction:column;
+    transition:0.3s;
+}
+
+.market-card:hover{
+    background:rgba(255,255,255,0.03);
+}
+
+.featured-card{
+    background:rgba(198,255,0,0.08);
+}
+
+.market-icon{
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    border:1px solid rgba(198,255,0,0.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#c6ff00;
+    margin-bottom:35px;
+}
+
+.market-icon svg{
+    width:30px;
+    height:30px;
+    stroke:currentColor;
+    stroke-width:1.8;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.market-number{
+    font-size:4.5rem;
+    font-weight:900;
+    color:#c6ff00;
+    margin-bottom:14px;
+}
+
+.market-label{
+    color:#758064;
+    font-size:0.72rem;
+    letter-spacing:4px;
+    margin-bottom:24px;
+}
+
+.market-card p{
+    color:#cfcfcf;
+    line-height:1.9;
+    font-size:1rem;
+}
+
+.modal-bg{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+.modal{
+    background:#111;
+    width:90%;
+    max-width:350px;
+    padding:25px 30px;
+    border-radius:12px;
+    border:1px solid #c6ff00;
+    box-shadow:0 0 20px rgba(198,255,0,0.35);
+    position:relative;
+}
+
+.close-x{
+    position:absolute;
+    top:10px;
+    right:12px;
+    cursor:pointer;
+    font-size:1.2rem;
+    color:#bbb;
+}
+
+.modal h2{
+    margin-bottom:18px;
+    color:#c6ff00;
+}
+
+.modal input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:5px;
+}
+
+.modal button{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:none;
+    border-radius:5px;
+    background:#c6ff00;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.modal .link{
+    margin-top:12px;
+    color:#c6ff00;
+    cursor:pointer;
+    font-size:0.9rem;
+}
+
+@media(max-width:1400px){
+    .market-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:900px){
+    .hamburger{
+        display:flex;
+    }
+
+    .navbar-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        right:10px;
+        background:rgba(0,0,0,0.95);
+        flex-direction:column;
+        padding:20px;
+        border-radius:10px;
+        gap:18px;
+    }
+
+    .navbar-links.show{
+        display:flex;
+    }
+
+    .hero-content{
+        padding:140px 25px 100px;
+    }
+
+    .hero-title{
+        font-size:4.5rem;
+        line-height:0.92;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+    }
+
+    .market-section{
+        padding:100px 25px;
+    }
+
+    .market-grid{
+        grid-template-columns:1fr;
+    }
+
+    .market-header h2{
+        font-size:3rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="video-background">
+
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="canavid.mp4" type="video/mp4">
+    </video>
+
+</div>
+
+<div class="navbar">
+
+    <div class="logo">
+        CANNA CORE
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="navbar-links" id="menu">
+
+        <a href="index.html">INICIO</a>
+        <a href="planes.html">MEMBRESIA</a>
+        <a href="como-funciona.html">COMO FUNCIONA</a>
+        <a href="contacto.htm">CONTACTO</a>
+
+        <span id="userName"></span>
+
+        <a id="loginBtn" onclick="openModal('login')">
+            Iniciar sesión
+        </a>
+
+        <a id="profileBtn" href="perfil.html" style="display:none;">
+            Mi perfil
+        </a>
+
+        <a id="logoutBtn" onclick="logout()" style="display:none;">
+            Cerrar sesión
+        </a>
+
+    </div>
+
+</div>
+
+<div class="overlay">
+
+    <div class="hero-content">
+
+        <div class="hero-subtitle">
+            EJE CAFETERO • COLOMBIA • CANNABIS MEDICINAL
+        </div>
+
+        <h1 class="hero-title">
+            CULTIVA<br>
+            CON<br>
+            <span>RESPALDO.</span>
+        </h1>
+
+        <p class="hero-description">
+            Infraestructura agrícola regulada que integra cultivadores a una
+            red productiva legal, con genética certificada, precio
+            garantizado y acceso directo al mercado global.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="planes.html">
+                <button class="btn-primary">
+                    VER MEMBRESIAS →
+                </button>
+            </a>
+
+            <a href="como-funciona.html" class="btn-secondary">
+                COMO FUNCIONA
+            </a>
+
+        </div>
+
+    </div>
+
+    <section class="market-section">
+
+        <div class="market-header">
+
+            <div class="market-subtitle">
+                — EL MERCADO
+            </div>
+
+            <h2>
+                COLOMBIA TIENE LO QUE<br>
+                EL MUNDO <span>NECESITA.</span>
+            </h2>
+
+        </div>
+
+        <div class="market-grid">
+
+            <div class="market-card featured-card">
+
+                <div class="market-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M3 12h18"></path>
+                        <path d="M12 3c3 3 4.5 6 4.5 9S15 18 12 21"></path>
+                        <path d="M12 3C9 6 7.5 9 7.5 12S9 18 12 21"></path>
+                    </svg>
+                </div>
+
+                <div class="market-number">$70B</div>
+
+                <div class="market-label">
+                    MERCADO GLOBAL 2030
+                </div>
+
+                <p>
+                    Cannabis medicinal: CAGR 14–18% anual.
+                    La industria de mayor crecimiento regulado del siglo XXI.
+                </p>
+
+            </div>
+
+            <div class="market-card">
+
+                <div class="market-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 7h16"></path>
+                        <path d="M6 7v11h12V7"></path>
+                        <path d="M9 11h6"></path>
+                        <path d="M9 15h4"></path>
+                        <path d="M8 4h8"></path>
+                        <path d="M12 20v-3"></path>
+                    </svg>
+                </div>
+
+                <div class="market-number">60%</div>
+
+                <div class="market-label">
+                    MENOR COSTO VS CANADÁ
+                </div>
+
+                <p>
+                    Colombia produce cannabis certificado
+                    a fracción del costo de países competidores.
+                </p>
+
+            </div>
+
+            <div class="market-card featured-card">
+
+                <div class="market-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 18l6-8 4 5 3-4 5 7"></path>
+                        <path d="M7 18h10"></path>
+                        <path d="M15 8c3 0 5-2 5-5-3 0-5 2-5 5z"></path>
+                        <path d="M15 8l-3 3"></path>
+                    </svg>
+                </div>
+
+                <div class="market-number">18–24°</div>
+
+                <div class="market-label">
+                    EJE CAFETERO
+                </div>
+
+                <p>
+                    Temperatura ideal todo el año.
+                    Biodiversidad y cultura agrícola generacional.
+                </p>
+
+            </div>
+
+            <div class="market-card">
+
+                <div class="market-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"></path>
+                        <path d="M9 12l2 2 4-5"></path>
+                    </svg>
+                </div>
+
+                <div class="market-number">2016</div>
+
+                <div class="market-label">
+                    MARCO LEGAL COLOMBIA
+                </div>
+
+                <p>
+                    Ley 1787 pionera en LatAm.
+                    Exportación a Europa, Australia e Israel.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<div class="modal-bg" id="modalBg">
+
+    <div class="modal" id="loginModal">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Iniciar sesión</h2>
+
+        <input id="loginEmail" type="email" placeholder="Correo electrónico">
+        <input id="loginPass" type="password" placeholder="Contraseña">
+
+        <button onclick="login()">
+            Entrar
+        </button>
+
+        <button onclick="googleLogin()">
+            Entrar con Google
+        </button>
+
+        <div class="link" onclick="openModal('recover')">
+            ¿Olvidaste tu contraseña?
+        </div>
+
+        <div class="link" onclick="openModal('register')">
+            Crear una cuenta
+        </div>
+
+    </div>
+
+    <div class="modal" id="recoverModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Recuperar contraseña</h2>
+
+        <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
+
+        <button onclick="recover()">
+            Enviar enlace
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Volver a iniciar sesión
+        </div>
+
+    </div>
+
+    <div class="modal" id="registerModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Crear cuenta</h2>
+
+        <input id="registerName" type="text" placeholder="Nombre completo">
+        <input id="registerEmail" type="email" placeholder="Correo electrónico">
+        <input id="registerPass" type="password" placeholder="Crear contraseña">
+
+        <button onclick="register()">
+            Registrarse
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Ya tengo cuenta
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    onAuthStateChanged,
+    updateProfile,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBGz-1qPwyG86kJe0IZn0I_NZNERtwFMlk",
+    authDomain: "cannacore-web.firebaseapp.com",
+    projectId: "cannacore-web",
+    storageBucket: "cannacore-web.firebasestorage.app",
+    messagingSenderId: "648812089616",
+    appId: "1:648812089616:web:3a5d468e6a1da1c18cd595"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+window.login = function(){
+
+    const email =
+    document.getElementById("loginEmail").value;
+
+    const pass =
+    document.getElementById("loginPass").value;
+
+    signInWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        closeModal();
+
+        alert("Bienvenido!");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+window.register = function(){
+
+    const name =
+    document.getElementById("registerName").value;
+
+    const email =
+    document.getElementById("registerEmail").value;
+
+    const pass =
+    document.getElementById("registerPass").value;
+
+    createUserWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        updateProfile(auth.currentUser,{
+            displayName:name
+        });
+
+        alert("Cuenta creada exitosamente");
+
+        openModal("login");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+window.recover = function(){
+
+    const email =
+    document.getElementById("recoverEmail").value;
+
+    sendPasswordResetEmail(auth,email)
+
+    .then(()=>{
+
+        alert("Se envió un enlace");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+window.googleLogin = function(){
+
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth,provider)
+
+    .then(()=>{
+
+        closeModal();
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+onAuthStateChanged(auth,(user)=>{
+
+    const loginBtn =
+    document.getElementById("loginBtn");
+
+    const logoutBtn =
+    document.getElementById("logoutBtn");
+
+    const profileBtn =
+    document.getElementById("profileBtn");
+
+    const userName =
+    document.getElementById("userName");
+
+    if(user){
+
+        userName.innerHTML =
+        user.displayName || user.email;
+
+        loginBtn.style.display = "none";
+
+        profileBtn.style.display = "inline-block";
+
+        logoutBtn.style.display = "inline-block";
+
+    }else{
+
+        userName.innerHTML = "";
+
+        loginBtn.style.display = "inline-block";
+
+        profileBtn.style.display = "none";
+
+        logoutBtn.style.display = "none";
+    }
+});
+
+window.logout = function(){
+
+    signOut(auth)
+
+    .then(()=>{
+
+        alert("Sesión cerrada");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+</script>
+
+<script>
+
+function toggleMenu(){
+
+    document.getElementById("menu")
+    .classList.toggle("show");
+}
+
+function openModal(type){
+
+    document.getElementById("modalBg")
+    .style.display = "flex";
+
+    document.getElementById("loginModal")
+    .style.display = "none";
+
+    document.getElementById("recoverModal")
+    .style.display = "none";
+
+    document.getElementById("registerModal")
+    .style.display = "none";
+
+    if(type==="login"){
+        document.getElementById("loginModal")
+        .style.display = "block";
+    }
+
+    if(type==="recover"){
+        document.getElementById("recoverModal")
+        .style.display = "block";
+    }
+
+    if(type==="register"){
+        document.getElementById("registerModal")
+        .style.display = "block";
+    }
+}
+
+function closeModal(){
+
+    document.getElementById("modalBg")
+    .style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
+
+
+

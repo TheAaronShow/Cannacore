@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cómo Funciona | CannaCore</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+}
+
+.video-background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.video-background video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    width:100%;
+    min-height:100vh;
+    background:rgba(0,0,0,0.72);
+}
+
+.navbar{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:22px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,0.20);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.2rem;
+    font-weight:900;
+    color:#c6ff00;
+    letter-spacing:4px;
+}
+
+.navbar-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:0.3s;
+    opacity:0.88;
+}
+
+.navbar a:hover{
+    color:#c6ff00;
+    opacity:1;
+}
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:28px;
+    height:2px;
+    background:white;
+    border-radius:3px;
+}
+
+.how-section{
+    width:100%;
+    min-height:100vh;
+    padding:180px 80px 100px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:80px;
+    align-items:start;
+}
+
+.how-left{
+    max-width:700px;
+}
+
+.how-subtitle{
+    color:#c6ff00;
+    font-size:0.72rem;
+    letter-spacing:6px;
+    margin-bottom:25px;
+}
+
+.how-left h1{
+    font-size:5.5rem;
+    line-height:0.92;
+    font-weight:900;
+    letter-spacing:-3px;
+    margin-bottom:35px;
+}
+
+.how-left h1 span{
+    color:#c6ff00;
+}
+
+.how-left p{
+    color:#d2d2d2;
+    font-size:1.15rem;
+    line-height:1.9;
+    max-width:620px;
+}
+
+.value-box{
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(255,255,255,0.05);
+    padding:45px;
+    backdrop-filter:blur(10px);
+}
+
+.value-title{
+    color:#c6ff00;
+    letter-spacing:5px;
+    font-size:0.75rem;
+    margin-bottom:35px;
+    font-weight:700;
+}
+
+.value-item{
+    display:flex;
+    gap:18px;
+    margin-bottom:28px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    padding-bottom:20px;
+}
+
+.value-dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#c6ff00;
+    margin-top:5px;
+}
+
+.value-item strong{
+    display:block;
+    color:#c6ff00;
+    font-size:0.75rem;
+    letter-spacing:3px;
+    margin-bottom:8px;
+}
+
+.value-item span{
+    color:#d8d8d8;
+    line-height:1.7;
+    font-size:0.95rem;
+}
+
+.benefits-grid{
+    width:100%;
+    padding:0 80px 120px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.benefit-card{
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(255,255,255,0.05);
+    padding:40px;
+    min-height:260px;
+    transition:0.3s;
+    backdrop-filter:blur(10px);
+}
+
+.benefit-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(198,255,0,0.2);
+}
+
+.benefit-icon{
+    width:55px;
+    height:55px;
+    background:#161b10;
+    color:#c6ff00;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:28px;
+}
+
+.benefit-icon svg{
+    width:28px;
+    height:28px;
+    stroke:currentColor;
+    stroke-width:1.8;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.benefit-card h3{
+    font-size:1.4rem;
+    margin-bottom:18px;
+    font-weight:900;
+}
+
+.benefit-card p{
+    color:#cfcfcf;
+    line-height:1.9;
+}
+
+.compare-section{
+    width:100%;
+    padding:0 80px 120px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.compare-box{
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    padding:55px;
+    transition:0.3s;
+}
+
+.compare-box:hover{
+    border-color:rgba(198,255,0,0.18);
+}
+
+.compare-subtitle{
+    color:#8e8e8e;
+    font-size:0.72rem;
+    letter-spacing:5px;
+    margin-bottom:28px;
+    font-weight:700;
+}
+
+.green-text{
+    color:#c6ff00;
+}
+
+.compare-box h2{
+    font-size:4.5rem;
+    line-height:0.92;
+    font-weight:900;
+    letter-spacing:-3px;
+    margin-bottom:55px;
+}
+
+.compare-box h2 span{
+    color:#c6ff00;
+}
+
+.compare-item{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.compare-icon{
+    min-width:36px;
+    min-height:36px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#808080;
+    font-size:0.85rem;
+}
+
+.green-icon{
+    color:#c6ff00;
+    border-color:rgba(198,255,0,0.22);
+}
+
+.compare-item span{
+    color:#d8d8d8;
+    line-height:1.7;
+    font-size:0.98rem;
+}
+
+/* CICLO PRODUCTIVO + VIDEO */
+
+.production-section{
+    width:100%;
+    padding:0 80px 120px;
+}
+
+.production-wrap{
+    width:100%;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:30px;
+    align-items:stretch;
+}
+
+.production-info{
+    background:rgba(0,0,0,0.55);
+    color:white;
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+}
+
+.production-header{
+    padding:26px 30px 22px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.production-subtitle{
+    color:#c6ff00;
+    font-size:0.65rem;
+    letter-spacing:6px;
+    margin-bottom:14px;
+    font-weight:700;
+}
+
+.production-header h2{
+    font-size:2.65rem;
+    line-height:0.92;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.production-header h2 span{
+    color:#c6ff00;
+}
+
+.cycle-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+}
+
+.cycle-card{
+    min-height:165px;
+    padding:18px 20px 16px;
+    border-right:1px solid rgba(255,255,255,0.06);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.cycle-number{
+    color:#777;
+    font-size:0.58rem;
+    letter-spacing:4px;
+    margin-bottom:10px;
+}
+
+.cycle-icon{
+    width:38px;
+    height:38px;
+    background:#161b10;
+    color:#c6ff00;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:12px;
+}
+
+.cycle-icon svg{
+    width:21px;
+    height:21px;
+    stroke:currentColor;
+    stroke-width:1.8;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.cycle-time{
+    display:inline-block;
+    background:#c6ff00;
+    color:#000;
+    font-size:0.58rem;
+    letter-spacing:3px;
+    font-weight:900;
+    padding:5px 8px;
+    margin-bottom:10px;
+}
+
+.cycle-card h3{
+    font-size:0.98rem;
+    font-weight:900;
+    margin-bottom:7px;
+}
+
+.cycle-card p{
+    color:#cfcfcf;
+    font-size:0.78rem;
+    line-height:1.45;
+}
+
+.cycle-card.featured-cycle{
+    background:rgba(198,255,0,0.10);
+    border-left:1px solid rgba(198,255,0,0.35);
+}
+
+.production-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    background:rgba(198,255,0,0.06);
+}
+
+.stat-box{
+    padding:18px 16px;
+    text-align:center;
+    border-right:1px solid rgba(255,255,255,0.06);
+}
+
+.stat-box.featured-stat{
+    background:rgba(198,255,0,0.12);
+}
+
+.stat-value{
+    font-size:2.15rem;
+    line-height:1;
+    font-weight:900;
+    color:white;
+    margin-bottom:7px;
+}
+
+.stat-value.green{
+    color:#c6ff00;
+}
+
+.stat-small{
+    font-size:0.82rem;
+}
+
+.stat-label{
+    color:#8f9685;
+    font-size:0.5rem;
+    letter-spacing:3px;
+}
+
+.production-video{
+    background:transparent;
+    border:none;
+    display:flex;
+    align-items:stretch;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.production-video video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    background:transparent;
+}
+
+@media(max-width:1200px){
+    .how-section{
+        grid-template-columns:1fr;
+    }
+
+    .benefits-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .production-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .production-video video{
+        height:auto;
+        min-height:420px;
+    }
+}
+
+@media(max-width:1100px){
+    .compare-section{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:900px){
+    .hamburger{
+        display:flex;
+    }
+
+    .navbar-links{
+        display:none;
+        position:absolute;
+        top:75px;
+        right:10px;
+        background:rgba(0,0,0,0.95);
+        flex-direction:column;
+        padding:20px;
+        border-radius:10px;
+        gap:20px;
+    }
+
+    .navbar-links.show{
+        display:flex;
+    }
+
+    .navbar{
+        padding:20px;
+    }
+
+    .how-section{
+        padding:150px 25px 80px;
+    }
+
+    .how-left h1{
+        font-size:3.2rem;
+    }
+
+    .benefits-grid{
+        padding:0 25px 100px;
+        grid-template-columns:1fr;
+    }
+
+    .compare-section{
+        padding:0 25px 100px;
+    }
+
+    .value-box,
+    .compare-box{
+        padding:35px;
+    }
+
+    .compare-box h2{
+        font-size:3rem;
+    }
+
+    .production-section{
+        padding:0 25px 80px;
+    }
+
+    .production-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .production-header{
+        padding:30px 24px 26px;
+    }
+
+    .production-header h2{
+        font-size:2.6rem;
+    }
+
+    .cycle-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cycle-card{
+        min-height:auto;
+        padding:24px;
+    }
+
+    .production-stats{
+        grid-template-columns:1fr;
+    }
+
+    .production-video video{
+        height:auto;
+        min-height:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="video-background">
+    <video autoplay muted loop playsinline>
+        <source src="canavid.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="overlay">
+
+    <div class="navbar">
+
+        <div class="logo">
+            CANNA CORE
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="navbar-links" id="menu">
+            <a href="index.html">INICIO</a>
+            <a href="planes.html">MEMBRESIAS</a>
+            <a href="como-funciona.html">COMO FUNCIONA</a>
+            <a href="contacto.htm">CONTACTO</a>
+        </div>
+
+    </div>
+
+    <section class="how-section">
+
+        <div class="how-left">
+
+            <div class="how-subtitle">
+                — EL MODELO
+            </div>
+
+            <h1>
+                NO VENDEMOS PLANTAS.<br>
+                <span>VENDEMOS ACCESO AL</span><br>
+                MERCADO GLOBAL.
+            </h1>
+
+            <p>
+                Cannacore es la infraestructura que conecta cultivadores
+                colombianos con compradores internacionales certificados
+                en Europa, Australia e Israel.
+            </p>
+
+        </div>
+
+        <div class="value-box">
+
+            <div class="value-title">
+                LA CADENA DE VALOR
+            </div>
+
+            <div class="value-item">
+                <div class="value-dot"></div>
+                <div>
+                    <strong>GENÉTICA</strong>
+                    <span>Cannacore desarrolla y suministra variedades certificadas</span>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <div class="value-dot"></div>
+                <div>
+                    <strong>LICENCIA</strong>
+                    <span>Produces bajo el amparo legal de Cannacore</span>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <div class="value-dot"></div>
+                <div>
+                    <strong>PRODUCCIÓN</strong>
+                    <span>Protocolo técnico + acompañamiento permanente</span>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <div class="value-dot"></div>
+                <div>
+                    <strong>TRAZABILIDAD</strong>
+                    <span>Plataforma digital estándar GACP internacional</span>
+                </div>
+            </div>
+
+            <div class="value-item">
+                <div class="value-dot"></div>
+                <div>
+                    <strong>EXPORTACIÓN</strong>
+                    <span>Cannacore compra, certifica y exporta tu cosecha</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="benefits-grid">
+
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 3h9l3 3v15H6z"></path>
+                    <path d="M14 3v4h4"></path>
+                    <path d="M9 13l2 2 4-5"></path>
+                </svg>
+            </div>
+            <h3>LICENCIA PARAGUAS</h3>
+            <p>No necesitas tu propia licencia. Produces bajo nuestro amparo legal desde el primer ciclo.</p>
+        </div>
+
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M7 3c6 4 10 6 10 18"></path>
+                    <path d="M17 3C11 7 7 9 7 21"></path>
+                    <path d="M8 7h8"></path>
+                    <path d="M9 12h6"></path>
+                    <path d="M8 17h8"></path>
+                </svg>
+            </div>
+            <h3>GENÉTICA CERTIFICADA</h3>
+            <p>Esquejes Cannacore seleccionados por rendimiento y contenido cannabinoide.</p>
+        </div>
+
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8"></circle>
+                    <path d="M12 7v10"></path>
+                    <path d="M15 9.5c-.7-.8-1.7-1.2-3-1.2-1.5 0-2.5.7-2.5 1.8 0 1.2 1.1 1.6 2.7 1.9 1.7.4 2.8.8 2.8 2.1 0 1.1-1 1.9-2.8 1.9-1.4 0-2.5-.4-3.3-1.3"></path>
+                </svg>
+            </div>
+            <h3>PRECIO GARANTIZADO</h3>
+            <p>Precio fijo por contrato independiente del mercado spot.</p>
+        </div>
+
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <rect x="4" y="4" width="6" height="6"></rect>
+                    <rect x="14" y="4" width="6" height="6"></rect>
+                    <rect x="9" y="15" width="6" height="6"></rect>
+                    <path d="M10 7h4"></path>
+                    <path d="M7 10l5 5"></path>
+                    <path d="M17 10l-5 5"></path>
+                </svg>
+            </div>
+            <h3>TRAZABILIDAD DIGITAL</h3>
+            <p>Seguimiento en tiempo real requerido por compradores internacionales.</p>
+        </div>
+
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 21c1.5-4 4.2-6 8-6s6.5 2 8 6"></path>
+                    <path d="M18 8h2a2 2 0 0 1 2 2v2"></path>
+                    <path d="M6 8H4a2 2 0 0 0-2 2v2"></path>
+                </svg>
+            </div>
+            <h3>ACOMPAÑAMIENTO</h3>
+            <p>Equipo técnico especializado durante cada etapa productiva.</p>
+        </div>
+
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3c3 3 4.5 6 4.5 9S15 18 12 21"></path>
+                    <path d="M12 3C9 6 7.5 9 7.5 12S9 18 12 21"></path>
+                </svg>
+            </div>
+            <h3>MERCADO INTERNACIONAL</h3>
+            <p>Tu producción llega a Europa, Australia e Israel.</p>
+        </div>
+
+    </section>
+
+    <section class="compare-section">
+
+        <div class="compare-box">
+
+            <div class="compare-subtitle">
+                — SIN CANNACORE
+            </div>
+
+            <h2>
+                BARRERAS<br>
+                DE ENTRADA
+            </h2>
+
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Licencia propia costosa y lenta de tramitar</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin genética certificada para exportar</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin contrato de compra garantizado</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin acceso a compradores internacionales</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin trazabilidad ni certificación GACP</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span>Riesgo de operar en la informalidad</span></div>
+
+        </div>
+
+        <div class="compare-box">
+
+            <div class="compare-subtitle green-text">
+                — CON CANNACORE
+            </div>
+
+            <h2>
+                TU TIERRA.<br>
+                NUESTRA <span>LICENCIA.</span>
+            </h2>
+
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Produces bajo nuestra licencia desde el día uno</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Genética certificada Cannacore incluida</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Contrato de compra a €2/g garantizado</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Tu flor llega a Europa, Australia e Israel</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Trazabilidad y auditoría en cada ciclo</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Operación 100% legal y respaldada</span></div>
+
+        </div>
+
+    </section>
+
+    <section class="production-section">
+
+        <div class="production-wrap">
+
+            <div class="production-info">
+
+                <div class="production-header">
+                    <div class="production-subtitle">— EL CICLO PRODUCTIVO</div>
+                    <h2>DE LA SEMILLA A LA <span>EXPORTACIÓN.</span></h2>
+                </div>
+
+                <div class="cycle-grid">
+
+                    <div class="cycle-card">
+                        <div class="cycle-number">01 ----</div>
+                        <div class="cycle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 21V10"></path>
+                                <path d="M12 10C8 10 6 7 6 4c4 0 6 3 6 6z"></path>
+                                <path d="M12 12c4 0 6-3 6-6-4 0-6 3-6 6z"></path>
+                            </svg>
+                        </div>
+                        <div class="cycle-time">1-2 SEM</div>
+                        <h3>ESQUEJE</h3>
+                        <p>Esquejes enraizados de variedades Cannacore. Genética certificada.</p>
+                    </div>
+
+                    <div class="cycle-card">
+                        <div class="cycle-number">02 ----</div>
+                        <div class="cycle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v3"></path>
+                                <path d="M12 19v3"></path>
+                                <path d="M2 12h3"></path>
+                                <path d="M19 12h3"></path>
+                                <path d="M4.9 4.9l2.1 2.1"></path>
+                                <path d="M17 17l2.1 2.1"></path>
+                            </svg>
+                        </div>
+                        <div class="cycle-time">4-8 SEM</div>
+                        <h3>VEGETATIVA</h3>
+                        <p>18h luz / 6h oscuridad. Crecimiento estructural y nutrición controlada.</p>
+                    </div>
+
+                    <div class="cycle-card">
+                        <div class="cycle-number">03 ----</div>
+                        <div class="cycle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M12 3c2 3 2 5 0 9"></path>
+                                <path d="M21 12c-3 2-5 2-9 0"></path>
+                                <path d="M12 21c-2-3-2-5 0-9"></path>
+                                <path d="M3 12c3-2 5-2 9 0"></path>
+                            </svg>
+                        </div>
+                        <div class="cycle-time">8-12 SEM</div>
+                        <h3>FLORACIÓN</h3>
+                        <p>Formación de cogollos. Etapa de máxima atención técnica.</p>
+                    </div>
+
+                    <div class="cycle-card">
+                        <div class="cycle-number">04 ----</div>
+                        <div class="cycle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="10" cy="10" r="6"></circle>
+                                <path d="M14.5 14.5L21 21"></path>
+                                <path d="M8 10h4"></path>
+                                <path d="M10 8v4"></path>
+                            </svg>
+                        </div>
+                        <div class="cycle-time">1-2 SEM</div>
+                        <h3>MADURACIÓN</h3>
+                        <p>Lectura de tricomas, lavado de raíces y preparación de cosecha.</p>
+                    </div>
+
+                    <div class="cycle-card">
+                        <div class="cycle-number">05 ----</div>
+                        <div class="cycle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="6" cy="6" r="3"></circle>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <path d="M8.5 8.5L20 20"></path>
+                                <path d="M8.5 15.5L20 4"></path>
+                            </svg>
+                        </div>
+                        <div class="cycle-time">2-4 SEM</div>
+                        <h3>COSECHA</h3>
+                        <p>Corte, secado y curado bajo estándar GACP internacional.</p>
+                    </div>
+
+                    <div class="cycle-card featured-cycle">
+                        <div class="cycle-number">06 ----</div>
+                        <div class="cycle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 7h11v10H3z"></path>
+                                <path d="M14 10h4l3 3v4h-7z"></path>
+                                <circle cx="7" cy="18" r="2"></circle>
+                                <circle cx="18" cy="18" r="2"></circle>
+                            </svg>
+                        </div>
+                        <div class="cycle-time">€2/G</div>
+                        <h3>ENTREGA</h3>
+                        <p>Cannacore recoge, certifica, paga y exporta al mercado global.</p>
+                    </div>
+
+                </div>
+
+                <div class="production-stats">
+                    <div class="stat-box">
+                        <div class="stat-value">4-5<span class="stat-small">M</span></div>
+                        <div class="stat-label">MESES POR CICLO</div>
+                    </div>
+
+                    <div class="stat-box featured-stat">
+                        <div class="stat-value green">2-3<span class="stat-small">X</span></div>
+                        <div class="stat-label">COSECHAS POR AÑO</div>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-value">150<span class="stat-small">G+</span></div>
+                        <div class="stat-label">POR PLANTA</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="production-video">
+                <video autoplay muted loop playsinline>
+                    <source src="quiero_que_la_planta_sea_mas_a.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+

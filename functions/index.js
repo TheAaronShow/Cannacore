@@ -21,17 +21,11 @@ const plans = {
 };
 
 exports.createMercadoPagoPreference = onRequest(
-    { secrets:["MP_ACCESS_TOKEN"] },
+    {
+        secrets:["MP_ACCESS_TOKEN"],
+        cors:true
+    },
     async(req,res)=>{
-
-        res.set("Access-Control-Allow-Origin","*");
-        res.set("Access-Control-Allow-Methods","POST, OPTIONS");
-        res.set("Access-Control-Allow-Headers","Content-Type");
-
-        if(req.method === "OPTIONS"){
-            res.status(204).send("");
-            return;
-        }
 
         if(req.method !== "POST"){
             res.status(405).json({
@@ -92,9 +86,13 @@ exports.createMercadoPagoPreference = onRequest(
 
         }catch(error){
 
+            console.error(error);
+
             res.status(500).json({
                 error:error.message
             });
+
         }
+
     }
 );

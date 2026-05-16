@@ -722,6 +722,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+
 .let currentPlan = null;
 let currentButton = null;
 
@@ -731,6 +732,7 @@ const prices = {
     PRO:"$44.000.000",
     FARM:"$220.000.000"
 };
+ f50b531316115578bcfd1687bc3255424d45d9b5
 
 window.buyPlan = async function(plan,button){
 
@@ -790,6 +792,7 @@ document.getElementById("payButton").addEventListener("click", async()=>{
                     "Content-Type":"application/json"
                 },
                 body:JSON.stringify({
+<<<<<<< HEAD
                     plan:currentPlan,
                     uid:user.uid,
                     email:user.email,
@@ -870,6 +873,38 @@ document.getElementById("payButton").addEventListener("click", async()=>{
     </div>
 
 </div>
+=======
+                    plan:plan,
+                    uid:user.uid,
+                    email:user.email
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if(!response.ok){
+            throw new Error(data.error || "No se pudo crear el pago");
+        }
+
+        window.location.href = data.init_point;
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(error.message);
+
+        button.disabled = false;
+        button.innerHTML = originalText;
+    }
+
+}
+
+</script>
+
+Fix Mercado Pago script
+>>>>>>> f50b531316115578bcfd1687bc3255424d45d9b5
 
 </body>
 </html>

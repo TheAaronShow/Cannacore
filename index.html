@@ -31,6 +31,23 @@ body{
     color:white;
 }
 
+/* FLOATING LOGO */
+
+.floating-logo{
+    position:fixed;
+    top:8px;
+    left:35px;
+    z-index:2000;
+    pointer-events:none;
+}
+
+.floating-logo img{
+    height:145px;
+    width:auto;
+    object-fit:contain;
+    opacity:0.95;
+}
+
 .video-background{
     position:fixed;
     top:0;
@@ -62,30 +79,12 @@ body{
     left:0;
     padding:18px 25px;
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-end;
     align-items:center;
     backdrop-filter:blur(10px);
     background:rgba(0,0,0,0.30);
     z-index:1000;
     overflow:visible;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    padding-left:25px;
-}
-
-.logo img{
-    height:120px;
-    width:auto;
-    object-fit:contain;
-    transition:0.3s;
-    margin-top:8px;
-}
-
-.logo img:hover{
-    transform:scale(1.03);
 }
 
 .navbar-links{
@@ -439,10 +438,28 @@ body{
 }
 }
 
+@media(max-width:900px){
+
+    .floating-logo{
+        left:15px;
+        top:5px;
+    }
+
+    .floating-logo img{
+        height:95px;
+    }
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="floating-logo">
+
+    <img src="logo.png" alt="Cannacore Logo">
+
+</div>
 
 <div class="video-background">
 
@@ -453,12 +470,6 @@ body{
 </div>
 
 <div class="navbar">
-
-    <div class="logo">
-
-    <img src="logo.png" alt="Cannacore Logo">
-
-</div>
 
     <div class="hamburger" onclick="toggleMenu()">
         <span></span>

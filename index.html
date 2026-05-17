@@ -70,9 +70,19 @@ body{
 }
 
 .logo{
-    font-size:1.5rem;
-    font-weight:900;
-    color:#c6ff00;
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:70px;
+    width:auto;
+    object-fit:contain;
+    transition:0.3s;
+}
+
+.logo img:hover{
+    transform:scale(1.03);
 }
 
 .navbar-links{
@@ -417,6 +427,13 @@ body{
     .market-header h2{
         font-size:3rem;
     }
+    
+@media(max-width:900px){
+
+    .logo img{
+        height:55px;
+    }
+}
 }
 
 </style>
@@ -435,8 +452,10 @@ body{
 <div class="navbar">
 
     <div class="logo">
-        CANNA CORE
-    </div>
+
+    <img src="logo.png" alt="Cannacore Logo">
+
+</div>
 
     <div class="hamburger" onclick="toggleMenu()">
         <span></span>

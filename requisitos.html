@@ -114,6 +114,181 @@ body{
     min-height:100vh;
 }
 
+/* REQUIREMENTS SECTION */
+
+.requirements-section{
+    width:100%;
+    min-height:100vh;
+    padding:140px 60px 80px;
+}
+
+.requirements-grid{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 0.9fr;
+    gap:60px;
+}
+
+.section-subtitle{
+    color:#c6ff00;
+    font-size:0.72rem;
+    letter-spacing:6px;
+    margin-bottom:22px;
+    font-weight:700;
+}
+
+.requirements-title{
+    font-size:5.5rem;
+    line-height:0.9;
+    font-weight:900;
+    letter-spacing:-3px;
+    margin-bottom:45px;
+}
+
+.requirements-title span{
+    color:#c6ff00;
+}
+
+.steps-box{
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(0,0,0,0.35);
+}
+
+.step-item{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.step-number{
+    background:#050505;
+    color:#c6ff00;
+    font-size:2rem;
+    font-weight:900;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-right:1px solid rgba(255,255,255,0.08);
+}
+
+.step-content{
+    padding:30px;
+}
+
+.step-content h3{
+    font-size:1.2rem;
+    margin-bottom:12px;
+    color:white;
+}
+
+.step-content p{
+    color:#bcbcbc;
+    line-height:1.7;
+}
+
+.apply-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:35px;
+    background:#c6ff00;
+    color:black;
+    text-decoration:none;
+    height:58px;
+    padding:0 35px;
+    border-radius:6px;
+    font-weight:900;
+    letter-spacing:1px;
+    transition:0.3s;
+}
+
+.apply-btn:hover{
+    transform:translateY(-2px);
+    background:#d8ff42;
+}
+
+.eligibility-title{
+    font-size:4rem;
+    line-height:0.95;
+    margin-bottom:20px;
+    font-weight:900;
+}
+
+.eligibility-description{
+    color:#bdbdbd;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+.requirement-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:28px;
+    margin-bottom:18px;
+    transition:0.3s;
+}
+
+.requirement-card:hover{
+    background:rgba(198,255,0,0.06);
+    border-color:rgba(198,255,0,0.15);
+}
+
+.requirement-card h3{
+    color:white;
+    font-size:1rem;
+    margin-bottom:10px;
+    letter-spacing:1px;
+}
+
+.requirement-card p{
+    color:#bdbdbd;
+    line-height:1.7;
+}
+
+@media(max-width:1100px){
+
+    .requirements-grid{
+        grid-template-columns:1fr;
+    }
+
+    .requirements-title{
+        font-size:3.5rem;
+    }
+
+    .eligibility-title{
+        font-size:2.8rem;
+    }
+}
+
+@media(max-width:700px){
+
+    .requirements-section{
+        padding:120px 25px 60px;
+    }
+
+    .requirements-title{
+        font-size:2.6rem;
+    }
+
+    .step-item{
+        grid-template-columns:70px 1fr;
+    }
+
+    .step-number{
+        font-size:1.4rem;
+    }
+
+    .step-content{
+        padding:22px;
+    }
+
+    .eligibility-title{
+        font-size:2.1rem;
+    }
+}
+
 /* RESPONSIVE */
 
 @media(max-width:900px){
@@ -188,7 +363,208 @@ body{
 
     <!-- PAGINA VACIA -->
 
-    <div class="empty-page"></div>
+    <div class="requirements-section">
+
+    <div class="requirements-grid">
+
+        <!-- LEFT -->
+
+        <div class="steps-side">
+
+            <div class="section-subtitle">
+                — CÓMO EMPEZAR
+            </div>
+
+            <h1 class="requirements-title">
+                5 PASOS PARA<br>
+                PRODUCIR CON<br>
+                <span>RESPALDO.</span>
+            </h1>
+
+            <div class="steps-box">
+
+                <div class="step-item">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>APLICACIÓN Y VERIFICACIÓN</h3>
+
+                        <p>
+                            Completa el formulario. Verificamos tu predio y
+                            capacidad técnica.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="step-item">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>FIRMA DE CONTRATO</h3>
+
+                        <p>
+                            Membresía + acuerdo de compra garantizada por el
+                            período pactado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="step-item">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>RECIBES GENÉTICA Y PROTOCOLO</h3>
+
+                        <p>
+                            Esquejes certificados, guía técnica y trazabilidad.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="step-item">
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>CULTIVO CON SOPORTE</h3>
+
+                        <p>
+                            Producción bajo protocolos Cannacore con soporte
+                            permanente.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="step-item">
+
+                    <div class="step-number">
+                        05
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>COSECHA Y PAGO</h3>
+
+                        <p>
+                            Cannacore recoge, certifica y paga la producción.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="planes.html" class="apply-btn">
+                INICIAR APLICACIÓN →
+            </a>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="eligibility-side">
+
+            <div class="section-subtitle">
+                — REQUISITOS
+            </div>
+
+            <h2 class="eligibility-title">
+                ¿ERES ELEGIBLE?
+            </h2>
+
+            <p class="eligibility-description">
+                Lo que necesitas para unirte a la red Cannacore.
+            </p>
+
+            <div class="requirement-card">
+
+                <h3>DOCUMENTO DE IDENTIDAD</h3>
+
+                <p>
+                    Cédula de ciudadanía o documento equivalente válido.
+                </p>
+
+            </div>
+
+            <div class="requirement-card">
+
+                <h3>UBICACIÓN VERIFICABLE</h3>
+
+                <p>
+                    Predio con coordenadas. Preferiblemente Eje Cafetero.
+                </p>
+
+            </div>
+
+            <div class="requirement-card">
+
+                <h3>ESPACIO PARA CULTIVO</h3>
+
+                <p>
+                    Outdoor, cubierta o invernadero según el plan elegido.
+                </p>
+
+            </div>
+
+            <div class="requirement-card">
+
+                <h3>ACCESO A AGUA</h3>
+
+                <p>
+                    Fuente disponible para riego según el plan.
+                </p>
+
+            </div>
+
+            <div class="requirement-card">
+
+                <h3>CONECTIVIDAD BÁSICA</h3>
+
+                <p>
+                    Internet para plataforma de trazabilidad y soporte.
+                </p>
+
+            </div>
+
+            <div class="requirement-card">
+
+                <h3>COMPROMISO</h3>
+
+                <p>
+                    Uso exclusivo de genética Cannacore. Trazabilidad total.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 </div>
 

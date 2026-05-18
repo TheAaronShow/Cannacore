@@ -26,6 +26,23 @@ body{
     color:white;
 }
 
+/* FLOATING LOGO */
+
+.floating-logo{
+    position:fixed;
+    top:8px;
+    left:35px;
+    z-index:2000;
+    pointer-events:none;
+}
+
+.floating-logo img{
+    height:44px;
+    width:auto;
+    object-fit:contain;
+    opacity:0.95;
+}
+
 /* VIDEO */
 
 .video-background{
@@ -61,14 +78,9 @@ NAVBAR
     position:fixed;
     top:0;
     left:0;
-    padding:22px 40px;
+    padding:18px 25px;
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    backdrop-filter:blur(8px);
-    background:rgba(0,0,0,0.20);
-    border-bottom:1px solid rgba(255,255,255,0.05);
-    z-index:1000;
+    justify-content:flex-end;
 }
 
 .logo{
@@ -299,10 +311,28 @@ RESPONSIVE
     }
 }
 
+@media(max-width:900px){
+
+    .floating-logo{
+        left:15px;
+        top:5px;
+    }
+
+    .floating-logo img{
+        height:44px;
+    }
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="floating-logo">
+
+    <img src="logo.png" alt="Cannacore Logo">
+
+</div>
 
 <!-- VIDEO -->
 
@@ -323,10 +353,6 @@ RESPONSIVE
     <!-- NAVBAR -->
 
     <div class="navbar">
-
-        <div class="logo">
-            CANNA CORE
-        </div>
 
         <div class="hamburger" onclick="toggleMenu()">
 

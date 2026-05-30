@@ -1,0 +1,127 @@
+import React from "react";
+2
+3const STYLES = {
+4  container: {
+5    position: 'relative',
+6    width: '100%',
+7    aspectRatio: '9/16',
+8    backgroundColor: '#000',
+9    overflow: 'hidden',
+10    borderRadius: '12px',
+11    fontFamily: 'monospace',
+12    color: '#fff',
+13  },
+14  video: {
+15    width: '100%',
+16    height: '100%',
+17    objectFit: 'cover',
+18  },
+19  titleOverlay: {
+20    position: 'absolute',
+21    top: '40px',
+22    width: '100%',
+23    textAlign: 'center',
+24    fontSize: '32px',
+25    fontWeight: 'bold',
+26    letterSpacing: '8px',
+27    color: '#d4ff00',
+28    textShadow: '0 0 20px rgba(0,0,0,0.8)',
+29    pointerEvents: 'none',
+30  },
+31  infoContainer: {
+32    position: 'absolute',
+33    bottom: '0',
+34    left: '0',
+35    right: '0',
+36    padding: '24px',
+37    background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%)',
+38    display: 'flex',
+39    flexDirection: 'column',
+40    gap: '12px',
+41  },
+42  grid: {
+43    display: 'grid',
+44    gridTemplateColumns: 'repeat(2, 1fr)',
+45    gap: '8px',
+46  },
+47  miniRow: {
+48    fontSize: '9px',
+49    display: 'flex',
+50    flexDirection: 'column',
+51    gap: '2px',
+52    padding: '6px',
+53    backgroundColor: 'rgba(255,255,255,0.05)',
+54    borderRadius: '4px',
+55    border: '1px solid rgba(255,255,255,0.1)',
+56  },
+57  bar: {
+58    height: '3px',
+59    width: '100%',
+60    backgroundColor: 'rgba(255,255,255,0.1)',
+61    position: 'relative',
+62    overflow: 'hidden',
+63  },
+64  fill: {
+65    height: '100%',
+66    position: 'absolute',
+67  },
+68  footer: {
+69    fontSize: '8px',
+70    opacity: 0.5,
+71    textAlign: 'center',
+72    marginTop: '8px',
+73    letterSpacing: '2px',
+74  }
+75} as const;
+76
+77const DATA = [
+78  { name: "ALTO CBD", cbd: 90, thc: 10 },
+79  { name: "CBD DOM", cbd: 70, thc: 30 },
+80  { name: "BALANCE", cbd: 50, thc: 50 },
+81  { name: "THC DOM", cbd: 20, thc: 80 },
+82  { name: "ALTO THC", cbd: 5, thc: 95 },
+83];
+84
+85export default function GelatoVisualizer() {
+86  const videoUrl = "https://storage.googleapis.com/producer-app-public/assets/39f04803-d4fa-42cd-b300-248c65606ad3/7424711901370280138/sample_0.mp4";
+87
+88  return (
+89    <div style={STYLES.container}>
+90      <video 
+91        src={videoUrl} 
+92        style={STYLES.video} 
+93        autoPlay 
+94        loop 
+95        muted 
+96        playsInline
+97      />
+98      
+99      <div style={STYLES.titleOverlay}>GELATO</div>
+100      
+101      <div style={STYLES.infoContainer}>
+102        <div style={STYLES.grid}>
+103          {DATA.map((item, idx) => (
+104            <div key={idx} style={{
+105              ...STYLES.miniRow,
+106              gridColumn: idx === 4 ? 'span 2' : 'auto',
+107              borderColor: idx === 4 ? '#d4ff00' : 'rgba(255,255,255,0.1)',
+108              backgroundColor: idx === 4 ? 'rgba(212, 255, 0, 0.05)' : 'rgba(255,255,255,0.05)'
+109            }}>
+110              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+111                <span style={{ fontWeight: idx === 4 ? 'bold' : 'normal' }}>{item.name}</span>
+112                <span style={{ color: '#d4ff00' }}>{idx === 4 ? '22%' : ''}</span>
+113              </div>
+114              <div style={STYLES.bar}>
+115                <div style={{ ...STYLES.fill, width: `${item.cbd}%`, backgroundColor: '#fff', left: 0 }} />
+116                <div style={{ ...STYLES.fill, width: `${item.thc}%`, backgroundColor: '#d4ff00', right: 0 }} />
+117              </div>
+118            </div>
+119          ))}
+120        </div>
+121        
+122        <div style={STYLES.footer}>LABORATORY SPECIFICATIONS • FLOW MUSIC</div>
+123      </div>
+124    </div>
+125  );
+126}
+127

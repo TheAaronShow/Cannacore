@@ -601,11 +601,11 @@ body{
 
                 <div class="market-number">$70B</div>
 
-                <div class="market-label">
+                <div class="market-label" id="card1Label">
                     MERCADO GLOBAL 2030
                 </div>
 
-                <p>
+                <p id="card1Text">
                     Cannabis medicinal: CAGR 14–18% anual.
                     La industria de mayor crecimiento regulado del siglo XXI.
                 </p>
@@ -627,11 +627,11 @@ body{
 
                 <div class="market-number">60%</div>
 
-                <div class="market-label">
+                <div class="market-label" id="card2Label">
                     MENOR COSTO VS CANADÁ
                 </div>
 
-                <p>
+                <p id="card2Text">
                     Colombia produce cannabis certificado
                     a fracción del costo de países competidores.
                 </p>
@@ -651,11 +651,11 @@ body{
 
                 <div class="market-number">18–24°</div>
 
-                <div class="market-label">
+                <div class="market-label" id="card3Label">
                     EJE CAFETERO
                 </div>
 
-                <p>
+                <p id="card3Text">
                     Temperatura ideal todo el año.
                     Biodiversidad y cultura agrícola generacional.
                 </p>
@@ -673,11 +673,11 @@ body{
 
                 <div class="market-number">2016</div>
 
-                <div class="market-label">
+                <div class="market-label" id="card4Label">
                     MARCO LEGAL COLOMBIA
                 </div>
 
-                <p>
+                <p id="card4Text">
                     Ley 1787 pionera en LatAm.
                     Exportación a Europa y Australia.
                 </p>
@@ -980,9 +980,7 @@ const translations = {
         contacto:`CONTACTO`,
         brochure:`BROCHURE`,
         heroSubtitle:`EJE CAFETERO • COLOMBIA • CANNABIS MEDICINAL`,
-        heroTitle:`CULTIVA<br>
-                   CON<br>
-                   <span>RESPALDO.</span>`,
+        heroTitle:`<id="heroTitle">`,
         heroDescription:`Infraestructura agrícola regulada que integra cultivadores a una
                         red productiva legal, con genética certificada, precio
                         garantizado y acceso directo al mercado global.`   
@@ -996,10 +994,24 @@ const translations = {
         contacto:`CONTACT`,
         brochure:`BROCHURE`,
         heroSubtitle:`COFFEE REGION • COLOMBIA • MEDICAL CANNABIS`,
-        heroTitle:`GROW WITH SUPPORT.`,
+        heroTitle:`GROW<br> 
+                   WITH<br>
+                   <span>SUPPORT.</span>`,
         heroDescription:`Regulated agricultural infrastructure that integrates growers into
                         a legal production network with certified genetics, guaranteed pricing
-                        and direct access to the global market.`
+                        and direct access to the global market.`,
+        btnMembership:`VIEW MEMBERSHIPS`,
+        btnHowWorks:`HOW IT WORKS`,
+        marketSubtitle:`— THE MARKET`,
+        marketTitle:`COLOMBIA HAS WHAT THE WORLD NEEDS.`,
+        card1Label:`GLOBAL MARKET 2030`,
+        card1Text:`Medical cannabis: CAGR 14–18% annually. The fastest-growing regulated industry of the 21st century.`,
+        card2Label:`LOWER COST THAN CANADA`,
+        card2Text:`Colombia produces certified cannabis at a fraction of the cost of competing countries.`,
+        card3Label:`COFFEE REGION`,
+        card3Text:`Ideal temperatures all year round. Biodiversity and generations of agricultural culture.`,
+        card4Label:`COLOMBIAN LEGAL FRAMEWORK`,
+        card4Text:`Law 1787 pioneered the industry in Latin America. Export access to Europe and Australia.`                
     }
 
 };
@@ -1037,6 +1049,42 @@ function changeLanguage(){
 
     document.getElementById("heroDescription").innerHTML =
     translations[lang].heroDescription;
+
+    document.getElementById("btnMembership").innerHTML =
+    translations[lang].btnMembership;
+
+    document.getElementById("btnHowWorks").innerHTML =
+    translations[lang].btnHowWorks;
+
+    document.getElementById("marketSubtitle").innerHTML =
+    translations[lang].marketSubtitle;
+
+    document.getElementById("marketTitle").innerHTML =
+    translations[lang].marketTitle;
+
+    document.getElementById("card1Label").innerHTML =
+    translations[lang].card1Label;
+
+    document.getElementById("card1Text").innerHTML =
+    translations[lang].card1Text;
+
+    document.getElementById("card2Label").innerHTML =
+    translations[lang].card2Label;
+
+    document.getElementById("card2Text").innerHTML =
+    translations[lang].card2Text;
+
+    document.getElementById("card3Label").innerHTML =
+    translations[lang].card3Label;
+
+    document.getElementById("card3Text").innerHTML =
+    translations[lang].card3Text;
+
+    document.getElementById("card4Label").innerHTML =
+    translations[lang].card4Label;
+
+    document.getElementById("card4Text").innerHTML =
+    translations[lang].card4Text;
 }
 
 window.onload = () => {

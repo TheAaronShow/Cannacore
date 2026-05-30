@@ -991,23 +991,23 @@ body{
 
             <div class="plan-label">STARTER</div>
             <div class="plan-number">20</div>
-            <div class="plan-plants">PLANTAS</div>
+            <div class="plan-plants id="starterPlants">PLANTAS</div>
             <div class="plan-price">€1.999</div>
-            <div class="plan-invest">inversión inicial</div>
+            <div class="plan-invest id="starterInvest">inversión inicial</div>
 
             <div class="plan-divider"></div>
 
             <div class="plan-row">
-                <span>Por ciclo</span>
+                <span id="starterCycleLabel">Por ciclo</span>
                 <strong>3–4 kg</strong>
             </div>
 
             <div class="plan-row">
-                <span>Ciclos/año</span>
+                <span id="starterYearLabel">Ciclos/año</span>
                 <strong>2–3</strong>
             </div>
 
-            <div class="income-title">INGRESO BRUTO/AÑO</div>
+            <div class="income-title" id="starterIncomeTitle">INGRESO BRUTO/AÑO</div>
             <div class="income-value">€12k–€24k</div>
 
             <button class="plan-btn" 
@@ -1034,23 +1034,23 @@ body{
 
             <div class="plan-label">GROWER</div>
             <div class="plan-number">50</div>
-            <div class="plan-plants">PLANTAS</div>
+            <div class="plan-plants translate-plants">PLANTAS</div>
             <div class="plan-price active-price">€4.999</div>
-            <div class="plan-invest">inversión inicial</div>
+            <div class="plan-invest translate-invest">inversión inicial</div>
 
             <div class="plan-divider"></div>
 
             <div class="plan-row">
-                <span>Por ciclo</span>
+                <span class="translate-cycle">Por ciclo</span>
                 <strong>7,5–10 kg</strong>
             </div>
 
             <div class="plan-row">
-                <span>Ciclos/año</span>
+                <span class="translate-year">Ciclos/año</span>
                 <strong>2–3</strong>
             </div>
 
-            <div class="income-title">INGRESO BRUTO/AÑO</div>
+            <div class="income-title translate-income">INGRESO BRUTO/AÑO</div>
             <div class="income-value active-income">€30k–€60k</div>
 
             <button class="plan-btn" 
@@ -1073,23 +1073,23 @@ body{
 
             <div class="plan-label">PRO</div>
             <div class="plan-number">100</div>
-            <div class="plan-plants">PLANTAS</div>
+            <div class="plan-plants translate-plants">PLANTAS</div>
             <div class="plan-price">€9.999</div>
-            <div class="plan-invest">inversión inicial</div>
+            <div class="plan-invest translate-invest">inversión inicial</div>
 
             <div class="plan-divider"></div>
 
             <div class="plan-row">
-                <span>Por ciclo</span>
+                <span class="translate-cycle">Por ciclo</span>
                 <strong>15–20 kg</strong>
             </div>
 
             <div class="plan-row">
-                <span>Ciclos/año</span>
+                <span class="translate-year">Ciclos/año</span>
                 <strong>2–3</strong>
             </div>
 
-            <div class="income-title">INGRESO BRUTO/AÑO</div>
+            <div class="income-title translate-income">INGRESO BRUTO/AÑO</div>
             <div class="income-value">€60k–€120k</div>
 
             <button class="plan-btn" 
@@ -1112,23 +1112,23 @@ body{
 
             <div class="plan-label">FARM PARTNER</div>
             <div class="plan-number">500+</div>
-            <div class="plan-plants">PLANTAS</div>
+            <div class="plan-plants translate-plants">PLANTAS</div>
             <div class="plan-price">€49.999</div>
-            <div class="plan-invest">inversión inicial</div>
+            <div class="plan-invest translate-invest">inversión inicial</div>
 
             <div class="plan-divider"></div>
 
             <div class="plan-row">
-                <span>Por ciclo</span>
+                <span class="translate-cycle">Por ciclo</span>
                 <strong>75–100 kg</strong>
             </div>
 
             <div class="plan-row">
-                <span>Ciclos/año</span>
+                <span class="translate-year">Ciclos/año</span>
                 <strong>2–3</strong>
             </div>
 
-            <div class="income-title">INGRESO BRUTO/AÑO</div>
+            <div class="income-title translate-income">INGRESO BRUTO/AÑO</div>
             <div class="income-value">€300k–€600k</div>
 
             <button class="plan-btn" 
@@ -1617,7 +1617,12 @@ const translations = {
                    Liquidación tras cada cosecha certificada.`,
         cardTitle3:`CANNACORE EXPORTA`,
         cardText3:`Nosotros recogemos, certificamos y llevamos tu producción
-                   al mercado global. Tú cultivas.`                      
+                   al mercado global. Tú cultivas.`,
+        starterPlants:`PLANTAS`,
+        starterInvest:`inversión inicial`,
+        starterCycleLabel:`Por ciclo`,
+        starterYearLabel:`Ciclos/año`,
+        starterIncomeTitle:`INGRESO BRUTO/AÑO`                       
 
         
     },
@@ -1650,7 +1655,12 @@ const translations = {
                    Settlement after each certified harvest.`,
         cardTitle3:`CANNACORE EXPORTS`,
         cardText3:`We collect, certify and take your production
-                   to the global market. You grow.`                      
+                   to the global market. You grow.`,
+        starterPlants:`PLANTS`,
+        starterInvest:`initial investment`,
+        starterCycleLabel:`Per cycle`,
+        starterYearLabel:`Cycles/year`,
+        starterIncomeTitle:`GROSS INCOME/YEAR`                      
     }
 
 };
@@ -1724,6 +1734,46 @@ function changeLanguage(){
 
     document.getElementById("cardText3").innerHTML =
     translations[lang].cardText3;
+
+    document.getElementById("starterPlants").innerHTML =
+    translations[lang].starterPlants;
+
+    document.getElementById("starterInvest").innerHTML =
+    translations[lang].starterInvest;
+
+    document.getElementById("starterCycleLabel").innerHTML =
+    translations[lang].starterCycleLabel;
+
+    document.getElementById("starterYearLabel").innerHTML =
+    translations[lang].starterYearLabel;
+
+    document.getElementById("starterIncomeTitle").innerHTML =
+    translations[lang].starterIncomeTitle;
+
+    document.querySelectorAll(".translate-plants")
+    .forEach(el=>{
+         el.innerHTML = translations[lang].starterPlants;
+    });
+
+    document.querySelectorAll(".translate-invest")
+    .forEach(el=>{
+         el.innerHTML = translations[lang].starterInvest;
+    });
+
+    document.querySelectorAll(".translate-cycle")
+    .forEach(el=>{
+         el.innerHTML = translations[lang].starterCycleLabel;
+    });
+
+    document.querySelectorAll(".translate-year")
+    .forEach(el=>{
+         el.innerHTML = translations[lang].starterYearLabel;
+    });
+
+    document.querySelectorAll(".translate-income")
+    .forEach(el=>{
+         el.innerHTML = translations[lang].starterIncomeTitle;
+    });
 
     document.querySelectorAll(".plan-btn")
     .forEach(btn=>{

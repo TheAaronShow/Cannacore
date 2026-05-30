@@ -1643,6 +1643,15 @@ function changeLanguage(){
     document.getElementById("heroDescription").innerHTML =
     translations[lang].heroDescription;
 
+    document.getElementById("guaranteeTopline").innerHTML =
+    translations[lang].guaranteeTopline;
+
+    document.getElementById("guaranteeSubtitle").innerHTML =
+    translations[lang].guaranteeSubtitle;
+
+    document.getElementById("guaranteeDescription").innerHTML =
+    translations[lang].guaranteeDescription;
+
     document.querySelectorAll(".plan-btn")
     .forEach(btn=>{
         btn.innerHTML = translations[lang].selectPlan;

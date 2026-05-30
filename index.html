@@ -130,8 +130,8 @@ body{
     opacity:1;
 }
 
-#userName{
-    .user-menu{
+
+.user-menu{
     position:relative;
 }
 
@@ -551,6 +551,9 @@ body{
         <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
         <a href="contacto.htm" id="navContacto">CONTACTO</a>
         <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
+        <a id="loginBtn" onclick="openModal('login')">
+             Iniciar sesión
+        </a>
         
         <div class="user-menu" id="userMenu" style="display:none;">
 
@@ -1001,16 +1004,16 @@ function openModal(type){
 
 function closeModal(){
 
-    function toggleUserMenu(){
+    document.getElementById("modalBg")
+    .style.display = "none";
+}
+
+function toggleUserMenu(){
 
     document
         .getElementById("userDropdown")
         .classList
         .toggle("show");
-}
-
-    document.getElementById("modalBg")
-    .style.display = "none";
 }
 
 </script>

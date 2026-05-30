@@ -1670,6 +1670,24 @@ function changeLanguage(){
     document.getElementById("guaranteeDescription").innerHTML =
     translations[lang].guaranteeDescription;
 
+    document.getElementById("cardTitle1").innerHTML =
+    translations[lang].cardTitle1;
+
+    document.getElementById("cardText1").innerHTML =
+    translations[lang].cardText1;
+
+    document.getElementById("cardTitle2").innerHTML =
+    translations[lang].cardTitle2;
+
+    document.getElementById("cardText2").innerHTML =
+    translations[lang].cardText2;
+
+    document.getElementById("cardTitle3").innerHTML =
+    translations[lang].cardTitle3;
+
+    document.getElementById("cardText3").innerHTML =
+    translations[lang].cardText3;
+
     document.querySelectorAll(".plan-btn")
     .forEach(btn=>{
         btn.innerHTML = translations[lang].selectPlan;

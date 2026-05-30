@@ -539,26 +539,26 @@ body{
 
     <div class="hero-content">
 
-        <div class="hero-subtitle">
+        <div class="hero-subtitle" id="heroSubtitle">
             EJE CAFETERO • COLOMBIA • CANNABIS MEDICINAL
         </div>
 
-        <h1 class="hero-title">
+        <h1 class="hero-title" id="heroTitle">
             CULTIVA<br>
             CON<br>
             <span>RESPALDO.</span>
         </h1>
 
-        <p class="hero-description">
+        <p class="hero-description" id="heroDescription">
             Infraestructura agrícola regulada que integra cultivadores a una
             red productiva legal, con genética certificada, precio
             garantizado y acceso directo al mercado global.
         </p>
 
-        <div class="hero-buttons">
+        <div class="hero-buttons"> 
 
             <a href="planes.html">
-                <button class="btn-primary">
+                <button class="btn-primary"> 
                     VER MEMBRESIAS →
                 </button>
             </a>
@@ -987,7 +987,10 @@ const translations = {
         como:"HOW IT WORKS",
         requisitos:"REQUIREMENTS",
         contacto:"CONTACT",
-        brochure:"BROCHURE"
+        brochure:"BROCHURE",
+        heroSubtitle:"COFFEE REGION • COLOMBIA • MEDICAL CANNABIS",
+        heroTitle:"GROW WITH SUPPORT.",
+        heroDescription:"Regulated agricultural infrastructure that integrates growers into a legal production network with certified genetics, guaranteed pricing and direct access to the global market."
     }
 
 };
@@ -1016,6 +1019,15 @@ function changeLanguage(){
 
     document.getElementById("navBrochure").innerText =
     translations[lang].brochure;
+
+    document.getElementById("heroSubtitle").innerText =
+    translations[lang].heroSubtitle;
+
+    document.getElementById("heroTitle").innerText =
+    translations[lang].heroTitle;
+
+    document.getElementById("heroDescription").innerText =
+    translations[lang].heroDescription;
 }
 
 window.onload = () => {

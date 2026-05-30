@@ -131,6 +131,47 @@ body{
 }
 
 #userName{
+    .user-menu{
+    position:relative;
+}
+
+#userName{
+    color:#c6ff00;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.user-dropdown{
+    display:none;
+    position:absolute;
+    top:28px;
+    right:0;
+    min-width:180px;
+    background:rgba(0,0,0,0.95);
+    border:1px solid rgba(198,255,0,0.25);
+    border-radius:8px;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+}
+
+.user-dropdown.show{
+    display:flex;
+    flex-direction:column;
+}
+
+.user-dropdown a{
+    padding:14px 18px;
+    color:white;
+    text-decoration:none;
+    letter-spacing:2px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.user-dropdown a:hover{
+    background:rgba(198,255,0,0.08);
+    color:#c6ff00;
+}
+
     color:#c6ff00;
     font-weight:bold;
 }
@@ -511,19 +552,23 @@ body{
         <a href="contacto.htm" id="navContacto">CONTACTO</a>
         <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
         
-        <span id="userName"></span>
+        <div class="user-menu" id="userMenu" style="display:none;">
 
-        <a id="loginBtn" onclick="openModal('login')">
-            Iniciar sesión
-        </a>
+             <div id="userName" onclick="toggleUserMenu()"></div>
 
-        <a id="profileBtn" href="perfil.html" style="display:none;">
-            Mi perfil
-        </a>
+             <div class="user-dropdown" id="userDropdown">
 
-        <a id="logoutBtn" onclick="logout()" style="display:none;">
-            Cerrar sesión
-        </a>
+                 <a href="perfil.html">
+                     Mi perfil
+                 </a>
+
+                 <a onclick="logout()">
+                     Cerrar sesión
+                 </a>
+
+            </div>
+
+        </div>
 
         <select id="languageSelector" onchange="changeLanguage()">
           <option value="es">ES</option>
@@ -876,11 +921,8 @@ onAuthStateChanged(auth,(user)=>{
     const loginBtn =
     document.getElementById("loginBtn");
 
-    const logoutBtn =
-    document.getElementById("logoutBtn");
-
-    const profileBtn =
-    document.getElementById("profileBtn");
+    const userMenu =
+    document.getElementById("userMenu");
 
     const userName =
     document.getElementById("userName");
@@ -892,9 +934,7 @@ onAuthStateChanged(auth,(user)=>{
 
         loginBtn.style.display = "none";
 
-        profileBtn.style.display = "inline-block";
-
-        logoutBtn.style.display = "inline-block";
+        userMenu.style.display = "block";
 
     }else{
 
@@ -902,9 +942,7 @@ onAuthStateChanged(auth,(user)=>{
 
         loginBtn.style.display = "inline-block";
 
-        profileBtn.style.display = "none";
-
-        logoutBtn.style.display = "none";
+        userMenu.style.display = "none";
     }
 });
 
@@ -962,6 +1000,14 @@ function openModal(type){
 }
 
 function closeModal(){
+
+    function toggleUserMenu(){
+
+    document
+        .getElementById("userDropdown")
+        .classList
+        .toggle("show");
+}
 
     document.getElementById("modalBg")
     .style.display = "none";

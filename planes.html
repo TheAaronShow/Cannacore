@@ -9,6 +9,42 @@
 
 <style>
 
+/* LENGUAGE SELECTOR */
+
+#languageSelector{
+    background:transparent;
+    border:1px solid rgba(198,255,0,0.4);
+    color:white;
+    padding:6px 10px;
+    border-radius:4px;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+
+#languageSelector option{
+    background:#111;
+    color:white;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+    background:#000;
+    color:white;
+}
+
 *{
     margin:0;
     padding:0;
@@ -106,6 +142,34 @@ body{
 .navbar a:hover{
     color:#c6ff00;
     opacity:1;
+}
+
+.user-menu{
+    position:relative;
+}
+
+#userName{
+    color:#c6ff00;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.user-dropdown{
+    display:none;
+    position:absolute;
+    top:28px;
+    right:0;
+    min-width:180px;
+    background:rgba(0,0,0,0.95);
+    border:1px solid rgba(198,255,0,0.25);
+    border-radius:8px;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+}
+
+.user-dropdown.show{
+    display:flex;
+    flex-direction:column;
 }
 
 .hamburger{
@@ -820,13 +884,43 @@ body{
         </div>
 
         <div class="navbar-links" id="menu">
-            <a href="index.html">INICIO</a>
-            <a href="planes.html">MEMBRESIA</a>
-            <a href="como-funciona.html">COMO FUNCIONA</a>
-            <a href="requisitos.html">REQUISITOS</a>
-            <a href="contacto.htm">CONTACTO</a>
-            <a href="CANNACORE.pdf" target="_blank">BROCHURE</a>
+
+        <a href="index.html" id="navInicio">INICIO</a>
+        <a href="planes.html" id="navMembresia">MEMBRESIA</a>
+        <a href="como-funciona.html" id="navComo">COMO FUNCIONA</a>
+        <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
+        <a href="contacto.htm" id="navContacto">CONTACTO</a>
+        <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
+        <a id="loginBtn" onclick="openModal('login')">
+             <span id="loginText">INICIAR SESIÓN</span>
+        </a>
+        
+        <div class="user-menu" id="userMenu" style="display:none;">
+
+             <div id="userName" onclick="toggleUserMenu()"></div>
+
+             <div class="user-dropdown" id="userDropdown">
+
+                 <a href="perfil.html">
+                     <span id="profileText">MI PERFIL</span>
+                 </a>
+
+                 <a onclick="logout()">
+                     <span id="logoutText">CERRAR SESIÓN</span>
+                 </a>
+
+            </div>
+
         </div>
+
+        <select id="languageSelector" onchange="changeLanguage()">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+          <option value="fr">FR</option>
+        </select>
+
+    </div>
 
     </div>
 
@@ -834,18 +928,18 @@ body{
 
         <div class="hero-left">
 
-            <div class="hero-topline">
+            <div class="hero-topline" id="heroTopline">
                 CANNACORE GROWER NETWORK
             </div>
 
-            <h1>
+            <h1 id="heroTitle">
                 ELIGE TU NIVEL.<br>
                 <span>CRECE CON RESPALDO.</span>
             </h1>
 
         </div>
 
-        <div class="hero-right">
+        <div class="hero-right" id="heroDescription">
             Todos los planes incluyen:
             genética • licencia • protocolo •
             trazabilidad • acompañamiento •
@@ -887,7 +981,9 @@ body{
             <div class="income-title">INGRESO BRUTO/AÑO</div>
             <div class="income-value">€12k–€24k</div>
 
-            <button class="plan-btn" onclick="buyPlan('STARTER',this)">
+            <button class="plan-btn" 
+                    id="starterBtn"
+                    onclick="buyPlan('STARTER',this)">
                 Seleccionar
             </button>
 
@@ -928,7 +1024,9 @@ body{
             <div class="income-title">INGRESO BRUTO/AÑO</div>
             <div class="income-value active-income">€30k–€60k</div>
 
-            <button class="plan-btn" onclick="buyPlan('GROWER',this)">
+            <button class="plan-btn" 
+                    id="starterBtn"
+                    onclick="buyPlan('GROWER',this)">
                 Seleccionar
             </button>
 
@@ -965,7 +1063,9 @@ body{
             <div class="income-title">INGRESO BRUTO/AÑO</div>
             <div class="income-value">€60k–€120k</div>
 
-            <button class="plan-btn" onclick="buyPlan('PRO',this)">
+            <button class="plan-btn" 
+                    id="starterBtn"
+                    onclick="buyPlan('PRO',this)">
                 Seleccionar
             </button>
 
@@ -1002,7 +1102,9 @@ body{
             <div class="income-title">INGRESO BRUTO/AÑO</div>
             <div class="income-value">€300k–€600k</div>
 
-            <button class="plan-btn" onclick="buyPlan('FARM',this)">
+            <button class="plan-btn" 
+                    id="starterBtn"
+                    onclick="buyPlan('FARM',this)">
                 Seleccionar
             </button>
 
@@ -1108,7 +1210,76 @@ body{
 
 </div>
 
-<script>
+<div class="modal-bg" id="modalBg">
+
+    <div class="modal" id="loginModal">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Iniciar sesión</h2>
+
+        <input id="loginEmail" type="email" placeholder="Correo electrónico">
+        <input id="loginPass" type="password" placeholder="Contraseña">
+
+        <button onclick="login()">
+            Entrar
+        </button>
+
+        <button onclick="googleLogin()">
+            Entrar con Google
+        </button>
+
+        <div class="link" onclick="openModal('recover')">
+            ¿Olvidaste tu contraseña?
+        </div>
+
+        <div class="link" onclick="openModal('register')">
+            Crear una cuenta
+        </div>
+
+    </div>
+
+    <div class="modal" id="recoverModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Recuperar contraseña</h2>
+
+        <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
+
+        <button onclick="recover()">
+            Enviar enlace
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Volver a iniciar sesión
+        </div>
+
+    </div>
+
+    <div class="modal" id="registerModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Crear cuenta</h2>
+
+        <input id="registerName" type="text" placeholder="Nombre completo">
+        <input id="registerEmail" type="email" placeholder="Correo electrónico">
+        <input id="registerPass" type="password" placeholder="Crear contraseña">
+
+        <button onclick="register()">
+            Registrarse
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Ya tengo cuenta
+        </div>
+
+    </div>
+
+</div>
+
+<script>    
 
 function toggleMenu(){
     document.getElementById("menu").classList.toggle("show");
@@ -1122,7 +1293,15 @@ import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
 import {
-    getAuth
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    onAuthStateChanged,
+    updateProfile,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
 }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
@@ -1137,6 +1316,129 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+window.login = function(){
+
+    const email =
+    document.getElementById("loginEmail").value;
+
+    const pass =
+    document.getElementById("loginPass").value;
+
+    signInWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        closeModal();
+
+        alert("Bienvenido!");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+window.register = function(){
+
+    const name =
+    document.getElementById("registerName").value;
+
+    const email =
+    document.getElementById("registerEmail").value;
+
+    const pass =
+    document.getElementById("registerPass").value;
+
+    createUserWithEmailAndPassword(auth,email,pass)
+
+    .then(()=>{
+
+        updateProfile(auth.currentUser,{
+            displayName:name
+        });
+
+        alert("Cuenta creada exitosamente");
+
+        openModal("login");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+window.recover = function(){
+
+    const email =
+    document.getElementById("recoverEmail").value;
+
+    sendPasswordResetEmail(auth,email)
+
+    .then(()=>{
+
+        alert("Se envió un enlace");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+window.googleLogin = function(){
+
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth,provider)
+
+    .then(()=>{
+
+        closeModal();
+
+    })
+
+    .catch(err=>alert(err.message));
+}
+
+onAuthStateChanged(auth,(user)=>{
+
+    const loginBtn =
+    document.getElementById("loginBtn");
+
+    const userMenu =
+    document.getElementById("userMenu");
+
+    const userName =
+    document.getElementById("userName");
+
+    if(user){
+
+        userName.innerHTML =
+        user.displayName || user.email;
+
+        loginBtn.style.display = "none";
+
+        userMenu.style.display = "block";
+
+    }else{
+
+        userName.innerHTML = "";
+
+        loginBtn.style.display = "inline-block";
+
+        userMenu.style.display = "none";
+    }
+});
+
+window.logout = function(){
+
+    signOut(auth)
+
+    .then(()=>{
+
+        alert("Sesión cerrada");
+
+    })
+
+    .catch(err=>alert(err.message));
+}
 
 
 let currentPlan = null;
@@ -1242,6 +1544,122 @@ document.getElementById("payButton").addEventListener("click", async()=>{
     }
 
 });
+
+</script>
+
+<script>
+
+const translations = {
+
+    es:{
+        login:`INICIAR SESIÓN`,
+        profile:`MI PERFIL`,
+        logout:`CERRAR SESIÓN`,
+        inicio:`INICIO`,
+        membresia:`MEMBRESIA`,
+        como:`COMO FUNCIONA`,
+        requisitos:`REQUISITOS`,
+        contacto:`CONTACTO`,
+        brochure:`BROCHURE`,
+        heroTopline:`CANNACORE GROWER NETWORK`,
+        heroTitle:`ELIGE TU NIVEL.<br>
+                   <span>CRECE CON RESPALDO.</span>`,
+        heroDescription:`Todos los planes incluyen:
+                         genética • licencia • protocolo • trazabilidad • acompañamiento • compra garantizada`,
+        selectPlan:`SELECCIONAR`
+
+        
+    },
+
+    en:{
+        login:`LOGIN`,
+        profile:`MY PROFILE`,
+        logout:`LOG OUT`,
+        inicio:`HOME`,
+        membresia:`MEMBERSHIP`,
+        como:`HOW IT WORKS`,
+        requisitos:`REQUIREMENTS`,
+        contacto:`CONTACT`,
+        brochure:`BROCHURE`,
+        heroTopline:`CANNACORE GROWER NETWORK`,
+        heroTitle:`CHOOSE YOUR LEVEL.<br>
+                   <span>GROW WITH SUPPORT.</span>`,
+        heroDescription:`All plans include:
+                         genetics • licensing • protocol • traceability • guidance • guaranteed purchase`,
+        selectPlan:`SELECT`                
+    }
+
+};
+
+function changeLanguage(){
+
+    const lang =
+    document.getElementById("languageSelector").value;
+
+    localStorage.setItem("lang",lang);
+
+    document.getElementById("loginText").innerHTML =
+    translations[lang].login;
+
+    document.getElementById("profileText").innerHTML =
+    translations[lang].profile;
+
+    document.getElementById("logoutText").innerHTML =
+    translations[lang].logout;
+
+    document.getElementById("navInicio").innerHTML =
+    translations[lang].inicio;
+
+    document.getElementById("navMembresia").innerHTML =
+    translations[lang].membresia;
+
+    document.getElementById("navComo").innerHTML =
+    translations[lang].como;
+
+    document.getElementById("navRequisitos").innerHTML =
+    translations[lang].requisitos;
+
+    document.getElementById("navContacto").innerHTML =
+    translations[lang].contacto;
+
+    document.getElementById("navBrochure").innerHTML =
+    translations[lang].brochure;
+
+    document.getElementById("heroTopline").innerHTML =
+    translations[lang].heroTopline;
+
+    document.getElementById("heroTitle").innerHTML =
+    translations[lang].heroTitle;
+
+    document.getElementById("heroDescription").innerHTML =
+    translations[lang].heroDescription;
+
+    document.querySelectorAll(".plan-btn")
+    .forEach(btn=>{
+        btn.innerHTML = translations[lang].selectPlan;
+    });
+
+    
+
+    const brochureLink = document.getElementById("navBrochure");
+
+    if(lang === "en"){
+         brochureLink.href = "CANNACOREEN.pdf";
+    }else{
+         brochureLink.href = "CANNACORE.pdf";
+    }
+}
+
+window.onload = () => {
+
+    const savedLang =
+    localStorage.getItem("lang") || "es";
+
+    document.getElementById("languageSelector").value =
+    savedLang;
+
+    changeLanguage();
+};
 
 </script>
 

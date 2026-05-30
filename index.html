@@ -973,30 +973,32 @@ function closeModal(){
 const translations = {
 
     es:{
-        inicio:"INICIO",
-        membresia:"MEMBRESIA",
-        como:"COMO FUNCIONA",
-        requisitos:"REQUISITOS",
-        contacto:"CONTACTO",
-        brochure:"BROCHURE"
-        heroTitle:"CULTIVA<br>
+        inicio:`INICIO`,
+        membresia:`MEMBRESIA`,
+        como:`COMO FUNCIONA`,
+        requisitos:`REQUISITOS`,
+        contacto:`CONTACTO`,
+        brochure:`BROCHURE`,
+        heroTitle:`CULTIVA<br>
                    CON<br>
-            <      span>RESPALDO.</span>"
-        heroDescription:"Infraestructura agrícola regulada que integra cultivadores a una
-                        red productiva legal, con genética certificada, precio
-                        garantizado y acceso directo al mercado global."   
+            <      span>RESPALDO.</span>`
+        heroDescription:`Infraestructura agrícola regulada que integra cultivadores a una
+                         red productiva legal, con genética certificada, precio
+                         garantizado y acceso directo al mercado global.`   
     },
 
     en:{
-        inicio:"HOME",
-        membresia:"MEMBERSHIP",
-        como:"HOW IT WORKS",
-        requisitos:"REQUIREMENTS",
-        contacto:"CONTACT",
-        brochure:"BROCHURE",
-        heroSubtitle:"COFFEE REGION • COLOMBIA • MEDICAL CANNABIS",
-        heroTitle:"GROW WITH SUPPORT.",
-        heroDescription:"Regulated agricultural infrastructure that integrates growers into a legal production network with certified genetics, guaranteed pricing and direct access to the global market."
+        inicio:`HOME`,
+        membresia:`MEMBERSHIP`,
+        como:`HOW IT WORKS`,
+        requisitos:`REQUIREMENTS`,
+        contacto:`CONTACT`,
+        brochure:`BROCHURE`,
+        heroSubtitle:`COFFEE REGION • COLOMBIA • MEDICAL CANNABIS`,
+        heroTitle:`GROW WITH SUPPORT.`,
+        heroDescription:`Regulated agricultural infrastructure that integrates growers into
+                         a legal production network with certified genetics, guaranteed pricing
+                         and direct access to the global market.`
     }
 
 };
@@ -1008,31 +1010,31 @@ function changeLanguage(){
 
     localStorage.setItem("lang",lang);
 
-    document.getElementById("navInicio").innerText =
+    document.getElementById("navInicio").innerHTML =
     translations[lang].inicio;
 
-    document.getElementById("navMembresia").innerText =
+    document.getElementById("navMembresia").innerHTML =
     translations[lang].membresia;
 
-    document.getElementById("navComo").innerText =
+    document.getElementById("navComo").innerHTML =
     translations[lang].como;
 
-    document.getElementById("navRequisitos").innerText =
+    document.getElementById("navRequisitos").innerHTML =
     translations[lang].requisitos;
 
-    document.getElementById("navContacto").innerText =
+    document.getElementById("navContacto").innerHTML =
     translations[lang].contacto;
 
-    document.getElementById("navBrochure").innerText =
+    document.getElementById("navBrochure").innerHTML =
     translations[lang].brochure;
 
-    document.getElementById("heroSubtitle").innerText =
+    document.getElementById("heroSubtitle").innerHTML =
     translations[lang].heroSubtitle;
 
-    document.getElementById("heroTitle").innerText =
+    document.getElementById("heroTitle").innerHTML =
     translations[lang].heroTitle;
 
-    document.getElementById("heroDescription").innerText =
+    document.getElementById("heroDescription").innerHTML =
     translations[lang].heroDescription;
 }
 

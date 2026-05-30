@@ -172,6 +172,19 @@ body{
     flex-direction:column;
 }
 
+.user-dropdown a{
+    padding:14px 18px;
+    color:white;
+    text-decoration:none;
+    letter-spacing:2px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.user-dropdown a:hover{
+    background:rgba(198,255,0,0.08);
+    color:#c6ff00;
+}
+
 .hamburger{
     display:none;
     flex-direction:column;
@@ -1283,6 +1296,14 @@ body{
 
 function toggleMenu(){
     document.getElementById("menu").classList.toggle("show");
+}
+
+function toggleUserMenu(){
+
+    document
+        .getElementById("userDropdown")
+        .classList
+        .toggle("show");
 }
 
 </script>

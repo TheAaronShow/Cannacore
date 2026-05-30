@@ -1174,6 +1174,14 @@ function changeLanguage(){
 
     document.getElementById("card4Text").innerHTML =
     translations[lang].card4Text;
+
+    const brochureLink = document.getElementById("navBrochure");
+
+    if(lang === "en"){
+         brochureLink.href = "CANNACOREEN.pdf";
+    }else{
+         brochureLink.href = "CANNACORE.pdf";
+    }
 }
 
 window.onload = () => {

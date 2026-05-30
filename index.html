@@ -1023,9 +1023,9 @@ function toggleUserMenu(){
 const translations = {
 
     es:{
-        login:"INICIAR SESIÓN",
-        profile:"MI PERFIL",
-        logout:"CERRAR SESIÓN",
+        login:`INICIAR SESIÓN`,
+        profile:`MI PERFIL`,
+        logout:`CERRAR SESIÓN`,
         inicio:`INICIO`,
         membresia:`MEMBRESIA`,
         como:`COMO FUNCIONA`,
@@ -1059,9 +1059,9 @@ const translations = {
     },
 
     en:{
-        login:"LOGIN",
-        profile:"MY PROFILE",
-        logout:"LOG OUT",
+        login:`LOGIN`,
+        profile:`MY PROFILE`,
+        logout:`LOG OUT`,
         inicio:`HOME`,
         membresia:`MEMBERSHIP`,
         como:`HOW IT WORKS`,
@@ -1103,13 +1103,13 @@ function changeLanguage(){
 
     localStorage.setItem("lang",lang);
 
-    document.getElementById("loginText").innerText =
+    document.getElementById("loginText").innerHTML =
     translations[lang].login;
 
-    document.getElementById("profileText").innerText =
+    document.getElementById("profileText").innerHTML =
     translations[lang].profile;
 
-    document.getElementById("logoutText").innerText =
+    document.getElementById("logoutText").innerHTML =
     translations[lang].logout;
 
     document.getElementById("navInicio").innerHTML =

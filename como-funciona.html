@@ -666,6 +666,10 @@ body{
             <a href="requisitos.html">REQUISITOS</a>
             <a href="contacto.htm">CONTACTO</a>
             <a href="CANNACORE.pdf" target="_blank">BROCHURE</a>
+            <select id="languageSelector" onchange="changeLanguage()">
+                 <option value="es">ES</option>
+                 <option value="en">EN</option>
+            </select>
         </div>
 
     </div>
@@ -674,17 +678,17 @@ body{
 
         <div class="how-left">
 
-            <div class="how-subtitle">
+            <div class="how-subtitle" id="howSubtitle">
                 — EL MODELO
             </div>
 
-            <h1>
+            <h1 id="howTitle">
                 NO VENDEMOS PLANTAS.<br>
                 <span>VENDEMOS ACCESO AL</span><br>
                 MERCADO GLOBAL.
             </h1>
 
-            <p>
+            <p id="howDescription">
                 Cannacore es la infraestructura que conecta cultivadores
                 colombianos con compradores internacionales certificados
                 en Europa y Australia.
@@ -694,47 +698,47 @@ body{
 
         <div class="value-box">
 
-            <div class="value-title">
+            <div class="value-title" id="valueTitle">
                 LA CADENA DE VALOR
             </div>
 
             <div class="value-item">
                 <div class="value-dot"></div>
                 <div>
-                    <strong>GENÉTICA</strong>
-                    <span>Cannacore desarrolla y suministra variedades certificadas</span>
+                    <strong id="geneticaTitle">GENÉTICA</strong>
+                    <span id="geneticaText">Cannacore desarrolla y suministra variedades certificadas</span>
                 </div>
             </div>
 
             <div class="value-item">
                 <div class="value-dot"></div>
                 <div>
-                    <strong>LICENCIA</strong>
-                    <span>Produces bajo el amparo legal de Cannacore</span>
+                    <strong id="licenciaTitle">LICENCIA</strong>
+                    <span id="licenciaText">Produces bajo el amparo legal de Cannacore</span>
                 </div>
             </div>
 
             <div class="value-item">
                 <div class="value-dot"></div>
                 <div>
-                    <strong>PRODUCCIÓN</strong>
-                    <span>Protocolo técnico + acompañamiento permanente</span>
+                    <strong id="produccionTitle">PRODUCCIÓN</strong>
+                    <span id="produccionText">Protocolo técnico + acompañamiento permanente</span>
                 </div>
             </div>
 
             <div class="value-item">
                 <div class="value-dot"></div>
                 <div>
-                    <strong>TRAZABILIDAD</strong>
-                    <span>Plataforma digital estándar GACP internacional</span>
+                    <strong id="trazabilidadTitle">TRAZABILIDAD</strong>
+                    <span id="trazabilidadText">Plataforma digital estándar GACP internacional</span>
                 </div>
             </div>
 
             <div class="value-item">
                 <div class="value-dot"></div>
                 <div>
-                    <strong>EXPORTACIÓN</strong>
-                    <span>Cannacore compra, certifica y exporta tu cosecha</span>
+                    <strong id="exportacionTitle">EXPORTACIÓN</strong>
+                    <span id="exportacionText">Cannacore compra, certifica y exporta tu cosecha</span>
                 </div>
             </div>
 
@@ -1013,6 +1017,134 @@ body{
 function toggleMenu(){
     document.getElementById("menu").classList.toggle("show");
 }
+
+</script>
+
+<script>
+
+const translations = {
+
+es:{
+
+howSubtitle:"— EL MODELO",
+
+howTitle:`NO VENDEMOS PLANTAS.<br>
+<span>VENDEMOS ACCESO AL</span><br>
+MERCADO GLOBAL.`,
+
+howDescription:`Cannacore es la infraestructura que conecta cultivadores colombianos con compradores internacionales certificados en Europa y Australia.`,
+
+valueTitle:"LA CADENA DE VALOR",
+
+geneticaTitle:"GENÉTICA",
+geneticaText:"Cannacore desarrolla y suministra variedades certificadas",
+
+licenciaTitle:"LICENCIA",
+licenciaText:"Produces bajo el amparo legal de Cannacore",
+
+produccionTitle:"PRODUCCIÓN",
+produccionText:"Protocolo técnico + acompañamiento permanente",
+
+trazabilidadTitle:"TRAZABILIDAD",
+trazabilidadText:"Plataforma digital estándar GACP internacional",
+
+exportacionTitle:"EXPORTACIÓN",
+exportacionText:"Cannacore compra, certifica y exporta tu cosecha"
+
+},
+
+en:{
+
+howSubtitle:"— THE MODEL",
+
+howTitle:`WE DON'T SELL PLANTS.<br>
+<span>WE SELL ACCESS TO THE</span><br>
+GLOBAL MARKET.`,
+
+howDescription:`Cannacore is the infrastructure that connects Colombian growers with certified international buyers in Europe and Australia.`,
+
+valueTitle:"THE VALUE CHAIN",
+
+geneticaTitle:"GENETICS",
+geneticaText:"Cannacore develops and supplies certified varieties",
+
+licenciaTitle:"LICENSE",
+licenciaText:"Operate legally under Cannacore's license",
+
+produccionTitle:"PRODUCTION",
+produccionText:"Technical protocol and permanent support",
+
+trazabilidadTitle:"TRACEABILITY",
+trazabilidadText:"International GACP digital platform",
+
+exportacionTitle:"EXPORT",
+exportacionText:"Cannacore purchases, certifies and exports your harvest"
+
+}
+
+};
+
+function changeLanguage(){
+
+const lang =
+document.getElementById("languageSelector").value;
+
+localStorage.setItem("lang",lang);
+
+document.getElementById("howSubtitle").innerHTML =
+translations[lang].howSubtitle;
+
+document.getElementById("howTitle").innerHTML =
+translations[lang].howTitle;
+
+document.getElementById("howDescription").innerHTML =
+translations[lang].howDescription;
+
+document.getElementById("valueTitle").innerHTML =
+translations[lang].valueTitle;
+
+document.getElementById("geneticaTitle").innerHTML =
+translations[lang].geneticaTitle;
+
+document.getElementById("geneticaText").innerHTML =
+translations[lang].geneticaText;
+
+document.getElementById("licenciaTitle").innerHTML =
+translations[lang].licenciaTitle;
+
+document.getElementById("licenciaText").innerHTML =
+translations[lang].licenciaText;
+
+document.getElementById("produccionTitle").innerHTML =
+translations[lang].produccionTitle;
+
+document.getElementById("produccionText").innerHTML =
+translations[lang].produccionText;
+
+document.getElementById("trazabilidadTitle").innerHTML =
+translations[lang].trazabilidadTitle;
+
+document.getElementById("trazabilidadText").innerHTML =
+translations[lang].trazabilidadText;
+
+document.getElementById("exportacionTitle").innerHTML =
+translations[lang].exportacionTitle;
+
+document.getElementById("exportacionText").innerHTML =
+translations[lang].exportacionText;
+}
+
+window.onload = ()=>{
+
+const savedLang =
+localStorage.getItem("lang") || "es";
+
+document.getElementById("languageSelector").value =
+savedLang;
+
+changeLanguage();
+
+};
 
 </script>
 

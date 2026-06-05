@@ -778,8 +778,8 @@ body{
                     <path d="M9 13l2 2 4-5"></path>
                 </svg>
             </div>
-            <h3>LICENCIA PARAGUAS</h3>
-            <p>No necesitas tu propia licencia. Produces bajo nuestro amparo legal desde el primer ciclo.</p>
+            <h3 id="benefitTitle1">LICENCIA PARAGUAS</h3>
+            <p id="benefitText1">No necesitas tu propia licencia. Produces bajo nuestro amparo legal desde el primer ciclo.</p>
         </div>
 
         <div class="benefit-card">
@@ -792,8 +792,8 @@ body{
                     <path d="M8 17h8"></path>
                 </svg>
             </div>
-            <h3>GENÉTICA CERTIFICADA</h3>
-            <p>Esquejes Cannacore seleccionados por rendimiento y contenido cannabinoide.</p>
+            <h3 id="benefitTitle2">GENÉTICA CERTIFICADA</h3>
+            <p id="benefitText2">Esquejes Cannacore seleccionados por rendimiento y contenido cannabinoide.</p>
         </div>
 
         <div class="benefit-card">
@@ -804,8 +804,8 @@ body{
                     <path d="M15 9.5c-.7-.8-1.7-1.2-3-1.2-1.5 0-2.5.7-2.5 1.8 0 1.2 1.1 1.6 2.7 1.9 1.7.4 2.8.8 2.8 2.1 0 1.1-1 1.9-2.8 1.9-1.4 0-2.5-.4-3.3-1.3"></path>
                 </svg>
             </div>
-            <h3>PRECIO GARANTIZADO</h3>
-            <p>Precio fijo por contrato independiente del mercado spot.</p>
+            <h3 id="benefitTitle3">PRECIO GARANTIZADO</h3>
+            <p id="benefitText3">Precio fijo por contrato independiente del mercado spot.</p>
         </div>
 
         <div class="benefit-card">
@@ -819,8 +819,8 @@ body{
                     <path d="M17 10l-5 5"></path>
                 </svg>
             </div>
-            <h3>TRAZABILIDAD DIGITAL</h3>
-            <p>Plataforma de seguimiento en tiempo real. Requisito exigido por compradores en Alemania, Australia.</p>
+            <h3 id="benefitTitle4">TRAZABILIDAD DIGITAL</h3>
+            <p id="benefitText4">Plataforma de seguimiento en tiempo real. Requisito exigido por compradores en Alemania, Australia.</p>
         </div>
 
         <div class="benefit-card">
@@ -832,8 +832,8 @@ body{
                     <path d="M6 8H4a2 2 0 0 0-2 2v2"></path>
                 </svg>
             </div>
-            <h3>ACOMPAÑAMIENTO</h3>
-            <p>Equipo de agrónomos especializados. Asesoría permanente, auditorías y optimización de rendimiento cada ciclo.</p>
+            <h3 id="benefitTitle5">ACOMPAÑAMIENTO</h3>
+            <p id="benefitText5">Equipo de agrónomos especializados. Asesoría permanente, auditorías y optimización de rendimiento cada ciclo.</p>
         </div>
 
         <div class="benefit-card">
@@ -845,8 +845,8 @@ body{
                     <path d="M12 3C9 6 7.5 9 7.5 12S9 18 12 21"></path>
                 </svg>
             </div>
-            <h3>MERCADO INTERNACIONAL</h3>
-            <p>Tu producción llega a Europa y Australia. Cannacore gestiona contratos, logística y certificaciones.</p>
+            <h3 id="benefitTitle6">MERCADO INTERNACIONAL</h3>
+            <p id="benefitText6">Tu producción llega a Europa y Australia. Cannacore gestiona contratos, logística y certificaciones.</p>
         </div>
 
     </section>
@@ -1071,7 +1071,25 @@ trazabilidadTitle:"TRAZABILIDAD",
 trazabilidadText:"Plataforma digital estándar GACP internacional",
 
 exportacionTitle:"EXPORTACIÓN",
-exportacionText:"Cannacore compra, certifica y exporta tu cosecha"
+exportacionText:"Cannacore compra, certifica y exporta tu cosecha",
+
+benefitTitle1:"LICENCIA PARAGUAS",
+benefitText1:"No necesitas tu propia licencia. Produces bajo nuestro amparo legal desde el primer ciclo.",
+
+benefitTitle2:"GENÉTICA CERTIFICADA",
+benefitText2:"Esquejes Cannacore seleccionados por rendimiento y contenido cannabinoide.",
+
+benefitTitle3:"PRECIO GARANTIZADO",
+benefitText3:"Precio fijo por contrato independiente del mercado spot.",
+
+benefitTitle4:"TRAZABILIDAD DIGITAL",
+benefitText4:"Plataforma de seguimiento en tiempo real. Requisito exigido por compradores en Alemania y Australia.",
+
+benefitTitle5:"ACOMPAÑAMIENTO",
+benefitText5:"Equipo de agrónomos especializados. Asesoría permanente, auditorías y optimización de rendimiento cada ciclo.",
+
+benefitTitle6:"MERCADO INTERNACIONAL",
+benefitText6:"Tu producción llega a Europa y Australia. Cannacore gestiona contratos, logística y certificaciones."
 
 },
 
@@ -1100,7 +1118,27 @@ trazabilidadTitle:"TRACEABILITY",
 trazabilidadText:"International GACP digital platform",
 
 exportacionTitle:"EXPORT",
-exportacionText:"Cannacore purchases, certifies and exports your harvest"
+exportacionText:"Cannacore purchases, certifies and exports your harvest",
+
+benefitTitle1:"LICENSE UMBRELLA",
+benefitText1:"You don't need your own license. Operate legally under Cannacore from day one.",
+
+benefitTitle2:"CERTIFIED GENETICS",
+benefitText2:"Cannacore clones selected for yield and cannabinoid content.",
+
+benefitTitle3:"GUARANTEED PRICE",
+benefitText3:"Fixed contract price independent of the spot market.",
+
+benefitTitle4:"DIGITAL TRACEABILITY",
+benefitText4:"Real-time monitoring platform. Required by buyers in Germany and Australia.",
+
+benefitTitle5:"TECHNICAL SUPPORT",
+benefitText5:"Specialized agronomy team. Permanent guidance, audits and yield optimization.",
+
+benefitTitle6:"INTERNATIONAL MARKET",
+benefitText6:"Your production reaches Europe and Australia. Cannacore manages contracts, logistics and certifications."
+
+
 
 }
 
@@ -1154,6 +1192,24 @@ translations[lang].exportacionTitle;
 
 document.getElementById("exportacionText").innerHTML =
 translations[lang].exportacionText;
+
+document.getElementById("benefitTitle1").innerHTML = translations[lang].benefitTitle1;
+document.getElementById("benefitText1").innerHTML = translations[lang].benefitText1;
+
+document.getElementById("benefitTitle2").innerHTML = translations[lang].benefitTitle2;
+document.getElementById("benefitText2").innerHTML = translations[lang].benefitText2;
+
+document.getElementById("benefitTitle3").innerHTML = translations[lang].benefitTitle3;
+document.getElementById("benefitText3").innerHTML = translations[lang].benefitText3;
+
+document.getElementById("benefitTitle4").innerHTML = translations[lang].benefitTitle4;
+document.getElementById("benefitText4").innerHTML = translations[lang].benefitText4;
+
+document.getElementById("benefitTitle5").innerHTML = translations[lang].benefitTitle5;
+document.getElementById("benefitText5").innerHTML = translations[lang].benefitText5;
+
+document.getElementById("benefitTitle6").innerHTML = translations[lang].benefitTitle6;
+document.getElementById("benefitText6").innerHTML = translations[lang].benefitText6;
 }
 
 window.onload = ()=>{

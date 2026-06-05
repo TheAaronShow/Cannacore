@@ -902,8 +902,8 @@ body{
             <div class="production-info">
 
                 <div class="production-header">
-                    <div class="production-subtitle">— EL CICLO PRODUCTIVO</div>
-                    <h2>DE LA SEMILLA A LA <span>EXPORTACIÓN.</span></h2>
+                    <div class="production-subtitle" id="productionSubtitle">— EL CICLO PRODUCTIVO</div>
+                    <h2 id="productionTitle">DE LA SEMILLA A LA <span>EXPORTACIÓN.</span></h2>
                 </div>
 
                 <div class="cycle-grid">
@@ -918,8 +918,8 @@ body{
                             </svg>
                         </div>
                         <div class="cycle-time">1-2 SEM</div>
-                        <h3>ESQUEJE</h3>
-                        <p>Esquejes enraizados de variedades Cannacore. Genética certificada.</p>
+                        <h3 id="cycleTitle1">ESQUEJE</h3>
+                        <p id="cycleText1">Esquejes enraizados de variedades Cannacore. Genética certificada.</p>
                     </div>
 
                     <div class="cycle-card">
@@ -936,8 +936,8 @@ body{
                             </svg>
                         </div>
                         <div class="cycle-time">4-8 SEM</div>
-                        <h3>VEGETATIVA</h3>
-                        <p>18h luz / 6h oscuridad. Crecimiento estructural y nutrición controlada.</p>
+                        <h3 id="cycleTitle2">VEGETATIVA</h3>
+                        <p id="cycleText2">18h luz / 6h oscuridad. Crecimiento estructural y nutrición controlada.</p>
                     </div>
 
                     <div class="cycle-card">
@@ -952,8 +952,8 @@ body{
                             </svg>
                         </div>
                         <div class="cycle-time">8-12 SEM</div>
-                        <h3>FLORACIÓN</h3>
-                        <p>Formación de cogollos. Etapa de máxima atención técnica.</p>
+                        <h3 id="cycleTitle3">FLORACIÓN</h3>
+                        <p id="cycleText3">Formación de cogollos. Etapa de máxima atención técnica.</p>
                     </div>
 
                     <div class="cycle-card">
@@ -967,8 +967,8 @@ body{
                             </svg>
                         </div>
                         <div class="cycle-time">1-2 SEM</div>
-                        <h3>MADURACIÓN</h3>
-                        <p>Lectura de tricomas, lavado de raíces y preparación de cosecha.</p>
+                        <h3 id="cycleTitle4">MADURACIÓN</h3>
+                        <p id="cycleText4">Lectura de tricomas, lavado de raíces y preparación de cosecha.</p>
                     </div>
 
                     <div class="cycle-card">
@@ -982,8 +982,8 @@ body{
                             </svg>
                         </div>
                         <div class="cycle-time">2-4 SEM</div>
-                        <h3>COSECHA</h3>
-                        <p>Corte, secado y curado bajo estándar GACP internacional.</p>
+                        <h3 id="cycleTitle5">COSECHA</h3>
+                        <p id="cycleText5">Corte, secado y curado bajo estándar GACP internacional.</p>
                     </div>
 
                     <div class="cycle-card featured-cycle">
@@ -997,8 +997,8 @@ body{
                             </svg>
                         </div>
                         <div class="cycle-time">€2/G</div>
-                        <h3>ENTREGA</h3>
-                        <p>Cannacore recoge, certifica, paga y exporta al mercado global.</p>
+                        <h3 id="cycleTitle6">ENTREGA</h3>
+                        <p id="cycleText6">Cannacore recoge, certifica, paga y exporta al mercado global.</p>
                     </div>
 
                 </div>
@@ -1109,7 +1109,29 @@ withItem2:"Genética certificada Cannacore incluida",
 withItem3:"Contrato de compra a €2/g garantizado",
 withItem4:"Tu flor llega a Europa y Australia",
 withItem5:"Trazabilidad y auditoría en cada ciclo",
-withItem6:"Operación 100% legal y respaldada"
+withItem6:"Operación 100% legal y respaldada",
+
+productionSubtitle:"— EL CICLO PRODUCTIVO",
+
+productionTitle:`DE LA SEMILLA A LA <span>EXPORTACIÓN.</span>`,
+
+cycleTitle1:"ESQUEJE",
+cycleText1:"Esquejes enraizados de variedades Cannacore. Genética certificada.",
+
+cycleTitle2:"VEGETATIVA",
+cycleText2:"18h luz / 6h oscuridad. Crecimiento estructural y nutrición controlada.",
+
+cycleTitle3:"FLORACIÓN",
+cycleText3:"Formación de cogollos. Etapa de máxima atención técnica.",
+
+cycleTitle4:"MADURACIÓN",
+cycleText4:"Lectura de tricomas, lavado de raíces y preparación de cosecha.",
+
+cycleTitle5:"COSECHA",
+cycleText5:"Corte, secado y curado bajo estándar GACP internacional.",
+
+cycleTitle6:"ENTREGA",
+cycleText6:"Cannacore recoge, certifica, paga y exporta al mercado global.",
 
 },
 
@@ -1181,6 +1203,28 @@ withItem3:"Guaranteed €2/g purchase contract",
 withItem4:"Your flower reaches Europe and Australia",
 withItem5:"Traceability and audits every cycle",
 withItem6:"100% legal and supported operation",
+
+productionSubtitle:"— THE PRODUCTION CYCLE",
+
+productionTitle:`FROM CLONE TO <span>EXPORT.</span>`,
+
+cycleTitle1:"CLONE",
+cycleText1:"Rooted Cannacore clones with certified genetics.",
+
+cycleTitle2:"VEGETATIVE",
+cycleText2:"18h light / 6h darkness. Structural growth and controlled nutrition.",
+
+cycleTitle3:"FLOWERING",
+cycleText3:"Bud development stage. Maximum technical attention required.",
+
+cycleTitle4:"MATURATION",
+cycleText4:"Trichome analysis, root flushing and harvest preparation.",
+
+cycleTitle5:"HARVEST",
+cycleText5:"Cutting, drying and curing under international GACP standards.",
+
+cycleTitle6:"DELIVERY",
+cycleText6:"Cannacore collects, certifies, pays and exports to the global market.",
 
 
 
@@ -1274,6 +1318,27 @@ document.getElementById("withItem3").innerHTML = translations[lang].withItem3;
 document.getElementById("withItem4").innerHTML = translations[lang].withItem4;
 document.getElementById("withItem5").innerHTML = translations[lang].withItem5;
 document.getElementById("withItem6").innerHTML = translations[lang].withItem6;
+
+document.getElementById("productionSubtitle").innerHTML = translations[lang].productionSubtitle;
+document.getElementById("productionTitle").innerHTML = translations[lang].productionTitle;
+
+document.getElementById("cycleTitle1").innerHTML = translations[lang].cycleTitle1;
+document.getElementById("cycleText1").innerHTML = translations[lang].cycleText1;
+
+document.getElementById("cycleTitle2").innerHTML = translations[lang].cycleTitle2;
+document.getElementById("cycleText2").innerHTML = translations[lang].cycleText2;
+
+document.getElementById("cycleTitle3").innerHTML = translations[lang].cycleTitle3;
+document.getElementById("cycleText3").innerHTML = translations[lang].cycleText3;
+
+document.getElementById("cycleTitle4").innerHTML = translations[lang].cycleTitle4;
+document.getElementById("cycleText4").innerHTML = translations[lang].cycleText4;
+
+document.getElementById("cycleTitle5").innerHTML = translations[lang].cycleTitle5;
+document.getElementById("cycleText5").innerHTML = translations[lang].cycleText5;
+
+document.getElementById("cycleTitle6").innerHTML = translations[lang].cycleTitle6;
+document.getElementById("cycleText6").innerHTML = translations[lang].cycleText6;
 }
 
 window.onload = ()=>{

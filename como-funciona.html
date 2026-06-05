@@ -1381,8 +1381,6 @@ localStorage.getItem("lang") || "es";
 document.getElementById("languageSelector").value =
 savedLang;
 
-changeLanguage();
-
 const brochureLink =
 document.getElementById("navBrochure");
 
@@ -1391,6 +1389,10 @@ if(lang === "en"){
 }else{
     brochureLink.href = "CANNACORE.pdf";
 }
+
+changeLanguage();
+
+
 
 };
 

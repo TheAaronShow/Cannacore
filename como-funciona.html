@@ -682,12 +682,12 @@ body{
         </div>
 
         <div class="navbar-links" id="menu">
-            <a href="index.html">INICIO</a>
-            <a href="planes.html">MEMBRESIAS</a>
-            <a href="como-funciona.html">COMO FUNCIONA</a>
-            <a href="requisitos.html">REQUISITOS</a>
-            <a href="contacto.htm">CONTACTO</a>
-            <a href="CANNACORE.pdf" target="_blank">BROCHURE</a>
+            <a href="index.html" id="navInicio">INICIO</a>
+            <a href="planes.html" id="navMembresia">MEMBRESIAS</a>
+            <a href="como-funciona.html" id="navComo">COMO FUNCIONA</a>
+            <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
+            <a href="contacto.htm" id="navContacto">CONTACTO</a>
+            <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
             <select id="languageSelector" onchange="changeLanguage()">
                  <option value="es">ES</option>
                  <option value="en">EN</option>
@@ -1048,6 +1048,13 @@ const translations = {
 
 es:{
 
+inicio:"INICIO",
+membresia:"MEMBRESIAS",
+como:"COMO FUNCIONA",
+requisitos:"REQUISITOS",
+contacto:"CONTACTO",
+brochure:`BROCHURE`,
+
 howSubtitle:"— EL MODELO",
 
 howTitle:`NO VENDEMOS PLANTAS.<br>
@@ -1136,6 +1143,13 @@ cycleText6:"Cannacore recoge, certifica, paga y exporta al mercado global.",
 },
 
 en:{
+
+inicio:"HOME",
+membresia:"MEMBERSHIPS",
+como:"HOW IT WORKS",
+requisitos:"REQUIREMENTS",
+contacto:"CONTACT",
+brochure:`BROCHURE`,
 
 howSubtitle:"— THE MODEL",
 
@@ -1238,6 +1252,24 @@ const lang =
 document.getElementById("languageSelector").value;
 
 localStorage.setItem("lang",lang);
+
+document.getElementById("navInicio").innerHTML =
+translations[lang].inicio;
+
+document.getElementById("navMembresia").innerHTML =
+translations[lang].membresia;
+
+document.getElementById("navComo").innerHTML =
+translations[lang].como;
+
+document.getElementById("navRequisitos").innerHTML =
+translations[lang].requisitos;
+
+document.getElementById("navContacto").innerHTML =
+translations[lang].contacto;
+
+document.getElementById("navBrochure").innerHTML =
+translations[lang].brochure;
 
 document.getElementById("howSubtitle").innerHTML =
 translations[lang].howSubtitle;
@@ -1350,6 +1382,15 @@ document.getElementById("languageSelector").value =
 savedLang;
 
 changeLanguage();
+
+const brochureLink =
+document.getElementById("navBrochure");
+
+if(lang === "en"){
+    brochureLink.href = "CANNACOREEN.pdf";
+}else{
+    brochureLink.href = "CANNACORE.pdf";
+}
 
 };
 

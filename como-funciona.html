@@ -1006,17 +1006,17 @@ body{
                 <div class="production-stats">
                     <div class="stat-box">
                         <div class="stat-value">4-5<span class="stat-small">M</span></div>
-                        <div class="stat-label">MESES POR CICLO</div>
+                        <div class="stat-label" id="statLabel1">MESES POR CICLO</div>
                     </div>
 
                     <div class="stat-box featured-stat">
                         <div class="stat-value green">2-3<span class="stat-small">X</span></div>
-                        <div class="stat-label">COSECHAS POR AÑO</div>
+                        <div class="stat-label" id="statLabel2">COSECHAS POR AÑO</div>
                     </div>
 
                     <div class="stat-box">
                         <div class="stat-value">150<span class="stat-small">G+</span></div>
-                        <div class="stat-label">POR PLANTA</div>
+                        <div class="stat-label" id="statLabel3">POR PLANTA</div>
                     </div>
                 </div>
 
@@ -1140,6 +1140,10 @@ cycleText5:"Corte, secado y curado bajo estándar GACP internacional.",
 cycleTitle6:"ENTREGA",
 cycleText6:"Cannacore recoge, certifica, paga y exporta al mercado global.",
 
+statLabel1:"MESES POR CICLO",
+statLabel2:"COSECHAS POR AÑO",
+statLabel3:"POR PLANTA",
+
 },
 
 en:{
@@ -1240,7 +1244,9 @@ cycleText5:"Cutting, drying and curing under international GACP standards.",
 cycleTitle6:"DELIVERY",
 cycleText6:"Cannacore collects, certifies, pays and exports to the global market.",
 
-
+statLabel1:"MONTHS PER CYCLE",
+statLabel2:"HARVESTS PER YEAR",
+statLabel3:"PER PLANT",
 
 }
 
@@ -1371,6 +1377,15 @@ document.getElementById("cycleText5").innerHTML = translations[lang].cycleText5;
 
 document.getElementById("cycleTitle6").innerHTML = translations[lang].cycleTitle6;
 document.getElementById("cycleText6").innerHTML = translations[lang].cycleText6;
+
+document.getElementById("statLabel1").innerHTML =
+translations[lang].statLabel1;
+
+document.getElementById("statLabel2").innerHTML =
+translations[lang].statLabel2;
+
+document.getElementById("statLabel3").innerHTML =
+translations[lang].statLabel3;
 
 const brochureLink =
 document.getElementById("navBrochure");

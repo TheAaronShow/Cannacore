@@ -9,6 +9,26 @@
 
 <style>
 
+#languageSelector{
+    min-width:58px;
+    height:34px;
+    background:transparent;
+    border:1px solid rgba(198,255,0,0.4);
+    color:white;
+    padding:0 10px;
+    border-radius:4px;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+
+#languageSelector option{
+    background:#111;
+    color:white;
+}    
+
 *{
     margin:0;
     padding:0;
@@ -369,15 +389,17 @@ RESPONSIVE
 
         <div class="navbar-links" id="menu">
 
-            <a href="index.html">INICIO</a>
+            <a href="index.html" id="navInicio">INICIO</a>
+            <a href="planes.html" id="navMembresia">MEMBRESIA</a>
+            <a href="como-funciona.html" id="navComo">COMO FUNCIONA</a>
+            <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
+            <a href="contacto.htm" id="navContacto">CONTACTO</a>
+            <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
 
-            <a href="planes.html">MEMBRESIAS</a>
-
-            <a href="como-funciona.html">COMO FUNCIONA</a>
-
-            <a href="requisitos.html">REQUISITOS</a>
-            <a href="contacto.htm">CONTACTO</a>
-            <a href="CANNACORE.pdf" target="_blank">BROCHURE</a>
+            <select id="languageSelector" onchange="changeLanguage()">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </select>
 
         </div>
 
@@ -391,11 +413,11 @@ RESPONSIVE
 
         <div class="contact-left">
 
-            <div class="contact-subtitle">
+            <div class="contact-subtitle" id="contactSubtitle">
                 EJE CAFETERO • COLOMBIA
             </div>
 
-            <h1 class="contact-title">
+            <h1 class="contact-title" id="contactTitle">
 
                 HABLEMOS<br>
 
@@ -403,7 +425,7 @@ RESPONSIVE
 
             </h1>
 
-            <p class="contact-description">
+            <p class="contact-description" id="contactDescription">
 
                 Conecta con Cannacore a través de nuestras redes oficiales.
                 Nuestro equipo responde alianzas, membresías,
@@ -415,7 +437,7 @@ RESPONSIVE
 
             <div class="email-box">
 
-                <h4>
+                <h4 id="officialEmailTitle">
                     CORREO OFICIAL
                 </h4>
 
@@ -447,9 +469,9 @@ RESPONSIVE
                         </svg>
                     </div>
 
-                    <h3>WHATSAPP</h3>
+                    <h3 id="whatsappTitle">WHATSAPP</h3>
 
-                    <p>
+                    <p id="whatsappText">
                         Atención directa, soporte y contacto comercial.
                     </p>
 
@@ -473,9 +495,9 @@ RESPONSIVE
                         </svg>
                     </div>
 
-                    <h3>INSTAGRAM</h3>
+                    <h3 id="instagramTitle">INSTAGRAM</h3>
 
-                    <p>
+                    <p id="instagramText">
                         Noticias, contenido visual y actualizaciones Cannacore.
                     </p>
 
@@ -497,9 +519,9 @@ RESPONSIVE
                         </svg>
                     </div>
 
-                    <h3>FACEBOOK</h3>
+                    <h3 id="facebookTitle">FACEBOOK</h3>
 
-                    <p>
+                    <p id="facebookText">
                         Comunidad Cannacore y novedades del ecosistema.
                     </p>
 
@@ -520,7 +542,7 @@ RESPONSIVE
                         </svg>
                     </div>
 
-                    <h3>EMAIL</h3>
+                    <h3 id="emailTitle">EMAIL</h3>
 
                     <p>
                         cannacoregroup@gmail.com
@@ -545,6 +567,158 @@ function toggleMenu(){
     document.getElementById("menu")
     .classList.toggle("show");
 }
+
+const translations = {
+
+es:{
+
+inicio:"INICIO",
+membresias:"MEMBRESIAS",
+como:"COMO FUNCIONA",
+requisitos:"REQUISITOS",
+contacto:"CONTACTO",
+brochure:"BROCHURE",
+
+contactSubtitle:"EJE CAFETERO • COLOMBIA",
+
+contactTitle:`HABLEMOS<br>DEL <span>FUTURO.</span>`,
+
+contactDescription:
+`Conecta con Cannacore a través de nuestras redes oficiales.
+Nuestro equipo responde alianzas, membresías,
+producción, inversión y soporte.`,
+
+officialEmailTitle:"CORREO OFICIAL",
+
+whatsappTitle:"WHATSAPP",
+whatsappText:"Atención directa, soporte y contacto comercial.",
+
+instagramTitle:"INSTAGRAM",
+instagramText:"Noticias, contenido visual y actualizaciones Cannacore.",
+
+facebookTitle:"FACEBOOK",
+facebookText:"Comunidad Cannacore y novedades del ecosistema.",
+
+emailTitle:"EMAIL"
+
+},
+
+en:{
+
+inicio:"HOME",
+membresias:"MEMBERSHIPS",
+como:"HOW IT WORKS",
+requisitos:"REQUIREMENTS",
+contacto:"CONTACT",
+brochure:"BROCHURE",
+
+contactSubtitle:"COFFEE REGION • COLOMBIA",
+
+contactTitle:`LET'S TALK<br>ABOUT THE <span>FUTURE.</span>`,
+
+contactDescription:
+`Connect with Cannacore through our official channels.
+Our team handles partnerships, memberships,
+production, investment and support.`,
+
+officialEmailTitle:"OFFICIAL EMAIL",
+
+whatsappTitle:"WHATSAPP",
+whatsappText:"Direct support, assistance and commercial contact.",
+
+instagramTitle:"INSTAGRAM",
+instagramText:"News, visual content and Cannacore updates.",
+
+facebookTitle:"FACEBOOK",
+facebookText:"Cannacore community and ecosystem updates.",
+
+emailTitle:"EMAIL"
+
+}
+
+};
+
+function changeLanguage(){
+
+const lang =
+document.getElementById("languageSelector").value;
+
+localStorage.setItem("lang",lang);
+
+document.getElementById("navInicio").innerHTML =
+translations[lang].inicio;
+
+document.getElementById("navMembresias").innerHTML =
+translations[lang].membresias;
+
+document.getElementById("navComo").innerHTML =
+translations[lang].como;
+
+document.getElementById("navRequisitos").innerHTML =
+translations[lang].requisitos;
+
+document.getElementById("navContacto").innerHTML =
+translations[lang].contacto;
+
+document.getElementById("navBrochure").innerHTML =
+translations[lang].brochure;
+
+document.getElementById("contactSubtitle").innerHTML =
+translations[lang].contactSubtitle;
+
+document.getElementById("contactTitle").innerHTML =
+translations[lang].contactTitle;
+
+document.getElementById("contactDescription").innerHTML =
+translations[lang].contactDescription;
+
+document.getElementById("officialEmailTitle").innerHTML =
+translations[lang].officialEmailTitle;
+
+document.getElementById("whatsappTitle").innerHTML =
+translations[lang].whatsappTitle;
+
+document.getElementById("whatsappText").innerHTML =
+translations[lang].whatsappText;
+
+document.getElementById("instagramTitle").innerHTML =
+translations[lang].instagramTitle;
+
+document.getElementById("instagramText").innerHTML =
+translations[lang].instagramText;
+
+document.getElementById("facebookTitle").innerHTML =
+translations[lang].facebookTitle;
+
+document.getElementById("facebookText").innerHTML =
+translations[lang].facebookText;
+
+document.getElementById("emailTitle").innerHTML =
+translations[lang].emailTitle;
+
+/* BROCHURE */
+
+const brochureLink =
+document.getElementById("navBrochure");
+
+if(lang === "en"){
+    brochureLink.href = "CANNACOREEN.pdf";
+}else{
+    brochureLink.href = "CANNACORE.pdf";
+}
+}
+
+window.onload = () => {
+
+const savedLang =
+localStorage.getItem("lang") || "es";
+
+document.getElementById("languageSelector").value =
+savedLang;
+
+changeLanguage();
+
+};
 
 </script>
 

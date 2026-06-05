@@ -839,7 +839,28 @@ document.getElementById("reqText5").innerHTML = translations[lang].reqText5;
 
 document.getElementById("reqTitle6").innerHTML = translations[lang].reqTitle6;
 document.getElementById("reqText6").innerHTML = translations[lang].reqText6;
+
+const brochureLink =
+document.getElementById("navBrochure");
+
+if(lang === "en"){
+    brochureLink.href = "CANNACOREEN.pdf";
+}else{
+    brochureLink.href = "CANNACORE.pdf";
 }
+}
+
+window.onload = () => {
+
+    const savedLang =
+    localStorage.getItem("lang") || "es";
+
+    document.getElementById("languageSelector").value =
+    savedLang;
+
+    changeLanguage();
+
+};
 
 </script>
 

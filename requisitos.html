@@ -9,6 +9,26 @@
 
 <style>
 
+#languageSelector{
+    min-width:58px;
+    height:34px;
+    background:transparent;
+    border:1px solid rgba(198,255,0,0.4);
+    color:white;
+    padding:0 10px;
+    border-radius:4px;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+
+#languageSelector option{
+    background:#111;
+    color:white;
+}    
+
 *{
     margin:0;
     padding:0;
@@ -390,12 +410,17 @@ body{
 
         <div class="navbar-links" id="menu">
 
-            <a href="index.html">INICIO</a>
-            <a href="planes.html">MEMBRESIA</a>
-            <a href="como-funciona.html">COMO FUNCIONA</a>
-            <a href="requisitos.html">REQUISITOS</a>
-            <a href="contacto.htm">CONTACTO</a>
-            <a href="CANNACORE.pdf" target="_blank">BROCHURE</a>
+            <a href="index.html" id="navInicio">INICIO</a>
+            <a href="planes.html" id="navMembresia">MEMBRESIA</a>
+            <a href="como-funciona.html" id="navComo">COMO FUNCIONA</a>
+            <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
+            <a href="contacto.htm" id="navContacto">CONTACTO</a>
+            <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
+
+            <select id="languageSelector" onchange="changeLanguage()">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </select>
 
         </div>
 
@@ -411,11 +436,11 @@ body{
 
         <div class="steps-side">
 
-            <div class="section-subtitle">
+            <div class="section-subtitle" id="startSubtitle">
                 — CÓMO EMPEZAR
             </div>
 
-            <h1 class="requirements-title">
+            <h1 class="requirements-title" id="requirementsTitle">
                 5 PASOS PARA<br>
                 PRODUCIR CON<br>
                 <span>RESPALDO.</span>
@@ -431,9 +456,9 @@ body{
 
                     <div class="step-content">
 
-                        <h3>APLICACIÓN Y VERIFICACIÓN</h3>
+                        <h3 id="stepTitle1">APLICACIÓN Y VERIFICACIÓN</h3>
 
-                        <p>
+                        <p id="stepText1">
                             Completa el formulario. Verificamos tu predio y
                             capacidad técnica.
                         </p>
@@ -450,9 +475,9 @@ body{
 
                     <div class="step-content">
 
-                        <h3>FIRMA DE CONTRATO</h3>
+                        <h3 id="stepTitle2">FIRMA DE CONTRATO</h3>
 
-                        <p>
+                        <p id="stepText2">
                             Membresía + acuerdo de compra garantizada por el
                             período pactado.
                         </p>
@@ -469,9 +494,9 @@ body{
 
                     <div class="step-content">
 
-                        <h3>RECIBES GENÉTICA Y PROTOCOLO</h3>
+                        <h3 id="stepTitle3">RECIBES GENÉTICA Y PROTOCOLO</h3>
 
-                        <p>
+                        <p id="stepText3">
                             Esquejes certificados, guía técnica y trazabilidad.
                         </p>
 
@@ -487,9 +512,9 @@ body{
 
                     <div class="step-content">
 
-                        <h3>CULTIVO CON SOPORTE</h3>
+                        <h3 id="stepTitle4">CULTIVO CON SOPORTE</h3>
 
-                        <p>
+                        <p id="stepText4">
                             Producción bajo protocolos Cannacore con soporte
                             permanente.
                         </p>
@@ -506,9 +531,9 @@ body{
 
                     <div class="step-content">
 
-                        <h3>COSECHA Y PAGO</h3>
+                        <h3 id="stepTitle5">COSECHA Y PAGO</h3>
 
-                        <p>
+                        <p id="stepText5">
                             Cannacore recoge, certifica y paga la producción.
                         </p>
 
@@ -518,7 +543,7 @@ body{
 
             </div>
 
-            <a href="planes.html" class="apply-btn">
+            <a href="planes.html" class="apply-btn" id="applyBtn">
                 INICIAR APLICACIÓN →
             </a>
 
@@ -528,23 +553,23 @@ body{
 
         <div class="eligibility-side">
 
-            <div class="section-subtitle">
+            <div class="section-subtitle" id="requirementsSubtitle">
                 — REQUISITOS
             </div>
 
-            <h2 class="eligibility-title">
+            <h2 class="eligibility-title" id="eligibilityTitle">
                 ¿ERES ELEGIBLE?
             </h2>
 
-            <p class="eligibility-description">
+            <p class="eligibility-description" id="eligibilityDescription">
                 Lo que necesitas para unirte a la red Cannacore.
             </p>
 
             <div class="requirement-card">
 
-                <h3>DOCUMENTO DE IDENTIDAD</h3>
+                <h3 id="reqTitle1">DOCUMENTO DE IDENTIDAD</h3>
 
-                <p>
+                <p id="reqText1">
                     Cédula de ciudadanía o documento equivalente válido.
                 </p>
 
@@ -552,9 +577,9 @@ body{
 
             <div class="requirement-card">
 
-                <h3>UBICACIÓN VERIFICABLE</h3>
+                <h3 id="reqTitle2">UBICACIÓN VERIFICABLE</h3>
 
-                <p>
+                <p id="reqText2">
                     Predio con coordenadas. Preferiblemente Eje Cafetero.
                 </p>
 
@@ -562,9 +587,9 @@ body{
 
             <div class="requirement-card">
 
-                <h3>ESPACIO PARA CULTIVO</h3>
+                <h3 id="reqTitle3">ESPACIO PARA CULTIVO</h3>
 
-                <p>
+                <p id="reqText3">
                     Outdoor, cubierta o invernadero según el plan elegido.
                 </p>
 
@@ -572,9 +597,9 @@ body{
 
             <div class="requirement-card">
 
-                <h3>ACCESO A AGUA</h3>
+                <h3 id="reqTitle4">ACCESO A AGUA</h3>
 
-                <p>
+                <p id="reqText4">
                     Fuente disponible para riego según el plan.
                 </p>
 
@@ -582,9 +607,9 @@ body{
 
             <div class="requirement-card">
 
-                <h3>CONECTIVIDAD BÁSICA</h3>
+                <h3 id="reqTitle5">CONECTIVIDAD BÁSICA</h3>
 
-                <p>
+                <p id="reqText5">
                     Internet para plataforma de trazabilidad y soporte.
                 </p>
 
@@ -592,9 +617,9 @@ body{
 
             <div class="requirement-card">
 
-                <h3>COMPROMISO</h3>
+                <h3 id="reqTitle6">COMPROMISO</h3>
 
-                <p>
+                <p id="reqText6">
                     Uso exclusivo de genética Cannacore. Trazabilidad total.
                 </p>
 
@@ -614,6 +639,105 @@ function toggleMenu(){
 
     document.getElementById("menu")
     .classList.toggle("show");
+}
+
+</script>
+
+<script>
+
+const translations = {
+
+es:{
+inicio:"INICIO",
+membresia:"MEMBRESIA",
+como:"COMO FUNCIONA",
+requisitos:"REQUISITOS",
+contacto:"CONTACTO",
+brochure:"BROCHURE",
+
+startSubtitle:"— CÓMO EMPEZAR",
+
+requirementsTitle:`5 PASOS PARA<br>
+PRODUCIR CON<br>
+<span>RESPALDO.</span>`,
+
+applyBtn:"INICIAR APLICACIÓN →",
+
+requirementsSubtitle:"— REQUISITOS",
+
+eligibilityTitle:"¿ERES ELEGIBLE?",
+
+eligibilityDescription:
+"Lo que necesitas para unirte a la red Cannacore."
+},
+
+en:{
+inicio:"HOME",
+membresia:"MEMBERSHIPS",
+como:"HOW IT WORKS",
+requisitos:"REQUIREMENTS",
+contacto:"CONTACT",
+brochure:"BROCHURE",
+
+startSubtitle:"— HOW TO START",
+
+requirementsTitle:`5 STEPS TO<br>
+PRODUCE WITH<br>
+<span>SUPPORT.</span>`,
+
+applyBtn:"START APPLICATION →",
+
+requirementsSubtitle:"— REQUIREMENTS",
+
+eligibilityTitle:"ARE YOU ELIGIBLE?",
+
+eligibilityDescription:
+"What you need to join the Cannacore network."
+}
+};
+
+function changeLanguage(){
+
+const lang =
+document.getElementById("languageSelector").value;
+
+localStorage.setItem("lang",lang);
+
+document.getElementById("navInicio").innerHTML =
+translations[lang].inicio;
+
+document.getElementById("navMembresia").innerHTML =
+translations[lang].membresia;
+
+document.getElementById("navComo").innerHTML =
+translations[lang].como;
+
+document.getElementById("navRequisitos").innerHTML =
+translations[lang].requisitos;
+
+document.getElementById("navContacto").innerHTML =
+translations[lang].contacto;
+
+document.getElementById("navBrochure").innerHTML =
+translations[lang].brochure;
+
+document.getElementById("startSubtitle").innerHTML =
+translations[lang].startSubtitle;
+
+document.getElementById("requirementsTitle").innerHTML =
+translations[lang].requirementsTitle;
+
+document.getElementById("applyBtn").innerHTML =
+translations[lang].applyBtn;
+
+document.getElementById("requirementsSubtitle").innerHTML =
+translations[lang].requirementsSubtitle;
+
+document.getElementById("eligibilityTitle").innerHTML =
+translations[lang].eligibilityTitle;
+
+document.getElementById("eligibilityDescription").innerHTML =
+translations[lang].eligibilityDescription;
 }
 
 </script>

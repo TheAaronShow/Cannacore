@@ -855,41 +855,41 @@ body{
 
         <div class="compare-box">
 
-            <div class="compare-subtitle">
+            <div class="compare-subtitle" id="withoutCannacoreSubtitle">
                 — SIN CANNACORE
             </div>
 
-            <h2>
+            <h2 id="withoutCannacoreTitle">
                 BARRERAS<br>
                 DE ENTRADA
             </h2>
 
-            <div class="compare-item"><div class="compare-icon">✕</div><span>Licencia propia costosa y lenta de tramitar</span></div>
-            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin genética certificada para exportar</span></div>
-            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin contrato de compra garantizado</span></div>
-            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin acceso a compradores internacionales</span></div>
-            <div class="compare-item"><div class="compare-icon">✕</div><span>Sin trazabilidad ni certificación GACP</span></div>
-            <div class="compare-item"><div class="compare-icon">✕</div><span>Riesgo de operar en la informalidad</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span id="withoutItem1">Licencia propia costosa y lenta de tramitar</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span id="withoutItem2">Sin genética certificada para exportar</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span id="withoutItem3">Sin contrato de compra garantizado</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span id="withoutItem4">Sin acceso a compradores internacionales</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span id="withoutItem5">Sin trazabilidad ni certificación GACP</span></div>
+            <div class="compare-item"><div class="compare-icon">✕</div><span id="withoutItem6">Riesgo de operar en la informalidad</span></div>
 
         </div>
 
         <div class="compare-box">
 
-            <div class="compare-subtitle green-text">
+            <div class="compare-subtitle green-text" id="withCannacoreSubtitle">
                 — CON CANNACORE
             </div>
 
-            <h2>
+            <h2 id="withCannacoreTitle">
                 TU TIERRA.<br>
                 NUESTRA <span>LICENCIA.</span>
             </h2>
 
-            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Produces bajo nuestra licencia desde el día uno</span></div>
-            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Genética certificada Cannacore incluida</span></div>
-            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Contrato de compra a €2/g garantizado</span></div>
-            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Tu flor llega a Europa y Australia</span></div>
-            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Trazabilidad y auditoría en cada ciclo</span></div>
-            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span>Operación 100% legal y respaldada</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span id="withItem1">Produces bajo nuestra licencia desde el día uno</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span id="withItem2">Genética certificada Cannacore incluida</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span id="withItem3">Contrato de compra a €2/g garantizado</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span id="withItem4">Tu flor llega a Europa y Australia</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span id="withItem5">Trazabilidad y auditoría en cada ciclo</span></div>
+            <div class="compare-item"><div class="compare-icon green-icon">◉</div><span id="withItem6">Operación 100% legal y respaldada</span></div>
 
         </div>
 
@@ -1089,7 +1089,27 @@ benefitTitle5:"ACOMPAÑAMIENTO",
 benefitText5:"Equipo de agrónomos especializados. Asesoría permanente, auditorías y optimización de rendimiento cada ciclo.",
 
 benefitTitle6:"MERCADO INTERNACIONAL",
-benefitText6:"Tu producción llega a Europa y Australia. Cannacore gestiona contratos, logística y certificaciones."
+benefitText6:"Tu producción llega a Europa y Australia. Cannacore gestiona contratos, logística y certificaciones.",
+
+withoutCannacoreSubtitle:"— SIN CANNACORE",
+withoutCannacoreTitle:`BARRERAS<br>DE ENTRADA`,
+
+withoutItem1:"Licencia propia costosa y lenta de tramitar",
+withoutItem2:"Sin genética certificada para exportar",
+withoutItem3:"Sin contrato de compra garantizado",
+withoutItem4:"Sin acceso a compradores internacionales",
+withoutItem5:"Sin trazabilidad ni certificación GACP",
+withoutItem6:"Riesgo de operar en la informalidad",
+
+withCannacoreSubtitle:"— CON CANNACORE",
+withCannacoreTitle:`TU TIERRA.<br>NUESTRA <span>LICENCIA.</span>`,
+
+withItem1:"Produces bajo nuestra licencia desde el día uno",
+withItem2:"Genética certificada Cannacore incluida",
+withItem3:"Contrato de compra a €2/g garantizado",
+withItem4:"Tu flor llega a Europa y Australia",
+withItem5:"Trazabilidad y auditoría en cada ciclo",
+withItem6:"Operación 100% legal y respaldada"
 
 },
 
@@ -1136,7 +1156,26 @@ benefitTitle5:"TECHNICAL SUPPORT",
 benefitText5:"Specialized agronomy team. Permanent guidance, audits and yield optimization.",
 
 benefitTitle6:"INTERNATIONAL MARKET",
-benefitText6:"Your production reaches Europe and Australia. Cannacore manages contracts, logistics and certifications."
+benefitText6:"Your production reaches Europe and Australia. Cannacore manages contracts, logistics and certifications.",
+withoutCannacoreSubtitle:"— WITHOUT CANNACORE",
+withoutCannacoreTitle:`ENTRY<br>BARRIERS`,
+
+withoutItem1:"Expensive and slow licensing process",
+withoutItem2:"No certified genetics for export",
+withoutItem3:"No guaranteed purchase agreement",
+withoutItem4:"No access to international buyers",
+withoutItem5:"No traceability or GACP certification",
+withoutItem6:"Risk of operating informally",
+
+withCannacoreSubtitle:"— WITH CANNACORE",
+withCannacoreTitle:`YOUR LAND.<br>OUR <span>LICENSE.</span>`,
+
+withItem1:"Operate under our license from day one",
+withItem2:"Certified Cannacore genetics included",
+withItem3:"Guaranteed €2/g purchase contract",
+withItem4:"Your flower reaches Europe and Australia",
+withItem5:"Traceability and audits every cycle",
+withItem6:"100% legal and supported operation",
 
 
 
@@ -1210,6 +1249,26 @@ document.getElementById("benefitText5").innerHTML = translations[lang].benefitTe
 
 document.getElementById("benefitTitle6").innerHTML = translations[lang].benefitTitle6;
 document.getElementById("benefitText6").innerHTML = translations[lang].benefitText6;
+
+document.getElementById("withoutCannacoreSubtitle").innerHTML = translations[lang].withoutCannacoreSubtitle;
+document.getElementById("withoutCannacoreTitle").innerHTML = translations[lang].withoutCannacoreTitle;
+
+document.getElementById("withoutItem1").innerHTML = translations[lang].withoutItem1;
+document.getElementById("withoutItem2").innerHTML = translations[lang].withoutItem2;
+document.getElementById("withoutItem3").innerHTML = translations[lang].withoutItem3;
+document.getElementById("withoutItem4").innerHTML = translations[lang].withoutItem4;
+document.getElementById("withoutItem5").innerHTML = translations[lang].withoutItem5;
+document.getElementById("withoutItem6").innerHTML = translations[lang].withoutItem6;
+
+document.getElementById("withCannacoreSubtitle").innerHTML = translations[lang].withCannacoreSubtitle;
+document.getElementById("withCannacoreTitle").innerHTML = translations[lang].withCannacoreTitle;
+
+document.getElementById("withItem1").innerHTML = translations[lang].withItem1;
+document.getElementById("withItem2").innerHTML = translations[lang].withItem2;
+document.getElementById("withItem3").innerHTML = translations[lang].withItem3;
+document.getElementById("withItem4").innerHTML = translations[lang].withItem4;
+document.getElementById("withItem5").innerHTML = translations[lang].withItem5;
+document.getElementById("withItem6").innerHTML = translations[lang].withItem6;
 }
 
 window.onload = ()=>{

@@ -458,22 +458,22 @@ body{
                 <h3 id="accountDataTitle">DATOS DE CUENTA</h3>
 
                 <div class="profile-row">
-                    <span>Nombre</span>
+                    <span id="lblName">Nombre</span>
                     <strong id="profileName">-</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>Email</span>
+                    <span id="lblEmail">Email</span>
                     <strong id="profileEmail">-</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>ID de usuario</span>
+                    <span id="lblUserId">ID de usuario</span>
                     <strong id="profileUid">-</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>Email verificado</span>
+                    <span id="lblVerified">Email verificado</span>
                     <strong id="profileVerified">-</strong>
                 </div>
 
@@ -484,22 +484,22 @@ body{
                 <h3 id="membershipTitle">MEMBRESÍA</h3>
 
                 <div class="profile-row">
-                    <span>Plan activo</span>
+                    <span id="lblPlan">Plan activo</span>
                     <strong id="profileMembership">Sin membresía</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>Monto</span>
+                    <span id="lblAmount">Monto</span>
                     <strong id="profileAmount">-</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>Estado de pago</span>
+                    <span id="lblPaymentStatus">Estado de pago</span>
                     <strong id="profilePayment">-</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>Fecha de inicio</span>
+                    <span id="lblStartDate">Fecha de inicio</span>
                     <strong id="profileStartDate">-</strong>
                 </div>
 
@@ -510,27 +510,27 @@ body{
                 <h3 id="growerDataTitle">DATOS DEL CULTIVADOR</h3>
 
                 <div class="profile-row">
-                     <span>Documento</span>
+                     <span id="lblDocument">Documento</span>
                      <strong id="profileDocumento">-</strong>
                 </div>
 
                 <div class="profile-row">
-                     <span>Ciudad</span>
+                     <span id="lblCity">Ciudad</span>
                      <strong id="profileCiudad">-</strong>
                 </div>
 
                 <div class="profile-row">
-                     <span>Departamento</span>
+                     <span id="lblDepartment">Departamento</span>
                      <strong id="profileDepartamento">-</strong>
                 </div>
 
                 <div class="profile-row">
-                     <span>Dirección</span>
+                     <span id="lblAddress">Dirección</span>
                 <strong id="profileDireccion">-</strong>
                 </div>
 
                 <div class="profile-row">
-                     <span>Tamaño terreno</span>
+                     <span id="lblLandSize">Tamaño terreno</span>
                      <strong id="profileTerreno">-</strong>
                 </div>
 
@@ -541,17 +541,17 @@ body{
                 <h3 id="securityTitle">SEGURIDAD</h3>
 
                 <div class="profile-row">
-                    <span>Proveedor</span>
+                    <span id="lblProvider">Proveedor</span>
                     <strong id="profileProvider">-</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>Cuenta creada</span>
+                    <span id="lblCreated">Cuenta creada</span>
                     <strong id="profileCreated">-</strong>
                 </div>
 
                 <div class="profile-row">
-                    <span>Último acceso</span>
+                    <span id="lblLastLogin">Último acceso</span>
                     <strong id="profileLastLogin">-</strong>
                 </div>
 
@@ -807,7 +807,27 @@ profileDescription:
 accountData:"DATOS DE CUENTA",
 membership:"MEMBRESÍA",
 growerData:"DATOS DEL CULTIVADOR",
-security:"SEGURIDAD"
+security:"SEGURIDAD",
+
+lblName:"Nombre",
+lblEmail:"Email",
+lblUserId:"ID de usuario",
+lblVerified:"Email verificado",
+
+lblPlan:"Plan activo",
+lblAmount:"Monto",
+lblPaymentStatus:"Estado de pago",
+lblStartDate:"Fecha de inicio",
+
+lblDocument:"Documento",
+lblCity:"Ciudad",
+lblDepartment:"Departamento",
+lblAddress:"Dirección",
+lblLandSize:"Tamaño terreno",
+
+lblProvider:"Proveedor",
+lblCreated:"Cuenta creada",
+lblLastLogin:"Último acceso",
 
 },
 
@@ -833,7 +853,27 @@ profileDescription:
 accountData:"ACCOUNT INFORMATION",
 membership:"MEMBERSHIP",
 growerData:"GROWER INFORMATION",
-security:"SECURITY"
+security:"SECURITY",
+
+lblName:"Name",
+lblEmail:"Email",
+lblUserId:"User ID",
+lblVerified:"Verified Email",
+
+lblPlan:"Active Plan",
+lblAmount:"Amount",
+lblPaymentStatus:"Payment Status",
+lblStartDate:"Start Date",
+
+lblDocument:"Document",
+lblCity:"City",
+lblDepartment:"Department",
+lblAddress:"Address",
+lblLandSize:"Land Size",
+
+lblProvider:"Provider",
+lblCreated:"Account Created",
+lblLastLogin:"Last Login",
 
 }
 
@@ -887,6 +927,54 @@ translations[lang].growerData;
 
 document.getElementById("securityTitle").innerHTML =
 translations[lang].security;
+
+document.getElementById("lblName").innerHTML =
+translations[lang].lblName;
+
+document.getElementById("lblEmail").innerHTML =
+translations[lang].lblEmail;
+
+document.getElementById("lblUserId").innerHTML =
+translations[lang].lblUserId;
+
+document.getElementById("lblVerified").innerHTML =
+translations[lang].lblVerified;
+
+document.getElementById("lblPlan").innerHTML =
+translations[lang].lblPlan;
+
+document.getElementById("lblAmount").innerHTML =
+translations[lang].lblAmount;
+
+document.getElementById("lblPaymentStatus").innerHTML =
+translations[lang].lblPaymentStatus;
+
+document.getElementById("lblStartDate").innerHTML =
+translations[lang].lblStartDate;
+
+document.getElementById("lblDocument").innerHTML =
+translations[lang].lblDocument;
+
+document.getElementById("lblCity").innerHTML =
+translations[lang].lblCity;
+
+document.getElementById("lblDepartment").innerHTML =
+translations[lang].lblDepartment;
+
+document.getElementById("lblAddress").innerHTML =
+translations[lang].lblAddress;
+
+document.getElementById("lblLandSize").innerHTML =
+translations[lang].lblLandSize;
+
+document.getElementById("lblProvider").innerHTML =
+translations[lang].lblProvider;
+
+document.getElementById("lblCreated").innerHTML =
+translations[lang].lblCreated;
+
+document.getElementById("lblLastLogin").innerHTML =
+translations[lang].lblLastLogin;
 
 const brochureLink =
 document.getElementById("navBrochure");

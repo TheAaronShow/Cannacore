@@ -310,6 +310,28 @@ body{
     }
 }
 
+/* LANGUAGE SELECTOR */
+
+#languageSelector{
+    min-width:58px;
+    height:34px;
+    background:transparent;
+    border:1px solid rgba(198,255,0,0.4);
+    color:white;
+    padding:0 10px;
+    border-radius:4px;
+    font-family:'Arial Narrow',sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+
+#languageSelector option{
+    background:#111;
+    color:white;
+}
+
 </style>
 </head>
 
@@ -337,12 +359,17 @@ body{
 
     <div class="navbar-links" id="menu">
 
-        <a href="index.html">INICIO</a>
-        <a href="planes.html">MEMBRESIA</a>
-        <a href="como-funciona.html">COMO FUNCIONA</a>
-        <a href="requisitos.html">REQUISITOS</a>
-        <a href="contacto.htm">CONTACTO</a>
-        <a href="CANNACORE.pdf" target="_blank">BROCHURE</a>
+        <a href="index.html" id="navInicio">INICIO</a>
+        <a href="planes.html" id="navMembresia">MEMBRESIA</a>
+        <a href="como-funciona.html" id="navComo">COMO FUNCIONA</a>
+        <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
+        <a href="contacto.htm" id="navContacto">
+        <a href="CANNACORE.pdf" id="navBrochure" target="_blank">BROCHURE</a>
+
+        <select id="languageSelector" onchange="changeLanguage()">
+             <option value="es">ES</option>
+             <option value="en">EN</option>
+        </select>
 
         <span id="userName"></span>
 
@@ -362,16 +389,16 @@ body{
 
         <div class="profile-header">
 
-            <div class="profile-subtitle">
+            <div class="profile-subtitle" id="profileSubtitle">
                 — PERFIL DE USUARIO
             </div>
 
-            <h1 class="profile-title">
+            <h1 class="profile-title" id="profileTitle">
                 TU INFORMACIÓN<br>
                 <span>CANNACORE.</span>
             </h1>
 
-            <p class="profile-description">
+            <p class="profile-description" id="profileDescription">
                 Consulta los datos de tu cuenta, estado de membresía,
                 información de acceso y detalles asociados a tu perfil.
             </p>
@@ -395,7 +422,7 @@ body{
 
             <div class="profile-card featured">
 
-                <h3>DATOS DE CUENTA</h3>
+                <h3 id="accountDataTitle">DATOS DE CUENTA</h3>
 
                 <div class="profile-row">
                     <span>Nombre</span>
@@ -421,7 +448,7 @@ body{
 
             <div class="profile-card">
 
-                <h3>MEMBRESÍA</h3>
+                <h3 id="membershipTitle">MEMBRESÍA</h3>
 
                 <div class="profile-row">
                     <span>Plan activo</span>
@@ -447,7 +474,7 @@ body{
 
             <div class="profile-card">
 
-                <h3>DATOS DEL CULTIVADOR</h3>
+                <h3 id="growerDataTitle">DATOS DEL CULTIVADOR</h3>
 
                 <div class="profile-row">
                      <span>Documento</span>
@@ -478,7 +505,7 @@ body{
 
             <div class="profile-card">
 
-                <h3>SEGURIDAD</h3>
+                <h3 id="securityTitle">SEGURIDAD</h3>
 
                 <div class="profile-row">
                     <span>Proveedor</span>
@@ -613,6 +640,9 @@ async function loadProfile(user){
 
         if(userDoc.exists()){
 
+            const data =
+            userDoc.data();
+
             document.getElementById("profileDocumento").innerHTML =
             data.documento || "-";
 
@@ -628,8 +658,7 @@ async function loadProfile(user){
             document.getElementById("profileTerreno").innerHTML =
             data.tamanoTerreno || "-";
 
-            const data =
-            userDoc.data();
+            
 
             document.getElementById("profileMembership").innerHTML =
             data.membership || "Sin membresía";
@@ -689,6 +718,133 @@ function toggleMenu(){
     document.getElementById("menu")
     .classList.toggle("show");
 }
+
+const translations = {
+
+es:{
+
+inicio:"INICIO",
+membresia:"MEMBRESIA",
+como:"COMO FUNCIONA",
+requisitos:"REQUISITOS",
+contacto:"CONTACTO",
+brochure:"BROCHURE",
+
+logout:"Cerrar sesión",
+
+profileSubtitle:"— PERFIL DE USUARIO",
+
+profileTitle:`TU INFORMACIÓN<br>
+<span>CANNACORE.</span>`,
+
+profileDescription:
+"Consulta los datos de tu cuenta, estado de membresía, información de acceso y detalles asociados a tu perfil.",
+
+accountData:"DATOS DE CUENTA",
+membership:"MEMBRESÍA",
+growerData:"DATOS DEL CULTIVADOR",
+security:"SEGURIDAD"
+
+},
+
+en:{
+
+inicio:"HOME",
+membresia:"MEMBERSHIPS",
+como:"HOW IT WORKS",
+requisitos:"REQUIREMENTS",
+contacto:"CONTACT",
+brochure:"BROCHURE",
+
+logout:"Logout",
+
+profileSubtitle:"— USER PROFILE",
+
+profileTitle:`YOUR<br>
+<span>CANNACORE INFORMATION.</span>`,
+
+profileDescription:
+"Review your account information, membership status, access details and information associated with your profile.",
+
+accountData:"ACCOUNT INFORMATION",
+membership:"MEMBERSHIP",
+growerData:"GROWER INFORMATION",
+security:"SECURITY"
+
+}
+
+};
+
+function changeLanguage(){
+
+const lang =
+document.getElementById("languageSelector").value;
+
+localStorage.setItem("lang",lang);
+
+document.getElementById("navInicio").innerHTML =
+translations[lang].inicio;
+
+document.getElementById("navMembresia").innerHTML =
+translations[lang].membresia;
+
+document.getElementById("navComo").innerHTML =
+translations[lang].como;
+
+document.getElementById("navRequisitos").innerHTML =
+translations[lang].requisitos;
+
+document.getElementById("navContacto").innerHTML =
+translations[lang].contacto;
+
+document.getElementById("navBrochure").innerHTML =
+translations[lang].brochure;
+
+document.getElementById("logoutBtn").innerHTML =
+translations[lang].logout;
+
+document.getElementById("profileSubtitle").innerHTML =
+translations[lang].profileSubtitle;
+
+document.getElementById("profileTitle").innerHTML =
+translations[lang].profileTitle;
+
+document.getElementById("profileDescription").innerHTML =
+translations[lang].profileDescription;
+
+document.getElementById("accountDataTitle").innerHTML =
+translations[lang].accountData;
+
+document.getElementById("membershipTitle").innerHTML =
+translations[lang].membership;
+
+document.getElementById("growerDataTitle").innerHTML =
+translations[lang].growerData;
+
+document.getElementById("securityTitle").innerHTML =
+translations[lang].security;
+
+const brochureLink =
+document.getElementById("navBrochure");
+
+if(lang === "en"){
+    brochureLink.href = "CANNACOREEN.pdf";
+}else{
+    brochureLink.href = "CANNACORE.pdf";
+}
+}
+
+window.onload = () => {
+
+const savedLang =
+localStorage.getItem("lang") || "es";
+
+document.getElementById("languageSelector").value =
+savedLang;
+
+changeLanguage();
+
+};
 
 </script>
 

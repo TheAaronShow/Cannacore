@@ -447,6 +447,37 @@ body{
 
             <div class="profile-card">
 
+                <h3>DATOS DEL CULTIVADOR</h3>
+
+                <div class="profile-row">
+                     <span>Documento</span>
+                     <strong id="profileDocumento">-</strong>
+                </div>
+
+                <div class="profile-row">
+                     <span>Ciudad</span>
+                     <strong id="profileCiudad">-</strong>
+                </div>
+
+                <div class="profile-row">
+                     <span>Departamento</span>
+                     <strong id="profileDepartamento">-</strong>
+                </div>
+
+                <div class="profile-row">
+                     <span>Dirección</span>
+                <strong id="profileDireccion">-</strong>
+                </div>
+
+                <div class="profile-row">
+                     <span>Tamaño terreno</span>
+                     <strong id="profileTerreno">-</strong>
+                </div>
+
+</div>
+
+            <div class="profile-card">
+
                 <h3>SEGURIDAD</h3>
 
                 <div class="profile-row">
@@ -581,6 +612,21 @@ async function loadProfile(user){
         await getDoc(doc(db,"users",user.uid));
 
         if(userDoc.exists()){
+
+            document.getElementById("profileDocumento").innerHTML =
+            data.documento || "-";
+
+            document.getElementById("profileCiudad").innerHTML =
+            data.ciudad || "-";
+
+            document.getElementById("profileDepartamento").innerHTML =
+            data.departamento || "-";
+
+            document.getElementById("profileDireccion").innerHTML =
+            data.direccion || "-";
+
+            document.getElementById("profileTerreno").innerHTML =
+            data.tamanoTerreno || "-";
 
             const data =
             userDoc.data();

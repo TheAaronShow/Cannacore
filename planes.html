@@ -1351,6 +1351,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+const db = getFirestore(app);
+
+import {
+    getFirestore,
+    doc,
+    setDoc
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
 window.login = function(){
 
     const email =
@@ -1519,6 +1528,52 @@ window.nextStep = function(step){
 }
 
 document.getElementById("payButton").addEventListener("click", async()=>{
+    await setDoc(
+    doc(db,"users",user.uid),
+    {
+
+        nombre:
+        document.getElementById("nombre").value,
+
+        apellido1:
+        document.getElementById("apellido1").value,
+
+        apellido2:
+        document.getElementById("apellido2").value,
+
+        documento:
+        document.getElementById("documento").value,
+
+        fechaNacimiento:
+        document.getElementById("fechaNacimiento").value,
+
+        ciudad:
+        document.getElementById("ciudad").value,
+
+        departamento:
+        document.getElementById("departamento").value,
+
+        direccion:
+        document.getElementById("direccion").value,
+
+        tamanoTerreno:
+        document.getElementById("tamanoTerreno").value,
+
+        membership:
+        currentPlan,
+
+        amount:
+        prices[currentPlan],
+
+        paymentStatus:
+        "Pendiente",
+
+        startDate:
+        new Date().toISOString()
+
+    },
+    { merge:true }
+);
 
     const user = auth.currentUser;
 
@@ -1620,7 +1675,30 @@ const translations = {
         starterCycleLabel:`Por ciclo`,
         starterYearLabel:`Ciclos/año`,
         starterIncomeTitle:`INGRESO BRUTO/AÑO`,
-        guaranteeGram:`GRAMO`                       
+        guaranteeGram:`GRAMO`,
+        membershipTitle:"Membresía Cannacore",
+
+        lblNombre:"Nombre",
+        lblApellido1:"Primer apellido",
+        lblApellido2:"Segundo apellido",
+        lblDocumento:"Documento de identidad",
+        lblNacimiento:"Fecha de nacimiento",
+
+        lblCiudad:"Ciudad",
+        lblDepartamento:"Departamento",
+        lblDireccion:"Dirección",
+        lblTerreno:"Tamaño del terreno",
+
+        btnContinue:"Continuar",
+        btnBack:"Atrás",
+
+        summaryMembership:"Membresía",
+        summaryAccess:"Acceso",
+        summaryAccessValue:"Premium Cannacore",
+        summaryStatus:"Estado",
+        summaryStatusValue:"Pago único",
+
+        payButton:"Continuar a Mercado Pago",                       
 
         
     },
@@ -1659,7 +1737,30 @@ const translations = {
         starterCycleLabel:`Per cycle`,
         starterYearLabel:`Cycles/year`,
         starterIncomeTitle:`GROSS INCOME/YEAR`,
-        guaranteeGram:`GRAM`                      
+        guaranteeGram:`GRAM`,
+        membershipTitle:"Cannacore Membership",
+
+        lblNombre:"First Name",
+        lblApellido1:"Last Name",
+        lblApellido2:"Second Last Name",
+        lblDocumento:"Identity Document",
+        lblNacimiento:"Date of Birth",
+
+        lblCiudad:"City",
+        lblDepartamento:"State / Region",
+        lblDireccion:"Address",
+        lblTerreno:"Land Size",
+
+        btnContinue:"Continue",
+        btnBack:"Back",
+
+        summaryMembership:"Membership",
+        summaryAccess:"Access",
+        summaryAccessValue:"Cannacore Premium",
+        summaryStatus:"Status",
+        summaryStatusValue:"One-time Payment",
+
+        payButton:"Continue to Mercado Pago",                      
     }
 
 };
@@ -1737,6 +1838,66 @@ function changeLanguage(){
     document.getElementById("guaranteeGram").innerHTML =
     translations[lang].guaranteeGram;
 
+    document.getElementById("membershipTitle").innerHTML =
+    translations[lang].membershipTitle;
+
+    document.getElementById("lblNombre").innerHTML =
+    translations[lang].lblNombre;
+
+    document.getElementById("lblApellido1").innerHTML =
+    translations[lang].lblApellido1;
+
+    document.getElementById("lblApellido2").innerHTML =
+    translations[lang].lblApellido2;
+
+    document.getElementById("lblDocumento").innerHTML =
+    translations[lang].lblDocumento;
+
+    document.getElementById("lblNacimiento").innerHTML =
+    translations[lang].lblNacimiento;
+
+    document.getElementById("lblCiudad").innerHTML =
+    translations[lang].lblCiudad;
+
+    document.getElementById("lblDepartamento").innerHTML =
+    translations[lang].lblDepartamento;
+
+    document.getElementById("lblDireccion").innerHTML =
+    translations[lang].lblDireccion;
+
+    document.getElementById("lblTerreno").innerHTML =
+    translations[lang].lblTerreno;
+
+    document.getElementById("btnContinue1").innerHTML =
+    translations[lang].btnContinue;
+
+    document.getElementById("btnContinue2").innerHTML =
+    translations[lang].btnContinue;
+
+    document.getElementById("btnBack1").innerHTML =
+    translations[lang].btnBack;
+
+    document.getElementById("btnBack2").innerHTML =
+    translations[lang].btnBack;
+
+    document.getElementById("summaryMembership").innerHTML =
+    translations[lang].summaryMembership;
+
+    document.getElementById("summaryAccess").innerHTML =
+    translations[lang].summaryAccess;
+
+    document.getElementById("summaryAccessValue").innerHTML =
+    translations[lang].summaryAccessValue;
+
+    document.getElementById("summaryStatus").innerHTML =
+    translations[lang].summaryStatus;
+
+    document.getElementById("summaryStatusValue").innerHTML =
+    translations[lang].summaryStatusValue;
+
+    document.getElementById("payButton").innerHTML =
+    translations[lang].payButton;
+
     document.querySelectorAll(".translate-plants")
     .forEach(el=>{
          el.innerHTML = translations[lang].starterPlants;
@@ -1797,7 +1958,7 @@ window.onload = () => {
 
         <div class="modal-header">
 
-            <div class="modal-title">
+            <div class="modal-title" id="membershipTitle">
                 Membresía Cannacore
             </div>
 
@@ -1821,27 +1982,27 @@ window.onload = () => {
                 <div class="form-grid">
 
                     <div class="form-group">
-                        <label>Nombre</label>
+                        <label id="lblNombre">Nombre</label>
                         <input type="text" id="nombre">
                     </div>
 
                     <div class="form-group">
-                        <label>Primer apellido</label>
+                        <label id="lblApellido1">Primer apellido</label>
                         <input type="text" id="apellido1">
                     </div>
 
                     <div class="form-group">
-                        <label>Segundo apellido</label>
+                        <label id="lblApellido2">Segundo apellido</label>
                         <input type="text" id="apellido2">
                     </div>
 
                     <div class="form-group">
-                        <label>Documento de identidad</label>
+                        <label id="lblDocumento">Documento de identidad</label>
                         <input type="text" id="documento">
                     </div>
 
                     <div class="form-group full">
-                        <label>Fecha de nacimiento</label>
+                        <label id="lblNacimiento">Fecha de nacimiento</label>
                         <input type="date" id="fechaNacimiento">
                     </div>
 
@@ -1849,7 +2010,7 @@ window.onload = () => {
 
                 <div class="modal-actions">
 
-                    <button class="modal-btn primary" onclick="nextStep(2)">
+                    <button class="modal-btn primary" id="btnContinue1" onclick="nextStep(2)">
                         Continuar
                     </button>
 
@@ -1863,22 +2024,22 @@ window.onload = () => {
                 <div class="form-grid">
 
                     <div class="form-group">
-                        <label>Ciudad</label>
+                        <label id="lblCiudad">Ciudad</label>
                         <input type="text" id="ciudad">
                     </div>
 
                     <div class="form-group">
-                        <label>Departamento</label>
+                        <label id="lblDepartamento">Departamento</label>
                         <input type="text" id="departamento">
                     </div>
 
                     <div class="form-group full">
-                        <label>Dirección</label>
+                        <label id="lblDireccion">Dirección</label>
                         <input type="text" id="direccion">
                     </div>
 
                     <div class="form-group full">
-                        <label>Tamaño del terreno</label>
+                        <label id="lblTerreno">Tamaño del terreno</label>
                         <input type="text" id="tamanoTerreno">
                     </div>
 
@@ -1886,11 +2047,11 @@ window.onload = () => {
 
                 <div class="modal-actions">
 
-                    <button class="modal-btn secondary" onclick="nextStep(1)">
+                    <button class="modal-btn secondary" id="btnBack1" onclick="nextStep(1)">
                         Atrás
                     </button>
 
-                    <button class="modal-btn primary" onclick="nextStep(3)">
+                    <button class="modal-btn primary" id="btnContinue2" onclick="nextStep(3)">
                         Continuar
                     </button>
 
@@ -1904,18 +2065,18 @@ window.onload = () => {
                 <div class="payment-summary">
 
                     <div class="summary-row">
-                        <span>Membresía</span>
+                        <span id="summaryMembership">Membresía</span>
                         <strong id="selectedPlanName">STARTER</strong>
                     </div>
 
                     <div class="summary-row">
-                        <span>Acceso</span>
-                        <strong>Premium Cannacore</strong>
+                        <span id="summaryAccess">Acceso</span>
+                        <strong id="summaryAccessValue">Premium Cannacore</strong>
                     </div>
 
                     <div class="summary-row">
-                        <span>Estado</span>
-                        <strong>Pago único</strong>
+                        <<span id="summaryStatus">Estado</span>
+                        <strong id="summaryStatusValue">Pago único</strong>
                     </div>
 
                     <div class="total-price" id="selectedPlanPrice">
@@ -1926,7 +2087,7 @@ window.onload = () => {
 
                 <div class="modal-actions">
 
-                    <button class="modal-btn secondary" onclick="nextStep(2)">
+                    <button class="modal-btn secondary" id="btnBack2" onclick="nextStep(2)">
                         Atrás
                     </button>
 

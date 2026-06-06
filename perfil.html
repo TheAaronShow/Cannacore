@@ -440,12 +440,14 @@ body{
 
         <div id="notLoggedBox" class="status-box" style="display:none;">
 
-            <strong>No has iniciado sesión.</strong><br>
-            Para ver tu perfil debes ingresar con tu cuenta Cannacore.
+            <strong id="notLoggedTitle">No has iniciado sesión.</strong><br>
+            <span id="notLoggedText">
+                 Para ver tu perfil debes ingresar con tu cuenta Cannacore.
+            </span>
 
             <br>
 
-            <a href="index.html" class="btn-primary">
+            <a href="index.html" class="btn-primary" id="loginButton">
                 IR A INICIAR SESIÓN
             </a>
 
@@ -657,8 +659,13 @@ async function loadProfile(user){
     document.getElementById("profileUid").innerHTML =
     user.uid;
 
+    const currentLang =
+    localStorage.getItem("lang") || "es";
+
     document.getElementById("profileVerified").innerHTML =
-    user.emailVerified ? "Sí" : "No";
+    user.emailVerified
+    ? translations[currentLang].yes
+    : translations[currentLang].no;
 
     document.getElementById("profileProvider").innerHTML =
     user.providerData[0]?.providerId || "Email";
@@ -697,13 +704,27 @@ async function loadProfile(user){
             
 
             document.getElementById("profileMembership").innerHTML =
-            data.membership || "Sin membresía";
+            data.membership ||
+            translations[currentLang].noMembership;
 
             document.getElementById("profileAmount").innerHTML =
             data.amount ? "€" + data.amount : "-";
 
-            document.getElementById("profilePayment").innerHTML =
+            let paymentStatus =
             data.paymentStatus || "-";
+
+            if(paymentStatus === "Pendiente"){
+                 paymentStatus =
+                 translations[currentLang].pending;
+            }
+
+            if(paymentStatus === "Pagado"){
+                 paymentStatus =
+                 translations[currentLang].paid;
+            }
+
+            document.getElementById("profilePayment").innerHTML =
+                 paymentStatus;
 
             document.getElementById("profileStartDate").innerHTML =
             data.startDate ? formatDate(data.startDate) : "-";
@@ -829,6 +850,21 @@ lblProvider:"Proveedor",
 lblCreated:"Cuenta creada",
 lblLastLogin:"Último acceso",
 
+notLoggedTitle:"No has iniciado sesión.",
+
+notLoggedText:
+"Para ver tu perfil debes ingresar con tu cuenta Cannacore.",
+
+loginButton:"IR A INICIAR SESIÓN",
+
+yes:"Sí",
+no:"No",
+
+noMembership:"Sin membresía",
+
+pending:"Pendiente",
+paid:"Pagado",
+
 },
 
 en:{
@@ -875,6 +911,20 @@ lblProvider:"Provider",
 lblCreated:"Account Created",
 lblLastLogin:"Last Login",
 
+notLoggedTitle:"You are not logged in.",
+
+notLoggedText:
+"You must sign in with your Cannacore account to view your profile.",
+
+loginButton:"GO TO LOGIN",
+
+yes:"Yes",
+no:"No",
+
+noMembership:"No Membership",
+
+pending:"Pending",
+paid:"Paid",
 }
 
 };
@@ -975,6 +1025,15 @@ translations[lang].lblCreated;
 
 document.getElementById("lblLastLogin").innerHTML =
 translations[lang].lblLastLogin;
+
+document.getElementById("notLoggedTitle").innerHTML =
+translations[lang].notLoggedTitle;
+
+document.getElementById("notLoggedText").innerHTML =
+translations[lang].notLoggedText;
+
+document.getElementById("loginButton").innerHTML =
+translations[lang].loginButton;
 
 const brochureLink =
 document.getElementById("navBrochure");

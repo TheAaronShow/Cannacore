@@ -373,9 +373,40 @@ body{
 
         <span id="userName"></span>
 
-        <a id="logoutBtn" onclick="logout()" style="display:none;">
+        <div id="userMenuContainer" style="display:none; position:relative;">
+
+    <a id="userName"
+       onclick="toggleUserMenu()"
+       style="cursor:pointer;">
+    </a>
+
+    <div id="userDropdown"
+         style="
+         display:none;
+         position:absolute;
+         top:28px;
+         right:0;
+         background:rgba(0,0,0,0.95);
+         border:1px solid rgba(198,255,0,0.2);
+         border-radius:8px;
+         min-width:180px;
+         padding:10px;
+         ">
+
+        <a href="perfil.html"
+           style="display:block;padding:8px 0;">
+            Mi Perfil
+        </a>
+
+        <a id="logoutBtn"
+           onclick="logout()"
+           style="display:block;padding:8px 0;">
             Cerrar sesión
         </a>
+
+    </div>
+
+</div>
 
     </div>
 
@@ -572,6 +603,9 @@ onAuthStateChanged(auth,async(user)=>{
     const logoutBtn =
     document.getElementById("logoutBtn");
 
+    const userMenuContainer =
+    document.getElementById("userMenuContainer");
+
     const profileGrid =
     document.getElementById("profileGrid");
 
@@ -583,8 +617,8 @@ onAuthStateChanged(auth,async(user)=>{
         userName.innerHTML =
         user.displayName || user.email;
 
-        logoutBtn.style.display =
-        "inline-block";
+        userMenuContainer.style.display =
+        "block";
 
         profileGrid.style.display =
         "grid";
@@ -599,7 +633,7 @@ onAuthStateChanged(auth,async(user)=>{
         userName.innerHTML =
         "";
 
-        logoutBtn.style.display =
+        userMenuContainer.style.display =
         "none";
 
         profileGrid.style.display =
@@ -718,6 +752,34 @@ function toggleMenu(){
     document.getElementById("menu")
     .classList.toggle("show");
 }
+
+function toggleUserMenu(){
+
+    const dropdown =
+    document.getElementById("userDropdown");
+
+    dropdown.style.display =
+    dropdown.style.display === "block"
+    ? "none"
+    : "block";
+}
+
+document.addEventListener("click",(e)=>{
+
+    const container =
+    document.getElementById("userMenuContainer");
+
+    const dropdown =
+    document.getElementById("userDropdown");
+
+    if(
+        container &&
+        !container.contains(e.target)
+    ){
+        dropdown.style.display = "none";
+    }
+
+});
 
 const translations = {
 

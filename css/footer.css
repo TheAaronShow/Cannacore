@@ -6,7 +6,7 @@
 
     background:#080808;
 
-    padding:90px 8% 35px;
+    padding:110px 10% 45px;
 
     border-top:1px solid rgba(255,255,255,.05);
 
@@ -22,7 +22,7 @@
 
     grid-template-columns:2.2fr 1fr 1fr 1fr;
 
-    gap:90px;
+    gap:130px;
 
     align-items:flex-start;
 
@@ -42,37 +42,37 @@
 
 .footer-logo{
 
-    width:170px;
+    width:150px;
 
-    margin-bottom:35px;
-
-    opacity:.95;
+    margin-bottom:20px;
 
 }
 
-.footer-column:first-child h4{
+.footer-brand h3{
 
     color:#c6ff00;
 
-    font-size:1.8rem;
+    font-size:2rem;
 
     font-weight:900;
 
-    margin-bottom:28px;
+    letter-spacing:2px;
 
-    letter-spacing:1px;
+    margin:25px 0;
+
+    text-transform:uppercase;
 
 }
 
-.footer-column:first-child p{
+.footer-brand p{
 
-    color:#d2d2d2;
-
-    line-height:1.9;
+    color:#d0d0d0;
 
     font-size:1.05rem;
 
-    max-width:480px;
+    line-height:2;
+
+    max-width:470px;
 
 }
 
@@ -124,19 +124,19 @@
         TITULOS
 ===========================*/
 
-.footer-column h3{
+.footer-column h4{
 
     color:#ffffff;
 
-    font-size:.85rem;
+    font-size:.82rem;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     margin-bottom:28px;
 
-    font-family:"Arial Narrow",sans-serif;
-
     text-transform:uppercase;
+
+    font-family:"Arial Narrow",sans-serif;
 
 }
 
@@ -188,23 +188,19 @@
 
 .footer-bottom{
 
-    margin-top:70px;
+    margin-top:90px;
+
+    padding-top:30px;
 
     border-top:1px solid rgba(255,255,255,.08);
-
-    padding-top:28px;
 
     display:flex;
 
     justify-content:center;
 
-    align-items:center;
+    color:#8d8d8d;
 
-    text-align:center;
-
-    color:#888;
-
-    font-size:.95rem;
+    font-size:.9rem;
 
     letter-spacing:2px;
 

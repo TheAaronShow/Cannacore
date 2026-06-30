@@ -4,29 +4,33 @@
 
 .footer{
 
-    background:#090909;
+    background:#080808;
 
-    border-top:1px solid rgba(255,255,255,.06);
+    padding:90px 8% 35px;
 
-    padding:80px 8% 35px;
-
-    margin-top:120px;
+    border-top:1px solid rgba(255,255,255,.05);
 
 }
 
 .footer-container{
 
-    display:grid;
-
-    grid-template-columns:2fr 1fr 1fr 1fr;
-
-    gap:60px;
-
     max-width:1500px;
 
     margin:auto;
 
+    display:grid;
+
+    grid-template-columns:2.2fr 1fr 1fr 1fr;
+
+    gap:90px;
+
+    align-items:flex-start;
+
 }
+
+/*==========================
+        COLUMNA 1
+===========================*/
 
 .footer-column{
 
@@ -38,37 +42,107 @@
 
 .footer-logo{
 
-    width:180px;
+    width:170px;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
+
+    opacity:.95;
 
 }
 
-.footer-column h3{
+.footer-column:first-child h4{
 
     color:#c6ff00;
 
-    font-size:.75rem;
+    font-size:1.8rem;
 
-    letter-spacing:5px;
+    font-weight:900;
 
     margin-bottom:28px;
 
-    font-family:'Arial Narrow',sans-serif;
+    letter-spacing:1px;
 
 }
 
-.footer-column p{
+.footer-column:first-child p{
 
-    color:#cfcfcf;
+    color:#d2d2d2;
 
     line-height:1.9;
 
-    margin-bottom:14px;
+    font-size:1.05rem;
 
-    font-size:.96rem;
+    max-width:480px;
 
 }
+
+/*==========================
+        BOTONES
+===========================*/
+
+.footer-tags{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-tags span{
+
+    padding:9px 18px;
+
+    border:1px solid #b7ff00;
+
+    border-radius:25px;
+
+    color:#ffffff;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+
+}
+
+.footer-tags span:hover{
+
+    background:#c6ff00;
+
+    color:#000;
+
+}
+
+/*==========================
+        TITULOS
+===========================*/
+
+.footer-column h3{
+
+    color:#ffffff;
+
+    font-size:.85rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:28px;
+
+    font-family:"Arial Narrow",sans-serif;
+
+    text-transform:uppercase;
+
+}
+
+/*==========================
+        LINKS
+===========================*/
 
 .footer-column a{
 
@@ -76,9 +150,11 @@
 
     text-decoration:none;
 
-    margin-bottom:14px;
+    margin-bottom:16px;
 
     transition:.3s;
+
+    font-size:1.05rem;
 
 }
 
@@ -86,23 +162,49 @@
 
     color:#c6ff00;
 
-    padding-left:6px;
+    padding-left:8px;
 
 }
 
+/*==========================
+        TEXTOS
+===========================*/
+
+.footer-column p{
+
+    color:#f2f2f2;
+
+    line-height:1.8;
+
+    margin-bottom:14px;
+
+    font-size:1.05rem;
+
+}
+
+/*==========================
+        LINEA INFERIOR
+===========================*/
+
 .footer-bottom{
+
+    margin-top:70px;
 
     border-top:1px solid rgba(255,255,255,.08);
 
-    margin-top:60px;
+    padding-top:28px;
 
-    padding-top:25px;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     text-align:center;
 
-    color:#8d8d8d;
+    color:#888;
 
-    font-size:.85rem;
+    font-size:.95rem;
 
     letter-spacing:2px;
 
@@ -112,23 +214,23 @@
         RESPONSIVE
 ===========================*/
 
-@media(max-width:1100px){
+@media(max-width:1200px){
 
 .footer-container{
 
 grid-template-columns:repeat(2,1fr);
 
-gap:50px;
+gap:60px;
 
 }
 
 }
 
-@media(max-width:700px){
+@media(max-width:768px){
 
 .footer{
 
-padding:60px 30px;
+padding:70px 30px;
 
 }
 
@@ -136,7 +238,7 @@ padding:60px 30px;
 
 grid-template-columns:1fr;
 
-gap:40px;
+gap:45px;
 
 }
 
@@ -148,9 +250,15 @@ width:150px;
 
 .footer-bottom{
 
-font-size:.75rem;
+font-size:.8rem;
 
 line-height:1.8;
+
+}
+
+.footer-tags{
+
+justify-content:flex-start;
 
 }
 

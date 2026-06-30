@@ -12,6 +12,14 @@
 <meta property="og:description" content="Infraestructura agrícola regulada para cultivo de cannabis medicinal.">
 <meta property="og:type" content="website">
 
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+
 <style>
 
 /* LENGUAGE SELECTOR */
@@ -514,6 +522,170 @@ body{
     }
 }
 
+/*=================================================
+FOOTER
+=================================================*/
+
+.footer{
+
+    padding:90px 8% 35px;
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(20px);
+
+    border-top:1px solid rgba(198,255,0,.15);
+
+}
+
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:60px;
+
+}
+
+.footer-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.footer-logo{
+
+    width:170px;
+
+    margin-bottom:20px;
+
+}
+
+.footer-brand h3{
+
+    color:#c6ff00;
+
+    margin-bottom:18px;
+
+    font-size:28px;
+
+}
+
+.footer-brand p{
+
+    color:#cfcfcf;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.footer-tags{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-tags span{
+
+    padding:8px 18px;
+
+    border:1px solid #c6ff00;
+
+    border-radius:30px;
+
+    color:#c6ff00;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+}
+
+.footer-column h4{
+
+    color:#fff;
+
+    margin-bottom:25px;
+
+    letter-spacing:2px;
+
+}
+
+.footer-column a{
+
+    color:#a9a9a9;
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.3s;
+
+}
+
+.footer-column span{
+
+    color:#a9a9a9;
+
+    margin-bottom:12px;
+
+}
+
+.footer-column a:hover{
+
+    color:#c6ff00;
+
+    padding-left:6px;
+
+}
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    margin-top:60px;
+
+    padding-top:25px;
+
+    text-align:center;
+
+    color:#888;
+
+}
+
+.footer-bottom strong{
+
+    color:#c6ff00;
+
+}
+
+@media(max-width:1000px){
+
+.footer-container{
+
+grid-template-columns:1fr;
+
+gap:45px;
+
+}
+
+.footer{
+
+padding:70px 25px 30px;
+
+}
+
+}
+
 </style>
 </head>
 
@@ -736,6 +908,108 @@ body{
     </section>
 
 </div>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- LOGO -->
+
+        <div class="footer-column footer-brand">
+
+            <img src="logo.png" alt="CannaCore Logo" class="footer-logo">
+
+            <h3>CannaCore Group</h3>
+
+            <p>
+                Infraestructura agrícola regulada que conecta cultivadores,
+                inversionistas y empresas con el mercado global del cannabis
+                medicinal.
+            </p>
+
+            <div class="footer-tags">
+
+                <span>LEGAL</span>
+
+                <span>SOSTENIBLE</span>
+
+                <span>GLOBAL</span>
+
+            </div>
+
+        </div>
+
+        <!-- LA RED -->
+
+        <div class="footer-column">
+
+            <h4>LA RED</h4>
+
+            <a href="index.html">Inicio</a>
+
+            <a href="planes.html">Membresías</a>
+
+            <a href="como-funciona.html">Cómo funciona</a>
+
+            <a href="requisitos.html">Requisitos</a>
+
+        </div>
+
+        <!-- EMPRESA -->
+
+        <div class="footer-column">
+
+            <h4>EMPRESA</h4>
+
+            <a href="#">Nosotros</a>
+
+            <a href="#">Mercado Global</a>
+
+            <a href="#">Certificaciones</a>
+
+            <a href="#">Aliados</a>
+
+        </div>
+
+        <!-- CONTACTO -->
+
+        <div class="footer-column">
+
+            <h4>CONTACTO</h4>
+
+            <a href="mailto:cannacoregroup@gmail.com">
+                cannacoregroup@gmail.com
+            </a>
+
+            <a href="https://www.cannacore.co" target="_blank">
+                www.cannacore.co
+            </a>
+
+            <span>Eje Cafetero</span>
+
+            <span>Colombia</span>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 <strong>CannaCore Group SAS</strong>
+
+            • Nature • Science • Evolution
+
+        </p>
+
+    </div>
+
+</footer>
 
 <div class="modal-bg" id="modalBg">
 

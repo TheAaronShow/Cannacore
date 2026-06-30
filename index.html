@@ -19,6 +19,10 @@
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/animations.css">
 
+<link rel="stylesheet" href="css/modal.js">
+<link rel="stylesheet" href="css/navbar.ks">
+
+
 
 <style>
 
@@ -97,103 +101,6 @@ body{
     background:rgba(0,0,0,0.60);
     position:relative;
     z-index:1;
-}
-
-.navbar{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    padding:18px 25px;
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    backdrop-filter:blur(10px);
-    background:rgba(0,0,0,0.30);
-    z-index:1000;
-    overflow:visible;
-}
-
-.navbar-links{
-    display:flex;
-    align-items:center;
-    gap:38px;
-}
-
-.navbar a{
-    text-decoration:none;
-    color:white;
-    font-family:'Arial Narrow',sans-serif;
-    font-size:0.72rem;
-    font-weight:700;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    cursor:pointer;
-    transition:0.3s;
-    opacity:0.88;
-}
-
-.navbar a:hover{
-    color:#c6ff00;
-    opacity:1;
-}
-
-
-.user-menu{
-    position:relative;
-}
-
-#userName{
-    color:#c6ff00;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.user-dropdown{
-    display:none;
-    position:absolute;
-    top:28px;
-    right:0;
-    min-width:180px;
-    background:rgba(0,0,0,0.95);
-    border:1px solid rgba(198,255,0,0.25);
-    border-radius:8px;
-    overflow:hidden;
-    backdrop-filter:blur(10px);
-}
-
-.user-dropdown.show{
-    display:flex;
-    flex-direction:column;
-}
-
-.user-dropdown a{
-    padding:14px 18px;
-    color:white;
-    text-decoration:none;
-    letter-spacing:2px;
-    border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-.user-dropdown a:hover{
-    background:rgba(198,255,0,0.08);
-    color:#c6ff00;
-    color:#c6ff00;
-    font-weight:bold;
-}
-
-.hamburger{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    cursor:pointer;
-}
-
-.hamburger span{
-    width:28px;
-    height:3px;
-    background:white;
-    border-radius:3px;
 }
 
 .hero-content{
@@ -1242,72 +1149,7 @@ window.logout = function(){
 
 <script>
 
-function toggleMenu(){
 
-    document.getElementById("menu")
-    .classList.toggle("show");
-}
-
-function openModal(type){
-
-    document.getElementById("modalBg")
-    .style.display = "flex";
-
-    document.getElementById("loginModal")
-    .style.display = "none";
-
-    document.getElementById("recoverModal")
-    .style.display = "none";
-
-    document.getElementById("registerModal")
-    .style.display = "none";
-
-    if(type==="login"){
-        document.getElementById("loginModal")
-        .style.display = "block";
-    }
-
-    if(type==="recover"){
-        document.getElementById("recoverModal")
-        .style.display = "block";
-    }
-
-    if(type==="register"){
-        document.getElementById("registerModal")
-        .style.display = "block";
-    }
-}
-
-function closeModal(){
-
-    document.getElementById("modalBg")
-    .style.display = "none";
-}
-
-function toggleUserMenu(){
-
-    document
-        .getElementById("userDropdown")
-        .classList
-        .toggle("show");
-}
-
-document.addEventListener("click",(e)=>{
-
-    const container =
-    document.getElementById("userMenuContainer");
-
-    const dropdown =
-    document.getElementById("userDropdown");
-
-    if(
-        container &&
-        !container.contains(e.target)
-    ){
-        dropdown.style.display = "none";
-    }
-
-});
 
 </script>
 
@@ -1489,6 +1331,8 @@ window.onload = () => {
 };
 
 </script>
+
+<script src="js/menu.js"></script>
 
 </body>
 </html>

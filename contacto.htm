@@ -7,6 +7,16 @@
 
 <title>Contacto | CannaCore</title>
 
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<link rel="stylesheet" href="css/modal.js">
+<link rel="stylesheet" href="css/navbar.ks">
+
 <style>
 
 #languageSelector{
@@ -89,71 +99,7 @@ body{
     background:rgba(0,0,0,0.65);
 }
 
-/* =========================
-NAVBAR
-========================= */
 
-.navbar{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    padding:18px 25px;
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    backdrop-filter:blur(10px);
-    background:rgba(0,0,0,0.30);
-    z-index:1000;
-    overflow:visible;
-}
-
-.logo{
-    font-size:1.2rem;
-    font-weight:900;
-    color:#c6ff00;
-    letter-spacing:4px;
-}
-
-.navbar-links{
-    display:flex;
-    align-items:center;
-    gap:38px;
-}
-
-.navbar a{
-    text-decoration:none;
-    color:white;
-    font-family:'Arial Narrow',sans-serif;
-    font-size:0.72rem;
-    font-weight:700;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    cursor:pointer;
-    transition:0.3s;
-    opacity:0.88;
-}
-
-.navbar a:hover{
-    color:#c6ff00;
-    opacity:1;
-}
-
-/* HAMBURGUESA */
-
-.hamburger{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    cursor:pointer;
-}
-
-.hamburger span{
-    width:28px;
-    height:2px;
-    background:white;
-    border-radius:3px;
-}
 
 /* =========================
 CONTACT HERO
@@ -568,11 +514,7 @@ RESPONSIVE
 
 <script>
 
-function toggleMenu(){
 
-    document.getElementById("menu")
-    .classList.toggle("show");
-}
 
 const translations = {
 
@@ -727,6 +669,72 @@ changeLanguage();
 };
 
 </script>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <img src="logo.png"
+                 class="footer-logo"
+                 alt="Cannacore Logo">
+
+            <p>
+                Infraestructura agrícola regulada para cultivo de cannabis medicinal,
+                conectando productores con el mercado global mediante innovación,
+                trazabilidad y respaldo legal.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>NAVEGACIÓN</h3>
+
+            <a href="index.html">Inicio</a>
+            <a href="planes.html">Membresías</a>
+            <a href="como-funciona.html">Cómo funciona</a>
+            <a href="requisitos.html">Requisitos</a>
+            <a href="contacto.htm">Contacto</a>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>CONTACTO</h3>
+
+            <p>📍 Eje Cafetero • Colombia</p>
+
+            <p>✉ cannacoregroup@gmail.com</p>
+
+            <p>🌐 www.cannacore.co</p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>SÍGUENOS</h3>
+
+            <a href="#">Instagram</a>
+
+            <a href="#">Facebook</a>
+
+            <a href="#">WhatsApp</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 <strong>CannaCore Group SAS</strong> · Todos los derechos reservados.
+
+    </div>
+
+</footer>
+
+<script src="js/menu.js"></script>
 
 </body>
 </html>

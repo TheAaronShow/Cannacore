@@ -1,0 +1,62 @@
+<!--==========================
+FOOTER
+===========================-->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <img src="logo.png" class="footer-logo" alt="Cannacore Logo">
+
+            <p>
+                Infraestructura agrícola regulada para cultivo de cannabis medicinal,
+                conectando productores con el mercado global mediante innovación,
+                trazabilidad y respaldo legal.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>NAVEGACIÓN</h3>
+
+            <a href="index.html">Inicio</a>
+            <a href="planes.html">Membresías</a>
+            <a href="como-funciona.html">Cómo funciona</a>
+            <a href="requisitos.html">Requisitos</a>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>CONTACTO</h3>
+
+            <p>📍 Eje Cafetero, Colombia</p>
+
+            <p>✉ cannacoregroup@gmail.com</p>
+
+            <p>🌐 www.cannacore.co</p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>SÍGUENOS</h3>
+
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">WhatsApp</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 CannaCore Group SAS · Todos los derechos reservados.
+
+    </div>
+
+</footer>

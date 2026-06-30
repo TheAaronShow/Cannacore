@@ -1,62 +1,157 @@
-<!--==========================
-FOOTER
-===========================-->
+/*==================================================
+                    FOOTER
+==================================================*/
 
-<footer class="footer">
+.footer{
 
-    <div class="footer-container">
+    background:#090909;
 
-        <div class="footer-column">
+    border-top:1px solid rgba(255,255,255,.06);
 
-            <img src="logo.png" class="footer-logo" alt="Cannacore Logo">
+    padding:80px 8% 35px;
 
-            <p>
-                Infraestructura agrícola regulada para cultivo de cannabis medicinal,
-                conectando productores con el mercado global mediante innovación,
-                trazabilidad y respaldo legal.
-            </p>
+    margin-top:120px;
 
-        </div>
+}
 
-        <div class="footer-column">
+.footer-container{
 
-            <h3>NAVEGACIÓN</h3>
+    display:grid;
 
-            <a href="index.html">Inicio</a>
-            <a href="planes.html">Membresías</a>
-            <a href="como-funciona.html">Cómo funciona</a>
-            <a href="requisitos.html">Requisitos</a>
+    grid-template-columns:2fr 1fr 1fr 1fr;
 
-        </div>
+    gap:60px;
 
-        <div class="footer-column">
+    max-width:1500px;
 
-            <h3>CONTACTO</h3>
+    margin:auto;
 
-            <p>📍 Eje Cafetero, Colombia</p>
+}
 
-            <p>✉ cannacoregroup@gmail.com</p>
+.footer-column{
 
-            <p>🌐 www.cannacore.co</p>
+    display:flex;
 
-        </div>
+    flex-direction:column;
 
-        <div class="footer-column">
+}
 
-            <h3>SÍGUENOS</h3>
+.footer-logo{
 
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">WhatsApp</a>
+    width:180px;
 
-        </div>
+    margin-bottom:30px;
 
-    </div>
+}
 
-    <div class="footer-bottom">
+.footer-column h3{
 
-        © 2026 CannaCore Group SAS · Todos los derechos reservados.
+    color:#c6ff00;
 
-    </div>
+    font-size:.75rem;
 
-</footer>
+    letter-spacing:5px;
+
+    margin-bottom:28px;
+
+    font-family:'Arial Narrow',sans-serif;
+
+}
+
+.footer-column p{
+
+    color:#cfcfcf;
+
+    line-height:1.9;
+
+    margin-bottom:14px;
+
+    font-size:.96rem;
+
+}
+
+.footer-column a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.3s;
+
+}
+
+.footer-column a:hover{
+
+    color:#c6ff00;
+
+    padding-left:6px;
+
+}
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    margin-top:60px;
+
+    padding-top:25px;
+
+    text-align:center;
+
+    color:#8d8d8d;
+
+    font-size:.85rem;
+
+    letter-spacing:2px;
+
+}
+
+/*==========================
+        RESPONSIVE
+===========================*/
+
+@media(max-width:1100px){
+
+.footer-container{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:50px;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.footer{
+
+padding:60px 30px;
+
+}
+
+.footer-container{
+
+grid-template-columns:1fr;
+
+gap:40px;
+
+}
+
+.footer-logo{
+
+width:150px;
+
+}
+
+.footer-bottom{
+
+font-size:.75rem;
+
+line-height:1.8;
+
+}
+
+}

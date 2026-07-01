@@ -1250,6 +1250,8 @@ body{
 
 <div class="modal-bg" id="modalBg">
 
+    <!-- LOGIN -->
+
     <div class="modal" id="loginModal">
 
         <div class="close-x" onclick="closeModal()">×</div>
@@ -1257,6 +1259,7 @@ body{
         <h2>Iniciar sesión</h2>
 
         <input id="loginEmail" type="email" placeholder="Correo electrónico">
+
         <input id="loginPass" type="password" placeholder="Contraseña">
 
         <button onclick="login()">
@@ -1277,23 +1280,29 @@ body{
 
     </div>
 
+    <!-- RECUPERAR -->
+
     <div class="modal" id="recoverModal" style="display:none;">
 
         <div class="close-x" onclick="closeModal()">×</div>
 
         <h2>Recuperar contraseña</h2>
 
-        <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
+        <input id="recoverEmail"
+               type="email"
+               placeholder="Correo electrónico">
 
         <button onclick="recover()">
             Enviar enlace
         </button>
 
         <div class="link" onclick="openModal('login')">
-            Volver a iniciar sesión
+            Volver al inicio de sesión
         </div>
 
     </div>
+
+    <!-- REGISTRO -->
 
     <div class="modal" id="registerModal" style="display:none;">
 
@@ -1301,16 +1310,24 @@ body{
 
         <h2>Crear cuenta</h2>
 
-        <input id="registerName" type="text" placeholder="Nombre completo">
-        <input id="registerEmail" type="email" placeholder="Correo electrónico">
-        <input id="registerPass" type="password" placeholder="Crear contraseña">
+        <input id="registerName"
+               type="text"
+               placeholder="Nombre completo">
+
+        <input id="registerEmail"
+               type="email"
+               placeholder="Correo electrónico">
+
+        <input id="registerPass"
+               type="password"
+               placeholder="Contraseña">
 
         <button onclick="register()">
-            Registrarse
+            Crear cuenta
         </button>
 
         <div class="link" onclick="openModal('login')">
-            Ya tengo cuenta
+            Ya tengo una cuenta
         </div>
 
     </div>

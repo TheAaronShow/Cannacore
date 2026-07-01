@@ -1486,6 +1486,92 @@ changeLanguage();
 
 </footer>
 
+<div class="modal-bg" id="modalBg">
+
+    <!-- LOGIN -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Iniciar sesión</h2>
+
+        <input id="loginEmail" type="email" placeholder="Correo electrónico">
+
+        <input id="loginPass" type="password" placeholder="Contraseña">
+
+        <button onclick="login()">
+            Entrar
+        </button>
+
+        <button onclick="googleLogin()">
+            Entrar con Google
+        </button>
+
+        <div class="link" onclick="openModal('recover')">
+            ¿Olvidaste tu contraseña?
+        </div>
+
+        <div class="link" onclick="openModal('register')">
+            Crear una cuenta
+        </div>
+
+    </div>
+
+    <!-- RECUPERAR -->
+
+    <div class="modal" id="recoverModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Recuperar contraseña</h2>
+
+        <input id="recoverEmail"
+               type="email"
+               placeholder="Correo electrónico">
+
+        <button onclick="recover()">
+            Enviar enlace
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Volver al inicio de sesión
+        </div>
+
+    </div>
+
+    <!-- REGISTRO -->
+
+    <div class="modal" id="registerModal" style="display:none;">
+
+        <div class="close-x" onclick="closeModal()">×</div>
+
+        <h2>Crear cuenta</h2>
+
+        <input id="registerName"
+               type="text"
+               placeholder="Nombre completo">
+
+        <input id="registerEmail"
+               type="email"
+               placeholder="Correo electrónico">
+
+        <input id="registerPass"
+               type="password"
+               placeholder="Contraseña">
+
+        <button onclick="register()">
+            Crear cuenta
+        </button>
+
+        <div class="link" onclick="openModal('login')">
+            Ya tengo una cuenta
+        </div>
+
+    </div>
+
+</div>
+
 <script type="module" src="js/auth.js"></script>
 
 <script src="js/menu.js"></script>

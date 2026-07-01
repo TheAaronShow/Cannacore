@@ -47,3 +47,25 @@ document.addEventListener("click",(e)=>{
     }
 
 });
+
+//===============================
+// TIGGLEMENU FUNTION
+//===============================
+
+window.toggleMenu = function(){
+
+    document
+        .getElementById("menu")
+        .classList
+        .toggle("show");
+
+}
+
+window.toggleUserMenu = function(){
+
+    document
+        .getElementById("userDropdown")
+        .classList
+        .toggle("show");
+
+}

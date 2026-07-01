@@ -2,7 +2,7 @@
 // MENU HAMBURGUESA
 //===============================
 
-function toggleMenu(){
+window.toggleMenu = function () {
 
     document
         .getElementById("menu")
@@ -15,7 +15,7 @@ function toggleMenu(){
 // MENU DE USUARIO
 //===============================
 
-function toggleUserMenu(){
+window.toggleUserMenu = function () {
 
     document
         .getElementById("userDropdown")
@@ -28,44 +28,17 @@ function toggleUserMenu(){
 // CERRAR MENU SI SE HACE CLICK AFUERA
 //===============================
 
-document.addEventListener("click",(e)=>{
+document.addEventListener("click", (e) => {
 
-    const userMenu =
-    document.getElementById("userMenu");
+    const userMenu = document.getElementById("userMenu");
+    const dropdown = document.getElementById("userDropdown");
 
-    const dropdown =
-    document.getElementById("userDropdown");
+    if (!userMenu || !dropdown) return;
 
-    if(!userMenu) return;
-
-    if(
-        !userMenu.contains(e.target)
-    ){
+    if (!userMenu.contains(e.target)) {
 
         dropdown.classList.remove("show");
 
     }
 
 });
-
-//===============================
-// TIGGLEMENU FUNTION
-//===============================
-
-window.toggleMenu = function(){
-
-    document
-        .getElementById("menu")
-        .classList
-        .toggle("show");
-
-}
-
-window.toggleUserMenu = function(){
-
-    document
-        .getElementById("userDropdown")
-        .classList
-        .toggle("show");
-
-}

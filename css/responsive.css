@@ -1,69 +1,166 @@
-/* ==========================================================
-   RESPONSIVE
-========================================================== */
+/*==========================================================
+                    RESPONSIVE
+==========================================================*/
+
+/*==========================
+        NAVBAR
+===========================*/
 
 .hamburger{
-
     display:none;
+}
+
+/*==========================
+        PANTALLAS MEDIANAS
+===========================*/
+
+@media(max-width:1400px){
+
+    .market-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
 }
+
+/*==========================
+        TABLETS Y MÓVILES
+===========================*/
 
 @media(max-width:900px){
 
-.navbar{
+    /* NAVBAR */
 
-    padding:15px;
+    .navbar{
+        padding:15px;
+    }
 
-}
+    .navbar-links{
 
-.navbar-links{
+        display:none;
 
-    display:none;
+        position:absolute;
 
-}
+        top:70px;
 
-.navbar-links.show{
+        right:10px;
 
-    display:flex;
+        background:rgba(0,0,0,.95);
 
-    position:absolute;
+        flex-direction:column;
 
-    top:75px;
+        padding:20px;
 
-    right:15px;
+        border-radius:10px;
 
-    width:260px;
+        gap:18px;
 
-    background:#111;
+        width:270px;
 
-    flex-direction:column;
+    }
 
-    padding:20px;
+    .navbar-links.show{
+        display:flex;
+    }
 
-    border-radius:10px;
+    .hamburger{
 
-}
+        display:flex;
 
-.hamburger{
+        flex-direction:column;
 
-    display:flex;
+        gap:5px;
 
-    flex-direction:column;
+        cursor:pointer;
 
-    gap:5px;
+    }
 
-    cursor:pointer;
+    .hamburger span{
 
-}
+        width:28px;
 
-.hamburger span{
+        height:3px;
 
-    width:28px;
+        background:white;
 
-    height:3px;
+        border-radius:3px;
 
-    background:white;
+    }
 
-}
+    /* HERO */
+
+    .hero-content{
+
+        padding:140px 25px 100px;
+
+    }
+
+    .hero-title{
+
+        font-size:4.5rem;
+
+        line-height:.92;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .btn-primary,
+    .btn-secondary{
+
+        width:100%;
+
+    }
+
+    /* MERCADO */
+
+    .market-section{
+
+        padding:100px 25px;
+
+    }
+
+    .market-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .market-header h2{
+
+        font-size:3rem;
+
+    }
+
+    /* LOGO */
+
+    .floating-logo{
+
+        left:15px;
+
+        top:4px;
+
+    }
+
+    .floating-logo img{
+
+        height:44px;
+
+    }
+
+    /* FOOTER */
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        gap:45px;
+
+    }
 
 }

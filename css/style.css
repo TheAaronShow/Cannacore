@@ -228,3 +228,243 @@ h1,h2,h3,h4{
     padding:120px 0;
 
 }
+
+/*==================================================
+                    LOGO
+==================================================*/
+
+.floating-logo{
+
+    position:fixed;
+
+    top:7px;
+
+    left:35px;
+
+    z-index:2000;
+
+    pointer-events:none;
+
+}
+
+.floating-logo img{
+
+    height:42px;
+
+    width:auto;
+
+    object-fit:contain;
+
+    opacity:.95;
+
+}
+
+/*==================================================
+                    HERO
+==================================================*/
+
+.hero-content{
+
+    width:100%;
+
+    max-width:760px;
+
+    padding:140px 60px 120px;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+.hero-subtitle{
+
+    color:var(--primary);
+
+    font-size:.72rem;
+
+    letter-spacing:7px;
+
+    margin-bottom:28px;
+
+    font-weight:700;
+
+}
+
+.hero-title{
+
+    font-size:8.5rem;
+
+    line-height:.88;
+
+    font-weight:900;
+
+    letter-spacing:-4px;
+
+    color:#f3f3f3;
+
+    margin-bottom:38px;
+
+}
+
+.hero-title span{
+
+    color:var(--primary);
+
+}
+
+.hero-description{
+
+    max-width:620px;
+
+    line-height:1.8;
+
+    font-size:1.15rem;
+
+    color:#d8d8d8;
+
+    margin-bottom:45px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:16px;
+
+    align-items:center;
+
+}
+
+/*==================================================
+                MERCADO
+==================================================*/
+
+.market-section{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:120px 60px;
+
+    background:linear-gradient(
+
+        to bottom,
+
+        rgba(0,0,0,.75),
+
+        rgba(0,0,0,.88)
+
+    );
+
+}
+
+.market-header{
+
+    max-width:1400px;
+
+    margin:0 auto 70px;
+
+}
+
+.market-subtitle{
+
+    color:var(--primary);
+
+    font-size:.72rem;
+
+    letter-spacing:6px;
+
+    margin-bottom:25px;
+
+    font-weight:700;
+
+}
+
+.market-header h2{
+
+    font-size:5.5rem;
+
+    line-height:.92;
+
+    letter-spacing:-3px;
+
+}
+
+.market-header h2 span{
+
+    color:var(--primary);
+
+}
+
+.market-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,minmax(320px,1fr));
+
+    max-width:1450px;
+
+    margin:auto;
+
+}
+
+.market-card{
+
+    background:rgba(0,0,0,.35);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    padding:42px;
+
+    min-height:360px;
+
+    transition:.3s;
+
+}
+
+.market-card:hover{
+
+    background:rgba(255,255,255,.03);
+
+}
+
+.featured-card{
+
+    background:rgba(198,255,0,.08);
+
+}
+
+.market-number{
+
+    font-size:4.5rem;
+
+    color:var(--primary);
+
+    font-weight:900;
+
+    margin-bottom:15px;
+
+}
+
+.market-label{
+
+    color:#758064;
+
+    font-size:.72rem;
+
+    letter-spacing:4px;
+
+    margin-bottom:25px;
+
+}
+
+.market-card p{
+
+    color:#d2d2d2;
+
+    line-height:1.9;
+
+}

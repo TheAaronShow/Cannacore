@@ -1500,8 +1500,8 @@ changeLanguage();
 
         <input id="loginPass" type="password" placeholder="Contraseña">
 
-        <button onclick="login()">
-            Entrar
+        <button id="loginButton" onclick="login()">
+            <span id="loginButtonText">Entrar</span>
         </button>
 
         <button onclick="googleLogin()">
@@ -1530,8 +1530,10 @@ changeLanguage();
                type="email"
                placeholder="Correo electrónico">
 
-        <button onclick="recover()">
-            Enviar enlace
+        <button id="recoverButton" onclick="recover()">
+            <span id="recoverButtonText">
+               Enviar enlace
+            </span>
         </button>
 
         <div class="link" onclick="openModal('login')">
@@ -1560,8 +1562,10 @@ changeLanguage();
                type="password"
                placeholder="Contraseña">
 
-        <button onclick="register()">
-            Crear cuenta
+        <button id="registerButton" onclick="register()">
+            <span id="registerButtonText">
+                Registrarse
+            </span>
         </button>
 
         <div class="link" onclick="openModal('login')">

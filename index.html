@@ -354,8 +354,8 @@
         <input id="loginEmail" type="email" placeholder="Correo electrónico">
         <input id="loginPass" type="password" placeholder="Contraseña">
 
-        <button onclick="login()">
-            Entrar
+        <button id="loginButton" onclick="login()">
+            <span id="loginButtonText">Entrar</span>
         </button>
 
         <button onclick="googleLogin()">
@@ -382,8 +382,10 @@
 
         <input id="recoverEmail" type="email" placeholder="Ingresa tu correo">
 
-        <button onclick="recover()">
-            Enviar enlace
+        <button id="recoverButton" onclick="recover()">
+            <span id="recoverButtonText">
+               Enviar enlace
+            </span>
         </button>
 
         <div class="link" onclick="openModal('login')">
@@ -404,8 +406,10 @@
         <input id="registerEmail" type="email" placeholder="Correo electrónico">
         <input id="registerPass" type="password" placeholder="Crear contraseña">
 
-        <button onclick="register()">
-            Registrarse
+        <button id="registerButton" onclick="register()">
+            <span id="registerButtonText">
+                Registrarse
+            </span>
         </button>
 
         <div class="link" onclick="openModal('login')">

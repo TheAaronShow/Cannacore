@@ -1,0 +1,153 @@
+/*==================================================
+                    MODAL
+==================================================*/
+
+.modal-bg{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:2000;
+
+}
+
+.modal{
+
+    background:#111;
+
+    width:90%;
+
+    max-width:380px;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(198,255,0,.35);
+
+    box-shadow:0 0 25px rgba(198,255,0,.20);
+
+    position:relative;
+
+}
+
+.close-x{
+
+    position:absolute;
+
+    top:12px;
+
+    right:15px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    color:#999;
+
+    transition:.3s;
+
+}
+
+.close-x:hover{
+
+    color:#fff;
+
+}
+
+.modal h2{
+
+    color:#c6ff00;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    letter-spacing:1px;
+
+}
+
+.modal input{
+
+    width:100%;
+
+    padding:13px;
+
+    margin:8px 0;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#222;
+
+    color:#fff;
+
+}
+
+.modal input:focus{
+
+    outline:none;
+
+    border:1px solid #c6ff00;
+
+}
+
+.modal button{
+
+    width:100%;
+
+    padding:13px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#c6ff00;
+
+    color:#000;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.modal button:hover{
+
+    background:#d8ff4d;
+
+}
+
+.modal .link{
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:#c6ff00;
+
+    cursor:pointer;
+
+    font-size:.9rem;
+
+}
+
+.modal .link:hover{
+
+    text-decoration:underline;
+
+}

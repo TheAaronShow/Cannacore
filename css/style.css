@@ -468,3 +468,43 @@ h1,h2,h3,h4{
     line-height:1.9;
 
 }
+
+/*====================================
+        ICONOS DEL MERCADO
+====================================*/
+
+.market-icon{
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(198,255,0,.20);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#c6ff00;
+
+    margin-bottom:35px;
+
+}
+
+.market-icon svg{
+
+    width:30px;
+    height:30px;
+
+    stroke:#c6ff00;
+
+    stroke-width:1.8;
+
+    fill:none;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+}

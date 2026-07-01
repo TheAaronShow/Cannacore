@@ -352,29 +352,52 @@ body{
 
     <div class="navbar">
 
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="navbar-links" id="menu">
+
+        <a href="index.html" id="navInicio">INICIO</a>
+        <a href="planes.html" id="navMembresia">MEMBRESIA</a>
+        <a href="como-funciona.html" id="navComo">COMO FUNCIONA</a>
+        <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
+        <a href="contacto.htm" id="navContacto">CONTACTO</a>
+        <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
+        <a id="loginBtn" onclick="openModal('login')">
+             <span id="loginText">INICIAR SESIÓN</span>
+        </a>
+        
+        <div class="user-menu" id="userMenu" style="display:none;">
+
+             <div id="userName" onclick="toggleUserMenu()"></div>
+
+             <div class="user-dropdown" id="userDropdown">
+
+                 <a href="perfil.html">
+                     <span id="profileText">MI PERFIL</span>
+                 </a>
+
+                 <a onclick="logout()">
+                     <span id="logoutText">CERRAR SESIÓN</span>
+                 </a>
+
+            </div>
+
         </div>
 
-        <div class="navbar-links" id="menu">
-
-            <a href="index.html" id="navInicio">INICIO</a>
-            <a href="planes.html" id="navMembresia">MEMBRESIA</a>
-            <a href="como-funciona.html" id="navComo">COMO FUNCIONA</a>
-            <a href="requisitos.html" id="navRequisitos">REQUISITOS</a>
-            <a href="contacto.htm" id="navContacto">CONTACTO</a>
-            <a href="CANNACORE.pdf" target="_blank" id="navBrochure">BROCHURE</a>
-
-            <select id="languageSelector" onchange="changeLanguage()">
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </select>
-
-        </div>
+        <select id="languageSelector" onchange="changeLanguage()">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+          <option value="fr">FR</option>
+        </select>
 
     </div>
+
+</div>
 
     <!-- PAGINA VACIA -->
 

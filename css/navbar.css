@@ -310,11 +310,13 @@ width:100%;
 
     position:fixed;
 
-    top:8px;
+    top:12px;
 
-    left:35px;
+    left:28px;
 
-    z-index:3000;
+    z-index:100000;
+
+    display:block;
 
     pointer-events:none;
 
@@ -322,11 +324,11 @@ width:100%;
 
 .floating-logo img{
 
-    height:48px;
+    width:170px;
 
-    width:auto;
+    height:auto;
 
-    object-fit:contain;
+    display:block;
 
 }
 
@@ -336,29 +338,14 @@ width:100%;
 
         left:15px;
 
-        top:5px;
+        top:10px;
 
     }
 
     .floating-logo img{
 
-        height:42px;
+        width:120px;
 
     }
 
-}
-
-.floating-logo{
-    position:fixed;
-    top:10px;
-    left:25px;
-    z-index:99999;
-    display:block !important;
-}
-
-.floating-logo img{
-    width:70px;
-    height:auto;
-    display:block !important;
-    opacity:1 !important;
 }

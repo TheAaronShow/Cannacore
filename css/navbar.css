@@ -301,3 +301,49 @@ width:100%;
     color:#fff;
 
 }
+
+/*====================================
+        LOGO FLOTANTE
+====================================*/
+
+.floating-logo{
+
+    position:fixed;
+
+    top:8px;
+
+    left:35px;
+
+    z-index:3000;
+
+    pointer-events:none;
+
+}
+
+.floating-logo img{
+
+    height:48px;
+
+    width:auto;
+
+    object-fit:contain;
+
+}
+
+@media(max-width:900px){
+
+    .floating-logo{
+
+        left:15px;
+
+        top:5px;
+
+    }
+
+    .floating-logo img{
+
+        height:42px;
+
+    }
+
+}
